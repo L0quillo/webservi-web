@@ -1,0 +1,4 @@
+<Files "auth.json">
+Order allow,deny
+Deny from all
+</Files>

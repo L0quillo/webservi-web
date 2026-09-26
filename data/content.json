@@ -1,0 +1,170 @@
+{
+  "site": {
+    "name": "WebServi.Net",
+    "phone": "+591 750 20555",
+    "whatsapp": "59175020555",
+    "email": "info@webservi.net",
+    "notice": "Infraestructura, Seguridad, Espacios Inteligentes & IoT Industrial",
+    "heroTag": "Ingeniería & Integración B2B",
+    "heroTitle": "Tecnología que trabaja en conjunto para su empresa.",
+    "heroLead": "Diseñamos e integramos infraestructura de redes, seguridad electrónica, iluminación comercial y monitoreo IoT industrial para que su operación nunca se detenga.",
+    "storeUrl": "tienda.html"
+  },
+  "solutions": {
+    "infraestructura": {
+      "category": "redes",
+      "title": "Infraestructura & Conectividad",
+      "shortTitle": "Redes y Cableado",
+      "lead": "Redes empresariales, fibra óptica y enlaces inalámbricos diseñados para operar sin interrupciones.",
+      "blurb": "Cableado estructurado Cat 6A / Fibra, switches PoE, routers empresariales, Wi-Fi de alta densidad y telefonía IP.",
+      "need": "Conectar estaciones de trabajo, cámaras y servidores con latencia mínima, orden físico y escalabilidad.",
+      "parts": [
+        "Cableado estructurado en cobre (Cat 6A) y fibra óptica monomodo/multimodo",
+        "Equipamiento activo: Routers, switches administrables PoE y puntos de acceso Wi-Fi 6",
+        "Enlaces inalámbricos punto a punto y multipunto de largo alcance",
+        "Telefonía IP empresarial y comunicaciones unificadas"
+      ],
+      "audience": "Empresas, edificios corporativos, almacenes y entidades educativas.",
+      "icon": "⚡",
+      "code": "01"
+    },
+    "seguridad": {
+      "category": "seguridad",
+      "title": "Seguridad Electrónica & Control de Acceso",
+      "shortTitle": "Seguridad y Accesos",
+      "lead": "Visibilidad total, videovigilancia inteligente y control de áreas restringidas en una sola plataforma.",
+      "blurb": "CCTV IP de alta definición, analítica de video, biometría, torniquetes y sistemas de alarma integrados.",
+      "need": "Proteger activos, registrar eventos con precisión forense y autorizar accesos sin cuellos de botella.",
+      "parts": [
+        "Cámaras de videovigilancia IP con analítica y visión nocturna avanzada",
+        "Control de acceso peatonal y vehicular (biometría, tarjetas RFID, reconocimiento facial)",
+        "Sistemas de intrusión, sensores de presencia y alarmas monitoreadas",
+        "Integración con infraestructura de red y monitoreo centralizado"
+      ],
+      "audience": "Comercios, plantas industriales, condominios y centros de distribución.",
+      "icon": "🛡️",
+      "code": "02"
+    },
+    "espacios": {
+      "category": "espacios",
+      "title": "Espacios & Iluminación Inteligente",
+      "shortTitle": "Iluminación y Domótica",
+      "lead": "Diseño lumínico avanzado y automatización de escenas para retail, oficinas y arquitectura.",
+      "blurb": "Control de escenas DALI/0-10V, automatización de cortinas, sensores de ocupación y ahorro energético.",
+      "need": "Crear experiencias visuales que potencien la exhibición comercial y optimicen el confort y consumo eléctrico.",
+      "parts": [
+        "Sistemas de iluminación avanzada y acentuación para tiendas y vitrinas",
+        "Control centralizado de escenas lumínicas, horarios y atenuación",
+        "Domótica e inmótica para salas de reuniones, oficinas y espacios corporativos",
+        "Sensores de presencia y aprovechamiento de luz natural para eficiencia energética"
+      ],
+      "audience": "Arquitectos, directores de retail, diseñadores de interiores y administradores de edificios.",
+      "icon": "💡",
+      "code": "03"
+    },
+    "iot": {
+      "category": "iot",
+      "title": "IoT & Monitoreo Industrial",
+      "shortTitle": "Telemetría Industrial",
+      "lead": "Del sensor de campo a la pantalla de control: telemetría en tiempo real para variables críticas de proceso.",
+      "blurb": "Medición de presión, temperatura, caudal, nivel, pH/ORP, conductividad con conectividad LoRaWAN y tableros Cloud.",
+      "need": "Eliminar tomas de datos manuales y detectar anomalías tempranas en calderas, agua y energía antes de una falla.",
+      "parts": [
+        "Instrumentación industrial para presión, temperatura, caudal, pH y conductividad",
+        "Gateways y nodos LoRaWAN de largo alcance para entornos industriales agresivos",
+        "Dashboards en la nube con tendencias históricas, KPIs y gráficos en tiempo real",
+        "Alertas automáticas vía WhatsApp/Email para mantenimiento preventivo"
+      ],
+      "audience": "Jefes de planta, directores de operaciones, mantenimiento e ingeniería química/alimentos.",
+      "icon": "📊",
+      "code": "04"
+    },
+    "servicios": {
+      "category": "servicios",
+      "title": "Ingeniería, Instalación & Soporte",
+      "shortTitle": "Servicios Profesionales",
+      "lead": "Acompañamiento especializado desde el levantamiento técnico hasta la certificación y mantenimiento.",
+      "blurb": "Diagnóstico en sitio, diseño de planos, instalación certificada, capacitación y tercerización técnica.",
+      "need": "Tener un socio de ingeniería confiable que resuelva la complejidad técnica de punta a punta.",
+      "parts": [
+        "Levantamiento técnico de campo y memoria de cálculo",
+        "Instalación ejecutada con normativas técnicas de cableado y seguridad",
+        "Certificación de enlaces de red y puesta en marcha de sistemas",
+        "Pólizas de mantenimiento preventivo y soporte post-instalación"
+      ],
+      "audience": "Departamentos de TI, contratistas generales y gerencias operativas.",
+      "icon": "⚙️",
+      "code": "05"
+    }
+  },
+  "sectors": [
+    {
+      "id": "empresas",
+      "name": "Empresas & Oficinas",
+      "icon": "🏢",
+      "summary": "Infraestructura de comunicación robusta y accesos ágiles para el personal.",
+      "headline": "Conectividad estable y espacios de trabajo seguros",
+      "description": "Diseñamos redes corporativas con redundancia para evitar caídas de internet, telefonía IP integrada para atención a clientes y control de asistencia con biometría sin fricciones.",
+      "highlights": [
+        "Wi-Fi 6 de alta densidad para salas de reuniones",
+        "Cableado Cat 6A certificado",
+        "Control de acceso para áreas restringidas"
+      ],
+      "relatedKeys": [
+        "infraestructura",
+        "seguridad"
+      ]
+    },
+    {
+      "id": "retail",
+      "name": "Comercio & Retail",
+      "icon": "🛍️",
+      "summary": "Iluminación que vende y videovigilancia que protege la mercadería.",
+      "headline": "Experiencia visual cautivadora y prevención de pérdidas",
+      "description": "En el retail, la luz define el deseo de compra. Integramos iluminación de acento comercial con escenas programadas, junto a CCTV IP con conteo de personas y control perimetral.",
+      "highlights": [
+        "Iluminación avanzada para vitrinas y áreas de exhibición",
+        "Cámaras con mapa de calor y conteo de clientes",
+        "Sonido ambiental y control de apertura de accesos"
+      ],
+      "relatedKeys": [
+        "espacios",
+        "seguridad"
+      ]
+    },
+    {
+      "id": "arquitectura",
+      "name": "Arquitectura & Edificios",
+      "icon": "📐",
+      "summary": "Tecnología integrada desde el plano, sin canaletas visibles ni parches.",
+      "headline": "Coordinación tecnológica desde la etapa de diseño de obra",
+      "description": "Trabajamos mano a mano con arquitectos y constructoras para prever ductos, iluminación arquitectónica DALI, control de accesos vehiculares y salas de telecomunicaciones sin improvisaciones.",
+      "highlights": [
+        "Automatización e inmótica centralizada",
+        "Diseño lumínico eficiente y estético",
+        "Previsión de racks y cableado estructurado"
+      ],
+      "relatedKeys": [
+        "espacios",
+        "infraestructura"
+      ]
+    },
+    {
+      "id": "industria",
+      "name": "Industria & Plantas",
+      "icon": "🏭",
+      "summary": "Monitoreo de procesos térmicos, hidráulicos y consumo energético.",
+      "headline": "Supervisión en tiempo real para evitar paradas no programadas",
+      "description": "Integramos sensores de presión de vapor, caudal de agua y temperatura con comunicación LoRaWAN de gran alcance para supervisar plantas sin tender kilómetros de cables.",
+      "highlights": [
+        "Telemetría de calderas, vapor y agua de proceso",
+        "Históricos y alertas de temperatura crítica",
+        "Protecciones de seguridad independientes y cableadas"
+      ],
+      "relatedKeys": [
+        "iot",
+        "servicios"
+      ]
+    }
+  ]
+}

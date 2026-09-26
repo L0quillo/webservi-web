@@ -136,6 +136,18 @@ const sectorsData = [
 
 const page = document.body.dataset.page || 'home';
 
+// Dynamic CMS data sync
+try {
+  fetch('data/content.json?v=' + Date.now())
+    .then(r => r.ok ? r.json() : null)
+    .then(data => {
+      if (data && data.solutions) {
+        Object.assign(solutionData, data.solutions);
+        if (data.sectors) sectorsData.splice(0, sectorsData.length, ...data.sectors);
+      }
+    }).catch(() => {});
+} catch(e) {}
+
 function renderLayout(contentHtml) {
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
   const navItems = [
