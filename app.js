@@ -361,11 +361,19 @@ document.addEventListener('DOMContentLoaded', () => {
       protocol: "WireGuard VPN / HTTPS Cifrado",
       cards: [
         {
+          title: "Demo Domótica & Control Local",
+          badge: { text: "DEMO EN VIVO", type: "recommended" },
+          desc: "Acceso interactivo a panel de control residencial e industrial Home Assistant:",
+          buttons: [
+            { text: "Abrir Demo Domótica (Home Assistant)", url: "https://hacasalucas.webservihosting.com/demo", primary: true }
+          ]
+        },
+        {
           title: "Conexión Segura & Soporte Inmótico",
           badge: { text: "TÚNEL PRIVADO", type: "ubnt" },
           desc: "Para acceder a su panel de control o solicitar la apertura de su túnel seguro:",
           buttons: [
-            { text: "Solicitar Acceso Seguro a su Inmueble (WhatsApp)", url: "https://wa.me/59175020555?text=Hola%20WebServi,%20solicito%20asistencia%20para%20conectar%20a%20mi%20panel%20de%20domótica", primary: true }
+            { text: "Solicitar Acceso Seguro a su Inmueble (WhatsApp)", url: "https://wa.me/59175020555?text=Hola%20WebServi,%20solicito%20asistencia%20para%20conectar%20a%20mi%20panel%20de%20domótica", primary: false }
           ]
         }
       ],
@@ -380,11 +388,12 @@ document.addEventListener('DOMContentLoaded', () => {
       protocol: "MQTT / REST API / HTTPS Dashboard",
       cards: [
         {
-          title: "Dashboard ThingsBoard Cloud",
-          badge: { text: "TELEMETRÍA EN VIVO", type: "recommended" },
-          desc: "Consola de visualización de sensores industriales y telemetría de campo:",
+          title: "Demo Telemetría IoT Industrial",
+          badge: { text: "DEMO EN VIVO", type: "recommended" },
+          desc: "Consola de visualización de sensores industriales y telemetría de campo WebServi:",
           buttons: [
-            { text: "Ingresar a ThingsBoard Cloud", url: "https://thingsboard.cloud/", primary: true }
+            { text: "Abrir Demo IoT Industrial (ThingsBoard)", url: "https://board1.iot.webservi.net/demo", primary: true },
+            { text: "Ingresar a ThingsBoard Cloud", url: "https://thingsboard.cloud/", primary: false }
           ]
         }
       ],
@@ -399,11 +408,19 @@ document.addEventListener('DOMContentLoaded', () => {
       protocol: "SNMP v3 / Agentless Telemetry",
       cards: [
         {
+          title: "Telemetría en Vivo & Datos Crudos",
+          badge: { text: "DATOS CRUDOS", type: "recommended" },
+          desc: "Visualización en tiempo real de ancho de banda, latencias y telemetría WAN:",
+          buttons: [
+            { text: "Ver Datos Crudos en Tiempo Real (Demo)", url: "https://hacasalucas.webservihosting.com/demodata", primary: true }
+          ]
+        },
+        {
           title: "Atención Técnica & Reportes NOC",
-          badge: { text: "SOPORTE CRÍTICO", type: "recommended" },
+          badge: { text: "SOPORTE CRÍTICO", type: "ubnt" },
           desc: "Consulte el estado de su infraestructura o solicite un informe técnico de disponibilidad:",
           buttons: [
-            { text: "Solicitar Reporte de Monitoreo por WhatsApp", url: "https://wa.me/59175020555?text=Hola%20WebServi,%20deseo%20consultar%20el%20estado%20de%20monitoreo%20de%20mis%20servicios", primary: true }
+            { text: "Solicitar Reporte de Monitoreo por WhatsApp", url: "https://wa.me/59175020555?text=Hola%20WebServi,%20deseo%20consultar%20el%20estado%20de%20monitoreo%20de%20mis%20servicios", primary: false }
           ]
         }
       ],

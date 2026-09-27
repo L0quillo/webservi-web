@@ -230,49 +230,104 @@
               <span class="live-indicator"></span>
               <span>WebServi Unified Telemetry Engine</span>
             </div>
-            <div class="monitor-chip">Santa Cruz · Red Activa</div>
+            <div class="monitor-chip">Santa Cruz · Red & Telemetría Activa</div>
           </div>
 
           <div class="monitor-body">
             <div class="telemetry-row">
+              <!-- Cuadro 1: Telemetría IoT Industrial -->
               <div class="telemetry-metric">
-                <span class="t-label">REDUNDANCIA INTERNET</span>
-                <span class="t-value highlight-cyan">Fibra + Coaxial + LTE + Starlink</span>
-                <span class="t-sub">▲ Failover automático cero cortes</span>
+                <div class="t-top-row">
+                  <span class="t-badge green"><span class="pulse-dot-green"></span> TELEMETRÍA IOT INDUSTRIAL</span>
+                  <span class="t-sub-tag">ThingsBoard</span>
+                </div>
+                <span class="t-value highlight-green">Silos, Silobolsas & Agro</span>
+                <div class="t-stats-list">
+                  <span>● Sensores LoRaWAN: Temperatura, Humedad y Nivel</span>
+                  <span>● Monitoreo continuo de silos, bombas y faenas agrícolas</span>
+                </div>
+                <div class="t-action-row">
+                  <a href="https://board1.iot.webservi.net/demo" target="_blank" rel="noopener" class="telemetry-demo-btn">
+                    <span>Abrir Demo IoT Industrial</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                  </a>
+                </div>
               </div>
+
+              <!-- Cuadro 2: Domótica & Home Assistant -->
               <div class="telemetry-metric">
-                <span class="t-label">SISTEMA SOLAR & UPS</span>
-                <span class="t-value highlight-green">UPS &lt; 10 ms · Litio Ferrofosfato</span>
-                <span class="t-sub">● Baterías LiFePO4 · Autonomía de horas a ilimitada</span>
+                <div class="t-top-row">
+                  <span class="t-badge cyan"><span class="pulse-dot-cyan"></span> CEREBRO DOMÓTICA / IOT</span>
+                  <span class="t-sub-tag">Home Assistant</span>
+                </div>
+                <span class="t-value highlight-cyan">Control Local 100% Privado</span>
+                <div class="t-stats-list">
+                  <span>● Clima Daikin/Gree VRF + Iluminación DALI/Zigbee</span>
+                  <span>● Respaldo Solar & Banco Litio LiFePO4 (&lt; 10 ms)</span>
+                </div>
+                <div class="t-action-row">
+                  <a href="https://hacasalucas.webservihosting.com/demo" target="_blank" rel="noopener" class="telemetry-demo-btn">
+                    <span>Abrir Demo Domótica</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                  </a>
+                </div>
               </div>
             </div>
 
             <div class="telemetry-row">
+              <!-- Cuadro 3: Redundancia Internet & Datos Crudos -->
               <div class="telemetry-metric">
-                <span class="t-label">ENLACES DE CAMPO</span>
-                <span class="t-value">Torres 60m · 5/25/60 GHz</span>
-                <span class="t-sub">● Agronomía, Silos y Faenas</span>
+                <div class="t-top-row">
+                  <span class="t-badge orange"><span class="pulse-dot-orange"></span> REDUNDANCIA INTERNET</span>
+                  <span class="t-sub-tag">Datos Crudos</span>
+                </div>
+                <span class="t-value highlight-orange">Fibra + Coaxial + LTE + Starlink</span>
+                <div class="t-stats-list">
+                  <span>▲ Failover automático cero cortes (&lt; 300 ms)</span>
+                  <span>● Tráfico en vivo: ~450 Mbps simétricos · Ping: 14 ms</span>
+                </div>
+                <div class="t-action-row">
+                  <a href="https://hacasalucas.webservihosting.com/demodata" target="_blank" rel="noopener" class="telemetry-demo-btn">
+                    <span>Ver Datos Crudos en Tiempo Real</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                  </a>
+                </div>
               </div>
+
+              <!-- Cuadro 4: CCTV con IA & Enlaces de Campo -->
               <div class="telemetry-metric">
-                <span class="t-label">CEREBRO DOMÓTICA / IOT</span>
-                <span class="t-value highlight-orange">Home Assistant + ThingsBoard</span>
-                <span class="t-sub">▲ Sol + Clima Daikin/Gree + LoRaWAN</span>
+                <div class="t-top-row">
+                  <span class="t-badge green"><span class="pulse-dot-green"></span> ENLACES & VISTA CCTV</span>
+                  <span class="t-sub-tag">Seguridad IA</span>
+                </div>
+                <span class="t-value">Torres 60m · 5/25/60 GHz</span>
+                <div class="t-stats-list">
+                  <span>● Agronomía, silos y faenas remotas interconectadas</span>
+                  <span>● Cámaras 4K con IA perimetral (humanos/vehículos)</span>
+                </div>
+                <div class="t-action-row">
+                  <span class="telemetry-cam-chip">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                    <span>CCTV IA: Perímetro Monitoreado</span>
+                  </span>
+                </div>
               </div>
             </div>
 
+            <!-- Flujo de Interconectividad e Integración Total -->
             <div class="monitor-diagram">
-              <div class="diagram-node">Plano CAD</div>
+              <div class="diagram-node">1. Ductos & Cobre Fluke</div>
               <div class="diagram-line">➔</div>
-              <div class="diagram-node">Ductaje & Fibra</div>
+              <div class="diagram-node">2. Multi-WAN & Torres</div>
               <div class="diagram-line">➔</div>
-              <div class="diagram-node">Servidores & Nube</div>
+              <div class="diagram-node">3. IoT + Clima + CCTV</div>
               <div class="diagram-line">➔</div>
-              <div class="diagram-node active">Integración Total</div>
+              <div class="diagram-node active">4. Integración Total</div>
             </div>
           </div>
 
           <div class="monitor-footer">
-            <span>Implementación de Referencia: <strong>Infraestructura Tecnológica Integral</strong> (Video Wall, Telefonía IP, CCTV, Racks y Wi-Fi)</span>
+            <span>Interconectividad & Integración Total: <strong>Redes de alta disponibilidad, energía solar, clima VRF, cámaras IA y telemetría</strong> coordinados en un solo cuadro unificado.</span>
           </div>
         </div>
       </div>
