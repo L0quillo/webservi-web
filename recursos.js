@@ -717,4 +717,78 @@ Generado en: https://www.webservi.net/recursos.html`;
   // Ejecutar detección de red tras 400ms
   setTimeout(runNetworkTopologyDetection, 400);
 
+  // ==========================================
+  // 9. ACCORDION & COLLAPSIBLE MODULES CONTROLLER
+  // ==========================================
+  const collapsibleHeadings = document.querySelectorAll('.collapsible-heading');
+  const btnExpandAllSections = document.getElementById('btnExpandAllSections');
+  const btnCollapseAllSections = document.getElementById('btnCollapseAllSections');
+  const navPills = document.querySelectorAll('.recursos-nav-pills a[href^="#"]');
+
+  function toggleSection(section, forceExpand) {
+    if (!section) return;
+    const heading = section.querySelector('.collapsible-heading');
+    const statusText = section.querySelector('.toggle-status-text');
+
+    const shouldExpand = forceExpand !== undefined 
+      ? forceExpand 
+      : section.classList.contains('collapsed');
+
+    if (shouldExpand) {
+      section.classList.remove('collapsed');
+      if (heading) heading.setAttribute('aria-expanded', 'true');
+      if (statusText) statusText.textContent = 'Comprimir Módulo';
+    } else {
+      section.classList.add('collapsed');
+      if (heading) heading.setAttribute('aria-expanded', 'false');
+      if (statusText) statusText.textContent = 'Expandir Módulo';
+    }
+  }
+
+  collapsibleHeadings.forEach(heading => {
+    const parentSection = heading.closest('.recursos-section');
+    if (!parentSection) return;
+
+    heading.addEventListener('click', (e) => {
+      // Evitar colapsar si se hace clic en elementos interactivos internos que no sean el botón toggle
+      if (e.target.closest('a, button:not(.section-toggle-btn)')) return;
+      toggleSection(parentSection);
+    });
+
+    heading.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleSection(parentSection);
+      }
+    });
+  });
+
+  if (btnExpandAllSections) {
+    btnExpandAllSections.addEventListener('click', () => {
+      document.querySelectorAll('.recursos-section').forEach(sec => {
+        toggleSection(sec, true);
+      });
+    });
+  }
+
+  if (btnCollapseAllSections) {
+    btnCollapseAllSections.addEventListener('click', () => {
+      document.querySelectorAll('.recursos-section').forEach(sec => {
+        toggleSection(sec, false);
+      });
+    });
+  }
+
+  // Auto-expandir la sección cuando se hace clic en una pastilla de navegación
+  navPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const targetId = pill.getAttribute('href');
+      if (!targetId || targetId === '#') return;
+      const targetSec = document.querySelector(targetId);
+      if (targetSec) {
+        toggleSection(targetSec, true);
+      }
+    });
+  });
+
 });

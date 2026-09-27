@@ -127,22 +127,38 @@
           <a href="#modulo-ia-skills" class="pill-link">🧠 Prompts & Skills IA</a>
           <a href="#modulo-utilidades" class="pill-link">🔍 Diagnóstico Rápido</a>
         </div>
+
+        <!-- Global Accordion Controls -->
+        <div class="toolbox-accordion-controls">
+          <button type="button" class="btn-accordion-all" id="btnExpandAllSections">
+            <span>⊞ Expandir Todos los Módulos</span>
+          </button>
+          <button type="button" class="btn-accordion-all" id="btnCollapseAllSections">
+            <span>⊟ Comprimir / Colapsar Todos</span>
+          </button>
+          <span class="accordion-hint">💡 Haga clic en el título de cualquier módulo para desplegarlo o comprimirlo individualmente.</span>
+        </div>
       </div>
     </section>
 
     <!-- SECTION: SPEEDTEST & PING EN VIVO -->
     <section class="recursos-section" id="modulo-speedtest">
       <div class="wrap">
-        <div class="section-heading">
+        <div class="section-heading collapsible-heading" role="button" tabindex="0" aria-expanded="true">
           <div class="eyebrow-chip">
             <span class="chip-accent">DIAGNÓSTICO EN VIVO</span>
             <span>LATENCIA & ANCHO DE BANDA</span>
           </div>
           <h2>Medidor de Latencia & Test de Velocidad</h2>
           <p>Supervise los tiempos de respuesta (Ping RTT) hacia servidores DNS globales y nodos en Bolivia, y evalúe el rendimiento de su enlace de datos.</p>
+          <div class="section-toggle-btn">
+            <span class="toggle-status-text">Comprimir Módulo</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
         </div>
 
-        <div class="speedtest-container">
+        <div class="section-collapsible-body">
+          <div class="speedtest-container">
           <div class="speedtest-layout">
             
             <!-- Gauge / Dial Display -->
@@ -320,24 +336,29 @@
               </a>
             </div>
           </div>
-
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
     <!-- SECTION 1: PLATAFORMAS CLOUD & DESCARGAS DE FABRICANTES -->
     <section class="recursos-section dark-alt" id="modulo-marcas">
       <div class="wrap">
-        <div class="section-heading">
+        <div class="section-heading collapsible-heading" role="button" tabindex="0" aria-expanded="true">
           <div class="eyebrow-chip">
             <span class="chip-accent">FABRICANTES & HARDWARE</span>
             <span>OFICIAL & SEGURO</span>
           </div>
           <h2>Plataformas Cloud & Centros de Descargas</h2>
           <p>Enlaces directos a las consolas de gestión en la nube y repositorios oficiales de firmware de las 9 marcas principales del sector.</p>
+          <div class="section-toggle-btn">
+            <span class="toggle-status-text">Comprimir Módulo</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
         </div>
 
-        <div class="brands-grid" id="brandsGrid">
+        <div class="section-collapsible-body">
+          <div class="brands-grid" id="brandsGrid">
           
           <!-- Brand: MikroTik -->
           <article class="brand-resource-card" data-keywords="mikrotik winbox routeros netinstall the dude firewall bcast bandwidth v7">
@@ -622,29 +643,24 @@
                 <span>Descargas de ISOs Proxmox VE & PBS</span>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
               </a>
-              <a href="https://community-scripts.github.io/ProxmoxVE/" target="_blank" rel="noopener" class="tool-btn secondary">
-                <span>Proxmox Community Helper-Scripts</span>
+              <a href="https://pve.proxmox.com/pve-docs/" target="_blank" rel="noopener" class="tool-btn secondary">
+                <span>Documentación Oficial Proxmox VE</span>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               </a>
+              <a href="https://pbs.proxmox.com/docs/" target="_blank" rel="noopener" class="tool-btn secondary">
+                <span>Documentación Proxmox Backup Server (PBS)</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="https://community-scripts.github.io/ProxmoxVE/" target="_blank" rel="noopener" class="tool-btn subtle">
+                <span>Repositorio Proxmox Community Helper-Scripts (GitHub)</span>
+              </a>
               <a href="https://github.com/ivanhao/pve-tools" target="_blank" rel="noopener" class="tool-btn subtle">
-                <span>PVE-Tools / MenuX Script Shell</span>
+                <span>Repositorio PVE-Tools / MenuX (GitHub)</span>
               </a>
             </div>
 
-            <!-- Proxmox 1-Click Post-Install Scripts -->
-            <div style="margin-top: 10px;">
-              <span class="telco-data-title">Script Post-Instalación Proxmox VE 8 (Repo No-Subscription + Quitar Popup):</span>
-              <div class="proxmox-code-snippet">
-                <code>bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/post-pve-install.sh)"</code>
-                <button class="btn-mini-copy" data-copy="bash -c &quot;$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/post-pve-install.sh)&quot;">Copiar</button>
-              </div>
-            </div>
-            <div style="margin-top: 8px;">
-              <span class="telco-data-title">Script Post-Instalación PBS (Proxmox Backup Server):</span>
-              <div class="proxmox-code-snippet">
-                <code>bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/post-pbs-install.sh)"</code>
-                <button class="btn-mini-copy" data-copy="bash -c &quot;$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/post-pbs-install.sh)&quot;">Copiar</button>
-              </div>
+            <div style="font-size: 0.76rem; color: var(--text-muted); background: rgba(10, 22, 42, 0.5); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 10px 14px; margin-top: 10px;">
+              🔒 <strong>Aviso de Seguridad:</strong> Por buenas prácticas de administración de sistemas, en WebServi no proporcionamos comandos directos tipo <code>curl | bash</code>. Recomendamos acceder a los repositorios oficiales enlazados arriba para auditar el código fuente antes de ejecutar cualquier script en servidores de producción.
             </div>
 
             <div class="brand-footer-tip">
@@ -654,18 +670,33 @@
 
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
     <!-- SECTION: OPERADORAS DE TELECOMUNICACIONES EN BOLIVIA -->
     <section class="recursos-section" id="modulo-operadoras-bo">
       <div class="wrap">
-        <div class="section-heading">
+        <div class="section-heading collapsible-heading" role="button" tabindex="0" aria-expanded="true">
           <div class="eyebrow-chip">
             <span class="chip-accent">TELECOMUNICACIONES BOLIVIA</span>
             <span>DATOS TÉCNICOS ESENCIALES</span>
           </div>
           <h2>Operadoras en Bolivia: DNS, APNs, Rangos IP y Bandas LTE</h2>
           <p>Parámetros oficiales indispensables para ingenieros de campo: configuración de routers 4G/LTE, modems industriales, balanceadores Multi-WAN y servidores DNS.</p>
+          <div class="section-toggle-btn">
+            <span class="toggle-status-text">Comprimir Módulo</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
+        </div>
+
+        <div class="section-collapsible-body">
+
+        <!-- Aviso técnico de variabilidad y carácter referencial -->
+        <div class="spectrum-disclaimer-note" style="margin-bottom: 24px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffaa00" stroke-width="2" style="flex-shrink: 0; margin-top: 1px;"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <div>
+            <strong>Aviso de Carácter Referencial & Variabilidad:</strong> Todos los datos técnicos de operadoras nacionales y cooperativas departamentales (servidores DNS, APNs 4G/3G, bandas LTE y prefijos IPv4) son de carácter <strong>estrictamente informativo y referencial</strong>. Pueden cambiar sin previo aviso por migraciones tecnológicas (HFC a GPON FTTH), reconfiguración de dominios, reasignaciones de LACNIC o políticas de cada empresa. <strong>Verifique siempre con el soporte técnico o NOC de su proveedor antes de ejecutar cambios críticos en producción.</strong>
+          </div>
         </div>
 
         <div class="operadoras-grid">
@@ -935,71 +966,284 @@
             </div>
           </article>
 
-          <!-- Operadora 6: COMTECO (Cochabamba) & COTEL (La Paz) -->
-          <article class="operadora-card" data-keywords="comteco cochabamba cotel la paz bolivia dns fibra as27728 as27844 cloudflare google">
+          <!-- Operadora 6: COMTECO (Cochabamba) -->
+          <article class="operadora-card" data-keywords="comteco cochabamba bolivia dns fibra ftth gpon as27728 cooperativa">
             <div class="operadora-header">
               <div class="operadora-title-wrap">
-                <div class="operadora-logo-badge badge-comteco">COOP</div>
+                <div class="operadora-logo-badge badge-comteco">CBB</div>
                 <div>
-                  <h3 class="operadora-name">Comteco / Cotel / Públicos</h3>
-                  <span class="operadora-asn">AS27728 (Comteco CBB) · AS27844 (Cotel LP)</span>
+                  <h3 class="operadora-name">Comteco RL (Cochabamba)</h3>
+                  <span class="operadora-asn">ASN: AS27728 (Cooperativa de Telecomunicaciones Cochabamba)</span>
                 </div>
               </div>
-              <span class="channel-badge-pill">Anycast Rápido</span>
+              <span class="channel-badge-pill">Cochabamba</span>
             </div>
-
             <div class="telco-data-row">
-              <span class="telco-data-title">DNS Cooperativas:</span>
+              <span class="telco-data-title">Servidores DNS Primario y Secundario:</span>
               <div class="dns-pills-wrap">
-                <span class="dns-pill" title="DNS Comteco CBB" data-copy="200.87.168.10">
-                  <span>200.87.168.10 (Comteco)</span>
+                <span class="dns-pill" title="Clic para copiar DNS Primario" data-copy="200.87.168.10">
+                  <span>200.87.168.10</span>
                   <span class="dns-copy-icon">📋</span>
                 </span>
-                <span class="dns-pill" title="DNS Cotel La Paz" data-copy="200.105.144.130">
-                  <span>200.105.144.130 (Cotel)</span>
+                <span class="dns-pill" title="Clic para copiar DNS Secundario" data-copy="200.105.128.34">
+                  <span>200.105.128.34</span>
                   <span class="dns-copy-icon">📋</span>
                 </span>
               </div>
             </div>
-
             <div class="telco-data-row">
-              <span class="telco-data-title">DNS Públicos de Baja Latencia Recomendados:</span>
-              <div class="dns-pills-wrap">
-                <span class="dns-pill" title="Cloudflare Primario" data-copy="1.1.1.1">
-                  <span>1.1.1.1 (Cloudflare)</span>
-                  <span class="dns-copy-icon">📋</span>
-                </span>
-                <span class="dns-pill" title="Google DNS" data-copy="8.8.8.8">
-                  <span>8.8.8.8 (Google)</span>
-                  <span class="dns-copy-icon">📋</span>
-                </span>
-                <span class="dns-pill" title="Quad9 Seguro" data-copy="9.9.9.9">
-                  <span>9.9.9.9 (Quad9)</span>
-                  <span class="dns-copy-icon">📋</span>
-                </span>
+              <span class="telco-data-title">Modalidad de Enlace & Servicios:</span>
+              <div class="apn-box">
+                Fibra Óptica GPON FTTH Residencial/Empresarial, enlaces dedicados punto a punto y telefonía IP en Cochabamba, Quillacollo y Sacaba.
               </div>
             </div>
-
+            <div class="telco-data-row">
+              <span class="telco-data-title">Prefijos IPv4 Principales (LACNIC):</span>
+              <div style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-muted);">
+                200.105.128.0/19 · 190.181.32.0/20 · 181.188.64.0/19
+              </div>
+            </div>
             <div class="brand-footer-tip" style="margin-top: auto;">
-              <strong>Tip WebServi:</strong> En Bolivia, <code>1.1.1.1</code> de Cloudflare ofrece la menor latencia de resolución DNS (típicamente 15–35 ms desde Santa Cruz y La Paz) gracias a su enrutamiento BGP Anycast local.
+              <strong>Tip WebServi:</strong> En enlaces FTTH Comteco con router propio, solicite al soporte la desactivación del cortafuegos integrado de la ONU Huawei/ZTE para habilitar acceso VPN WireGuard / IPsec sin bloqueos de puerto.
+            </div>
+          </article>
+
+          <!-- Operadora 7: COTEL (La Paz & El Alto) -->
+          <article class="operadora-card" data-keywords="cotel la paz el alto bolivia dns fibra ftth hfc as27844 cooperativa">
+            <div class="operadora-header">
+              <div class="operadora-title-wrap">
+                <div class="operadora-logo-badge badge-cotel">LPZ</div>
+                <div>
+                  <h3 class="operadora-name">Cotel RL (La Paz & El Alto)</h3>
+                  <span class="operadora-asn">ASN: AS27844 (Cooperativa de Teléfonos La Paz)</span>
+                </div>
+              </div>
+              <span class="channel-badge-pill">La Paz / El Alto</span>
+            </div>
+            <div class="telco-data-row">
+              <span class="telco-data-title">Servidores DNS Primario y Secundario:</span>
+              <div class="dns-pills-wrap">
+                <span class="dns-pill" title="Clic para copiar DNS Primario" data-copy="200.105.144.130">
+                  <span>200.105.144.130</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+                <span class="dns-pill" title="Clic para copiar DNS Secundario" data-copy="200.105.144.34">
+                  <span>200.105.144.34</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+                <span class="dns-pill" title="DNS Alternativo Cotel" data-copy="200.105.144.35">
+                  <span>200.105.144.35</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+              </div>
+            </div>
+            <div class="telco-data-row">
+              <span class="telco-data-title">Modalidad de Enlace & Servicios:</span>
+              <div class="apn-box">
+                Red HFC (Cablemódem DOCSIS 3.0/3.1) y despliegues de GPON FTTH en zona sur, centro paceño y El Alto.
+              </div>
+            </div>
+            <div class="telco-data-row">
+              <span class="telco-data-title">Prefijos IPv4 Principales (LACNIC):</span>
+              <div style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-muted);">
+                200.105.144.0/20 · 190.181.16.0/20 · 181.115.160.0/19
+              </div>
+            </div>
+            <div class="brand-footer-tip" style="margin-top: auto;">
+              <strong>Tip WebServi:</strong> En conexiones cablemódem Cotel HFC, configure MTU en 1500 pero valide el clamping MSS en 1460 en MikroTik (<code>/ip firewall mangle</code>) para evitar degradación de velocidad en descargas HTTPS.
+            </div>
+          </article>
+
+          <!-- Operadora 8: COTEOR (Oruro) -->
+          <article class="operadora-card" data-keywords="coteor oruro bolivia dns fibra ftth as27847 cooperativa telecomunicaciones">
+            <div class="operadora-header">
+              <div class="operadora-title-wrap">
+                <div class="operadora-logo-badge badge-coteor">ORU</div>
+                <div>
+                  <h3 class="operadora-name">Coteor RL (Oruro)</h3>
+                  <span class="operadora-asn">ASN: AS27847 (Cooperativa de Telecomunicaciones Oruro)</span>
+                </div>
+              </div>
+              <span class="channel-badge-pill">Oruro</span>
+            </div>
+            <div class="telco-data-row">
+              <span class="telco-data-title">Servidores DNS Primario y Secundario:</span>
+              <div class="dns-pills-wrap">
+                <span class="dns-pill" title="Clic para copiar DNS Primario" data-copy="200.105.176.10">
+                  <span>200.105.176.10</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+                <span class="dns-pill" title="Clic para copiar DNS Secundario" data-copy="200.105.176.11">
+                  <span>200.105.176.11</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+              </div>
+            </div>
+            <div class="telco-data-row">
+              <span class="telco-data-title">Modalidad de Enlace & Cobertura:</span>
+              <div class="apn-box">
+                Fibra Óptica GPON urbana en la ciudad de Oruro y cablemódem para abonados residenciales e institucionales mineros.
+              </div>
+            </div>
+            <div class="telco-data-row">
+              <span class="telco-data-title">Prefijos IPv4 Principales (LACNIC):</span>
+              <div style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-muted);">
+                200.105.176.0/21 · 181.115.192.0/20 · 190.104.224.0/21
+              </div>
+            </div>
+            <div class="brand-footer-tip" style="margin-top: auto;">
+              <strong>Tip WebServi:</strong> Coteor suele utilizar Anycast ascendente vía Entel y Tigo; añada <code>1.1.1.1</code> como DNS secundario en DHCP para mayor tolerancia a fallos locales.
+            </div>
+          </article>
+
+          <!-- Operadora 9: COTEPO (Potosí) -->
+          <article class="operadora-card" data-keywords="cotepo potosi bolivia dns fibra ftth as27849 cooperativa telefonos potosi">
+            <div class="operadora-header">
+              <div class="operadora-title-wrap">
+                <div class="operadora-logo-badge badge-cotepo">POT</div>
+                <div>
+                  <h3 class="operadora-name">Cotepo RL (Potosí)</h3>
+                  <span class="operadora-asn">ASN: AS27849 (Cooperativa de Teléfonos Potosí)</span>
+                </div>
+              </div>
+              <span class="channel-badge-pill">Potosí</span>
+            </div>
+            <div class="telco-data-row">
+              <span class="telco-data-title">Servidores DNS Primario y Secundario:</span>
+              <div class="dns-pills-wrap">
+                <span class="dns-pill" title="Clic para copiar DNS Primario" data-copy="200.105.184.10">
+                  <span>200.105.184.10</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+                <span class="dns-pill" title="Clic para copiar DNS Secundario" data-copy="200.105.184.11">
+                  <span>200.105.184.11</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+              </div>
+            </div>
+            <div class="telco-data-row">
+              <span class="telco-data-title">Modalidad de Enlace & Servicios:</span>
+              <div class="apn-box">
+                Conectividad de fibra óptica en Villa Imperial, enlaces dedicados a ingenios y cooperativas mineras, y telefonía pública/privada.
+              </div>
+            </div>
+            <div class="telco-data-row">
+              <span class="telco-data-title">Prefijos IPv4 Principales (LACNIC):</span>
+              <div style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-muted);">
+                200.105.184.0/21 · 181.188.16.0/20 · 190.104.232.0/21
+              </div>
+            </div>
+            <div class="brand-footer-tip" style="margin-top: auto;">
+              <strong>Tip WebServi:</strong> En faenas mineras e industrias en Potosí a gran altitud, proteja los equipos de red contra picos electromagnéticos y estática atmosférica con descargas a tierra menores a 5 Ohmios.
+            </div>
+          </article>
+
+          <!-- Operadora 10: COSETT (Tarija) -->
+          <article class="operadora-card" data-keywords="cosett tarija bolivia dns fibra ftth as27848 cooperativa telecomunicaciones tarija">
+            <div class="operadora-header">
+              <div class="operadora-title-wrap">
+                <div class="operadora-logo-badge badge-cosett">TAR</div>
+                <div>
+                  <h3 class="operadora-name">Cosett RL (Tarija)</h3>
+                  <span class="operadora-asn">ASN: AS27848 (Cooperativa de Servicios de Telecomunicaciones Tarija)</span>
+                </div>
+              </div>
+              <span class="channel-badge-pill">Tarija</span>
+            </div>
+            <div class="telco-data-row">
+              <span class="telco-data-title">Servidores DNS Primario y Secundario:</span>
+              <div class="dns-pills-wrap">
+                <span class="dns-pill" title="Clic para copiar DNS Primario" data-copy="200.105.208.10">
+                  <span>200.105.208.10</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+                <span class="dns-pill" title="Clic para copiar DNS Secundario" data-copy="200.105.208.11">
+                  <span>200.105.208.11</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+              </div>
+            </div>
+            <div class="telco-data-row">
+              <span class="telco-data-title">Modalidad de Enlace & Cobertura:</span>
+              <div class="apn-box">
+                Despliegues FTTH en Cercado, Bermejo y Yacuiba. Provee enlaces de datos corporativos para bodegas, agroindustria y entidades públicas.
+              </div>
+            </div>
+            <div class="telco-data-row">
+              <span class="telco-data-title">Prefijos IPv4 Principales (LACNIC):</span>
+              <div style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-muted);">
+                200.105.208.0/21 · 181.115.224.0/20 · 190.104.240.0/21
+              </div>
+            </div>
+            <div class="brand-footer-tip" style="margin-top: auto;">
+              <strong>Tip WebServi:</strong> En proyectos vitivinícolas y agroindustriales en el Valle de la Concepción, combine fibra Cosett con enlaces inalámbricos punto a punto de 5 GHz (U-NII-3) para interconectar bodegas distantes.
+            </div>
+          </article>
+
+          <!-- Operadora 11: COTES (Chuquisaca / Sucre) -->
+          <article class="operadora-card" data-keywords="cotes sucre chuquisaca bolivia dns fibra ftth as27845 cooperativa telecomunicaciones sucre">
+            <div class="operadora-header">
+              <div class="operadora-title-wrap">
+                <div class="operadora-logo-badge badge-cotes">SUC</div>
+                <div>
+                  <h3 class="operadora-name">Cotes RL (Chuquisaca / Sucre)</h3>
+                  <span class="operadora-asn">ASN: AS27845 (Cooperativa de Telecomunicaciones Sucre)</span>
+                </div>
+              </div>
+              <span class="channel-badge-pill">Sucre / Chuquisaca</span>
+            </div>
+            <div class="telco-data-row">
+              <span class="telco-data-title">Servidores DNS Primario y Secundario:</span>
+              <div class="dns-pills-wrap">
+                <span class="dns-pill" title="Clic para copiar DNS Primario" data-copy="200.105.216.10">
+                  <span>200.105.216.10</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+                <span class="dns-pill" title="Clic para copiar DNS Secundario" data-copy="200.105.216.11">
+                  <span>200.105.216.11</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+              </div>
+            </div>
+            <div class="telco-data-row">
+              <span class="telco-data-title">Modalidad de Enlace & Servicios:</span>
+              <div class="apn-box">
+                Fibra Óptica GPON urbana en la capital del país, televisión por cable y conectividad corporativa para órganos judiciales y académicos.
+              </div>
+            </div>
+            <div class="telco-data-row">
+              <span class="telco-data-title">Prefijos IPv4 Principales (LACNIC):</span>
+              <div style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-muted);">
+                200.105.216.0/21 · 190.104.248.0/21 · 181.188.32.0/20
+              </div>
+            </div>
+            <div class="brand-footer-tip" style="margin-top: auto;">
+              <strong>Tip WebServi:</strong> En sedes judiciales y universidades de Sucre, asigne DHCP estático por MAC para impresoras de red y servidores para evitar desconfiguraciones ante reinicios de ONUs.
             </div>
           </article>
 
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
     <!-- SECTION: MEJORES SERVIDORES DNS Y SERVIDORES NTP (HORA OFICIAL) -->
     <section class="recursos-section" id="modulo-dns-ntp">
       <div class="wrap">
-        <div class="section-heading">
+        <div class="section-heading collapsible-heading" role="button" tabindex="0" aria-expanded="true">
           <div class="eyebrow-chip">
             <span class="chip-accent">SINCRONIZACIÓN & RESOLUCIÓN</span>
             <span>RECURSOS CRÍTICOS IT</span>
           </div>
           <h2>Mejores Servidores DNS Públicos & Servidores NTP</h2>
           <p>Direcciones oficiales para sincronización horaria en grabadores CCTV / NVRs y routers, junto al directorio de DNS públicos con filtrado de malware y protección familiar.</p>
+          <div class="section-toggle-btn">
+            <span class="toggle-status-text">Comprimir Módulo</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
         </div>
+
+        <div class="section-collapsible-body">
 
         <!-- 1. Servidores NTP -->
         <div style="margin-bottom: 32px;">
@@ -1110,76 +1354,165 @@
                 </tr>
               </thead>
               <tbody>
+                <!-- Grupo 1: Antivirus & Ciberseguridad -->
+                <tr class="table-group-header">
+                  <td colspan="5">🛡️ 1. Ciberseguridad & Antivirus (Bloqueo Activo de Malware, Phishing y Redes Botnet)</td>
+                </tr>
                 <tr>
-                  <td><strong>Cloudflare Estándar</strong></td>
-                  <td><span class="dns-pill" data-copy="1.1.1.1">1.1.1.1 📋</span></td>
-                  <td><span class="dns-pill" data-copy="1.0.0.1">1.0.0.1 📋</span></td>
-                  <td>El más veloz en Bolivia (Anycast en La Paz/SP). Sin registros de rastreo.</td>
-                  <td><span class="channel-badge-pill">DoH / DoT / Quic</span></td>
+                  <td><strong>Quad9 Seguridad (Suiza)</strong><br><span style="font-size: 0.72rem; color: var(--tech-green);">Recomendado WebServi</span></td>
+                  <td><span class="dns-pill" data-copy="9.9.9.9">9.9.9.9 📋</span></td>
+                  <td><span class="dns-pill" data-copy="149.112.112.112">149.112.112.112 📋</span></td>
+                  <td>Ciberinteligencia en tiempo real de 18 CERTs mundiales. Bloquea dominios de ransomware y phishing sin almacenar logs de IP.</td>
+                  <td><span class="channel-badge-pill">DoH / DoT / DNSCrypt</span></td>
                 </tr>
                 <tr>
                   <td><strong>Cloudflare Seguridad</strong></td>
                   <td><span class="dns-pill" data-copy="1.1.1.2">1.1.1.2 📋</span></td>
                   <td><span class="dns-pill" data-copy="1.0.0.2">1.0.0.2 📋</span></td>
-                  <td>Bloqueo automático de dominios de Malware, Phishing y C&C.</td>
+                  <td>Filtro de seguridad perimetral de Cloudflare. Bloquea sitios web comprometidos con virus y software espía.</td>
                   <td><span class="channel-badge-pill">DoH / DoT</span></td>
                 </tr>
                 <tr>
-                  <td><strong>Cloudflare Familia</strong></td>
+                  <td><strong>CleanBrowsing Security</strong></td>
+                  <td><span class="dns-pill" data-copy="185.228.168.9">185.228.168.9 📋</span></td>
+                  <td><span class="dns-pill" data-copy="185.228.169.9">185.228.169.9 📋</span></td>
+                  <td>Protección contra dominios infectados, gusanos y troyanos sin alterar el resto de la navegación web.</td>
+                  <td><span class="channel-badge-pill">DoH / DoT</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Neustar UltraDNS Threat</strong></td>
+                  <td><span class="dns-pill" data-copy="156.154.70.2">156.154.70.2 📋</span></td>
+                  <td><span class="dns-pill" data-copy="156.154.71.2">156.154.71.2 📋</span></td>
+                  <td>Filtrado corporativo contra servidores de comando y control (C&C) de botnets y ataques dirigidos.</td>
+                  <td><span class="channel-badge-pill">DoH / DoT</span></td>
+                </tr>
+
+                <!-- Grupo 2: Bloqueo de Publicidad & Rastreo -->
+                <tr class="table-group-header">
+                  <td colspan="5">🚫 2. Bloqueo de Publicidad & Rastreadores (AdBlock a Nivel DNS sin Extensiones)</td>
+                </tr>
+                <tr>
+                  <td><strong>AdGuard DNS Estándar</strong></td>
+                  <td><span class="dns-pill" data-copy="94.140.14.14">94.140.14.14 📋</span></td>
+                  <td><span class="dns-pill" data-copy="94.140.15.15">94.140.15.15 📋</span></td>
+                  <td>Bloquea banners publicitarios invasivos, ventanas emergentes y rastreadores de analítica en todos los dispositivos de la red.</td>
+                  <td><span class="channel-badge-pill">DoH / DoT / DoQ</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Control D (AdBlock)</strong></td>
+                  <td><span class="dns-pill" data-copy="76.76.2.2">76.76.2.2 📋</span></td>
+                  <td><span class="dns-pill" data-copy="76.76.10.2">76.76.10.2 📋</span></td>
+                  <td>Filtrado ultraligero de publicidad y telemetría de rastreadores comerciales sin alterar servicios de streaming.</td>
+                  <td><span class="channel-badge-pill">DoH / DoT</span></td>
+                </tr>
+                <tr>
+                  <td><strong>DNS0.eu Zero (Europa)</strong></td>
+                  <td><span class="dns-pill" data-copy="193.110.81.0">193.110.81.0 📋</span></td>
+                  <td><span class="dns-pill" data-copy="185.253.5.0">185.253.5.0 📋</span></td>
+                  <td>DNS soberano europeo bajo estricto cumplimiento GDPR que neutraliza publicidad engañosa y estafas bancarias.</td>
+                  <td><span class="channel-badge-pill">DoH / DoT</span></td>
+                </tr>
+
+                <!-- Grupo 3: Filtro Familiar & Protección Infantil -->
+                <tr class="table-group-header">
+                  <td colspan="5">👨‍👩‍👧 3. Filtro Familiar & Redes Escolares (Control Parental y Búsqueda Segura)</td>
+                </tr>
+                <tr>
+                  <td><strong>Cloudflare Families</strong></td>
                   <td><span class="dns-pill" data-copy="1.1.1.3">1.1.1.3 📋</span></td>
                   <td><span class="dns-pill" data-copy="1.0.0.3">1.0.0.3 📋</span></td>
-                  <td>Bloqueo de Malware + Filtro estricto de contenido para adultos (ideal hogares/colegios).</td>
+                  <td>Bloqueo dual: antivirus y sitios para adultos. El más rápido para colegios, institutos y hogares en Bolivia.</td>
                   <td><span class="channel-badge-pill">DoH / DoT</span></td>
+                </tr>
+                <tr>
+                  <td><strong>AdGuard DNS Familiar</strong></td>
+                  <td><span class="dns-pill" data-copy="94.140.14.15">94.140.14.15 📋</span></td>
+                  <td><span class="dns-pill" data-copy="94.140.15.16">94.140.15.16 📋</span></td>
+                  <td>Bloquea pornografía y publicidad, forzando además el modo 'SafeSearch' en Google, Bing y YouTube.</td>
+                  <td><span class="channel-badge-pill">DoH / DoT / DoQ</span></td>
+                </tr>
+                <tr>
+                  <td><strong>CleanBrowsing Family</strong></td>
+                  <td><span class="dns-pill" data-copy="185.228.168.168">185.228.168.168 📋</span></td>
+                  <td><span class="dns-pill" data-copy="185.228.169.168">185.228.169.168 📋</span></td>
+                  <td>Filtro riguroso diseñado para laboratorios de computación escolares; bloquea dominios de proxys y VPNs de evasión.</td>
+                  <td><span class="channel-badge-pill">DoH / DoT</span></td>
+                </tr>
+                <tr>
+                  <td><strong>OpenDNS FamilyShield</strong></td>
+                  <td><span class="dns-pill" data-copy="208.67.222.123">208.67.222.123 📋</span></td>
+                  <td><span class="dns-pill" data-copy="208.67.220.123">208.67.220.123 📋</span></td>
+                  <td>Servidor de Cisco precargado con bloqueo inmediato de sitios para adultos sin requerir registro de cuenta.</td>
+                  <td><span class="channel-badge-pill">DoH / DNSCrypt</span></td>
+                </tr>
+
+                <!-- Grupo 4: Máxima Velocidad & Neutralidad -->
+                <tr class="table-group-header">
+                  <td colspan="5">⚡ 4. Máxima Velocidad & Neutralidad de Red (Sin Filtrado ni Censura de Contenido)</td>
+                </tr>
+                <tr>
+                  <td><strong>Cloudflare Estándar</strong></td>
+                  <td><span class="dns-pill" data-copy="1.1.1.1">1.1.1.1 📋</span></td>
+                  <td><span class="dns-pill" data-copy="1.0.0.1">1.0.0.1 📋</span></td>
+                  <td>La latencia de resolución más baja comprobada en Bolivia (15-35 ms vía Anycast). Política auditada de cero registros.</td>
+                  <td><span class="channel-badge-pill">DoH / DoT / Quic</span></td>
                 </tr>
                 <tr>
                   <td><strong>Google Public DNS</strong></td>
                   <td><span class="dns-pill" data-copy="8.8.8.8">8.8.8.8 📋</span></td>
                   <td><span class="dns-pill" data-copy="8.8.4.4">8.8.4.4 📋</span></td>
-                  <td>Máxima resiliencia y estabilidad global con caché Anycast masivo.</td>
+                  <td>El resolvedor más robusto y resiliente a nivel planetario con infraestructura Anycast de Google.</td>
                   <td><span class="channel-badge-pill">DoH / DoT</span></td>
                 </tr>
                 <tr>
-                  <td><strong>Quad9 (Suiza)</strong></td>
-                  <td><span class="dns-pill" data-copy="9.9.9.9">9.9.9.9 📋</span></td>
-                  <td><span class="dns-pill" data-copy="149.112.112.112">149.112.112.112 📋</span></td>
-                  <td>Inteligencia contra ciberamenazas de 18 CERTs globales. No almacena logs personales.</td>
+                  <td><strong>Quad9 Neutral (Sin Filtro)</strong></td>
+                  <td><span class="dns-pill" data-copy="9.9.9.10">9.9.9.10 📋</span></td>
+                  <td><span class="dns-pill" data-copy="149.112.112.10">149.112.112.10 📋</span></td>
+                  <td>Para administradores que requieren la infraestructura y privacidad suiza de Quad9 sin bloqueo de dominios.</td>
                   <td><span class="channel-badge-pill">DoH / DoT / DNSCrypt</span></td>
-                </tr>
-                <tr>
-                  <td><strong>AdGuard DNS</strong></td>
-                  <td><span class="dns-pill" data-copy="94.140.14.14">94.140.14.14 📋</span></td>
-                  <td><span class="dns-pill" data-copy="94.140.15.15">94.140.15.15 📋</span></td>
-                  <td>Bloqueo de anuncios publicitarios y rastreadores a nivel DNS en toda la red.</td>
-                  <td><span class="channel-badge-pill">DoH / DoT / DoQ</span></td>
                 </tr>
                 <tr>
                   <td><strong>Cisco OpenDNS Home</strong></td>
                   <td><span class="dns-pill" data-copy="208.67.222.222">208.67.222.222 📋</span></td>
                   <td><span class="dns-pill" data-copy="208.67.220.220">208.67.220.220 📋</span></td>
-                  <td>Filtrado web personalizable y protección contra fraude cibernético.</td>
+                  <td>Resolución rápida respaldada por la red Anycast global de Cisco Umbrella.</td>
                   <td><span class="channel-badge-pill">DoH / DNSCrypt</span></td>
                 </tr>
               </tbody>
             </table>
           </div>
+
+          <!-- Disclaimer de DNS -->
+          <div class="spectrum-disclaimer-note" style="margin-top: 14px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffaa00" stroke-width="2" style="flex-shrink: 0; margin-top: 1px;"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <div>
+              <strong>Aviso de Alcance Técnico de Servidores DNS:</strong> El filtrado a nivel de DNS inspecciona únicamente la resolución de nombres de dominio y bloquea dominios reportados en listas de amenazas. <strong>No sustituye un software antivirus en el endpoint ni un firewall UTM con inspección profunda SSL/TLS.</strong> Pueden presentarse falsos positivos en sitios legítimos o latencias variables según la troncal internacional de su ISP en Bolivia.
+            </div>
+          </div>
         </div>
 
       </div>
-    </section>
+    </div>
+  </section>
 
     <!-- SECTION: NORMATIVAS ATT BOLIVIA: FRECUENCIAS Y CANALES WIFI -->
     <section class="recursos-section dark-alt" id="modulo-normativa-wifi">
       <div class="wrap">
-        <div class="section-heading">
+        <div class="section-heading collapsible-heading" role="button" tabindex="0" aria-expanded="true">
           <div class="eyebrow-chip">
             <span class="chip-accent">REGULACIÓN NACIONAL ATT</span>
             <span>PLAN NACIONAL DE FRECUENCIAS</span>
           </div>
           <h2>Normativa de Frecuencias y Canales Wi-Fi en Bolivia</h2>
           <p>Límites de potencia isotrópica radiada equivalente (EIRP), sub-bandas U-NII autorizadas y reglas de diseño para evitar interferencias y multas de la ATT.</p>
+          <div class="section-toggle-btn">
+            <span class="toggle-status-text">Comprimir Módulo</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
         </div>
 
-        <div class="normativas-wrap">
+        <div class="section-collapsible-body">
+          <div class="normativas-wrap">
           
           <div class="normativa-table-container">
             <table class="normativa-table">
@@ -1382,21 +1715,27 @@
 
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
     <!-- SECTION: SIMULADORES DE ENLACES Y DISEÑO DE REDES -->
     <section class="recursos-section" id="modulo-simuladores-link">
       <div class="wrap">
-        <div class="section-heading">
+        <div class="section-heading collapsible-heading" role="button" tabindex="0" aria-expanded="true">
           <div class="eyebrow-chip">
             <span class="chip-accent">INGENIERÍA PREDICTIVA</span>
             <span>MODELADO 3D & FRESNEL</span>
           </div>
           <h2>Simuladores de Enlaces Inalámbricos & Diseño Wi-Fi</h2>
           <p>Herramientas gratuitas de planificación predictiva: calcule zonas de Fresnel, cobertura sobre planos arquitectónicos, presupuesto de potencia y atenuación de muros antes de instalar.</p>
+          <div class="section-toggle-btn">
+            <span class="toggle-status-text">Comprimir Módulo</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
         </div>
 
-        <div class="simuladores-grid">
+        <div class="section-collapsible-body">
+          <div class="simuladores-grid">
 
           <!-- Simulador 1: Ubiquiti ISP Design Center -->
           <article class="simulador-card">
@@ -1520,21 +1859,27 @@
 
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
     <!-- SECTION 2: CALCULADORA DE SUBREDES IPV4 / VLSM EN VIVO -->
     <section class="recursos-section dark-alt" id="modulo-calculadora">
       <div class="wrap">
-        <div class="section-heading">
+        <div class="section-heading collapsible-heading" role="button" tabindex="0" aria-expanded="true">
           <div class="eyebrow-chip">
             <span class="chip-accent">HERRAMIENTA INTEGRADA</span>
             <span>CÁLCULO INSTANTÁNEO</span>
           </div>
           <h2>Calculadora de Subredes IPv4 / VLSM</h2>
           <p>Calcule máscaras de red, wildcards para ACLs de firewall, rangos utilizables y broadcasts sin salir de la página.</p>
+          <div class="section-toggle-btn">
+            <span class="toggle-status-text">Comprimir Módulo</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
         </div>
 
-        <div class="ip-calc-card">
+        <div class="section-collapsible-body">
+          <div class="ip-calc-card">
           <div class="calc-inputs-grid">
             <div class="calc-input-group">
               <label for="calcIp">Dirección IP de Entrada:</label>
@@ -1607,23 +1952,108 @@
               <span class="res-value" id="resScope">Privada (RFC 1918) · Clase C</span>
             </div>
           </div>
+
+          <!-- Reglas de Rangos de Uso Privado y Subredes Más Comunes en IT -->
+          <div style="margin-top: 28px;">
+            <div style="font-family: var(--font-heading); font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+              <span>📖 GUÍA RÁPIDA: RANGOS PRIVADOS (RFC 1918) Y MÁSCARAS DE ORO EN IT:</span>
+            </div>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 14px;">
+              Estándares de arquitectura de direccionamiento IPv4 para asignación en routers, switches de capa 3, VLANs y servidores:
+            </p>
+
+            <div class="ip-rules-grid">
+              
+              <div class="ip-rule-card">
+                <span class="ip-rule-range">10.0.0.0 /8</span>
+                <span class="ip-rule-title">Clase A Privada (RFC 1918)</span>
+                <p class="ip-rule-desc">
+                  <strong>Rango:</strong> 10.0.0.0 a 10.255.255.255 (16.7 millones de IPs).<br>
+                  <strong>Uso común:</strong> Grandes datacenters, redes SD-WAN, nubes privadas empresariales, enlaces MPLS y VPNs de interconexión sucursales.
+                </p>
+              </div>
+
+              <div class="ip-rule-card">
+                <span class="ip-rule-range">172.16.0.0 /12</span>
+                <span class="ip-rule-title">Clase B Privada (RFC 1918)</span>
+                <p class="ip-rule-desc">
+                  <strong>Rango:</strong> 172.16.0.0 a 172.31.255.255 (1.04 millones de IPs).<br>
+                  <strong>Uso común:</strong> Redes de campus, subredes de servidores de virtualización, contenedores Docker (por defecto <code>172.17.0.0/16</code>) y clústeres Kubernetes.
+                </p>
+              </div>
+
+              <div class="ip-rule-card">
+                <span class="ip-rule-range">192.168.0.0 /16</span>
+                <span class="ip-rule-title">Clase C Privada (RFC 1918)</span>
+                <p class="ip-rule-desc">
+                  <strong>Rango:</strong> 192.168.0.0 a 192.168.255.255 (65,536 IPs divididas en 256 subredes /24).<br>
+                  <strong>Uso común:</strong> El estándar universal para redes LAN de oficina, VLANs de cámaras CCTV, puntos de venta y routers residenciales.
+                </p>
+              </div>
+
+              <div class="ip-rule-card">
+                <span class="ip-rule-range">100.64.0.0 /10</span>
+                <span class="ip-rule-title">Carrier-Grade NAT (RFC 6598)</span>
+                <p class="ip-rule-desc">
+                  <strong>Rango:</strong> 100.64.0.0 a 100.127.255.255 (4.19 millones de IPs).<br>
+                  <strong>Uso común:</strong> Bloque compartido asignado por operadoras (Tigo, Entel, Cotas) a módems de abonados residenciales para mitigar el agotamiento de IPv4 público.
+                </p>
+              </div>
+
+              <div class="ip-rule-card">
+                <span class="ip-rule-range">169.254.0.0 /16</span>
+                <span class="ip-rule-title">APIPA / Link-Local (RFC 3927)</span>
+                <p class="ip-rule-desc">
+                  <strong>Rango:</strong> 169.254.0.0 a 169.254.255.255.<br>
+                  <strong>Diagnóstico:</strong> Si un equipo Windows o cámara toma una IP en este rango, significa que el cable tiene enlace pero <strong>el servidor DHCP no está respondiendo</strong>.
+                </p>
+              </div>
+
+              <div class="ip-rule-card">
+                <span class="ip-rule-range">/30, /29, /28, /24, /22</span>
+                <span class="ip-rule-title">Reglas de Oro de Máscaras en IT</span>
+                <p class="ip-rule-desc">
+                  <strong>/30 (2 hosts):</strong> Enlaces punto a punto dedicados entre routers.<br>
+                  <strong>/29 (6 hosts):</strong> Bloque de IPs públicas fijas asignadas por el ISP.<br>
+                  <strong>/24 (254 hosts):</strong> LANs de usuarios y CCTV.<br>
+                  <strong>/23-/22 (510 a 1022 hosts):</strong> Wi-Fi de alta densidad con rotación DHCP.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Disclaimer de la Calculadora -->
+          <div class="spectrum-disclaimer-note" style="margin-top: 18px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffaa00" stroke-width="2" style="flex-shrink: 0; margin-top: 1px;"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <div>
+              <strong>Aviso y Limitaciones de la Calculadora IP:</strong> Esta herramienta computa direccionamiento matemático IPv4 de 32 bits bajo normas RFC 791 y RFC 4632 (CIDR). No contempla esquemas de direccionamiento IPv6 de 128 bits ni agregaciones de ruta BGP multi-homing. Verifique siempre los requerimientos de pasarela predeterminada (Gateway) y DNS antes de desplegar configuraciones en producción.
+            </div>
+          </div>
         </div>
+
       </div>
-    </section>
+    </div>
+  </section>
 
     <!-- SECTION 3: GENERADOR DE RANGOS IP POR PAÍSES -->
     <section class="recursos-section" id="modulo-geoip">
       <div class="wrap">
-        <div class="section-heading">
+        <div class="section-heading collapsible-heading" role="button" tabindex="0" aria-expanded="true">
           <div class="eyebrow-chip">
             <span class="chip-accent">SEGURIDAD & FIREWALLING</span>
             <span>BLOQUEO GEOGRÁFICO</span>
           </div>
           <h2>Generador y Descarga de Rangos IP por País</h2>
           <p>Obtenga los bloques CIDR oficiales por país para mitigar ataques de fuerza bruta en SSH/RDP/WinBox o permitir tráfico exclusivo nacional.</p>
+          <div class="section-toggle-btn">
+            <span class="toggle-status-text">Comprimir Módulo</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
         </div>
 
-        <div class="geoip-card-wrap">
+        <div class="section-collapsible-body">
+          <div class="geoip-card-wrap">
           <div class="geoip-controls-bar">
             <div class="calc-input-group" style="flex: 1;">
               <label for="countrySelect">Seleccionar País / Zona:</label>
@@ -1685,177 +2115,259 @@ add list=PAIS_BO address=45.191.240.0/22 comment="IPDeny Bolivia"
 add list=PAIS_BO address=45.228.16.0/22 comment="IPDeny Bolivia"
 add list=PAIS_BO address=45.231.4.0/22 comment="IPDeny Bolivia"
 add list=PAIS_BO address=45.234.120.0/22 comment="IPDeny Bolivia"
-# [Presione 'Descargar .zone' para descargar los 122 bloques completos de Bolivia]</pre>
+          </div>
+
+          <!-- Disclaimer GeoIP -->
+          <div class="spectrum-disclaimer-note" style="margin-top: 18px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffaa00" stroke-width="2" style="flex-shrink: 0; margin-top: 1px;"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <div>
+              <strong>Aviso de Variabilidad en Bloques GeoIP / BGP:</strong> Los prefijos CIDR generados provienen de las zonas consolidadas de IPDeny basadas en asignaciones de LACNIC, ARIN y RIPE. El enrutamiento BGP dinámico puede causar variaciones o reasignaciones de subredes entre países. En entornos de producción críticos, automatice la sincronización periódica de address-lists mediante scripts RouterOS Fetch en lugar de reglas estáticas permanentes.
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
     <!-- SECTION 4: LISTA DE MEJORES SKILLS & PROMPTS DE IA -->
     <section class="recursos-section" id="modulo-ia-skills">
       <div class="wrap">
-        <div class="section-heading">
+        <div class="section-heading collapsible-heading" role="button" tabindex="0" aria-expanded="true">
           <div class="eyebrow-chip">
             <span class="chip-accent">INTELIGENCIA ARTIFICIAL APLICADA</span>
-            <span>PROMPTING DE PRECISIÓN</span>
+            <span>PROMPTING DE PRECISIÓN & SKILLS</span>
           </div>
           <h2>Prompts & Skills de IA para Ingenieros de Redes</h2>
-          <p>Plantillas de instrucciones optimizadas para ChatGPT, Gemini y Claude. Obtenga configuraciones sin alucinaciones, con sintaxis exacta y reglas de seguridad para sus equipos.</p>
+          <p>Plantillas de instrucciones interactivas optimizadas para ChatGPT, Gemini y Claude. El modelo entrevista al usuario para solicitar parámetros reales antes de generar scripts libres de alucinaciones.</p>
+          <div class="section-toggle-btn">
+            <span class="toggle-status-text">Comprimir Módulo</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
         </div>
 
-        <div class="prompts-grid" id="promptsGrid">
+        <div class="section-collapsible-body">
+          <div class="prompts-grid" id="promptsGrid">
 
-          <!-- Prompt 1: MikroTik Hardening -->
-          <article class="prompt-card" data-keywords="mikrotik firewall hardening ddos raw fasttrack routeros prompt ia">
-            <div class="prompt-card-header">
-              <span class="prompt-badge">MIKROTIK ROUTEROS 7</span>
-              <h3 class="prompt-title">Hardening de Firewall, RAW & FastTrack</h3>
-            </div>
-            <p class="prompt-desc">
-              Genera una política de firewall de filtrado estricto en la tabla RAW para mitigar escaneos de puertos y DDoS sin saturar el procesador del router.
-            </p>
-            <div class="prompt-box">
-              <pre class="prompt-text">Actúa como un Ingeniero Senior Certificado MikroTik (MTCNA, MTCRE, MTCSE).
-Objetivo: Diseñar un script completo de firewall para MikroTik RouterOS v7 en un router de borde con WAN por ether1 y LAN por bridge1 (subred 192.168.10.0/24).
-Requisitos estrictos:
-1. Usar tabla RAW (/ip firewall raw) para dropear paquetes 'invalid', escaneos TCP SYN sin flags válidas y ataques de fuerza bruta hacia el puerto de WinBox.
-2. Configurar FastTrack solo para conexiones establecidas y relacionadas del tráfico LAN-WAN.
-3. Crear Address Lists dinámicas para aislar atacantes por 24 horas tras 3 intentos fallidos.
-4. Entregar el código en un único bloque formateado con comentarios claros y advertencia de precauciones para no perder acceso.</pre>
-            </div>
-            <button class="btn btn-copy-prompt" data-copy-target="prev">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <span>Copiar Prompt para IA</span>
-            </button>
-          </article>
+            <!-- Prompt 1: MikroTik Hardening -->
+            <article class="prompt-card" data-keywords="mikrotik firewall hardening ddos raw fasttrack routeros prompt ia redes borde">
+              <div class="prompt-card-header">
+                <span class="prompt-badge">REDES & BORDE · MIKROTIK ROUTEROS 7</span>
+                <h3 class="prompt-title">Hardening de Firewall, RAW & FastTrack (Entrevista)</h3>
+              </div>
+              <p class="prompt-desc">
+                Instruye a la IA a entrevistar al administrador sobre interfaces WAN, subredes LAN y servicios expuestos antes de generar reglas en la tabla RAW y FastTrack.
+              </p>
+              <div class="prompt-box">
+                <pre class="prompt-text">Actúa como un Ingeniero Senior Certificado MikroTik (MTCNA, MTCRE, MTCSE).
+Tu objetivo es diseñar un script de firewall robusto y hardening para MikroTik RouterOS v7.
+IMPORTANTE: Antes de generar cualquier línea de script, ENTREVÍSTAME haciéndome las siguientes preguntas clave sobre mi infraestructura:
+1. ¿Cuál es el nombre de la interfaz WAN (física, PPPoE o VLAN) y cómo se obtiene la IP pública/privada?
+2. ¿Cuál es la interfaz LAN/Bridge y el bloque de subredes internas (ej. 192.168.10.0/24)?
+3. ¿Qué puertos de administración están en uso (WinBox, SSH, WebFig, API) y si se mantendrán los puertos por defecto o se personalizarán?
+4. ¿Existen servidores internos con reenvío de puertos (Port Forwarding / NAT) o túneles VPN activos (WireGuard, L2TP, OVPN)?
+Una vez que te proporcione estos datos, genera el script completo utilizando tabla RAW (/ip firewall raw) para filtrado temprano de escaneos y ataques de fuerza bruta, FastTrack seguro para conexiones establecidas, address-lists dinámicas de aislamiento temporal y advertencias de seguridad para evitar bloqueos accidentales.</pre>
+              </div>
+              <button class="btn btn-copy-prompt" data-copy-target="prev">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copiar Prompt Interactivo</span>
+              </button>
+              <div class="prompt-links-row">
+                <a href="https://help.mikrotik.com/docs/spaces/ROS/pages/28606473/Firewall" target="_blank" rel="noopener" class="prompt-ext-link">
+                  <span>Doc Oficial MikroTik Firewall</span>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+                <a href="https://github.com/topics/mikrotik-routeros" target="_blank" rel="noopener" class="prompt-ext-link">
+                  <span>GitHub: Scripts RouterOS</span>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
+            </article>
 
-          <!-- Prompt 2: UniFi Wi-Fi Roaming -->
-          <article class="prompt-card" data-keywords="unifi ubiquiti roaming wifi rf canales interferencia 802.11k 802.11v prompt ia">
-            <div class="prompt-card-header">
-              <span class="prompt-badge">UBIQUITI UNIFI</span>
-              <h3 class="prompt-title">Optimización de Roaming Wi-Fi & Canales RF</h3>
-            </div>
-            <p class="prompt-desc">
-              Analiza solapamientos de señal, distribución de canales no solapados en 2.4/5 GHz y umbrales RSSI para evitar clientes "pegajosos" (sticky clients).
-            </p>
-            <div class="prompt-box">
-              <pre class="prompt-text">Actúa como Especialista en Ingeniería de Radiofrecuencia y Redes Wi-Fi Empresariales UniFi.
-Tengo un entorno de oficinas de 450 m² con 4 Access Points UniFi U6-Pro y 65 clientes móviles simultáneos. Los usuarios experimentan cortes en llamadas VoIP al desplazarse entre salas.
-Por favor proporciona:
-1. Matriz de distribución de canales no solapados para 2.4 GHz (canales 1, 6, 11 en ancho 20 MHz) y 5 GHz (canales limpios en 40 MHz sin radar DFS).
-2. Potencias de transmisión recomendadas (dBm) para forzar transición suave sin agujeros de cobertura.
-3. Parámetros exactos de 802.11k, 802.11v, 802.11r y Minimum RSSI en UniFi Network Controller.
-4. Checklist paso a paso para diagnosticar con Wireshark si el teléfono está cambiando de BSSID adecuadamente.</pre>
-            </div>
-            <button class="btn btn-copy-prompt" data-copy-target="prev">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <span>Copiar Prompt para IA</span>
-            </button>
-          </article>
+            <!-- Prompt 2: UniFi Wi-Fi Roaming -->
+            <article class="prompt-card" data-keywords="unifi ubiquiti roaming wifi rf canales interferencia 802.11k 802.11v prompt ia wifi radiofrecuencia">
+              <div class="prompt-card-header">
+                <span class="prompt-badge">WI-FI EMPRESARIAL · UBIQUITI UNIFI</span>
+                <h3 class="prompt-title">Optimización de Roaming Wi-Fi & Canales RF (Entrevista)</h3>
+              </div>
+              <p class="prompt-desc">
+                La IA interroga sobre modelos de APs, metraje cuadrado, densidad de usuarios concurrentes y tipo de tráfico antes de sugerir plan de frecuencias y RSSI.
+              </p>
+              <div class="prompt-box">
+                <pre class="prompt-text">Actúa como Especialista Senior en Radiofrecuencia y Redes Inalámbricas UniFi.
+Tu objetivo es auditar y optimizar el rendimiento y roaming de una red Wi-Fi multi-AP.
+IMPORTANTE: Antes de recomendar configuraciones de canales o potencias, ENTREVÍSTAME solicitando los siguientes datos de la instalación:
+1. ¿Qué modelos exactos de Access Points UniFi están desplegados y cuál es la cantidad total?
+2. ¿Cuál es la superficie aproximada en m², tipo de muros (tabiquería liviana, ladrillo cerámico, hormigón armado) y altura de techos?
+3. ¿Cuántos clientes inalámbricos concurrentes se conectan en horas pico y qué tráfico predomina (VoIP/videoconferencias, navegación web, streaming, dispositivos IoT)?
+4. ¿Qué versión de UniFi Network Controller / UniFi OS está operando el sitio?
+Con base en mis respuestas, genera una matriz de canales no solapados (2.4 GHz en 20 MHz; 5 GHz en 40/80 MHz evaluando canales DFS), potencias dBm equilibradas, parámetros de Fast Roaming (802.11k/v/r) y umbral de Minimum RSSI para erradicar clientes pegajosos (sticky clients).</pre>
+              </div>
+              <button class="btn btn-copy-prompt" data-copy-target="prev">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copiar Prompt Interactivo</span>
+              </button>
+              <div class="prompt-links-row">
+                <a href="https://help.ui.com/hc/en-us/articles/115004662107-UniFi-Fast-Roaming" target="_blank" rel="noopener" class="prompt-ext-link">
+                  <span>Guía Oficial UniFi Fast Roaming</span>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+                <a href="https://design.ui.com/" target="_blank" rel="noopener" class="prompt-ext-link">
+                  <span>UniFi Design Center</span>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
+            </article>
 
-          <!-- Prompt 3: CCTV Storage & Bitrates -->
-          <article class="prompt-card" data-keywords="cctv dahua hikvision uniview almacenamiento storage h265 bitrate fps nvr disco prompt ia">
-            <div class="prompt-card-header">
-              <span class="prompt-badge">CCTV (DAHUA / HIK / UNV)</span>
-              <h3 class="prompt-title">Cálculo de Storage & Bitrate H.265+</h3>
-            </div>
-            <p class="prompt-desc">
-              Calcula con precisión matemática los Terabytes requeridos por códec, resolución, FPS y horas de grabación para cumplir con retenciones de 30 a 180 días.
-            </p>
-            <div class="prompt-box">
-              <pre class="prompt-text">Actúa como Ingeniero de Proyectos de Seguridad Electrónica y CCTV.
-Necesito calcular el almacenamiento requerido para un sistema NVR con las siguientes especificaciones:
-- 16 cámaras IP de 4 Megapíxeles (2560x1440) a 20 FPS.
-- 4 cámaras PTZ de 8 Megapíxeles (4K) a 25 FPS en accesos principales.
-- Grabación continua 24/7 durante 60 días calendario.
-- Códec: Smart H.265+ / Ultra 265 con tasa de compresión del 50%.
-Calcula y entrega:
-1. Tasa de bitrate promedio recomendada (kbps) por tipo de cámara.
-2. Ancho de banda total de entrada hacia el NVR en Mbps.
-3. Terabytes brutos y netos necesarios, añadiendo un 15% de margen de seguridad.
-4. Configuración recomendada de discos duros (ej. Western Digital Purple / Seagate SkyHawk) y arreglo RAID.</pre>
-            </div>
-            <button class="btn btn-copy-prompt" data-copy-target="prev">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <span>Copiar Prompt para IA</span>
-            </button>
-          </article>
+            <!-- Prompt 3: CCTV Storage & Bitrates -->
+            <article class="prompt-card" data-keywords="cctv dahua hikvision uniview almacenamiento storage h265 bitrate fps nvr disco prompt ia videovigilancia">
+              <div class="prompt-card-header">
+                <span class="prompt-badge">SEGURIDAD ELECTRÓNICA · CCTV & NVR</span>
+                <h3 class="prompt-title">Cálculo de Storage, Bitrate H.265+ & RAID (Entrevista)</h3>
+              </div>
+              <p class="prompt-desc">
+                Pregunta por cantidad de cámaras, resolución, códec de compresión y días de retención legal antes de computar Terabytes netos y ancho de banda.
+              </p>
+              <div class="prompt-box">
+                <pre class="prompt-text">Actúa como Ingeniero de Proyectos de Seguridad Electrónica y CCTV.
+Tu objetivo es calcular con precisión matemática el almacenamiento y ancho de banda para un sistema NVR/VMS.
+IMPORTANTE: Antes de entregar cálculos numéricos, ENTREVÍSTAME formulando las siguientes preguntas sobre el proyecto:
+1. ¿Cuántas cámaras IP se instalarán en total y cuál es la resolución de cada grupo (ej. 2MP Full HD, 4MP QHD, 8MP 4K)?
+2. ¿Qué códec de compresión se utilizará (H.264 estándar, H.265 estándar, o códecs inteligentes como Smart H.265+ / Ultra 265)?
+3. ¿Cuántos días calendario continuos de retención de grabaciones exige el cliente o la normativa de seguridad aplicable?
+4. ¿El esquema de grabación será continuo 24/7, por horario comercial, o exclusivamente activado por detección de movimiento / analítica IVS / AcuSense?
+5. ¿Cuál es la tasa de cuadros por segundo (FPS) fijada para el flujo primario?
+Con mis respuestas, calcula: bitrate promedio recomendado en kbps por cámara, ancho de banda total hacia el switch/NVR en Mbps, volumen neto y bruto de almacenamiento en Terabytes (añadiendo un 15% de margen de seguridad para picos de movimiento), y sugerencia de tipo de discos duros y arreglo RAID adecuado.</pre>
+              </div>
+              <button class="btn btn-copy-prompt" data-copy-target="prev">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copiar Prompt Interactivo</span>
+              </button>
+              <div class="prompt-links-row">
+                <a href="https://www.dahuasecurity.com/support/tools/toolbox" target="_blank" rel="noopener" class="prompt-ext-link">
+                  <span>Dahua Toolbox Suite</span>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+                <a href="https://www.hikvision.com/en/support/tools/hitools/" target="_blank" rel="noopener" class="prompt-ext-link">
+                  <span>Hikvision HiTools & Calc</span>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
+            </article>
 
-          <!-- Prompt 4: Proxmox Backup & ZFS -->
-          <article class="prompt-card" data-keywords="proxmox pve pbs zfs backup automatizacion bash script san nas snapshot prompt ia">
-            <div class="prompt-card-header">
-              <span class="prompt-badge">PROXMOX VE & PBS</span>
-              <h3 class="prompt-title">Automatización de Backups 3-2-1 & ZFS Health</h3>
-            </div>
-            <p class="prompt-desc">
-              Genera scripts de comprobación de salud de pools ZFS, retención de snapshots y sincronización con Proxmox Backup Server.
-            </p>
-            <div class="prompt-box">
-              <pre class="prompt-text">Actúa como Administrador de Sistemas Linux y Especialista en Proxmox Virtual Environment (PVE).
-Quiero crear una estrategia estricta de respaldo 3-2-1 para 8 Máquinas Virtuales críticas (KVM) en Proxmox VE 8:
-1. Diseñar un script en Bash para verificar semanalmente la salud del ZFS pool (zpool status, scrub y errores de I/O) y alertar por correo o webhook si hay fallas.
-2. Definir la política de retención en Proxmox Backup Server (PBS): conservar 7 diarios, 4 semanales, 12 mensuales y 1 anual (GFS - Grandfather-Father-Son).
-3. Incluir comando seguro para verificar la integridad de los backups mediante verify jobs periódicos sin degradar la I/O de las VMs en producción.</pre>
-            </div>
-            <button class="btn btn-copy-prompt" data-copy-target="prev">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <span>Copiar Prompt para IA</span>
-            </button>
-          </article>
+            <!-- Prompt 4: Proxmox Backup & ZFS -->
+            <article class="prompt-card" data-keywords="proxmox pve pbs zfs backup automatizacion bash script san nas snapshot prompt ia virtualizacion servidores">
+              <div class="prompt-card-header">
+                <span class="prompt-badge">VIRTUALIZACIÓN & SERVIDORES · PROXMOX VE & PBS</span>
+                <h3 class="prompt-title">Estrategia de Backups 3-2-1 & Salud ZFS (Entrevista)</h3>
+              </div>
+              <p class="prompt-desc">
+                Consulta sobre versión de PVE, almacenamiento en pools ZFS, volumen total de VMs y servidor PBS antes de estructurar scripts de monitoreo y retención GFS.
+              </p>
+              <div class="prompt-box">
+                <pre class="prompt-text">Actúa como Administrador Senior de Sistemas Linux y Especialista en Proxmox Virtual Environment (PVE).
+Tu objetivo es diseñar una estrategia de copias de seguridad 3-2-1 y un script de comprobación de salud ZFS para Proxmox VE.
+IMPORTANTE: Antes de proponer scripts en bash o políticas de retención, ENTREVÍSTAME con estas preguntas:
+1. ¿Qué versión de Proxmox VE se está utilizando y si se dispone de Proxmox Backup Server (PBS) local, remoto o almacenamiento NFS/Samba secundario?
+2. ¿Cuántas Máquinas Virtuales (KVM) y contenedores (LXC) se respaldarán y qué tamaño total ocupan en disco?
+3. ¿Cuál es la configuración de almacenamiento del hipervisor (ZFS Mirror, RAID-Z2, Ceph o LVM-Thin)?
+4. ¿Cuál es el RPO (Recovery Point Objective) y RTO (Recovery Time Objective) que exige la continuidad operativa de la empresa?
+Con mis respuestas, elabora: política de retención GFS estructurada (diarios, semanales, mensuales, anuales), script en bash para monitorear el estado de pools ZFS (zpool status, scrub programado, errores de I/O) con notificación por webhook/email, y pautas para programar verificación periódica de backups sin sobrecargar el I/O en horas pico.</pre>
+              </div>
+              <button class="btn btn-copy-prompt" data-copy-target="prev">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copiar Prompt Interactivo</span>
+              </button>
+              <div class="prompt-links-row">
+                <a href="https://community-scripts.github.io/ProxmoxVE/" target="_blank" rel="noopener" class="prompt-ext-link">
+                  <span>Proxmox Community Scripts</span>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+                <a href="https://pve.proxmox.com/pve-docs/" target="_blank" rel="noopener" class="prompt-ext-link">
+                  <span>Documentación Oficial PVE</span>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
+            </article>
 
-          <!-- Prompt 5: LoRaWAN Payload Decoder -->
-          <article class="prompt-card" data-keywords="lorawan thingsboard mqtt decodificador payload javascript python sensores telemetria prompt ia">
-            <div class="prompt-card-header">
-              <span class="prompt-badge">IOT INDUSTRIAL & LORAWAN</span>
-              <h3 class="prompt-title">Decodificador de Payloads Hexadecimales</h3>
-            </div>
-            <p class="prompt-desc">
-              Crea funciones JavaScript o Python limpias para decodificar cadenas de bytes crudos de sensores de campo hacia JSON para ThingsBoard o Home Assistant.
-            </p>
-            <div class="prompt-box">
-              <pre class="prompt-text">Actúa como Desarrollador Especialista en Protocolos IoT y Telemetría LoRaWAN.
-Tengo un sensor de presión y nivel de agua que envía su telemetría en una trama hexadecimal cruda (Payload Hexadecimal) a través de un gateway hacia ThingsBoard / ChirpStack.
-Ejemplo de trama recibida: '017500A4026700E2030201'
-Estructura del fabricante:
-- Byte 1-2: ID de canal y tipo de sensor (01 75 = Presión en bar, factor /100)
-- Byte 3-4: Valor de presión (00 A4 = 164 -> 1.64 bar)
-- Byte 5-6: ID y tipo (02 67 = Temperatura en °C, factor /10)
-- Byte 7-8: Valor de temp (00 E2 = 226 -> 22.6 °C)
-- Byte 9-11: Estado de batería y alertas
-Por favor escribe la función 'decodeUplink(input)' en JavaScript moderno compatible con el estándar The Things Network / ThingsBoard Data Converter, retornando un JSON estructurado y validado.</pre>
-            </div>
-            <button class="btn btn-copy-prompt" data-copy-target="prev">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <span>Copiar Prompt para IA</span>
-            </button>
-          </article>
+            <!-- Prompt 5: LoRaWAN Payload Decoder -->
+            <article class="prompt-card" data-keywords="lorawan thingsboard mqtt decodificador payload javascript python sensores telemetria prompt ia iot">
+              <div class="prompt-card-header">
+                <span class="prompt-badge">TELEMETRÍA & IOT INDUSTRIAL · LORAWAN</span>
+                <h3 class="prompt-title">Decodificador de Payloads Hexadecimales (Entrevista)</h3>
+              </div>
+              <p class="prompt-desc">
+                Solicita la trama hexadecimal recibida, la hoja de datos del fabricante del sensor y el destino (ThingsBoard, TTN, ChirpStack) antes de programar la función.
+              </p>
+              <div class="prompt-box">
+                <pre class="prompt-text">Actúa como Desarrollador Especialista en Protocolos IoT y Telemetría LoRaWAN.
+Tu objetivo es escribir una función de decodificación de payloads de sensores industriales.
+IMPORTANTE: Antes de generar cualquier código, ENTREVÍSTAME pidiendo los siguientes datos técnicos:
+1. ¿Cuál es la plataforma o servidor de red de destino (ChirpStack v4, The Things Network v3 / TTN, ThingsBoard Data Converter o AWS IoT Core)?
+2. ¿Tienes un ejemplo de la trama de bytes o cadena hexadecimal cruda (Payload Hexadecimal) recibida del sensor?
+3. ¿Qué variables físicas reporta el equipo (temperatura, humedad, presión en bar, nivel de estanque, voltaje de batería, estados booleanos)?
+4. ¿Tienes la documentación de estructura de bytes del fabricante (orden Big-Endian vs Little-Endian, factores multiplicadores o divisores, y signos con complemento a dos)?
+Con estos datos, programa la función JavaScript (o Python) 'decodeUplink' limpia, completamente comentada, validando longitudes de trama para evitar excepciones por índice fuera de rango, y retornando un objeto JSON estructurado con nombres de telemetría y unidades claras.</pre>
+              </div>
+              <button class="btn btn-copy-prompt" data-copy-target="prev">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copiar Prompt Interactivo</span>
+              </button>
+              <div class="prompt-links-row">
+                <a href="https://www.chirpstack.io/docs/chirpstack/use/device-profiles.html#codecs" target="_blank" rel="noopener" class="prompt-ext-link">
+                  <span>ChirpStack Codec Docs</span>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+                <a href="https://github.com/TheThingsNetwork/lorawan-devices" target="_blank" rel="noopener" class="prompt-ext-link">
+                  <span>GitHub: TTN Device Codecs</span>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
+            </article>
 
-          <!-- Prompt 6: Multi-WAN Failover -->
-          <article class="prompt-card" data-keywords="mikrotik multi-wan pcc failover starlink fibra check-gateway mangle balanceo prompt ia">
-            <div class="prompt-card-header">
-              <span class="prompt-badge">MIKROTIK ROUTEROS 7</span>
-              <h3 class="prompt-title">Failover Recursivo & Balanceo con Starlink</h3>
-            </div>
-            <p class="prompt-desc">
-              Configura conmutación por error (failover) con rutas recursivas hacia Cloudflare (1.1.1.1) y Google (8.8.8.8), integrando Fibra Óptica principal y Starlink de backup.
-            </p>
-            <div class="prompt-box">
-              <pre class="prompt-text">Actúa como Ingeniero de Redes Especialista en MikroTik RouterOS v7.
-Necesito configurar un failover ultra-confiable para una empresa en Santa Cruz con dos proveedores:
-- WAN1 (Fibra Óptica Dedicada): ether1, Gateway 190.180.10.1 (Principal, prioridad 1)
-- WAN2 (Starlink Business): ether2, DHCP client (Respaldo automático, prioridad 2)
-Requisitos de ingeniería:
-1. No usar solo el gateway físico del ISP (porque si el ISP pierde enlace internacional el puerto sigue UP). Implementar 'Recursive Routing' monitoreando 1.1.1.1 y 8.8.8.8 con check-gateway=ping.
-2. Si WAN1 falla, conmutar en menos de 5 segundos hacia Starlink.
-3. Cuando WAN1 se restablezca y permanezca estable por 30 segundos, volver automáticamente a la fibra sin flapeo de rutas.
-4. Entregar el script completo probado para RouterOS v7.</pre>
-            </div>
-            <button class="btn btn-copy-prompt" data-copy-target="prev">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <span>Copiar Prompt para IA</span>
-            </button>
-          </article>
+            <!-- Prompt 6: Multi-WAN Failover -->
+            <article class="prompt-card" data-keywords="mikrotik multi-wan pcc failover starlink fibra check-gateway mangle balanceo prompt ia conectividad">
+              <div class="prompt-card-header">
+                <span class="prompt-badge">ALTA DISPONIBILIDAD · MULTI-WAN & STARLINK</span>
+                <h3 class="prompt-title">Failover Recursivo & Balanceo Multi-WAN (Entrevista)</h3>
+              </div>
+              <p class="prompt-desc">
+                Interroga sobre interfaces de los proveedores (Fibra Óptica empresarial + Starlink/LTE), tipos de IP (estática vs DHCP) y necesidad de balanceo PCC o failover puro.
+              </p>
+              <div class="prompt-box">
+                <pre class="prompt-text">Actúa como Ingeniero de Redes Especialista en MikroTik RouterOS v7.
+Tu objetivo es implementar un esquema de Failover de alta disponibilidad con rutas recursivas.
+IMPORTANTE: Antes de escribir el script, ENTREVÍSTAME con las siguientes preguntas técnicas:
+1. ¿Cuáles son los enlaces ISP contratados (ej. Fibra Óptica Dedicada + Starlink Business o enlace celular LTE) y en qué interfaces físicas ingresan (ether1, ether2)?
+2. ¿La WAN principal tiene IP pública estática (cuál es la puerta de enlace) o se entrega por DHCP / PPPoE?
+3. ¿La WAN secundaria obtiene configuración por DHCP dinámico?
+4. ¿Se requiere conmutación pura por caída de enlace (Failover Activo / Pasivo) o balanceo de carga proporcional simultáneo (PCC - Per Connection Classifier)?
+Una vez que te responda, genera el script completo para RouterOS v7 implementando 'Recursive Routing' monitoreando hosts públicos de alta disponibilidad (1.1.1.1 y 8.8.8.8) con check-gateway=ping, distancias y scopes configurados correctamente, y reglas de mangle para evitar asimetría de tráfico en conexiones entrantes.</pre>
+              </div>
+              <button class="btn btn-copy-prompt" data-copy-target="prev">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copiar Prompt Interactivo</span>
+              </button>
+              <div class="prompt-links-row">
+                <a href="https://help.mikrotik.com/docs/spaces/ROS/pages/328206/Routing" target="_blank" rel="noopener" class="prompt-ext-link">
+                  <span>Doc Oficial MikroTik Routing</span>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+                <a href="https://forum.mikrotik.com/" target="_blank" rel="noopener" class="prompt-ext-link">
+                  <span>Comunidad Oficial MikroTik Forum</span>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
+            </article>
 
+          </div>
+
+          <!-- Disclaimer de Prompts & IA -->
+          <div class="spectrum-disclaimer-note" style="margin-top: 24px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffaa00" stroke-width="2" style="flex-shrink: 0; margin-top: 1px;"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <div>
+              <strong>Aviso sobre Configuraciones Generadas por Inteligencia Artificial:</strong> Los prompts de ingeniería aquí provistos exigen al modelo interactuar mediante preguntas para recopilar parámetros reales y minimizar alucinaciones sintácticas. Sin embargo, ningún script generado por modelos de IA debe aplicarse directamente sobre enrutadores, firewalls o hipervisores en producción sin una auditoría técnica previa en un entorno de laboratorio o staging. WebServi no se responsabiliza por cortes de servicio, fallas de enrutamiento o pérdidas de conectividad derivadas del uso de configuraciones no verificadas.
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1863,69 +2375,226 @@ Requisitos de ingeniería:
     <!-- SECTION 5: ENLACES RÁPIDOS DE DIAGNÓSTICO EXTERNO -->
     <section class="recursos-section dark-alt" id="modulo-utilidades">
       <div class="wrap">
-        <div class="section-heading">
+        <div class="section-heading collapsible-heading" role="button" tabindex="0" aria-expanded="true">
           <div class="eyebrow-chip">
             <span class="chip-accent">SUITE DE RED EXTERNA</span>
-            <span>DIAGNÓSTICO EN VIVO</span>
+            <span>DIAGNÓSTICO EN VIVO AGRUPADO</span>
           </div>
           <h2>Enlaces Rápidos para Pruebas y Diagnóstico</h2>
-          <p>Herramientas mundiales seleccionadas para verificar propagación DNS, reputación IP, registros MX y auditoría BGP.</p>
+          <p>Herramientas y plataformas globales clasificadas por especialidad para verificar propagación DNS, reputación de correo, listas negras RBL, escaneo de puertos y auditoría BGP.</p>
+          <div class="section-toggle-btn">
+            <span class="toggle-status-text">Comprimir Módulo</span>
+            <span class="toggle-arrow">▼</span>
+          </div>
         </div>
 
-        <div class="tools-quick-grid">
-          <a href="https://dnschecker.org/" target="_blank" rel="noopener" class="quick-tool-card">
-            <div class="qt-header">
-              <span class="qt-icon">🌐</span>
-              <span class="qt-title">DNS Checker</span>
-            </div>
-            <p class="qt-desc">Verifique la propagación global de registros A, CNAME, MX y TXT en más de 25 servidores raíz mundiales.</p>
-            <span class="qt-link">Abrir dnschecker.org &rarr;</span>
-          </a>
+        <div class="section-collapsible-body">
 
-          <a href="https://mxtoolbox.com/" target="_blank" rel="noopener" class="quick-tool-card">
-            <div class="qt-header">
-              <span class="qt-icon">✉️</span>
-              <span class="qt-title">MXToolbox</span>
-            </div>
-            <p class="qt-desc">Diagnóstico de entrega de correo, validación de SPF, DKIM, DMARC y chequeo en más de 100 listas negras (RBL).</p>
-            <span class="qt-link">Abrir mxtoolbox.com &rarr;</span>
-          </a>
+          <!-- GRUPO 1: EMAIL & LISTAS NEGRAS (RBL) -->
+          <div class="diag-group-wrap">
+            <h3 class="diag-group-title">
+              <span class="diag-group-icon">✉️</span>
+              <span>1. Diagnóstico de Correo Electrónico, Entregabilidad & Listas Negras (RBL)</span>
+            </h3>
+            <div class="tools-quick-grid">
+              
+              <a href="https://mxtoolbox.com/" target="_blank" rel="noopener" class="quick-tool-card">
+                <div class="qt-header">
+                  <span class="qt-icon">📬</span>
+                  <span class="qt-title">MXToolbox</span>
+                </div>
+                <p class="qt-desc">Diagnóstico integral de registros MX, SPF, DKIM, DMARC y consulta simultánea en más de 100 listas negras (RBL).</p>
+                <span class="qt-link">Abrir mxtoolbox.com &rarr;</span>
+              </a>
 
-          <a href="https://bgp.he.net/" target="_blank" rel="noopener" class="quick-tool-card">
-            <div class="qt-header">
-              <span class="qt-icon">🛣️</span>
-              <span class="qt-title">Hurricane Electric BGP</span>
-            </div>
-            <p class="qt-desc">Consulte números de Sistema Autónomo (ASN), prefijos BGP, vecinos de tránsito y peering de ISPs en Bolivia.</p>
-            <span class="qt-link">Abrir bgp.he.net &rarr;</span>
-          </a>
+              <a href="https://www.mail-tester.com/" target="_blank" rel="noopener" class="quick-tool-card">
+                <div class="qt-header">
+                  <span class="qt-icon">🧪</span>
+                  <span class="qt-title">Mail-Tester</span>
+                </div>
+                <p class="qt-desc">Prueba de puntuación antispam en tiempo real enviando un email de prueba; detecta fallos en firmas DKIM y cabeceras.</p>
+                <span class="qt-link">Abrir mail-tester.com &rarr;</span>
+              </a>
 
-          <a href="https://www.shodan.io/" target="_blank" rel="noopener" class="quick-tool-card">
-            <div class="qt-header">
-              <span class="qt-icon">🔍</span>
-              <span class="qt-title">Shodan Search</span>
-            </div>
-            <p class="qt-desc">Auditoría de puertos abiertos, servicios expuestos y vulnerabilidades públicas en sus IPs de borde.</p>
-            <span class="qt-link">Abrir shodan.io &rarr;</span>
-          </a>
+              <a href="https://check.spamhaus.org/" target="_blank" rel="noopener" class="quick-tool-card">
+                <div class="qt-header">
+                  <span class="qt-icon">🛡️</span>
+                  <span class="qt-title">Spamhaus IP & Domain Lookup</span>
+                </div>
+                <p class="qt-desc">Verifique si su IP WAN o dominio se encuentra listado en las bases de datos ZEN, SBL, XBL o PBL de Spamhaus.</p>
+                <span class="qt-link">Abrir check.spamhaus.org &rarr;</span>
+              </a>
 
-          <a href="https://www.lacnic.net/" target="_blank" rel="noopener" class="quick-tool-card">
-            <div class="qt-header">
-              <span class="qt-icon">📋</span>
-              <span class="qt-title">LACNIC Whois</span>
-            </div>
-            <p class="qt-desc">Registro oficial de asignación de bloques IPv4/IPv6 y ASNs para América Latina y el Caribe.</p>
-            <span class="qt-link">Abrir lacnic.net &rarr;</span>
-          </a>
+              <a href="https://dmarcian.com/dmarc-inspector/" target="_blank" rel="noopener" class="quick-tool-card">
+                <div class="qt-header">
+                  <span class="qt-icon">📊</span>
+                  <span class="qt-title">DMARCian Inspector</span>
+                </div>
+                <p class="qt-desc">Auditoría visual de registros DMARC, alineación de dominios y recomendaciones para pasar de política 'none' a 'reject'.</p>
+                <span class="qt-link">Abrir dmarcian.com &rarr;</span>
+              </a>
 
-          <a href="https://www.speedtest.net/" target="_blank" rel="noopener" class="quick-tool-card">
-            <div class="qt-header">
-              <span class="qt-icon">⚡</span>
-              <span class="qt-title">Speedtest by Ookla</span>
+              <a href="https://www.barracudacentral.org/lookups" target="_blank" rel="noopener" class="quick-tool-card">
+                <div class="qt-header">
+                  <span class="qt-icon">🐟</span>
+                  <span class="qt-title">Barracuda Central Reputation</span>
+                </div>
+                <p class="qt-desc">Consulta de reputación de direcciones IP en el sistema de reputación Barracuda Reputation Network (BRBL).</p>
+                <span class="qt-link">Abrir barracudacentral.org &rarr;</span>
+              </a>
+
             </div>
-            <p class="qt-desc">Test de ancho de banda, latencia y jitter hacia nodos locales de Tigo, Entel y AXS en Bolivia.</p>
-            <span class="qt-link">Abrir speedtest.net &rarr;</span>
-          </a>
+          </div>
+
+          <!-- GRUPO 2: ESCANEO DE PUERTOS, NAT & FIREWALL PERIMETRAL -->
+          <div class="diag-group-wrap">
+            <h3 class="diag-group-title">
+              <span class="diag-group-icon">🚪</span>
+              <span>2. Escaneo de Puertos, Reenvío NAT & Seguridad Perimetral</span>
+            </h3>
+            <div class="tools-quick-grid">
+
+              <a href="https://www.yougetsignal.com/tools/open-ports/" target="_blank" rel="noopener" class="quick-tool-card">
+                <div class="qt-header">
+                  <span class="qt-icon">📡</span>
+                  <span class="qt-title">YouGetSignal Port Forward</span>
+                </div>
+                <p class="qt-desc">Verifica si un puerto específico (ej. WinBox 8291, Web 80/443, RDP 3389) está correctamente abierto hacia internet en su IP WAN.</p>
+                <span class="qt-link">Abrir yougetsignal.com &rarr;</span>
+              </a>
+
+              <a href="https://canyouseeme.org/" target="_blank" rel="noopener" class="quick-tool-card">
+                <div class="qt-header">
+                  <span class="qt-icon">👁️</span>
+                  <span class="qt-title">CanYouSeeMe.org</span>
+                </div>
+                <p class="qt-desc">Herramienta clásica y ultraligera para verificar servicios activos detrás de NAT o si el ISP está bloqueando puertos entrantes.</p>
+                <span class="qt-link">Abrir canyouseeme.org &rarr;</span>
+              </a>
+
+              <a href="https://www.grc.com/shieldsup" target="_blank" rel="noopener" class="quick-tool-card">
+                <div class="qt-header">
+                  <span class="qt-icon">🛡️</span>
+                  <span class="qt-title">GRC ShieldsUP!</span>
+                </div>
+                <p class="qt-desc">Auditoría perimetral de sigilo de puertos (True Stealth Analysis) para verificar si su router responde a paquetes ICMP o sondas.</p>
+                <span class="qt-link">Abrir grc.com/shieldsup &rarr;</span>
+              </a>
+
+              <a href="https://pentest-tools.com/network-vulnerability-scanning/tcp-port-scanner-online-nmap" target="_blank" rel="noopener" class="quick-tool-card">
+                <div class="qt-header">
+                  <span class="qt-icon">🔬</span>
+                  <span class="qt-title">Pentest-Tools Nmap Scanner</span>
+                </div>
+                <p class="qt-desc">Escáner Nmap online para detectar servicios perimetrales, versiones de software y posibles brechas de configuración.</p>
+                <span class="qt-link">Abrir pentest-tools.com &rarr;</span>
+              </a>
+
+            </div>
+          </div>
+
+          <!-- GRUPO 3: DNS GLOBAL, ENRUTAMIENTO BGP & PREFIJOS LACNIC -->
+          <div class="diag-group-wrap">
+            <h3 class="diag-group-title">
+              <span class="diag-group-icon">🌐</span>
+              <span>3. Propagación DNS, Enrutamiento BGP & Registro LACNIC</span>
+            </h3>
+            <div class="tools-quick-grid">
+
+              <a href="https://dnschecker.org/" target="_blank" rel="noopener" class="quick-tool-card">
+                <div class="qt-header">
+                  <span class="qt-icon">🗺️</span>
+                  <span class="qt-title">DNS Checker Global</span>
+                </div>
+                <p class="qt-desc">Verifique la propagación mundial de registros A, AAAA, CNAME, MX, TXT y NS en más de 30 servidores DNS en todos los continentes.</p>
+                <span class="qt-link">Abrir dnschecker.org &rarr;</span>
+              </a>
+
+              <a href="https://intodns.com/" target="_blank" rel="noopener" class="quick-tool-card">
+                <div class="qt-header">
+                  <span class="qt-icon">🩺</span>
+                  <span class="qt-title">IntoDNS Health Check</span>
+                </div>
+                <p class="qt-desc">Auditoría exhaustiva de configuración de servidores de nombres: detecta servidores NS no sincronizados, Glue records y errores SOA.</p>
+                <span class="qt-link">Abrir intodns.com &rarr;</span>
+              </a>
+
+              <a href="https://bgp.he.net/" target="_blank" rel="noopener" class="quick-tool-card">
+                <div class="qt-header">
+                  <span class="qt-icon">🛣️</span>
+                  <span class="qt-title">Hurricane Electric BGP Toolkit</span>
+                </div>
+                <p class="qt-desc">Consulte sistemas autónomos (ASNs), prefijos anunciados, peers, proveedores de tránsito upstream y puntos IXP de Bolivia y el mundo.</p>
+                <span class="qt-link">Abrir bgp.he.net &rarr;</span>
+              </a>
+
+              <a href="https://www.lacnic.net/" target="_blank" rel="noopener" class="quick-tool-card">
+                <div class="qt-header">
+                  <span class="qt-icon">📋</span>
+                  <span class="qt-title">LACNIC Whois / RDAP</span>
+                </div>
+                <p class="qt-desc">Base de datos de asignación oficial de bloques IPv4, IPv6 y ASN para organizaciones y proveedores en Bolivia y América Latina.</p>
+                <span class="qt-link">Abrir lacnic.net &rarr;</span>
+              </a>
+
+            </div>
+          </div>
+
+          <!-- GRUPO 4: SEGURIDAD WEB, CERTIFICADOS SSL & OSINT -->
+          <div class="diag-group-wrap">
+            <h3 class="diag-group-title">
+              <span class="diag-group-icon">🔒</span>
+              <span>4. Seguridad Web, Certificados SSL/TLS & Inteligencia OSINT</span>
+            </h3>
+            <div class="tools-quick-grid">
+
+              <a href="https://www.ssllabs.com/ssltest/" target="_blank" rel="noopener" class="quick-tool-card">
+                <div class="qt-header">
+                  <span class="qt-icon">📜</span>
+                  <span class="qt-title">Qualys SSL Labs</span>
+                </div>
+                <p class="qt-desc">El estándar de oro para calificar servidores web seguros (calificación A+ a F), cipher suites, soporte TLS 1.3 y caducidad de certificados.</p>
+                <span class="qt-link">Abrir ssllabs.com &rarr;</span>
+              </a>
+
+              <a href="https://www.shodan.io/" target="_blank" rel="noopener" class="quick-tool-card">
+                <div class="qt-header">
+                  <span class="qt-icon">🔍</span>
+                  <span class="qt-title">Shodan Search Engine</span>
+                </div>
+                <p class="qt-desc">Motor de búsqueda de infraestructura conectada: permite revisar qué banners de servicio y puertos de su IP pública están indexados.</p>
+                <span class="qt-link">Abrir shodan.io &rarr;</span>
+              </a>
+
+              <a href="https://www.virustotal.com/" target="_blank" rel="noopener" class="quick-tool-card">
+                <div class="qt-header">
+                  <span class="qt-icon">🦠</span>
+                  <span class="qt-title">VirusTotal</span>
+                </div>
+                <p class="qt-desc">Analice URLs, dominios e IPs públicas sospechosas contra más de 70 motores antivirus y feeds de amenazas de ciberseguridad.</p>
+                <span class="qt-link">Abrir virustotal.com &rarr;</span>
+              </a>
+
+              <a href="https://www.abuseipdb.com/" target="_blank" rel="noopener" class="quick-tool-card">
+                <div class="qt-header">
+                  <span class="qt-icon">🚨</span>
+                  <span class="qt-title">AbuseIPDB</span>
+                </div>
+                <p class="qt-desc">Directorio colaborativo de reputación de IPs: verifique si una IP remota ha sido reportada por ataques de fuerza bruta, spam o hacking.</p>
+                <span class="qt-link">Abrir abuseipdb.com &rarr;</span>
+              </a>
+
+            </div>
+          </div>
+
+          <!-- Disclaimer de Herramientas Externas -->
+          <div class="spectrum-disclaimer-note" style="margin-top: 24px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffaa00" stroke-width="2" style="flex-shrink: 0; margin-top: 1px;"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <div>
+              <strong>Aviso sobre Servicios y Plataformas de Diagnóstico Externos:</strong> Las herramientas enlazadas son propiedad de terceros independientes y operan bajo sus propios términos de servicio y políticas de privacidad. WebServi no almacena consultas ni se responsabiliza por la exactitud de los diagnósticos, bloqueos de IP o cambios de disponibilidad de estos servicios.
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

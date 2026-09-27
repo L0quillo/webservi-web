@@ -2580,6 +2580,37 @@ body {
   line-height: 1.5;
 }
 
+.prompt-links-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+.prompt-ext-link {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--tech-cyan);
+  text-decoration: none;
+  background: rgba(0, 210, 255, 0.08);
+  border: 1px solid rgba(0, 210, 255, 0.2);
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: var(--transition);
+}
+
+.prompt-ext-link:hover {
+  background: rgba(0, 210, 255, 0.2);
+  border-color: var(--tech-cyan);
+  color: #fff;
+}
+
 .prompt-box {
   background: #040914;
   border: 1px solid rgba(0, 210, 255, 0.2);
@@ -2966,6 +2997,11 @@ body {
 .badge-cotas { background: linear-gradient(135deg, #004d26, #008040); border: 1px solid #00cc66; }
 .badge-viva { background: linear-gradient(135deg, #2a0845, #6441a5); border: 1px solid #9b59b6; }
 .badge-comteco { background: linear-gradient(135deg, #0d3b66, #005f73); border: 1px solid #0a9396; }
+.badge-cotel { background: linear-gradient(135deg, #6c3483, #8e44ad); border: 1px solid #bb8fce; }
+.badge-coteor { background: linear-gradient(135deg, #b7950b, #d4ac0d); border: 1px solid #f7dc6f; color: #000 !important; font-weight: 800; }
+.badge-cotepo { background: linear-gradient(135deg, #78281f, #922b21); border: 1px solid #c0392b; }
+.badge-cosett { background: linear-gradient(135deg, #117864, #148f77); border: 1px solid #48c9b0; }
+.badge-cotes { background: linear-gradient(135deg, #1f618d, #2471a3); border: 1px solid #5499c7; }
 .badge-publicos { background: linear-gradient(135deg, #112233, #224466); border: 1px solid var(--tech-cyan); }
 
 .operadora-name {
@@ -3099,6 +3135,18 @@ body {
 
 .normativa-table tr:hover td {
   background: rgba(0, 210, 255, 0.04);
+}
+
+.normativa-table tr.table-group-header td {
+  background: rgba(0, 210, 255, 0.08) !important;
+  color: var(--tech-cyan) !important;
+  font-family: var(--font-heading) !important;
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+  padding: 10px 18px !important;
+  border-top: 1px solid rgba(0, 210, 255, 0.25) !important;
+  border-bottom: 1px solid rgba(0, 210, 255, 0.25) !important;
 }
 
 .channel-badge-pill {
@@ -3539,6 +3587,183 @@ body {
   font-size: 0.78rem;
   color: var(--text-secondary);
   line-height: 1.45;
+}
+
+/* ==========================================
+   ACCORDION & COLLAPSIBLE MODULES
+   ========================================== */
+.toolbox-accordion-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.btn-accordion-all {
+  background: rgba(14, 30, 56, 0.8);
+  border: 1px solid var(--border-subtle);
+  color: var(--tech-cyan);
+  padding: 7px 16px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition);
+}
+
+.btn-accordion-all:hover {
+  background: rgba(0, 210, 255, 0.15);
+  border-color: var(--tech-cyan);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.accordion-hint {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  width: 100%;
+  text-align: center;
+}
+
+.collapsible-heading {
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  transition: var(--transition);
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  margin-bottom: 28px;
+}
+
+.collapsible-heading:hover {
+  background: rgba(0, 210, 255, 0.04);
+}
+
+.section-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(14, 32, 60, 0.85);
+  border: 1px solid var(--border-subtle);
+  color: var(--tech-cyan);
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.74rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  margin-top: 10px;
+  transition: var(--transition);
+}
+
+.section-toggle-btn:hover {
+  border-color: var(--tech-cyan);
+  background: rgba(0, 210, 255, 0.15);
+  color: #fff;
+}
+
+.toggle-arrow {
+  display: inline-block;
+  transition: transform 0.25s ease;
+  font-size: 0.8rem;
+}
+
+.recursos-section.collapsed {
+  padding: 16px 0 !important;
+}
+
+.recursos-section.collapsed .collapsible-heading {
+  margin-bottom: 0 !important;
+  background: rgba(10, 22, 44, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px 20px;
+}
+
+.recursos-section.collapsed .collapsible-heading p {
+  display: none !important;
+}
+
+.recursos-section.collapsed .collapsible-heading h2 {
+  font-size: 1.15rem !important;
+  margin-bottom: 2px !important;
+}
+
+.recursos-section.collapsed .collapsible-heading .eyebrow-chip {
+  margin-bottom: 6px !important;
+}
+
+.recursos-section.collapsed .section-collapsible-body {
+  display: none !important;
+}
+
+.recursos-section.collapsed .toggle-arrow {
+  transform: rotate(-90deg);
+}
+
+/* ==========================================
+   DIAGNOSTIC & RFC 1918 SUB-PANELS
+   ========================================== */
+.diag-group-wrap {
+  margin-bottom: 30px;
+}
+
+.diag-group-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--tech-cyan);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0, 210, 255, 0.15);
+}
+
+.ip-rules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.ip-rule-card {
+  background: rgba(10, 22, 42, 0.6);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ip-rule-range {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--tech-green);
+}
+
+.ip-rule-title {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.ip-rule-desc {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin: 0;
 }
 
 
