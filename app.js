@@ -392,7 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
           badge: { text: "DEMO EN VIVO", type: "recommended" },
           desc: "Consola de visualización de sensores industriales y telemetría de campo WebServi:",
           buttons: [
-            { text: "Abrir Demo IoT Industrial (ThingsBoard)", url: "https://board1.iot.webservi.net/demo", primary: true },
+            { text: "Abrir Demo IoT Industrial (ThingsBoard)", url: "https://board1.iot.webservi.net/demo/", primary: true },
             { text: "Ingresar a ThingsBoard Cloud", url: "https://thingsboard.cloud/", primary: false }
           ]
         }
