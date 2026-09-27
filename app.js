@@ -1253,7 +1253,7 @@ document.addEventListener('DOMContentLoaded', () => {
           chatHistory.push({ isUser: false, text: reply });
 
           if (data.leadDispatched) {
-            appendAiMessage('🔔 Hemos notificado tu consulta al equipo de ingeniería de WebServi. Lucas puede responderte directamente en este mismo chat en cualquier momento.', false);
+            appendAiMessage('🔔 Hemos avisado a Lucas, puede responderte por aquí en directo. Si gustas, déjanos tu WhatsApp o datos de contacto.', false);
           }
           return;
         }
