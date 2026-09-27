@@ -117,7 +117,8 @@
         <!-- Quick Jump Pills -->
         <div class="recursos-nav-pills">
           <a href="#modulo-speedtest" class="pill-link" style="border-color: rgba(0, 210, 255, 0.4); color: var(--tech-cyan);">⚡ Test Ping & Velocidad</a>
-          <a href="#modulo-operadoras-bo" class="pill-link">🇧🇴 Operadoras Bolivia (DNS/APN/Bandas)</a>
+          <a href="#modulo-operadoras-bo" class="pill-link">🇧🇴 Operadoras Bolivia</a>
+          <a href="#modulo-dns-ntp" class="pill-link">⏱️ Mejores DNS & NTP</a>
           <a href="#modulo-normativa-wifi" class="pill-link">📻 Frecuencias & Canales ATT</a>
           <a href="#modulo-simuladores-link" class="pill-link">🛰️ Simuladores Enlaces & Wi-Fi</a>
           <a href="#modulo-marcas" class="pill-link">📡 Plataformas & Firmware</a>
@@ -234,6 +235,92 @@
             </div>
 
           </div>
+
+          <!-- Speedtest Disclaimer Notice -->
+          <div class="speedtest-disclaimer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <div>
+              <strong>Aviso Técnico de Precisión:</strong> Esta medición es de <strong>referencia rápida en el navegador</strong> y no es del todo confiable para certificar un enlace por falta de una plataforma de servidores locales especializados y dedicados por ISP. El rendimiento web depende del hilo de JavaScript y la cola de conexiones del navegador. Para auditorías formales de ancho de banda, utilice los medidores certificados enlazados abajo.
+            </div>
+          </div>
+
+          <!-- Live Network, IP WAN & NAT Topology Detection -->
+          <div class="ip-network-detect-box">
+            <div class="detect-item">
+              <span class="detect-label">IP WAN Pública (Internet):</span>
+              <span class="detect-val" id="detectedWanIp">Consultando...</span>
+            </div>
+            <div class="detect-item">
+              <span class="detect-label">Operador / Red Estimada:</span>
+              <span class="detect-val" id="detectedIsp">Consultando...</span>
+            </div>
+            <div class="detect-item">
+              <span class="detect-label">IP Local LAN (WebRTC Host):</span>
+              <span class="detect-val" id="detectedLanIp">Detectando...</span>
+            </div>
+            <div class="detect-item">
+              <span class="detect-label">Diagnóstico de NAT / CGNAT:</span>
+              <div id="detectedNatWrap">
+                <span class="cgnat-badge public" id="detectedNatStatus">Evaluando Topología...</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Desplegable: Guía Rápida de Buen Uso -->
+          <details class="speedtest-guide-accordion">
+            <summary>📋 Guía Rápida de Buen Uso: Cómo Medir la Velocidad con Precisión</summary>
+            <div class="speedtest-guide-content">
+              <p style="margin-top: 12px; margin-bottom: 8px;">Para validar el ancho de banda real contratado con su proveedor de internet (Entel, Tigo, AXS o Cotas) sin falsos negativos, siga estas pautas:</p>
+              <ol class="guide-steps-list">
+                <li><strong>Conexión física por cable (imprescindible):</strong> Conecte su computadora con un cable Ethernet Gigabit (Cat 5e o Cat 6) directo al router principal del ISP. Medir por Wi-Fi evalúa la atenuación del aire y las paredes, no la capacidad del enlace.</li>
+                <li><strong>Detenga descargas y sincronizaciones en segundo plano:</strong> Pause OneDrive, Google Drive, Dropbox, Windows Update, launchers de videojuegos (Steam, Epic) y programas torrent antes de iniciar.</li>
+                <li><strong>Aísle la red durante la medición:</strong> Verifique que no haya otros usuarios transmitiendo video en 4K (Netflix, YouTube), realizando videollamadas o cámaras de seguridad subiendo flujo continuo a la nube.</li>
+                <li><strong>Si debe medir por Wi-Fi obligatoriamente:</strong> Sitúese a 1 o 2 metros del Access Point con línea de vista directa y confirme estar conectado en la banda de <strong>5 GHz (canal 149-165)</strong>. Nunca mida en 2.4 GHz.</li>
+                <li><strong>Compare hora pico vs hora valle:</strong> Mida en la mañana (07:00 a 11:00) y compárelo con la hora de mayor congestión nocturna (19:30 a 22:30) para diagnosticar si la baja velocidad proviene de saturación del nodo del operador.</li>
+              </ol>
+            </div>
+          </details>
+
+          <!-- Enlaces a los Mejores Medidores de Velocidad Especializados -->
+          <div style="margin-top: 24px;">
+            <div style="font-family: var(--font-heading); font-size: 0.88rem; font-weight: 700; color: #fff; margin-bottom: 4px; display: flex; align-items: center; gap: 8px;">
+              <span>🚀 PLATAFORMAS ESPECIALIZADAS DE MEDICIÓN RECOMENDADAS:</span>
+            </div>
+            <div class="speed-providers-grid">
+              <a href="https://www.speedtest.net/" target="_blank" rel="noopener" class="speed-provider-card">
+                <div class="provider-name">
+                  <span>Speedtest by Ookla</span>
+                  <span style="color: var(--tech-cyan);">↗</span>
+                </div>
+                <span class="provider-desc">La red global líder con servidores de prueba en Santa Cruz, La Paz y Cochabamba de Entel, Tigo y AXS.</span>
+              </a>
+
+              <a href="https://www.nperf.com/" target="_blank" rel="noopener" class="speed-provider-card">
+                <div class="provider-name">
+                  <span>nPerf Speed & Stream</span>
+                  <span style="color: var(--tech-cyan);">↗</span>
+                </div>
+                <span class="provider-desc">Evalúa ancho de banda, tasa de streaming en YouTube y rendimiento de carga de páginas web.</span>
+              </a>
+
+              <a href="https://fast.com/" target="_blank" rel="noopener" class="speed-provider-card">
+                <div class="provider-name">
+                  <span>Fast.com (Netflix)</span>
+                  <span style="color: var(--tech-cyan);">↗</span>
+                </div>
+                <span class="provider-desc">Test directo contra servidores CDN de Netflix para comprobar si el ISP aplica estrangulamiento de tráfico.</span>
+              </a>
+
+              <a href="https://speed.cloudflare.com/" target="_blank" rel="noopener" class="speed-provider-card">
+                <div class="provider-name">
+                  <span>Cloudflare Speed</span>
+                  <span style="color: var(--tech-cyan);">↗</span>
+                </div>
+                <span class="provider-desc">La auditoría más rigurosa: evalúa Bufferbloat (latencia bajo carga pesada), jitter y pérdida de paquetes.</span>
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -902,6 +989,184 @@
       </div>
     </section>
 
+    <!-- SECTION: MEJORES SERVIDORES DNS Y SERVIDORES NTP (HORA OFICIAL) -->
+    <section class="recursos-section" id="modulo-dns-ntp">
+      <div class="wrap">
+        <div class="section-heading">
+          <div class="eyebrow-chip">
+            <span class="chip-accent">SINCRONIZACIÓN & RESOLUCIÓN</span>
+            <span>RECURSOS CRÍTICOS IT</span>
+          </div>
+          <h2>Mejores Servidores DNS Públicos & Servidores NTP</h2>
+          <p>Direcciones oficiales para sincronización horaria en grabadores CCTV / NVRs y routers, junto al directorio de DNS públicos con filtrado de malware y protección familiar.</p>
+        </div>
+
+        <!-- 1. Servidores NTP -->
+        <div style="margin-bottom: 32px;">
+          <div style="font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+            <span>⏱️ SERVIDORES DE HORA NTP (NETWORK TIME PROTOCOL):</span>
+          </div>
+          <p style="font-size: 0.84rem; color: var(--text-secondary); margin-bottom: 14px; line-height: 1.55;">
+            Configure estos servidores en el menú SNTP/NTP de sus routers MikroTik, firewalls y grabadores CCTV. 
+            <strong style="color: var(--tech-cyan);">Importancia legal en CCTV:</strong> Si un NVR tiene la fecha u hora desfasada, el video pierde validez pericial y probatoria ante la fiscalía o juzgados. 
+            <strong style="color: var(--tech-green);">En Servidores y Redes:</strong> Una desviación horaria superior a 300 segundos invalida la negociación de certificados SSL/TLS (HTTPS) y autenticaciones Kerberos / RADIUS.
+          </p>
+
+          <div class="ntp-servers-grid">
+
+            <div class="ntp-server-card">
+              <div class="ntp-header">
+                <span class="ntp-title">Pool Oficial Bolivia (NTP.org)</span>
+                <span class="channel-badge-pill">Local BO</span>
+              </div>
+              <p style="font-size: 0.78rem; color: var(--text-secondary); margin: 0;">Servidores geolocalizados de baja latencia dentro del territorio boliviano.</p>
+              <div class="ntp-address-box">
+                <code>bo.pool.ntp.org</code>
+                <button class="btn-mini-copy" data-copy="bo.pool.ntp.org">Copiar</button>
+              </div>
+            </div>
+
+            <div class="ntp-server-card">
+              <div class="ntp-header">
+                <span class="ntp-title">Pool Sudamérica</span>
+                <span class="channel-badge-pill">Regional</span>
+              </div>
+              <p style="font-size: 0.78rem; color: var(--text-secondary); margin: 0;">Respaldo continental redundante para routers y switches perimetrales.</p>
+              <div class="ntp-address-box">
+                <code>south-america.pool.ntp.org</code>
+                <button class="btn-mini-copy" data-copy="south-america.pool.ntp.org">Copiar</button>
+              </div>
+            </div>
+
+            <div class="ntp-server-card">
+              <div class="ntp-header">
+                <span class="ntp-title">Google Public NTP</span>
+                <span class="channel-badge-pill">Leap Smear</span>
+              </div>
+              <p style="font-size: 0.78rem; color: var(--text-secondary); margin: 0;">Ajuste suave de segundos intercalares (evita saltos bruscos en bases de datos).</p>
+              <div class="ntp-address-box">
+                <code>time.google.com</code>
+                <button class="btn-mini-copy" data-copy="time.google.com">Copiar</button>
+              </div>
+            </div>
+
+            <div class="ntp-server-card">
+              <div class="ntp-header">
+                <span class="ntp-title">Cloudflare Time (NTS)</span>
+                <span class="channel-badge-pill">Anycast + Cifrado</span>
+              </div>
+              <p style="font-size: 0.78rem; color: var(--text-secondary); margin: 0;">Soporta Network Time Security contra ataques de spoofing y alteración de hora.</p>
+              <div class="ntp-address-box">
+                <code>time.cloudflare.com</code>
+                <button class="btn-mini-copy" data-copy="time.cloudflare.com">Copiar</button>
+              </div>
+            </div>
+
+            <div class="ntp-server-card">
+              <div class="ntp-header">
+                <span class="ntp-title">Microsoft Windows Time</span>
+                <span class="channel-badge-pill">Windows Def</span>
+              </div>
+              <p style="font-size: 0.78rem; color: var(--text-secondary); margin: 0;">Servidor por defecto para sincronización de Active Directory y estaciones Windows.</p>
+              <div class="ntp-address-box">
+                <code>time.windows.com</code>
+                <button class="btn-mini-copy" data-copy="time.windows.com">Copiar</button>
+              </div>
+            </div>
+
+            <div class="ntp-server-card">
+              <div class="ntp-header">
+                <span class="ntp-title">Pool Global Redundante</span>
+                <span class="channel-badge-pill">Anycast Mundial</span>
+              </div>
+              <p style="font-size: 0.78rem; color: var(--text-secondary); margin: 0;">Clúster abierto con miles de servidores atómicos sincronizados por GPS.</p>
+              <div class="ntp-address-box">
+                <code>pool.ntp.org</code>
+                <button class="btn-mini-copy" data-copy="pool.ntp.org">Copiar</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 2. Comparativa de Mejores DNS Públicos -->
+        <div>
+          <div style="font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 8px;">
+            🌐 DIRECTORIO DE LOS MEJORES SERVIDORES DNS MUNDIALES:
+          </div>
+          <p style="font-size: 0.84rem; color: var(--text-secondary); margin-bottom: 14px;">
+            Haga clic en cualquier dirección IP para copiarla al portapapeles y configurarla en su router MikroTik, servidor DHCP o placa de red.
+          </p>
+
+          <div class="normativa-table-container">
+            <table class="normativa-table">
+              <thead>
+                <tr>
+                  <th>Proveedor</th>
+                  <th>IP Primaria (IPv4)</th>
+                  <th>IP Secundaria (IPv4)</th>
+                  <th>Características & Enfoque</th>
+                  <th>Cifrado (DoH / DoT)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Cloudflare Estándar</strong></td>
+                  <td><span class="dns-pill" data-copy="1.1.1.1">1.1.1.1 📋</span></td>
+                  <td><span class="dns-pill" data-copy="1.0.0.1">1.0.0.1 📋</span></td>
+                  <td>El más veloz en Bolivia (Anycast en La Paz/SP). Sin registros de rastreo.</td>
+                  <td><span class="channel-badge-pill">DoH / DoT / Quic</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Cloudflare Seguridad</strong></td>
+                  <td><span class="dns-pill" data-copy="1.1.1.2">1.1.1.2 📋</span></td>
+                  <td><span class="dns-pill" data-copy="1.0.0.2">1.0.0.2 📋</span></td>
+                  <td>Bloqueo automático de dominios de Malware, Phishing y C&C.</td>
+                  <td><span class="channel-badge-pill">DoH / DoT</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Cloudflare Familia</strong></td>
+                  <td><span class="dns-pill" data-copy="1.1.1.3">1.1.1.3 📋</span></td>
+                  <td><span class="dns-pill" data-copy="1.0.0.3">1.0.0.3 📋</span></td>
+                  <td>Bloqueo de Malware + Filtro estricto de contenido para adultos (ideal hogares/colegios).</td>
+                  <td><span class="channel-badge-pill">DoH / DoT</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Google Public DNS</strong></td>
+                  <td><span class="dns-pill" data-copy="8.8.8.8">8.8.8.8 📋</span></td>
+                  <td><span class="dns-pill" data-copy="8.8.4.4">8.8.4.4 📋</span></td>
+                  <td>Máxima resiliencia y estabilidad global con caché Anycast masivo.</td>
+                  <td><span class="channel-badge-pill">DoH / DoT</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Quad9 (Suiza)</strong></td>
+                  <td><span class="dns-pill" data-copy="9.9.9.9">9.9.9.9 📋</span></td>
+                  <td><span class="dns-pill" data-copy="149.112.112.112">149.112.112.112 📋</span></td>
+                  <td>Inteligencia contra ciberamenazas de 18 CERTs globales. No almacena logs personales.</td>
+                  <td><span class="channel-badge-pill">DoH / DoT / DNSCrypt</span></td>
+                </tr>
+                <tr>
+                  <td><strong>AdGuard DNS</strong></td>
+                  <td><span class="dns-pill" data-copy="94.140.14.14">94.140.14.14 📋</span></td>
+                  <td><span class="dns-pill" data-copy="94.140.15.15">94.140.15.15 📋</span></td>
+                  <td>Bloqueo de anuncios publicitarios y rastreadores a nivel DNS en toda la red.</td>
+                  <td><span class="channel-badge-pill">DoH / DoT / DoQ</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Cisco OpenDNS Home</strong></td>
+                  <td><span class="dns-pill" data-copy="208.67.222.222">208.67.222.222 📋</span></td>
+                  <td><span class="dns-pill" data-copy="208.67.220.220">208.67.220.220 📋</span></td>
+                  <td>Filtrado web personalizable y protección contra fraude cibernético.</td>
+                  <td><span class="channel-badge-pill">DoH / DNSCrypt</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- SECTION: NORMATIVAS ATT BOLIVIA: FRECUENCIAS Y CANALES WIFI -->
     <section class="recursos-section dark-alt" id="modulo-normativa-wifi">
       <div class="wrap">
@@ -1010,30 +1275,75 @@
             </ul>
           </div>
 
-          <!-- Links Oficiales de Referencia y Normativa -->
-          <div style="background: rgba(10, 22, 42, 0.5); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 18px 22px;">
-            <div style="font-family: var(--font-heading); font-size: 0.88rem; font-weight: 700; color: #fff; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
-              <span>🔗 ENLACES OFICIALES DE REFERENCIA & REGULACIÓN:</span>
+          <!-- Marco Legal & Documentos Oficiales de Referencia -->
+          <div style="background: rgba(10, 22, 42, 0.7); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 22px;">
+            <div style="font-family: var(--font-heading); font-size: 0.96rem; font-weight: 700; color: #fff; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+              <span>⚖️ MARCO LEGAL Y REGLAMENTARIO DE TELECOMUNICACIONES EN BOLIVIA:</span>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px;">
-              <a href="https://www.att.gob.bo/" target="_blank" rel="noopener" class="tool-btn subtle" style="justify-content: flex-start;">
-                <span>🏛️ Portal Oficial ATT Bolivia (Regulador)</span>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 14px;">
+              Artículos y documentos oficiales vigentes que norman el uso del espectro radioeléctrico, las potencias máximas (EIRP) y la homologación técnica en el país:
+            </p>
+
+            <div class="legal-references-grid">
+              
+              <a href="https://www.lexivox.org/norms/BO-L-N164.html" target="_blank" rel="noopener" class="legal-card">
+                <span class="legal-doc-badge">LEY NACIONAL N° 164</span>
+                <span class="legal-title">Ley General de Telecomunicaciones y TIC</span>
+                <span class="legal-articles">
+                  <strong>Art. 8 (Administración del Espectro):</strong> El Estado ejerce la administración y fiscalización privativa a través de la ATT.<br>
+                  <strong>Art. 9 (Exención de Licencias):</strong> Exime de licencia a equipos que operan en áreas reducidas y a radiadores de potencia muy baja.
+                </span>
+                <span style="font-size: 0.74rem; color: var(--tech-cyan); margin-top: auto;">Ver Ley N° 164 en Lexivox ↗</span>
               </a>
-              <a href="https://www.att.gob.bo/" target="_blank" rel="noopener" class="tool-btn subtle" style="justify-content: flex-start;">
-                <span>📻 Plan Nacional de Frecuencias (PNF)</span>
+
+              <a href="https://www.lexivox.org/norms/BO-DS-N1391.html" target="_blank" rel="noopener" class="legal-card">
+                <span class="legal-doc-badge">DECRETO SUPREMO N° 1391</span>
+                <span class="legal-title">Reglamento General de Telecomunicaciones</span>
+                <span class="legal-articles">
+                  <strong>Art. 11:</strong> Radiadores voluntarios y de muy baja potencia sin licencia.<br>
+                  <strong>Art. 12:</strong> Bandas de Frecuencia de Uso Libre (sin licencia en redes privadas; prohíbe cobro comercial al público).<br>
+                  <strong>Art. 14:</strong> Homologación técnica obligatoria de terminales ante la ATT.
+                </span>
+                <span style="font-size: 0.74rem; color: var(--tech-cyan); margin-top: auto;">Ver D.S. N° 1391 en Lexivox ↗</span>
               </a>
-              <a href="https://www.att.gob.bo/" target="_blank" rel="noopener" class="tool-btn subtle" style="justify-content: flex-start;">
-                <span>📱 Homologación de Equipos Móviles ATT</span>
+
+              <a href="https://www.att.gob.bo/" target="_blank" rel="noopener" class="legal-card">
+                <span class="legal-doc-badge">ATT · RESOLUCIÓN PNF</span>
+                <span class="legal-title">Plan Nacional de Frecuencias (PNF)</span>
+                <span class="legal-articles">
+                  <strong>Banda 2.4 GHz (2400-2483.5 MHz):</strong> Uso Libre ISM hasta 1W (30 dBm EIRP).<br>
+                  <strong>Banda 5 GHz (5150-5850 MHz):</strong> Sub-bandas U-NII, uso en interiores y requisito técnico DFS/TPC para radares aeronáuticos.
+                </span>
+                <span style="font-size: 0.74rem; color: var(--tech-cyan); margin-top: auto;">Consultar PNF en Portal ATT ↗</span>
               </a>
-              <a href="https://bgp.he.net/country/BO" target="_blank" rel="noopener" class="tool-btn subtle" style="justify-content: flex-start;">
-                <span>🇧🇴 BGP Hurricane Electric: Redes & ASNs Bolivia</span>
+
+              <a href="https://www.att.gob.bo/" target="_blank" rel="noopener" class="legal-card">
+                <span class="legal-doc-badge">ATT · HOMOLOGACIONES</span>
+                <span class="legal-title">Reglamento de Homologación de Equipos</span>
+                <span class="legal-articles">
+                  <strong>Compatibilidad Técnica:</strong> Dispone que todo terminal celular comercializado en Bolivia debe tener perfil de frecuencias certificado para operar en las bandas nacionales sin generar radiaciones espurias.
+                </span>
+                <span style="font-size: 0.74rem; color: var(--tech-cyan); margin-top: auto;">Registro de Equipos Homologados ↗</span>
               </a>
-              <a href="https://www.lacnic.net/" target="_blank" rel="noopener" class="tool-btn subtle" style="justify-content: flex-start;">
-                <span>📋 LACNIC Whois Database (IPs Oficiales)</span>
+
+              <a href="https://bgp.he.net/country/BO" target="_blank" rel="noopener" class="legal-card">
+                <span class="legal-doc-badge">BGP HURRICANE ELECTRIC</span>
+                <span class="legal-title">Prefijos BGP y ASNs de Bolivia</span>
+                <span class="legal-articles">
+                  Rastreo en tiempo real de los Sistemas Autónomos de Entel (AS27839), Tigo (AS25620), AXS (AS26066), Cotas (AS27725), Comteco (AS27728) y Cotel (AS27844).
+                </span>
+                <span style="font-size: 0.74rem; color: var(--tech-cyan); margin-top: auto;">Ver Tabla BGP Bolivia ↗</span>
               </a>
-              <a href="https://www.wi-fi.org/" target="_blank" rel="noopener" class="tool-btn subtle" style="justify-content: flex-start;">
-                <span>🌐 Wi-Fi Alliance Knowledge Base</span>
+
+              <a href="https://www.lacnic.net/" target="_blank" rel="noopener" class="legal-card">
+                <span class="legal-doc-badge">LACNIC WHOIS</span>
+                <span class="legal-title">Registro Regional de Direcciones IP</span>
+                <span class="legal-articles">
+                  Base de datos de asignación oficial de bloques IPv4/IPv6 asignados a proveedores de servicio de internet y entidades estatales en Bolivia.
+                </span>
+                <span style="font-size: 0.74rem; color: var(--tech-cyan); margin-top: auto;">Consultar Base LACNIC ↗</span>
               </a>
+
             </div>
           </div>
 

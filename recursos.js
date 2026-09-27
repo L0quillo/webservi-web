@@ -551,4 +551,170 @@ Generado en: https://www.webservi.net/recursos.html`;
     });
   });
 
+  // ==========================================
+  // 8. DETECCIÓN EN VIVO DE IP WAN, LOCAL Y TOPOLOGÍA CGNAT
+  // ==========================================
+  const detectedWanIp = document.getElementById('detectedWanIp');
+  const detectedIsp = document.getElementById('detectedIsp');
+  const detectedLanIp = document.getElementById('detectedLanIp');
+  const detectedNatStatus = document.getElementById('detectedNatStatus');
+
+  function isCgnatIp(ip) {
+    if (!ip) return false;
+    const parts = ip.split('.').map(p => parseInt(p, 10));
+    if (parts.length === 4 && parts[0] === 100 && parts[1] >= 64 && parts[1] <= 127) {
+      return true;
+    }
+    return false;
+  }
+
+  async function detectWanAndIsp() {
+    let wanData = null;
+
+    // 1. Intentar ipwho.is (CORS libre, info de ASN y Operador en español/inglés)
+    try {
+      const res = await fetch('https://ipwho.is/', { cache: 'no-store' });
+      if (res.ok) {
+        const data = await res.json();
+        if (data && data.ip) {
+          const org = data.connection ? (data.connection.isp || data.connection.org) : '';
+          const city = data.city ? `${data.city}, ` : '';
+          const country = data.country || '';
+          wanData = {
+            ip: data.ip,
+            isp: org ? `${org} (${city}${country})`.trim() : (data.isp || 'Operador Detectado')
+          };
+        }
+      }
+    } catch (e) {
+      // Fallback
+    }
+
+    // 2. Fallback ipify
+    if (!wanData) {
+      try {
+        const res = await fetch('https://api.ipify.org?format=json', { cache: 'no-store' });
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.ip) {
+            wanData = { ip: data.ip, isp: 'Red Pública Detectada' };
+          }
+        }
+      } catch (e) {}
+    }
+
+    // 3. Fallback Cloudflare trace
+    if (!wanData) {
+      try {
+        const res = await fetch('https://1.1.1.1/cdn-cgi/trace', { cache: 'no-store' });
+        if (res.ok) {
+          const text = await res.text();
+          const matchIp = text.match(/ip=([^\n]+)/);
+          const matchLoc = text.match(/loc=([^\n]+)/);
+          if (matchIp) {
+            wanData = { 
+              ip: matchIp[1], 
+              isp: `Red Cloudflare Edge (${matchLoc ? matchLoc[1] : 'Global'})` 
+            };
+          }
+        }
+      } catch (e) {}
+    }
+
+    return wanData || { ip: 'Offline / Bloqueador activo', isp: 'No determinado' };
+  }
+
+  function detectLocalLanIp() {
+    return new Promise((resolve) => {
+      const RTCPC = window.RTCPeerConnection || window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
+      if (!RTCPC) {
+        resolve({ ip: 'No soportado en este navegador', isCgnat: false });
+        return;
+      }
+
+      let resolved = false;
+      const pc = new RTCPC({
+        iceServers: [{ urls: 'stun:stun.l.google.com:19302' }]
+      });
+
+      pc.createDataChannel('webservi-probe');
+
+      pc.onicecandidate = (event) => {
+        if (resolved) return;
+        if (!event || !event.candidate) return;
+
+        const cand = event.candidate.candidate;
+        // Check for IPv4 regex
+        const ipMatch = cand.match(/([0-9]{1,3}(?:\.[0-9]{1,3}){3})/);
+        if (ipMatch) {
+          const foundIp = ipMatch[1];
+          // Check if candidate is RFC 1918 private or RFC 6598 CGNAT
+          const isPrivate = foundIp.startsWith('192.168.') || 
+                            foundIp.startsWith('10.') || 
+                            /^172\.(1[6-9]|2[0-9]|3[0-1])\./.test(foundIp);
+          const isCg = isCgnatIp(foundIp);
+
+          if (isPrivate || isCg) {
+            resolved = true;
+            try { pc.close(); } catch(e) {}
+            resolve({ ip: foundIp, isCgnat: isCg });
+          }
+        } else if (cand.includes('.local')) {
+          // Modern browsers mask local IPs with mDNS by default
+          setTimeout(() => {
+            if (!resolved) {
+              resolved = true;
+              try { pc.close(); } catch(e) {}
+              resolve({ ip: 'Ofuscada por mDNS (Protección Navegador)', isCgnat: false });
+            }
+          }, 1500);
+        }
+      };
+
+      pc.createOffer()
+        .then(offer => pc.setLocalDescription(offer))
+        .catch(() => {
+          if (!resolved) {
+            resolved = true;
+            resolve({ ip: 'No disponible', isCgnat: false });
+          }
+        });
+
+      setTimeout(() => {
+        if (!resolved) {
+          resolved = true;
+          try { pc.close(); } catch(e) {}
+          resolve({ ip: 'Ofuscada por mDNS (Protección Navegador)', isCgnat: false });
+        }
+      }, 2500);
+    });
+  }
+
+  async function runNetworkTopologyDetection() {
+    if (!detectedWanIp && !detectedIsp && !detectedLanIp && !detectedNatStatus) return;
+
+    // Ejecutar en paralelo WAN y LAN
+    const [wanInfo, lanInfo] = await Promise.all([
+      detectWanAndIsp(),
+      detectLocalLanIp()
+    ]);
+
+    if (detectedWanIp) detectedWanIp.textContent = wanInfo.ip;
+    if (detectedIsp) detectedIsp.textContent = wanInfo.isp;
+    if (detectedLanIp) detectedLanIp.textContent = lanInfo.ip;
+
+    if (detectedNatStatus) {
+      if (lanInfo.isCgnat || isCgnatIp(wanInfo.ip)) {
+        detectedNatStatus.className = 'cgnat-badge cgnat';
+        detectedNatStatus.innerHTML = '⚠️ CGNAT Detectado (RFC 6598)';
+      } else {
+        detectedNatStatus.className = 'cgnat-badge public';
+        detectedNatStatus.innerHTML = '✓ IP Pública Enrutable (Verifique si coincide con WAN de su Router)';
+      }
+    }
+  }
+
+  // Ejecutar detección de red tras 400ms
+  setTimeout(runNetworkTopologyDetection, 400);
+
 });
