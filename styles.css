@@ -52,6 +52,8 @@ html {
   font-size: 16px;
   background-color: #0b1a2d;
   color: var(--text-primary);
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -59,6 +61,8 @@ body {
   line-height: 1.6;
   background-color: #0b1a2d;
   overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
   -webkit-font-smoothing: antialiased;
   position: relative;
 }
@@ -510,18 +514,22 @@ body {
 
 .portal-modal-card {
   position: relative;
-  background: #091326;
+  background: #09152a;
   border: 1px solid var(--border-glow);
   border-radius: var(--radius-lg);
-  padding: 36px 32px;
-  max-width: 540px;
+  padding: 30px 26px;
+  max-width: 580px;
+  max-height: 88vh;
+  overflow-y: auto;
   width: 100%;
   box-shadow: var(--shadow-card), 0 0 50px rgba(0, 210, 255, 0.2);
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
   transform: translateY(20px) scale(0.97);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 210, 255, 0.25) rgba(0, 0, 0, 0.2);
 }
 
 .portal-modal.active .portal-modal-card {
@@ -550,6 +558,179 @@ body {
   border-color: var(--tech-red);
   color: #fff;
 }
+
+/* Dynamic Server Options List in Modal */
+.modal-server-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.modal-server-card {
+  background: rgba(14, 30, 56, 0.6);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: var(--transition);
+}
+
+.modal-server-card:hover {
+  border-color: rgba(0, 210, 255, 0.4);
+  background: rgba(18, 40, 75, 0.7);
+}
+
+.modal-server-card.primary {
+  border-color: rgba(0, 210, 255, 0.5);
+  background: linear-gradient(135deg, rgba(14, 42, 80, 0.7) 0%, rgba(9, 25, 50, 0.7) 100%);
+  box-shadow: 0 4px 16px rgba(0, 210, 255, 0.1);
+}
+
+.modal-server-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.modal-server-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-server-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.modal-server-badge.recommended {
+  background: rgba(0, 255, 170, 0.15);
+  color: var(--tech-green);
+  border: 1px solid rgba(0, 255, 170, 0.4);
+}
+
+.modal-server-badge.legacy {
+  background: rgba(255, 180, 0, 0.15);
+  color: #ffb400;
+  border: 1px solid rgba(255, 180, 0, 0.4);
+}
+
+.modal-server-badge.ubnt {
+  background: rgba(0, 210, 255, 0.15);
+  color: var(--tech-cyan);
+  border: 1px solid rgba(0, 210, 255, 0.4);
+}
+
+.modal-server-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.modal-server-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.modal-btn-enter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--blue-electric);
+  color: #fff;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.modal-btn-enter:hover {
+  background: var(--tech-cyan);
+  color: #030812;
+  box-shadow: 0 0 14px rgba(0, 210, 255, 0.5);
+}
+
+.modal-btn-subtle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-highlight);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.modal-btn-subtle:hover {
+  background: rgba(0, 210, 255, 0.15);
+  border-color: var(--tech-cyan);
+  color: #fff;
+}
+
+.modal-support-box {
+  margin-top: 6px;
+  padding: 12px 14px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px dashed rgba(0, 210, 255, 0.3);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.modal-support-text {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.modal-support-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  background: rgba(37, 211, 102, 0.15);
+  border: 1px solid rgba(37, 211, 102, 0.4);
+  color: #25d366;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.modal-support-btn:hover {
+  background: #25d366;
+  color: #030812;
+  box-shadow: 0 0 14px rgba(37, 211, 102, 0.4);
+}
+
 
 /* ==========================================================================
    PHOTO LIGHTBOX MODAL (VISOR DE FOTOS REALES)

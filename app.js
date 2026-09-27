@@ -91,6 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         } else {
           vid.classList.remove('active');
+          if (!vid.paused) {
+            vid.pause();
+          }
         }
       }
     });
@@ -249,39 +252,124 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
   const platformsData = {
     unifi: {
-      type: "GESTIÓN WI-FI & SWITCHES",
-      title: "Servidor UniFi Controller WebServi",
-      desc: "Acceso al controlador centralizado de redes UniFi. Ingrese con el usuario y contraseña asignados por WebServi para administrar sus puntos de acceso, switches, redes de invitados y métricas de tráfico.",
-      protocol: "HTTPS SSL / TLS 1.3 (Puerto Seguro)",
-      url: "https://unifi.ui.com/"
+      type: "GESTIÓN DE REDES & WI-FI",
+      title: "Consola de Gestión UniFi (Wi-Fi & Switches)",
+      desc: "Acceso centralizado para administración de switches, puntos de acceso y control de tráfico. Ingrese a su servidor asignado o utilice su cuenta Ubnt asociada:",
+      status: "● Servidores Operativos 24/7",
+      protocol: "HTTPS SSL (Puerto 8443 / Cloud SSO)",
+      cards: [
+        {
+          title: "Servidor UniFi 7 (Principal)",
+          badge: { text: "RECOMENDADO / ACTUAL", type: "recommended" },
+          desc: "Servidor privado último para la mayoría de clientes actuales. Acceso mediante email propio asignado o cuenta Ubnt.",
+          buttons: [
+            { text: "Ingresar a UniFi 7", url: "https://unifi7.webservi.net:8443/", primary: true }
+          ]
+        },
+        {
+          title: "Servidores UniFi Legacy",
+          badge: { text: "EQUIPOS ANTERIORES", type: "legacy" },
+          desc: "Servidor antiguo de equipos anteriores todavía activo para clientes legacy:",
+          buttons: [
+            { text: "UniFi 6 (Puerto 8443)", url: "https://unifi6.webservi.net:8443/", primary: false },
+            { text: "UniFi 5 (Puerto 8443)", url: "https://unifi5.webservi.net:8443/", primary: false }
+          ]
+        },
+        {
+          title: "Portal Ubnt Cloud Oficial",
+          badge: { text: "CUENTA UBNT SSO", type: "ubnt" },
+          desc: "Para usuarios administradores con cuenta Ubnt global en la nube oficial de Ubiquiti:",
+          buttons: [
+            { text: "Entrar con Cuenta Ubnt (account.ui.com)", url: "https://account.ui.com/", primary: false }
+          ]
+        }
+      ],
+      supportText: "¿Dudas o problemas con sus accesos a UniFi?",
+      supportUrl: "https://wa.me/59175020555?text=Hola%20WebServi,%20tengo%20una%20consulta%20o%20problema%20con%20el%20acceso%20a%20UniFi"
     },
     uisp: {
       type: "TELECOMUNICACIONES & RADIOENLACES",
-      title: "Plataforma UISP Antenas & Enlaces",
-      desc: "Monitoreo en tiempo real de torres de comunicaciones, radioenlaces de 5, 25 y 60 GHz, antenas punto a punto y enlaces Starlink. Visualice latencia, alineación y capacidad de throughput en vivo.",
-      protocol: "WSS / HTTPS Seguro 256-bit",
-      url: "https://uisp.ui.com/"
+      title: "Plataforma UISP (Antenas & Enlaces)",
+      desc: "Monitoreo en tiempo real de torres de comunicaciones, radioenlaces de 5/25/60 GHz y enlaces Starlink. Seleccione su plataforma de acceso:",
+      status: "● Servidor Operativo 24/7",
+      protocol: "HTTPS / WSS Seguro (Cifrado 256-bit)",
+      cards: [
+        {
+          title: "Servidor Privado UISP WebServi",
+          badge: { text: "SERVIDOR PRIVADO", type: "recommended" },
+          desc: "Monitoreo privado de enlaces de campo, latencias, alineación y throughput.",
+          buttons: [
+            { text: "Ingresar a UISP WebServi", url: "https://uisp.webservi.net/", primary: true }
+          ]
+        },
+        {
+          title: "Portal Ubnt Cloud Oficial",
+          badge: { text: "CUENTA UBNT SSO", type: "ubnt" },
+          desc: "Para clientes con acceso asignado mediante cuenta Ubnt en la nube oficial:",
+          buttons: [
+            { text: "Entrar con Cuenta Ubnt (account.ui.com)", url: "https://account.ui.com/", primary: false }
+          ]
+        }
+      ],
+      supportText: "¿Dudas o problemas con sus radioenlaces UISP?",
+      supportUrl: "https://wa.me/59175020555?text=Hola%20WebServi,%20tengo%20una%20consulta%20o%20problema%20con%20el%20acceso%20a%20UISP"
     },
     domotica: {
       type: "CONTROL RESIDENCIAL & INMÓTICA",
       title: "Acceso a Domóticas Remotas (Paneles de Control)",
-      desc: "Portal de enlace seguro a sus paneles de control domótico y Home Assistant. Monitoree iluminación, climatización Gree/Daikin, estado de baterías solares y apertura de accesos de su inmueble desde cualquier lugar.",
+      desc: "Portal de enlace seguro a sus controladores Home Assistant, iluminación, climatización Gree/Daikin y baterías solares. Por ciberseguridad, la conexión remota se realiza mediante túnel privado VPN (WireGuard) o dirección local segura.",
+      status: "● Conexión Cifrada / Túnel VPN",
       protocol: "WireGuard VPN / HTTPS Cifrado",
-      url: "https://wa.me/59175020555?text=Hola%20WebServi,%20deseo%20asistencia%20para%20acceder%20a%20mi%20panel%20de%20domótica"
+      cards: [
+        {
+          title: "Conexión Segura & Soporte Inmótico",
+          badge: { text: "TÚNEL PRIVADO", type: "ubnt" },
+          desc: "Para acceder a su panel de control o solicitar la apertura de su túnel seguro:",
+          buttons: [
+            { text: "Solicitar Acceso Seguro a su Inmueble (WhatsApp)", url: "https://wa.me/59175020555?text=Hola%20WebServi,%20solicito%20asistencia%20para%20conectar%20a%20mi%20panel%20de%20domótica", primary: true }
+          ]
+        }
+      ],
+      supportText: "¿Requiere configurar un nuevo dispositivo o usuario?",
+      supportUrl: "https://wa.me/59175020555?text=Hola%20WebServi,%20requiero%20asistencia%20con%20el%20sistema%20de%20domótica"
     },
     thingsboard: {
       type: "TELEMETRÍA INDUSTRIAL & LORAWAN",
       title: "Dashboard IoT ThingsBoard WebServi",
-      desc: "Plataforma de telemetría y supervisión de variables críticas. Visualice presión de vapor en calderas, caudalímetros, temperatura de procesos, niveles de granos en silos y niveles de agua en tiempo real.",
+      desc: "Supervisión de variables críticas: presión de vapor en calderas, caudalímetros, temperatura de procesos, silos y niveles de agua en tiempo real.",
+      status: "● Dashboard Activo 24/7",
       protocol: "MQTT / REST API / HTTPS Dashboard",
-      url: "https://thingsboard.cloud/"
+      cards: [
+        {
+          title: "Dashboard ThingsBoard Cloud",
+          badge: { text: "TELEMETRÍA EN VIVO", type: "recommended" },
+          desc: "Consola de visualización de sensores industriales y telemetría de campo:",
+          buttons: [
+            { text: "Ingresar a ThingsBoard Cloud", url: "https://thingsboard.cloud/", primary: true }
+          ]
+        }
+      ],
+      supportText: "¿Desea solicitar o restablecer credenciales de telemetría?",
+      supportUrl: "https://wa.me/59175020555?text=Hola%20WebServi,%20solicito%20credenciales%20para%20ThingsBoard%20IoT"
     },
     monitoreo: {
       type: "INFRAESTRUCTURA CRÍTICA & SERVIDORES",
-      title: "Centro de Monitoreos Remotos & Uptime",
-      desc: "Supervisión 24/7 del estado de servidores Proxmox, VMware, enlaces de internet multi-WAN y alarmas de seguridad perimetral de sus instalaciones.",
+      title: "Centro de Monitoreos Remotos (NOC 24/7)",
+      desc: "Supervisión continua del estado de servidores Proxmox, VMware, enlaces de internet multi-WAN y alarmas perimetrales de sus instalaciones.",
+      status: "● Centro NOC Activo 24/7",
       protocol: "SNMP v3 / Agentless Telemetry",
-      url: "https://wa.me/59175020555?text=Hola%20WebServi,%20deseo%20consultar%20el%20estado%20de%20monitoreo%20de%20mis%20servicios"
+      cards: [
+        {
+          title: "Atención Técnica & Reportes NOC",
+          badge: { text: "SOPORTE CRÍTICO", type: "recommended" },
+          desc: "Consulte el estado de su infraestructura o solicite un informe técnico de disponibilidad:",
+          buttons: [
+            { text: "Solicitar Reporte de Monitoreo por WhatsApp", url: "https://wa.me/59175020555?text=Hola%20WebServi,%20deseo%20consultar%20el%20estado%20de%20monitoreo%20de%20mis%20servicios", primary: true }
+          ]
+        }
+      ],
+      supportText: "¿Reporte de emergencia fuera de horario de oficina?",
+      supportUrl: "https://wa.me/59175020555?text=Hola%20WebServi,%20emergencia%20en%20servidor%20o%20red%20de%20datos"
     }
   };
 
@@ -291,22 +379,75 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalPlatformType = document.getElementById('modalPlatformType');
   const modalPlatformTitle = document.getElementById('modalPlatformTitle');
   const modalPlatformDesc = document.getElementById('modalPlatformDesc');
+  const modalPlatformStatus = document.getElementById('modalPlatformStatus');
   const modalPlatformProtocol = document.getElementById('modalPlatformProtocol');
-  const modalLaunchBtn = document.getElementById('modalLaunchBtn');
+  const modalServerList = document.getElementById('modalServerList');
+
+  let lastActiveFocusedElement = null;
 
   function openPortalModal(platformKey) {
     const data = platformsData[platformKey];
     if (!data || !portalModal) return;
 
+    lastActiveFocusedElement = document.activeElement;
+
     if (modalPlatformType) modalPlatformType.textContent = data.type;
     if (modalPlatformTitle) modalPlatformTitle.textContent = data.title;
     if (modalPlatformDesc) modalPlatformDesc.textContent = data.desc;
+    if (modalPlatformStatus) modalPlatformStatus.textContent = data.status || '● Servidor Operativo 24/7';
     if (modalPlatformProtocol) modalPlatformProtocol.textContent = data.protocol;
-    if (modalLaunchBtn) modalLaunchBtn.href = data.url;
+
+    if (modalServerList) {
+      let html = '';
+      if (data.cards && data.cards.length > 0) {
+        data.cards.forEach((card, cIdx) => {
+          const isPrimary = cIdx === 0 && card.buttons.some(b => b.primary);
+          html += `
+            <div class="modal-server-card${isPrimary ? ' primary' : ''}">
+              <div class="modal-server-header">
+                <span class="modal-server-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                  ${card.title}
+                </span>
+                ${card.badge ? `<span class="modal-server-badge ${card.badge.type}">${card.badge.text}</span>` : ''}
+              </div>
+              <p class="modal-server-desc">${card.desc}</p>
+              <div class="modal-server-actions">
+                ${card.buttons.map(btn => `
+                  <a href="${btn.url}" target="_blank" rel="noopener" class="${btn.primary ? 'modal-btn-enter' : 'modal-btn-subtle'}">
+                    <span>${btn.text}</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                  </a>
+                `).join('')}
+              </div>
+            </div>
+          `;
+        });
+      }
+
+      if (data.supportText && data.supportUrl) {
+        html += `
+          <div class="modal-support-box">
+            <span class="modal-support-text">${data.supportText}</span>
+            <a href="${data.supportUrl}" target="_blank" rel="noopener" class="modal-support-btn">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              <span>WhatsApp Soporte</span>
+            </a>
+          </div>
+        `;
+      }
+
+      modalServerList.innerHTML = html;
+    }
 
     portalModal.classList.add('active');
     portalModal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+
+    // Focus management for accessibility
+    setTimeout(() => {
+      if (modalCloseBtn) modalCloseBtn.focus();
+    }, 50);
   }
 
   function closePortalModal() {
@@ -314,6 +455,10 @@ document.addEventListener('DOMContentLoaded', () => {
     portalModal.classList.remove('active');
     portalModal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    if (lastActiveFocusedElement) {
+      lastActiveFocusedElement.focus();
+      lastActiveFocusedElement = null;
+    }
   }
 
   const portalButtons = document.querySelectorAll('.portal-btn');
