@@ -792,6 +792,169 @@
       gap: 14px;
       flex-wrap: wrap;
     }
+
+    /* Disclaimers Técnicos y Demostrativos */
+    .tele-disclaimer-box {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--tele-cyan);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 0.76rem;
+      color: #94a3b8;
+      line-height: 1.45;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .tele-disclaimer-box.warning {
+      border-left-color: var(--tele-orange);
+    }
+
+    .tele-disclaimer-box.info {
+      border-left-color: var(--tele-green);
+    }
+
+    .disclaimer-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: rgba(0, 210, 255, 0.15);
+      color: var(--tele-cyan);
+      border: 1px solid rgba(0, 210, 255, 0.3);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .disclaimer-badge.sim {
+      background: rgba(255, 51, 102, 0.18);
+      color: #ff3366;
+      border-color: rgba(255, 51, 102, 0.4);
+    }
+
+    .disclaimer-badge.info {
+      background: rgba(0, 255, 136, 0.12);
+      color: var(--tele-green);
+      border-color: rgba(0, 255, 136, 0.3);
+    }
+
+    .disclaimer-badge.warning {
+      background: rgba(255, 145, 0, 0.12);
+      color: var(--tele-orange);
+      border-color: rgba(255, 145, 0, 0.3);
+    }
+
+    /* Catálogo de Verticales IoT y Sensores (ThingsBoard Use-Cases) */
+    .verticals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 20px;
+      margin-top: 18px;
+    }
+
+    .vertical-card {
+      background: rgba(13, 20, 36, 0.7);
+      border: 1px solid var(--tele-border);
+      border-radius: 12px;
+      padding: 22px;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .vertical-card:hover {
+      border-color: var(--tele-cyan);
+      box-shadow: 0 8px 25px rgba(0, 210, 255, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .vertical-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .vertical-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(0, 210, 255, 0.1);
+      border: 1px solid rgba(0, 210, 255, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--tele-cyan);
+    }
+
+    .vertical-icon-box.green {
+      background: rgba(0, 255, 136, 0.1);
+      border-color: rgba(0, 255, 136, 0.25);
+      color: var(--tele-green);
+    }
+
+    .vertical-icon-box.orange {
+      background: rgba(255, 145, 0, 0.1);
+      border-color: rgba(255, 145, 0, 0.25);
+      color: var(--tele-orange);
+    }
+
+    .vertical-icon-box.purple {
+      background: rgba(157, 78, 221, 0.1);
+      border-color: rgba(157, 78, 221, 0.25);
+      color: var(--tele-purple);
+    }
+
+    .vertical-title h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 4px 0;
+    }
+
+    .vertical-title span {
+      font-size: 0.72rem;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--tele-cyan);
+    }
+
+    .vertical-body {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      line-height: 1.48;
+      margin-bottom: 14px;
+    }
+
+    .sensor-tags-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .sensor-tag {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      padding: 3px 8px;
+      font-size: 0.72rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: #94a3b8;
+    }
+
+    .sensor-tag.hi {
+      background: rgba(0, 210, 255, 0.08);
+      border-color: rgba(0, 210, 255, 0.25);
+      color: #38bdf8;
+    }
   </style>
 </head>
 <body data-page="telemetria">
@@ -1102,51 +1265,69 @@
       </div>
     </div>
 
+    <!-- DISCLAIMER GENERAL DE TELEMETRÍA DE LABORATORIO -->
+    <div class="tele-disclaimer-box warning" style="margin-bottom: 24px;">
+      <span class="disclaimer-badge warning">NOTA DE TELEMETRÍA</span>
+      <span><strong>Origen de Datos de Laboratorio:</strong> Las lecturas de red y meteorología provienen del nodo de pruebas Home Assistant en el laboratorio técnico de WebServi (Santa Cruz). El estado de los monitores Entel/Tigo verifica disponibilidad a sondeos ICMP desde el router de borde; la asignación del tráfico y consumo entre interfaces físicas está sujeta a la topología y balanceo PCC de cada proyecto.</span>
+    </div>
+
     <!-- SHOWCASE: CCTV PERIMETRAL IA & CENTRO DE CONTROL INDUSTRIAL -->
     <div class="tele-showcase-row">
-      <!-- Media Box 1: CCTV 4K con IA -->
-      <div class="showcase-media-box">
-        <img src="img/telemetria_cctv.jpg" alt="CCTV 4K Vigilancia Perimetral con IA" loading="lazy">
-        <div class="showcase-overlay-hud">
-          <div class="hud-top-bar">
-            <div class="hud-cam-tag">
-              <span class="rec-blink"></span>
-              <span>CAM 04 · ACCESO SUR</span>
+      <!-- Media Box 1: CCTV 4K con IA (Simulado) -->
+      <div>
+        <div class="showcase-media-box">
+          <img src="img/telemetria_cctv.jpg" alt="CCTV 4K Vigilancia Perimetral con IA - Feed Simulado" loading="lazy">
+          <div class="showcase-overlay-hud">
+            <div class="hud-top-bar">
+              <div class="hud-cam-tag" style="background: rgba(255, 51, 102, 0.25); border-color: var(--tele-red);">
+                <span class="rec-blink"></span>
+                <span>CAM 02 · ACCESO PRINCIPAL [SIMULADO]</span>
+              </div>
+              <div class="hud-timestamp" id="hudCctvTime">REC: 4K UHD @ 30 FPS</div>
             </div>
-            <div class="hud-timestamp" id="hudCctvTime">REC: 4K UHD @ 30 FPS</div>
+            <div class="hud-bottom-bar">
+              <div class="hud-ai-targets">
+                <div class="hud-target-pill">● VEHÍCULO DETECTADO [91.4%]</div>
+                <div class="hud-target-pill" style="border-color: #00ff88; color: #00ff88;">● PEATÓN / TÉCNICO [88.7%]</div>
+              </div>
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: #94a3b8; background: rgba(0,0,0,0.7); padding: 4px 8px; border-radius: 4px;">
+                BITRATE: 8.4 Mbps H.265+
+              </div>
+            </div>
           </div>
-          <div class="hud-bottom-bar">
-            <div class="hud-ai-targets">
-              <div class="hud-target-pill">● VEHÍCULO DETECTADO [98.2%]</div>
-              <div class="hud-target-pill" style="border-color: #00ff88; color: #00ff88;">● PERSONAL DE SEGURIDAD [99.1%]</div>
-            </div>
-            <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: #94a3b8; background: rgba(0,0,0,0.7); padding: 4px 8px; border-radius: 4px;">
-              BITRATE: 8.4 Mbps H.265+
-            </div>
-          </div>
+        </div>
+        <div class="tele-disclaimer-box">
+          <span class="disclaimer-badge sim">FEED SIMULADO</span>
+          <span><strong>Demostración de Visión Artificial:</strong> Imagen y recuadros neuronales renderizados como simulación ilustrativa de analítica perimetral Dahua WizMind / Uniview. En despliegues reales, WebServi instala cámaras 4K y NVRs con procesamiento local de eventos en tiempo real en las instalaciones del cliente.</span>
         </div>
       </div>
 
       <!-- Media Box 2: Centro de Comando NOC & SCADA -->
-      <div class="showcase-media-box">
-        <img src="img/telemetria_noc.jpg" alt="Network Operations Center WebServi" loading="lazy">
-        <div class="showcase-overlay-hud">
-          <div class="hud-top-bar">
-            <div class="hud-cam-tag" style="background: rgba(0, 210, 255, 0.2); border-color: var(--tele-cyan);">
-              <span class="live-dot-pulse"></span>
-              <span>SISTEMA SCADA & TELEMETRÍA IOT</span>
+      <div>
+        <div class="showcase-media-box">
+          <img src="img/telemetria_noc.jpg" alt="Network Operations Center WebServi" loading="lazy">
+          <div class="showcase-overlay-hud">
+            <div class="hud-top-bar">
+              <div class="hud-cam-tag" style="background: rgba(0, 210, 255, 0.2); border-color: var(--tele-cyan);">
+                <span class="live-dot-pulse"></span>
+                <span>SISTEMA SCADA & TELEMETRÍA IOT</span>
+              </div>
+              <div class="hud-timestamp">SLA DISPONIBILIDAD: 99.98%</div>
             </div>
-            <div class="hud-timestamp">SLA DISPONIBILIDAD: 99.98%</div>
+            <div class="hud-bottom-bar">
+              <div class="hud-ai-targets">
+                <div class="hud-target-pill">Silos, Tanques & Maquinaria Agrícola</div>
+                <div class="hud-target-pill" style="border-color: #ffaa33; color: #ffaa33;">Inversores Solares & Banco LiFePO4</div>
+              </div>
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--tele-green); background: rgba(0,0,0,0.7); padding: 4px 8px; border-radius: 4px;">
+                NODO MIKROTIK CCR2004
+              </div>
+            </div>
           </div>
-          <div class="hud-bottom-bar">
-            <div class="hud-ai-targets">
-              <div class="hud-target-pill">Silos, Tanques & Maquinaria Agrícola</div>
-              <div class="hud-target-pill" style="border-color: #ffaa33; color: #ffaa33;">Inversores Solares & Banco LiFePO4</div>
-            </div>
-            <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--tele-green); background: rgba(0,0,0,0.7); padding: 4px 8px; border-radius: 4px;">
-              NODO MIKROTIK CCR2004
-            </div>
-          </div>
+        </div>
+        <div class="tele-disclaimer-box info">
+          <span class="disclaimer-badge info">ENTORNO DEMO</span>
+          <span><strong>Arquitectura de Centro de Control:</strong> Visualización conceptual de consola NOC/SCADA. Las soluciones implementadas por WebServi integran ThingsBoard y Home Assistant sobre servidores dedicados Proxmox en las instalaciones del cliente.</span>
         </div>
       </div>
     </div>
@@ -1168,98 +1349,257 @@
       <pre class="json-code-box" id="jsonRawOutput">Cargando datos crudos...</pre>
     </div>
 
-    <!-- GLOSARIO TÉCNICO DE PARÁMETROS -->
-    <div class="glossary-card">
+    <!-- VERTICALES IOT & CATÁLOGO DE SENSORES DISPONIBLES (ESTRUCTURA THINGSBOARD USE-CASES) -->
+    <div class="glossary-card" id="verticales-iot">
       <h2>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--tele-cyan)" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-        Glosario Técnico de Parámetros de Telemetría
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--tele-cyan)" stroke-width="2.2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Verticales de Solución IoT & Tipos de Sensores Disponibles
       </h2>
-      <p class="glossary-subtitle">Detalle exhaustivo de las variables transmitidas por el nodo IoT, su unidad de medida original y cómo WebServi las procesa y normaliza en el dashboard:</p>
+      <p class="glossary-subtitle">Arquitectura estandarizada sobre plataformas <strong>ThingsBoard</strong> y <strong>Home Assistant</strong>: integración de sensores de campo industriales, protocolos LoRaWAN, Modbus RS485, SNMP y MQTT para monitoreo centralizado y control en tiempo real.</p>
 
-      <div class="glossary-table-wrap">
-        <table class="glossary-table">
-          <thead>
-            <tr>
-              <th>Parámetro JSON</th>
-              <th>Categoría</th>
-              <th>Unidad Cruda</th>
-              <th>Conversión / Procesamiento</th>
-              <th>Propósito Operativo</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="glossary-param-code">rx_kB_s</span></td>
-              <td><span class="glossary-badge-cat red">Red & WAN</span></td>
-              <td>Kilobytes / seg (kB/s)</td>
-              <td><strong>Mbps = (rx_kB_s × 8) / 1000</strong><br>Calcula el consumo instantáneo de descarga.</td>
-              <td>Monitoreo de saturación de enlace MikroTik Ether1. Detección temprana de congestión o descargas anómalas.</td>
-            </tr>
-            <tr>
-              <td><span class="glossary-param-code">tx_kB_s</span></td>
-              <td><span class="glossary-badge-cat red">Red & WAN</span></td>
-              <td>Kilobytes / seg (kB/s)</td>
-              <td><strong>Mbps = (tx_kB_s × 8) / 1000</strong><br>Calcula el caudal de subida hacia internet.</td>
-              <td>Verificación del tráfico saliente (subida de cámaras CCTV a la nube, respaldos remotos y túneles VPN).</td>
-            </tr>
-            <tr>
-              <td><span class="glossary-param-code">temperatura_c</span></td>
-              <td><span class="glossary-badge-cat meteo">Meteorología / TI</span></td>
-              <td>Grados Celsius (°C)</td>
-              <td>Lectura directa de sonda termométrica digital (precisión ±0.1°C).</td>
-              <td>Supervisión térmica de racks, salas de comunicaciones y climatización de precisión para servidores.</td>
-            </tr>
-            <tr>
-              <td><span class="glossary-param-code">humedad_pct</span></td>
-              <td><span class="glossary-badge-cat meteo">Meteorología</span></td>
-              <td>Porcentaje (% RH)</td>
-              <td>Humedad relativa ambiental.</td>
-              <td>Prevención de corrosión y condensación en placas electrónicas y bancos de baterías LiFePO4.</td>
-            </tr>
-            <tr>
-              <td><span class="glossary-param-code">viento_kmh</span></td>
-              <td><span class="glossary-badge-cat meteo">Meteorología</span></td>
-              <td>Kilómetros / hora</td>
-              <td>Anemómetro de alta precisión en torre de comunicaciones.</td>
-              <td>Evaluación de ráfagas para protección de enlaces inalámbricos de microondas (5/25/60 GHz) y torres arriostradas.</td>
-            </tr>
-            <tr>
-              <td><span class="glossary-param-code">direccion_viento_grados</span></td>
-              <td><span class="glossary-badge-cat meteo">Meteorología</span></td>
-              <td>Grados Azimut (0° - 360°)</td>
-              <td>Traducción a cuadrante cardinal (N, NE, E, SE, S, SW, W, NW).</td>
-              <td>Cálculo de resistencia aerodinámica en antenas parabólicas de largo alcance.</td>
-            </tr>
-            <tr>
-              <td><span class="glossary-param-code">luminosidad_lx</span></td>
-              <td><span class="glossary-badge-cat meteo">IoT Inmótica</span></td>
-              <td>Lux (lx)</td>
-              <td>Sensor fótico crepuscular (0 lx = oscuridad plena, 100,000 lx = sol directo).</td>
-              <td>Automatización del encendido de reflectores perimetrales y predicción de rendimiento fotovoltaico solar.</td>
-            </tr>
-            <tr>
-              <td><span class="glossary-param-code">monitores.entel / tigo</span></td>
-              <td><span class="glossary-badge-cat red">Conectividad</span></td>
-              <td>String ("responde")</td>
-              <td>Watchdog ICMP cíclico con intervalos de 500 ms y umbral de conmutación.</td>
-              <td>Control de failover transparente: si un operador sufre corte, el tráfico migra al enlace alterno sin corte.</td>
-            </tr>
-            <tr>
-              <td><span class="glossary-param-code">calidad.edad_reporte_segundos</span></td>
-              <td><span class="glossary-badge-cat diag">SLA & Diagnóstico</span></td>
-              <td>Segundos transcurridos</td>
-              <td>Comparación entre marca temporal del reporte y reloj del sistema (SLA &lt; 60s).</td>
-              <td>Garantiza la frescura de la telemetría e identifica sensores descalibrados o con pérdida de señal LoRaWAN.</td>
-            </tr>
-            <tr>
-              <td><span class="glossary-param-code">consultado_en</span></td>
-              <td><span class="glossary-badge-cat diag">SLA & Diagnóstico</span></td>
-              <td>ISO 8601 (UTC)</td>
-              <td>Sincronización horaria certificada con servidores NTP Stratum 1.</td>
-              <td>Auditoría forense y registro cronológico de eventos para reportes ejecutivos.</td>
-            </tr>
-          </tbody>
-        </table>
+      <!-- Grilla de 6 Verticales de Solución -->
+      <div class="verticals-grid">
+
+        <!-- Vertical 1: Redes, Servidores & TI -->
+        <div class="vertical-card">
+          <div>
+            <div class="vertical-card-header">
+              <div class="vertical-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+              </div>
+              <div class="vertical-title">
+                <h3>Infraestructura TI, Redes & Servidores</h3>
+                <span>IT Infrastructure & NOC</span>
+              </div>
+            </div>
+            <div class="vertical-body">
+              Monitoreo continuo de racks, routers de borde, servidores y enlaces de telecomunicaciones. Detección proactiva de cuellos de botella y sobrecalentamiento.
+              <div class="sensor-tags-wrap">
+                <span class="sensor-tag hi">MikroTik CCR/CRS (SNMP/API)</span>
+                <span class="sensor-tag hi">Servidores Proxmox / Linux</span>
+                <span class="sensor-tag">Sondas Térmicas DS18B20 / SHT30</span>
+                <span class="sensor-tag">PDU Inteligente & Sensores Humo</span>
+              </div>
+            </div>
+          </div>
+          <div style="font-size: 0.76rem; color: #94a3b8; border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 10px; margin-top: 8px;">
+            <strong>Métricas Clave:</strong> Ancho de banda WAN Rx/Tx (Mbps), latencias ICMP (ms), uso CPU/RAM, temperatura de servidores, pérdida de paquetes.
+          </div>
+        </div>
+
+        <!-- Vertical 2: Smart Energy & Baterías -->
+        <div class="vertical-card">
+          <div>
+            <div class="vertical-card-header">
+              <div class="vertical-icon-box orange">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              </div>
+              <div class="vertical-title">
+                <h3>Energía Solar, Inversores & Respaldos</h3>
+                <span>Smart Energy & Storage</span>
+              </div>
+            </div>
+            <div class="vertical-body">
+              Supervisión de bancos de baterías, inversores solares y analizadores de red. Gestión de contingencias y autonomía energética ininterrumpida.
+              <div class="sensor-tags-wrap">
+                <span class="sensor-tag hi">Inversores Victron / Deye / Growatt</span>
+                <span class="sensor-tag hi">BMS Litio LiFePO4 (CAN/RS485)</span>
+                <span class="sensor-tag">Medidores Trifásicos Carlo Gavazzi</span>
+                <span class="sensor-tag">Transformadores de Corriente (CT)</span>
+              </div>
+            </div>
+          </div>
+          <div style="font-size: 0.76rem; color: #94a3b8; border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 10px; margin-top: 8px;">
+            <strong>Métricas Clave:</strong> Voltaje (V), Corriente (A), Potencia activa (kW), Estado de Carga SoC (%), Generación solar (kWh), Ciclos de batería.
+          </div>
+        </div>
+
+        <!-- Vertical 3: Smart Water & Fluidos -->
+        <div class="vertical-card">
+          <div>
+            <div class="vertical-card-header">
+              <div class="vertical-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+              </div>
+              <div class="vertical-title">
+                <h3>Gestión de Agua, Tanques & Pozos</h3>
+                <span>Smart Water & Metering</span>
+              </div>
+            </div>
+            <div class="vertical-body">
+              Telemetría de caudal, niveles hidrostáticos en reservorios y presiones en redes de distribución. Detección temprana de fugas y control de bombas.
+              <div class="sensor-tags-wrap">
+                <span class="sensor-tag hi">Caudalímetros Ultrasónicos (M-Bus)</span>
+                <span class="sensor-tag hi">Sondas de Nivel Hidrostáticas 4-20mA</span>
+                <span class="sensor-tag">Presostatos Digitales de Bombeo</span>
+                <span class="sensor-tag">Sensores de Calidad de Agua (pH/TDS)</span>
+              </div>
+            </div>
+          </div>
+          <div style="font-size: 0.76rem; color: #94a3b8; border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 10px; margin-top: 8px;">
+            <strong>Métricas Clave:</strong> Caudal instantáneo (m³/h), volumen totalizado (m³), nivel de tanque (m / %), presión en línea (bar/PSI).
+          </div>
+        </div>
+
+        <!-- Vertical 4: Agroindustria & Silos -->
+        <div class="vertical-card">
+          <div>
+            <div class="vertical-card-header">
+              <div class="vertical-icon-box green">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+              </div>
+              <div class="vertical-title">
+                <h3>Agroindustria, Silos & Clima</h3>
+                <span>Smart Farming & Grain Storage</span>
+              </div>
+            </div>
+            <div class="vertical-body">
+              Monitoreo LoRaWAN de largo alcance (hasta 12 km) para silos, silobolsas y cultivos agrícolas. Prevención de calentamiento y mermas de grano.
+              <div class="sensor-tags-wrap">
+                <span class="sensor-tag hi">Lanzas LoRaWAN Silos (Temp/Humedad/CO₂)</span>
+                <span class="sensor-tag hi">Estaciones Meteorológicas de Torre</span>
+                <span class="sensor-tag">Sondas de Humedad de Suelo Multinivel</span>
+                <span class="sensor-tag">Anemómetros & Pluviómetros de Campo</span>
+              </div>
+            </div>
+          </div>
+          <div style="font-size: 0.76rem; color: #94a3b8; border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 10px; margin-top: 8px;">
+            <strong>Métricas Clave:</strong> Humedad de granos (%), temperatura de fermentación interna (°C), CO₂ en silobolsa, lluvia acumulada (mm), viento (km/h).
+          </div>
+        </div>
+
+        <!-- Vertical 5: Inmótica & Edificios Inteligentes -->
+        <div class="vertical-card">
+          <div>
+            <div class="vertical-card-header">
+              <div class="vertical-icon-box purple">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <div class="vertical-title">
+                <h3>Inmótica, Edificios & Oficinas</h3>
+                <span>Smart Buildings & Offices</span>
+              </div>
+            </div>
+            <div class="vertical-body">
+              Automatización de climatización VRF/VRV, radar de presencia humana, calidad del aire y gestión de iluminación comercial eficiente.
+              <div class="sensor-tags-wrap">
+                <span class="sensor-tag hi">Pasarelas VRF Daikin / Gree / LG</span>
+                <span class="sensor-tag hi">Radares de Presencia mmWave (60 GHz)</span>
+                <span class="sensor-tag">Sensores Calidad Aire (CO₂ / VOC / PM2.5)</span>
+                <span class="sensor-tag">Controladores DALI-2 & Zigbee 3.0</span>
+              </div>
+            </div>
+          </div>
+          <div style="font-size: 0.76rem; color: #94a3b8; border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 10px; margin-top: 8px;">
+            <strong>Métricas Clave:</strong> Temperatura por zonas (°C), CO₂ en salas de reunión (ppm), ocupación real de oficinas, consumo de A/A.
+          </div>
+        </div>
+
+        <!-- Vertical 6: SCADA Industrial & Mantenimiento Predictivo -->
+        <div class="vertical-card">
+          <div>
+            <div class="vertical-card-header">
+              <div class="vertical-icon-box green">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              </div>
+              <div class="vertical-title">
+                <h3>SCADA Industrial & Maquinaria</h3>
+                <span>Industrial IoT & Predictive Maintenance</span>
+              </div>
+            </div>
+            <div class="vertical-body">
+              Telemetría de motores, bombas y calderas de vapor. Análisis de vibración para evitar paradas imprevistas de planta y roturas de maquinaria.
+              <div class="sensor-tags-wrap">
+                <span class="sensor-tag hi">Sensores de Vibración Triaxial (ISO 10816)</span>
+                <span class="sensor-tag hi">Transmisores de Presión en Calderas</span>
+                <span class="sensor-tag">Células de Carga en Tolvas / Balanzas</span>
+                <span class="sensor-tag">PLCs Siemens / Schneider (Modbus TCP)</span>
+              </div>
+            </div>
+          </div>
+          <div style="font-size: 0.76rem; color: #94a3b8; border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 10px; margin-top: 8px;">
+            <strong>Métricas Clave:</strong> Velocidad RMS de vibración (mm/s), temperatura de cojinetes (°C), presión de vapor (bar), peso de producto en tolva (kg/ton).
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Mapping de Parámetros del Nodo de Demostración Actual -->
+      <div style="margin-top: 26px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 20px;">
+        <h3 style="font-size: 1.05rem; color: #fff; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--tele-cyan)" stroke-width="2"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+          Mapeo de Variables Técnicas del Nodo Activo (demodata JSON)
+        </h3>
+        
+        <div class="glossary-table-wrap">
+          <table class="glossary-table">
+            <thead>
+              <tr>
+                <th>Variable JSON</th>
+                <th>Vertical Asociada</th>
+                <th>Unidad Cruda</th>
+                <th>Fórmula de Conversión</th>
+                <th>Propósito Operativo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="glossary-param-code">rx_kB_s</span></td>
+                <td><span class="glossary-badge-cat red">Infraestructura TI</span></td>
+                <td>kB/s</td>
+                <td><strong>Mbps = (rx_kB_s × 8) / 1000</strong></td>
+                <td>Consumo instantáneo de bajada en interfaz Ether1 MikroTik.</td>
+              </tr>
+              <tr>
+                <td><span class="glossary-param-code">tx_kB_s</span></td>
+                <td><span class="glossary-badge-cat red">Infraestructura TI</span></td>
+                <td>kB/s</td>
+                <td><strong>Mbps = (tx_kB_s × 8) / 1000</strong></td>
+                <td>Caudal de subida (streaming CCTV, backups, túneles VPN).</td>
+              </tr>
+              <tr>
+                <td><span class="glossary-param-code">temperatura_c</span></td>
+                <td><span class="glossary-badge-cat meteo">TI & Silos</span></td>
+                <td>°C</td>
+                <td>Lectura digital directa (±0.1°C)</td>
+                <td>Supervisión térmica de racks de servidores y granos en silos.</td>
+              </tr>
+              <tr>
+                <td><span class="glossary-param-code">humedad_pct</span></td>
+                <td><span class="glossary-badge-cat meteo">Clima & Suelos</span></td>
+                <td>% RH</td>
+                <td>Humedad relativa porcentual</td>
+                <td>Control higrométrico para prevenir condensación en baterías y tableros.</td>
+              </tr>
+              <tr>
+                <td><span class="glossary-param-code">viento_kmh / dir</span></td>
+                <td><span class="glossary-badge-cat meteo">Clima & Torres</span></td>
+                <td>km/h · Grados (0-360°)</td>
+                <td>Azimut a cuadrante (ej: 322° NW)</td>
+                <td>Seguridad eólica de torres de telecomunicaciones de 60m y mástiles.</td>
+              </tr>
+              <tr>
+                <td><span class="glossary-param-code">luminosidad_lx</span></td>
+                <td><span class="glossary-badge-cat meteo">Inmótica & Solar</span></td>
+                <td>Lux (lx)</td>
+                <td>Sensor fótico crepuscular</td>
+                <td>Encendido de reflectores perimetrales y curva fotovoltaica diurna.</td>
+              </tr>
+              <tr>
+                <td><span class="glossary-param-code">monitores.entel / tigo</span></td>
+                <td><span class="glossary-badge-cat red">Conectividad</span></td>
+                <td>String ("responde")</td>
+                <td>Watchdog ICMP cíclico</td>
+                <td>Conmutación por failover automático cero cortes en conmutador PCC.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tele-disclaimer-box" style="margin-top: 14px;">
+          <span class="disclaimer-badge">CALIBRACIÓN TÉCNICA</span>
+          <span><strong>Umbrales Operativos Paramétricos:</strong> Los límites de alerta térmica (32°C), higrométrica (80% RH) y de saturación de enlace mostrados en este dashboard son referenciales para la demostración y se calibran a medida en cada proyecto según la norma ANSI/TIA-942 para centros de datos, o tolerancias de temperatura y humedad en silos y almacenamiento agroindustrial.</span>
+        </div>
       </div>
     </div>
 
