@@ -1133,6 +1133,7 @@ document.addEventListener('DOMContentLoaded', () => {
     floatingAiModal.setAttribute('aria-hidden', 'false');
     if (floatingAiTrigger) floatingAiTrigger.setAttribute('aria-expanded', 'true');
     if (floatingAiInput) floatingAiInput.focus();
+    startOperatorPolling();
   }
 
   function closeFloatingAi() {
@@ -1140,6 +1141,7 @@ document.addEventListener('DOMContentLoaded', () => {
     floatingAiModal.classList.remove('active');
     floatingAiModal.setAttribute('aria-hidden', 'true');
     if (floatingAiTrigger) floatingAiTrigger.setAttribute('aria-expanded', 'false');
+    stopOperatorPolling();
   }
 
   function appendAiMessage(text, isUser = false) {
@@ -1158,9 +1160,66 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Configuración del Cloudflare Worker (Opción 2 — EN VIVO)
+  // Configuración del Cloudflare Worker (Opción 2 — EN VIVO Bidireccional)
   const CLOUDFLARE_WORKER_URL = 'https://webservi-ai-bot.lucas-carandino.workers.dev/';
   const chatHistory = [];
+
+  // ID de Sesión Único para el Visitante (persistido en sessionStorage)
+  let visitorSessionId = sessionStorage.getItem('ws_chat_session_id');
+  if (!visitorSessionId) {
+    visitorSessionId = 'CLI_' + Math.random().toString(36).substring(2, 7).toUpperCase();
+    sessionStorage.setItem('ws_chat_session_id', visitorSessionId);
+  }
+
+  function appendOperatorMessage(sender, text) {
+    if (!floatingAiMessages) return;
+    const bubble = document.createElement('div');
+    bubble.className = 'ai-bubble ai-bubble-operator';
+    bubble.innerHTML = `
+      <div class="operator-badge-header">
+        <span class="operator-pulse-dot"></span>
+        <strong>${sender}</strong>
+        <span class="operator-tag">EN VIVO</span>
+      </div>
+      <div class="operator-text-content">${text}</div>
+    `;
+    floatingAiMessages.appendChild(bubble);
+    floatingAiMessages.scrollTop = floatingAiMessages.scrollHeight;
+    chatHistory.push({ isUser: false, text: `[${sender}]: ${text}` });
+  }
+
+  // Sondeo periódico de respuestas en vivo de Lucas desde Telegram
+  let operatorPollTimer = null;
+  async function pollForOperatorReplies() {
+    if (!CLOUDFLARE_WORKER_URL || !floatingAiModal || !floatingAiModal.classList.contains('active')) return;
+    try {
+      const res = await fetch(`${CLOUDFLARE_WORKER_URL}?action=poll&sessionId=${visitorSessionId}`);
+      if (res.ok) {
+        const data = await res.json();
+        if (data.newMessages && Array.isArray(data.newMessages)) {
+          data.newMessages.forEach(msg => {
+            appendOperatorMessage(msg.sender || 'Lucas Carandino', msg.text);
+          });
+        }
+      }
+    } catch (e) {
+      // Ignorar errores transitorios de red en el sondeo
+    }
+  }
+
+  function startOperatorPolling() {
+    if (operatorPollTimer) clearInterval(operatorPollTimer);
+    operatorPollTimer = setInterval(pollForOperatorReplies, 2500);
+    // Ejecutar una consulta inmediata
+    pollForOperatorReplies();
+  }
+
+  function stopOperatorPolling() {
+    if (operatorPollTimer) {
+      clearInterval(operatorPollTimer);
+      operatorPollTimer = null;
+    }
+  }
 
   async function handleAiBotReply(userText) {
     chatHistory.push({ isUser: true, text: userText });
@@ -1179,6 +1238,7 @@ document.addEventListener('DOMContentLoaded', () => {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
+            sessionId: visitorSessionId,
             message: userText,
             history: chatHistory.slice(-6)
           })
@@ -1193,7 +1253,7 @@ document.addEventListener('DOMContentLoaded', () => {
           chatHistory.push({ isUser: false, text: reply });
 
           if (data.leadDispatched) {
-            appendAiMessage('✅ Notificación enviada con éxito al Telegram privado de Lucas (+591 75020555). Te contactará a la brevedad.', false);
+            appendAiMessage('🔔 Hemos notificado tu consulta al equipo de ingeniería de WebServi. Lucas puede responderte directamente en este mismo chat en cualquier momento.', false);
           }
           return;
         }

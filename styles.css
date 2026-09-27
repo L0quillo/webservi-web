@@ -4613,3 +4613,56 @@ body {
     box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
   }
 }
+
+/* Burbuja de Operador Humano (Lucas Carandino vía Telegram) */
+.ai-bubble-operator {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.18) 0%, rgba(13, 42, 71, 0.95) 100%) !important;
+  border: 1.5px solid #10b981 !important;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.25) !important;
+  align-self: flex-start;
+  max-width: 90%;
+  animation: slideInLeft 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.operator-badge-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 0.8rem;
+  color: #a7f3d0;
+  font-family: var(--font-mono);
+}
+
+.operator-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  display: inline-block;
+  animation: pulseDot 1.2s infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+}
+
+.operator-tag {
+  background: rgba(16, 185, 129, 0.3);
+  border: 1px solid #10b981;
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.operator-text-content {
+  color: #ffffff;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
