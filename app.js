@@ -27,21 +27,21 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('ambientVid2'),
     document.getElementById('ambientVid3'),
     document.getElementById('ambientVid4'),
-    document.getElementById('ambientVid5')
+    document.getElementById('ambientVid5'),
+    document.getElementById('ambientVid6')
   ];
 
   // Clusters
   const clusters = document.querySelectorAll('.line-cluster');
 
-  // IntersectionObserver for Story-Scroll
-  const observerOptions = {
-    root: null,
-    rootMargin: '-20% 0px -40% 0px',
-    threshold: 0.2
-  };
+  let currentActiveLine = null;
 
   function updateSidebar(cluster) {
+    if (!cluster) return;
     const lineNum = cluster.dataset.line;
+    if (currentActiveLine === lineNum) return;
+    currentActiveLine = lineNum;
+
     const title = cluster.dataset.title;
     const eyebrow = cluster.dataset.eyebrow;
     const quote = cluster.dataset.quote;
@@ -50,8 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const waMsg = encodeURIComponent(cluster.dataset.msg || 'Hola WebServi, deseo cotizar un proyecto');
 
     // Update Counter & Progress
-    if (lineCounter) lineCounter.textContent = `LÍNEA 0${lineNum} DE 05`;
-    if (progressBar) progressBar.style.width = `${lineNum * 20}%`;
+    if (lineCounter) lineCounter.textContent = `LÍNEA 0${lineNum} DE 06`;
+    if (progressBar) progressBar.style.width = `${(lineNum / 6) * 100}%`;
 
     // Update Text Content with subtle fade effect
     if (sidebarEyebrow) sidebarEyebrow.textContent = eyebrow;
@@ -118,15 +118,54 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        updateSidebar(entry.target);
-      }
-    });
-  }, observerOptions);
+  // High-Precision Geometry Scroll Tracker (Works 100% reliably regardless of viewport height)
+  function calculateActiveCluster() {
+    if (!clusters || clusters.length === 0) return;
+    const triggerY = window.innerHeight * 0.38;
+    let bestCluster = null;
 
-  clusters.forEach(c => observer.observe(c));
+    for (let i = 0; i < clusters.length; i++) {
+      const rect = clusters[i].getBoundingClientRect();
+      if (rect.top <= triggerY && rect.bottom >= triggerY) {
+        bestCluster = clusters[i];
+        break;
+      }
+    }
+
+    if (!bestCluster) {
+      const firstRect = clusters[0].getBoundingClientRect();
+      if (firstRect.top > triggerY) {
+        bestCluster = clusters[0];
+      } else {
+        const lastRect = clusters[clusters.length - 1].getBoundingClientRect();
+        if (lastRect.bottom < triggerY) {
+          bestCluster = clusters[clusters.length - 1];
+        }
+      }
+    }
+
+    if (bestCluster) {
+      updateSidebar(bestCluster);
+    }
+  }
+
+  let scrollTicking = false;
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      window.requestAnimationFrame(() => {
+        calculateActiveCluster();
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
+  }, { passive: true });
+
+  window.addEventListener('resize', () => {
+    calculateActiveCluster();
+  }, { passive: true });
+
+  // Initial trigger
+  calculateActiveCluster();
 
   // Initialize video autoplay and initial ambient video state
   const brandLogoVid = document.querySelector('.brand-logo-video');
@@ -488,6 +527,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "linea-1-card-2": {
       title: "Ductaje Preventivo con Capacidad Futura",
       images: [
+        "img/portfolio/obra-cableado-ductaje-diseno-2016.webp",
         "img/portfolio/escalerillas-rieles-y-redes-industriales.webp",
         "img/portfolio/ductaje-redes-fibra-industrial.webp",
         "img/portfolio/eslerillas.webp",
@@ -515,6 +555,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "linea-2-card-1": {
       title: "Cableado Estructurado (Garantía 3 a 10 Años)",
       images: [
+        "img/portfolio/obra-cableado-estructurado-2016.webp",
         "img/portfolio/cableado-esttructurado.webp",
         "img/portfolio/cableado-redes-y-racks.webp",
         "img/portfolio/cableado-estructurado-redes-y-fibra.webp",
@@ -545,6 +586,8 @@ document.addEventListener('DOMContentLoaded', () => {
     "linea-2-card-4": {
       title: "Racks Organizados & Conexiones en Mobiliario y Piso",
       images: [
+        "img/portfolio/obra-racks-cableado-estructurado-2015.webp",
+        "img/portfolio/obra-mini-rack-redes-pyme-2015.webp",
         "img/portfolio/cableado-de-muebles.webp",
         "img/portfolio/sala-de-reuniones.webp",
         "img/portfolio/sala-de-reuniones1.webp",
@@ -555,6 +598,10 @@ document.addEventListener('DOMContentLoaded', () => {
     "linea-3-card-1": {
       title: "MikroTik, UniFi & Fortinet Administrados",
       images: [
+        "img/portfolio/obra-redes-gabinetes-2016.webp",
+        "img/portfolio/obra-routers-redes-2015.webp",
+        "img/portfolio/obra-routers-enrutamiento-2015.webp",
+        "img/portfolio/obra-redes-comunicaciones-2015.webp",
         "img/portfolio/wifi-unifi.webp",
         "img/portfolio/routers-oficinas.webp",
         "img/portfolio/monitoreo-redes-nube.webp",
@@ -565,6 +612,9 @@ document.addEventListener('DOMContentLoaded', () => {
     "linea-3-card-2": {
       title: "Torres de 60m, Enlaces 60 GHz & Starlink",
       images: [
+        "img/portfolio/obra-antena-enlace-2017.webp",
+        "img/portfolio/obra-enlaces-inalambricos-antenas-2016.webp",
+        "img/portfolio/obra-antena-satelital-2016.webp",
         "img/portfolio/torres-y-enlaces-5ghz-60ghz.webp",
         "img/portfolio/starlink-instalaciones.webp",
         "img/portfolio/starlink.webp",
@@ -576,6 +626,8 @@ document.addEventListener('DOMContentLoaded', () => {
     "linea-3-card-3": {
       title: "Servidores Físicos (Dell / HP / Supermicro)",
       images: [
+        "img/portfolio/obra-servers-ensamblados-hardware-2015.webp",
+        "img/portfolio/obra-rack-servers-redes-2013.webp",
         "img/portfolio/servers-nas-bjobs.webp",
         "img/portfolio/racks-y-datacenters.webp",
         "img/portfolio/rack-redes.webp",
@@ -584,17 +636,21 @@ document.addEventListener('DOMContentLoaded', () => {
       ]
     },
     "linea-3-card-4": {
-      title: "Backup Estricto 3-2-1 & Nube Híbrida",
+      title: "Backup Estricto 3-2-1, PBX & Nube Híbrida",
       images: [
+        "img/portfolio/obra-telefonia-ip-central-2013.webp",
         "img/portfolio/redes-cctv-nas-rack.webp",
         "img/portfolio/rack-datos-red-cctv-servers-nas-cableado-routers.webp",
         "img/portfolio/monitoreo-redes-nube.webp",
-        "img/portfolio/rack-y-datos.webp"
+        "img/portfolio/rack-y-datos.webp",
+        "img/portfolio/voip-pbx.webp"
       ]
     },
     "linea-4-card-1": {
       title: "CCTV con IA & Almacenamiento Masivo",
       images: [
+        "img/portfolio/obra-video-walls-estructuras-2016.webp",
+        "img/portfolio/obra-redes-cctv-2016.webp",
         "img/portfolio/sistemas-camaras-seguridad.webp",
         "img/portfolio/cctv-camaras.webp",
         "img/portfolio/cctv-exteriores.webp",
@@ -663,6 +719,42 @@ document.addEventListener('DOMContentLoaded', () => {
         "img/portfolio/monitoreo-energia.webp",
         "img/portfolio/medicion-energia.webp",
         "img/portfolio/redes-torres-y-tableros-campo.webp"
+      ]
+    },
+    "linea-6-card-1": {
+      title: "Outsourcing de TI & Soporte Mensualizado",
+      images: [
+        "img/portfolio/outsourcing-ti-soporte-empresarial.webp",
+        "img/portfolio/monitoreo-redes-nube.webp",
+        "img/portfolio/oficinas-cableado-y-sistemas.webp",
+        "img/portfolio/routers-oficinas.webp"
+      ]
+    },
+    "linea-6-card-2": {
+      title: "Capacitaciones Técnicas Profesionales",
+      images: [
+        "img/portfolio/capacitaciones-tecnicas-redes-ia.webp",
+        "img/portfolio/panel-eductivo.webp",
+        "img/portfolio/wifi-unifi.webp",
+        "img/portfolio/planificacion-diseno-senales-y-redes.webp"
+      ]
+    },
+    "linea-6-card-3": {
+      title: "Automatización, Agentes IA & Chatbots (Telegram / WA)",
+      images: [
+        "img/portfolio/agentes-ia-chatbots-automatizacion.webp",
+        "img/portfolio/redes-video-audio-rack.webp",
+        "img/portfolio/servers-nas-bjobs.webp",
+        "img/portfolio/monitoreo-redes-nube.webp"
+      ]
+    },
+    "linea-6-card-4": {
+      title: "Servidores Locales de IA & Privacidad de Datos",
+      images: [
+        "img/portfolio/servidores-locales-ia-privacidad.webp",
+        "img/portfolio/servers-nas-bjobs.webp",
+        "img/portfolio/rack-datos-red-cctv-servers-nas-cableado-routers.webp",
+        "img/portfolio/racks-y-datacenters.webp"
       ]
     }
   };
@@ -839,11 +931,349 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // =========================================================================
+  // COMPARATIVE MATRIX ACCORDION & SCENARIO BUTTONS
+  // =========================================================================
+  const matrixAccordionTrigger = document.getElementById('matrixAccordionTrigger');
+  const matrixAccordionContent = document.getElementById('matrixAccordionContent');
+
+  if (matrixAccordionTrigger && matrixAccordionContent) {
+    matrixAccordionTrigger.addEventListener('click', () => {
+      const isExpanded = matrixAccordionTrigger.getAttribute('aria-expanded') === 'true';
+      matrixAccordionTrigger.setAttribute('aria-expanded', !isExpanded);
+      if (isExpanded) {
+        matrixAccordionContent.hidden = true;
+      } else {
+        matrixAccordionContent.hidden = false;
+      }
+    });
+
+    matrixAccordionTrigger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        matrixAccordionTrigger.click();
+      }
+    });
+  }
+
+  // =========================================================================
+  // INTERACTIVE AI ENGINEERING DIAGNOSTIC CONSOLE
+  // =========================================================================
+  const aiQuickOptions = document.getElementById('aiQuickOptions');
+  const diagDisciplineTag = document.getElementById('diagDisciplineTag');
+  const diagBody = document.getElementById('diagBody');
+  const diagSpecs = document.getElementById('diagSpecs');
+  const aiUserInput = document.getElementById('aiUserInput');
+  const aiSendBtn = document.getElementById('aiSendBtn');
+  const aiTelegramBtn = document.getElementById('aiTelegramBtn');
+  const aiWhatsAppBtn = document.getElementById('aiWhatsAppBtn');
+
+  const diagnosisKnowledge = {
+    planos: {
+      tag: 'LÍNEA 01 · INGENIERÍA EN PLANOS BIM & PRE-OBRA',
+      body: 'Para edificaciones y obras nuevas, la intervención pre-obra evita el 90% de sobrecostos futuros. Diseñamos ductaje conduit mínimo de 1" con curvaturas suaves, segregación estricta de rutas de fuerza (separación mínima 30 cm para eliminar inducción EMI) y planos as-built digitalizados en AutoCAD y Revit.',
+      specs: [
+        '📐 Ductos con 40% de holgura para expansión futura',
+        '⚡ Segregación electromagnética según ANSI/TIA-569-E',
+        '📁 Dossier as-built georreferenciado con rutas y cajas de paso'
+      ],
+      defaultQuery: 'Requiero ingeniería pre-obra, ductos holgados y planos de canalización para obra nueva.'
+    },
+    cableado: {
+      tag: 'LÍNEA 02 · CABLEADO ESTRUCTURADO CAT6A/CAT7 & FIBRA ÓPTICA',
+      body: 'Despliegue de cableado 100% Cobre Puro de un solo hilo (libre de aleaciones CCA quebradizas). Certificación punto a punto con escáner de nivel de laboratorio Fluke Networks y enlaces troncales en Fibra Óptica Monomodo/Multimodo con fusiones de precisión (< 0.05 dB de pérdida). Ofrecemos garantía de 3 a 10 años.',
+      specs: [
+        '🔌 Cable 100% Cobre sólido Cat6A / Cat7 para 10 Gbps PoE++',
+        '🔬 Certificación Fluke Networks (NEXT, Return Loss, Wiremap)',
+        '✨ Fusión de Fibra Óptica por arco voltaico y ODF de distribución'
+      ],
+      defaultQuery: 'Necesito cableado estructurado certificado Cat6A/Fibra con garantía extendida.'
+    },
+    redes: {
+      tag: 'LÍNEA 03 · REDES MIKROTIK, UNIFI, SERVIDORES & BACKUP 3-2-1',
+      body: 'Arquitectura de conectividad empresarial con balanceo Multi-WAN en routers MikroTik RouterOS (conmutación en 300 ms ante caídas de ISP), segmentación de VLANs, Wi-Fi 6/7 empresarial UniFi de alta densidad y servidores virtualizados Proxmox VE con copias inmutables bajo la regla 3-2-1.',
+      specs: [
+        '🌐 MikroTik BGP / OSPF / Multi-WAN Failover en 300 ms',
+        '📶 Wi-Fi 6/7 empresarial con roaming asistido 802.11k/v/r',
+        '🛡️ Backup 3-2-1 en NAS local + Réplica Offsite cifrada'
+      ],
+      defaultQuery: 'Necesito optimizar la red empresarial con MikroTik, Wi-Fi estable y respaldo 3-2-1.'
+    },
+    cctv: {
+      tag: 'LÍNEA 04 · CCTV CON IA, CONTROL DE ACCESO & REDUNDANCIA',
+      body: 'Sistema perimetral de videoseguridad con analítica inteligente de video (detección humana y vehicular sin falsas alarmas), torniquetes biométricos, esclusas y redundancia de alertas ante corte de enlace vía LoRaWAN, enlaces satelitales Starlink o LTE privado.',
+      specs: [
+        '📹 Cámaras 4K AcuSense/SMD con almacenamiento local redundante',
+        '🚪 Molinetes y control de acceso biométrico facial/MIFARE',
+        '📡 Telemetría y enlace de respaldo por Starlink / LoRaWAN'
+      ],
+      defaultQuery: 'Requiero CCTV con analítica IA, control de accesos biométrico y redundancia de alertas.'
+    },
+    domotica: {
+      tag: 'LÍNEA 05 · DOMÓTICA LOCAL, UPS LITIO & IOT INDUSTRIAL',
+      body: 'Automatización inteligente con procesamiento 100% local (sin depender de nubes chinas ni suscripciones de terceros). Integración de climatización VRF/Inverter, iluminación DALI/Zigbee y respaldo ininterrumpido con UPS de Litio Ferrofosfato (LiFePO4) de transferencia < 10 ms.',
+      specs: [
+        '🏠 Servidor local Home Assistant / ThingsBoard industrial',
+        '🔋 Banco de baterías LiFePO4 de 4000+ ciclos de vida útil',
+        '⚡ Monitoreo de fases eléctricas y telemetría de corte en tiempo real'
+      ],
+      defaultQuery: 'Busco domótica local sin nubes externas y sistema de UPS con litio ferrofosfato.'
+    },
+    outsourcing: {
+      tag: 'LÍNEA 06 · OUTSOURCING TI, CAPACITACIONES & SOLUCIONES IA',
+      body: 'Servicio mensualizado de TI empresarial actuando como su departamento técnico interno: soporte preventivo, correctivo y mesa de ayuda con SLA garantizado. Capacitaciones in-company prácticas en MikroTik, UniFi, redes y domótica. Implementación de agentes IA, chatbots conectados a Telegram/WhatsApp y servidores locales de IA para proteger su confidencialidad.',
+      specs: [
+        '💻 Outsourcing mensualizado y mesa de ayuda técnica 24/7',
+        '🎓 Capacitaciones técnicas profesionales in-company a medida',
+        '🤖 Agentes IA, chatbots y servidores locales privados (100% privacidad)'
+      ],
+      defaultQuery: 'Interesa outsourcing mensual de TI, capacitaciones para mi equipo y agentes de IA.'
+    },
+    integral: {
+      tag: 'PROYECTO INTEGRAL MULTIDISCIPLINARIO LLAVE EN MANO',
+      body: 'Solución integral coordinada de punta a punta: desde el diseño de ductos en obra gruesa y cableado Cat6A/Fibra, hasta el equipamiento de telecomunicaciones MikroTik/UniFi, videovigilancia con IA, control de accesos, domótica con respaldo de litio y soporte mensualizado con agentes IA.',
+      specs: [
+        '⚡ 6 disciplinas de ingeniería en un solo contrato y proveedor',
+        '📋 Un solo interlocutor técnico y garantía total unificada',
+        '🛡️ Cero conflictos entre electricistas, albañiles y técnicos de TI'
+      ],
+      defaultQuery: 'Requiero una solución integral llave en mano con las 6 disciplinas de WebServi.'
+    }
+  };
+
+  let activeDiscipline = 'planos';
+
+  function updateDiagnosticUI(disciplineKey, customQuery = '') {
+    const data = diagnosisKnowledge[disciplineKey] || diagnosisKnowledge.planos;
+    activeDiscipline = disciplineKey;
+
+    if (diagDisciplineTag) diagDisciplineTag.textContent = data.tag;
+    if (diagBody) {
+      if (customQuery.trim()) {
+        diagBody.innerHTML = `<strong>Consulta específica:</strong> "${customQuery.trim()}"<br><br>${data.body}`;
+      } else {
+        diagBody.textContent = data.body;
+      }
+    }
+
+    if (diagSpecs) {
+      diagSpecs.innerHTML = data.specs.map(s => `<span class="spec-chip">${s}</span>`).join('');
+    }
+
+    // Update dispatch links to Lucas (+591 75020555)
+    const queryText = customQuery.trim() || data.defaultQuery;
+    const projectSummary = `Hola Lucas, coticé en la web el diagnóstico para [${data.tag}]. Requerimiento: "${queryText}". Quisiera coordinar una propuesta técnica.`;
+
+    if (aiTelegramBtn) {
+      aiTelegramBtn.href = `https://t.me/WebServiBolivia?text=${encodeURIComponent(projectSummary)}`;
+    }
+    if (aiWhatsAppBtn) {
+      aiWhatsAppBtn.href = `https://wa.me/59175020555?text=${encodeURIComponent(projectSummary)}`;
+    }
+  }
+
+  if (aiQuickOptions) {
+    aiQuickOptions.querySelectorAll('.ai-chip-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        aiQuickOptions.querySelectorAll('.ai-chip-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const discipline = btn.dataset.discipline;
+        const currentInput = aiUserInput ? aiUserInput.value : '';
+        updateDiagnosticUI(discipline, currentInput);
+      });
+    });
+  }
+
+  if (aiSendBtn && aiUserInput) {
+    const handleSendDiagnosis = () => {
+      const query = aiUserInput.value.trim();
+      updateDiagnosticUI(activeDiscipline, query);
+      if (diagBody) {
+        diagBody.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    };
+    aiSendBtn.addEventListener('click', handleSendDiagnosis);
+    aiUserInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        handleSendDiagnosis();
+      }
+    });
+  }
+
+  // Initial populate of AI Diagnosis
+  updateDiagnosticUI('planos');
+
+  // =========================================================================
+  // FLOATING 24/7 AI ASSISTANT WIDGET & CHATBOT
+  // =========================================================================
+  const floatingAiTrigger = document.getElementById('floatingAiTrigger');
+  const floatingAiModal = document.getElementById('floatingAiModal');
+  const floatingAiClose = document.getElementById('floatingAiClose');
+  const floatingAiMessages = document.getElementById('floatingAiMessages');
+  const floatingAiInput = document.getElementById('floatingAiInput');
+  const floatingAiSend = document.getElementById('floatingAiSend');
+  const aiModalChips = document.getElementById('aiModalChips');
+  const floatingTelegramBridge = document.getElementById('floatingTelegramBridge');
+  const floatingWhatsAppBridge = document.getElementById('floatingWhatsAppBridge');
+
+  const botResponses = {
+    cableado: 'En WebServi instalamos cableado 100% Cobre Sólido Cat6A / Cat7 y Fibra Óptica con certificación Fluke Networks punto a punto. Ofrecemos garantía de 3 a 10 años. ¿Deseas coordinar un relevamiento en tu obra?',
+    redes: 'Diseñamos redes empresariales con MikroTik RouterOS (conmutación multi-WAN en 300 ms), Wi-Fi 6/7 UniFi de alta cobertura y servidores Proxmox VE con política de backup inmutable 3-2-1.',
+    cctv: 'Nuestros sistemas de CCTV integran Inteligencia Artificial para detección perimetral de humanos y vehículos, molinetes biométricos y redundancia de alertas vía Starlink o LoRaWAN ante cortes de internet.',
+    domotica: 'Implementamos domótica 100% local con Home Assistant y ThingsBoard industrial, climatización inteligente y respaldo de energía mediante UPS con baterías de Litio Ferrofosfato (LiFePO4).',
+    outsourcing: 'Brindamos outsourcing mensualizado de TI actuando como su departamento técnico interno, soporte preventivo/correctivo, capacitaciones profesionales in-company (MikroTik/UniFi/IA) y desarrollo de agentes IA y chatbots seguros.',
+    recursos: 'En nuestra sección de Recursos IT dispones de Calculadora de Subredes IP, visor de espectro Wi-Fi (2.4, 5 y 6 GHz), pruebas de velocidad referenciales y directorios DNS con filtros de seguridad.',
+    default: '¡Gracias por su consulta! Como asistente de ingeniería de WebServi, puedo orientarle sobre nuestras 6 líneas de especialidad: Planos BIM, Cableado Cat6A, Redes MikroTik/UniFi, CCTV con IA, Domótica con Litio y Outsourcing/IA. Para un presupuesto exacto, puedo transferir esta conversación a Lucas por Telegram (+591 75020555).'
+  };
+
+  function openFloatingAi() {
+    if (!floatingAiModal) return;
+    floatingAiModal.classList.add('active');
+    floatingAiModal.setAttribute('aria-hidden', 'false');
+    if (floatingAiTrigger) floatingAiTrigger.setAttribute('aria-expanded', 'true');
+    if (floatingAiInput) floatingAiInput.focus();
+  }
+
+  function closeFloatingAi() {
+    if (!floatingAiModal) return;
+    floatingAiModal.classList.remove('active');
+    floatingAiModal.setAttribute('aria-hidden', 'true');
+    if (floatingAiTrigger) floatingAiTrigger.setAttribute('aria-expanded', 'false');
+  }
+
+  function appendAiMessage(text, isUser = false) {
+    if (!floatingAiMessages) return;
+    const bubble = document.createElement('div');
+    bubble.className = `ai-bubble ${isUser ? 'ai-bubble-user' : 'ai-bubble-bot'}`;
+    bubble.textContent = text;
+    floatingAiMessages.appendChild(bubble);
+    floatingAiMessages.scrollTop = floatingAiMessages.scrollHeight;
+
+    // Update floating bridge links with user's last question
+    if (isUser) {
+      const encodedMsg = encodeURIComponent(`Hola Lucas, tengo una consulta desde el chat web de WebServi: "${text}"`);
+      if (floatingTelegramBridge) floatingTelegramBridge.href = `https://t.me/WebServiBolivia?text=${encodedMsg}`;
+      if (floatingWhatsAppBridge) floatingWhatsAppBridge.href = `https://wa.me/59175020555?text=${encodedMsg}`;
+    }
+  }
+
+  // Configuración del Cloudflare Worker (Opción 2 — EN VIVO)
+  const CLOUDFLARE_WORKER_URL = 'https://webservi-ai-bot.lucas-carandino.workers.dev/';
+  const chatHistory = [];
+
+  async function handleAiBotReply(userText) {
+    chatHistory.push({ isUser: true, text: userText });
+
+    if (CLOUDFLARE_WORKER_URL && CLOUDFLARE_WORKER_URL.trim() !== '') {
+      const typingBubble = document.createElement('div');
+      typingBubble.className = 'ai-bubble ai-bubble-bot ai-typing';
+      typingBubble.textContent = 'Analizando con IA de WebServi...';
+      if (floatingAiMessages) {
+        floatingAiMessages.appendChild(typingBubble);
+        floatingAiMessages.scrollTop = floatingAiMessages.scrollHeight;
+      }
+
+      try {
+        const response = await fetch(CLOUDFLARE_WORKER_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message: userText,
+            history: chatHistory.slice(-6)
+          })
+        });
+
+        if (typingBubble.parentNode) typingBubble.parentNode.removeChild(typingBubble);
+
+        if (response.ok) {
+          const data = await response.json();
+          const reply = data.reply || botResponses.default;
+          appendAiMessage(reply, false);
+          chatHistory.push({ isUser: false, text: reply });
+
+          if (data.leadDispatched) {
+            appendAiMessage('✅ Notificación enviada con éxito al Telegram privado de Lucas (+591 75020555). Te contactará a la brevedad.', false);
+          }
+          return;
+        }
+      } catch (err) {
+        if (typingBubble.parentNode) typingBubble.parentNode.removeChild(typingBubble);
+      }
+    }
+
+    // Modo Simulación Local Inteligente (Grounded Fallback)
+    const textLower = userText.toLowerCase();
+    let reply = botResponses.default;
+
+    if (textLower.includes('cable') || textLower.includes('fluke') || textLower.includes('fibra')) {
+      reply = botResponses.cableado;
+    } else if (textLower.includes('red') || textLower.includes('wifi') || textLower.includes('wi-fi') || textLower.includes('mikrotik') || textLower.includes('unifi') || textLower.includes('servidor')) {
+      reply = botResponses.redes;
+    } else if (textLower.includes('camara') || textLower.includes('cámara') || textLower.includes('cctv') || textLower.includes('acceso') || textLower.includes('biometrico')) {
+      reply = botResponses.cctv;
+    } else if (textLower.includes('domotica') || textLower.includes('domótica') || textLower.includes('ups') || textLower.includes('litio') || textLower.includes('aire')) {
+      reply = botResponses.domotica;
+    } else if (textLower.includes('outsourcing') || textLower.includes('soporte') || textLower.includes('mantenimiento') || textLower.includes('capacita') || textLower.includes('ia') || textLower.includes('bot')) {
+      reply = botResponses.outsourcing;
+    } else if (textLower.includes('ip') || textLower.includes('calculadora') || textLower.includes('recurso') || textLower.includes('espectro') || textLower.includes('dns')) {
+      reply = botResponses.recursos;
+    }
+
+    setTimeout(() => {
+      appendAiMessage(reply, false);
+      chatHistory.push({ isUser: false, text: reply });
+    }, 400);
+  }
+
+  if (floatingAiTrigger) {
+    floatingAiTrigger.addEventListener('click', () => {
+      const isOpen = floatingAiModal && floatingAiModal.classList.contains('active');
+      if (isOpen) closeFloatingAi();
+      else openFloatingAi();
+    });
+  }
+
+  if (floatingAiClose) floatingAiClose.addEventListener('click', closeFloatingAi);
+
+  if (floatingAiSend && floatingAiInput) {
+    const submitFloatingQuery = () => {
+      const val = floatingAiInput.value.trim();
+      if (!val) return;
+      appendAiMessage(val, true);
+      floatingAiInput.value = '';
+      handleAiBotReply(val);
+    };
+
+    floatingAiSend.addEventListener('click', submitFloatingQuery);
+    floatingAiInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        submitFloatingQuery();
+      }
+    });
+  }
+
+  if (aiModalChips) {
+    aiModalChips.querySelectorAll('.mini-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const askKey = chip.dataset.ask;
+        const questionText = chip.textContent;
+        appendAiMessage(questionText, true);
+        const reply = botResponses[askKey] || botResponses.default;
+        setTimeout(() => {
+          appendAiMessage(reply, false);
+        }, 350);
+      });
+    });
+  }
+
   // Global Keydown for Modals
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       if (photoLightbox && photoLightbox.classList.contains('active')) closeLightbox();
       if (portalModal && portalModal.classList.contains('active')) closePortalModal();
+      if (floatingAiModal && floatingAiModal.classList.contains('active')) closeFloatingAi();
     }
     if (photoLightbox && photoLightbox.classList.contains('active')) {
       if (e.key === 'ArrowRight') showNextLightboxPhoto();
