@@ -17,19 +17,99 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      margin: 0;
     }
+
+    /* PANTALLA DE BLOQUEO / LOGIN */
+    .login-overlay {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .login-card {
+      background: rgba(10, 22, 44, 0.95);
+      border: 1.5px solid var(--tech-cyan);
+      border-radius: var(--radius-md);
+      padding: 36px 32px;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 210, 255, 0.2);
+      backdrop-filter: blur(16px);
+      text-align: center;
+      animation: fadeIn 0.3s ease-out;
+    }
+    .login-icon {
+      font-size: 2.8rem;
+      margin-bottom: 12px;
+    }
+    .login-card h2 {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      color: #fff;
+      margin: 0 0 6px 0;
+    }
+    .login-card p {
+      color: #94a3b8;
+      font-size: 0.85rem;
+      margin: 0 0 24px 0;
+    }
+    .login-input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .login-input-group input {
+      background: rgba(4, 9, 20, 0.9);
+      border: 1px solid rgba(0, 210, 255, 0.35);
+      color: #fff;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      text-align: center;
+      letter-spacing: 2px;
+      transition: all 0.2s ease;
+    }
+    .login-input-group input:focus {
+      outline: none;
+      border-color: var(--tech-cyan);
+      box-shadow: 0 0 16px rgba(0, 210, 255, 0.35);
+    }
+    .btn-login {
+      width: 100%;
+      padding: 12px 20px;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+    .login-error {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid #ef4444;
+      color: #fca5a5;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      margin-top: 14px;
+      display: none;
+    }
+
+    /* PANEL PRINCIPAL (OCULTO HASTA AUTENTICAR) */
     .admin-container {
-      max-width: 980px;
+      max-width: 1000px;
       margin: 40px auto;
       padding: 0 20px;
       flex: 1;
       width: 100%;
+      display: none;
+      animation: fadeIn 0.4s ease-out;
     }
     .admin-card {
-      background: rgba(10, 22, 44, 0.9);
+      background: rgba(10, 22, 44, 0.92);
       border: 1px solid rgba(0, 210, 255, 0.35);
       border-radius: var(--radius-md);
-      padding: 28px;
+      padding: 28px 32px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(12px);
     }
@@ -37,7 +117,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       padding-bottom: 16px;
       border-bottom: 1px solid rgba(0, 210, 255, 0.2);
       flex-wrap: wrap;
@@ -57,52 +137,50 @@
       color: #94a3b8;
       font-size: 0.85rem;
     }
-    .auth-banner {
+    .status-bar {
       display: flex;
       align-items: center;
-      gap: 12px;
-      background: rgba(15, 30, 60, 0.7);
-      padding: 14px 18px;
-      border-radius: var(--radius-sm);
+      justify-content: space-between;
+      background: rgba(6, 14, 30, 0.7);
       border: 1px solid rgba(0, 210, 255, 0.2);
-      margin-bottom: 20px;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 18px;
       flex-wrap: wrap;
+      gap: 10px;
     }
-    .auth-banner input {
-      background: rgba(5, 12, 24, 0.9);
-      border: 1px solid rgba(0, 210, 255, 0.35);
-      color: #fff;
-      padding: 8px 14px;
-      border-radius: 6px;
+    .status-pill {
       font-family: var(--font-mono);
-      font-size: 0.88rem;
-      min-width: 220px;
+      font-size: 0.82rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
     .prompt-textarea {
       width: 100%;
       height: 380px;
-      background: #040914;
-      border: 1px solid rgba(0, 210, 255, 0.3);
+      background: #030813;
+      border: 1px solid rgba(0, 210, 255, 0.35);
       border-radius: 8px;
-      padding: 16px;
-      color: #e2e8f0;
+      padding: 18px;
+      color: #f1f5f9;
       font-family: var(--font-mono);
-      font-size: 0.86rem;
-      line-height: 1.6;
+      font-size: 0.88rem;
+      line-height: 1.65;
       resize: vertical;
       box-sizing: border-box;
-      transition: border-color 0.2s ease;
+      transition: all 0.2s ease;
     }
     .prompt-textarea:focus {
       outline: none;
       border-color: var(--tech-cyan);
-      box-shadow: 0 0 14px rgba(0, 210, 255, 0.3);
+      box-shadow: 0 0 16px rgba(0, 210, 255, 0.3);
     }
     .admin-actions {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-top: 20px;
+      margin-top: 18px;
       flex-wrap: wrap;
       gap: 12px;
     }
@@ -119,6 +197,7 @@
       display: none;
       align-items: center;
       gap: 8px;
+      margin-bottom: 14px;
     }
     .toast-success {
       background: rgba(16, 185, 129, 0.2);
@@ -170,9 +249,9 @@
       background: rgba(34, 158, 217, 0.1);
       border: 1px solid rgba(34, 158, 217, 0.35);
       border-radius: 8px;
-      padding: 14px 18px;
-      font-size: 0.85rem;
-      line-height: 1.55;
+      padding: 16px 20px;
+      font-size: 0.86rem;
+      line-height: 1.6;
     }
     .telegram-info-card strong {
       color: #38bdf8;
@@ -187,51 +266,65 @@
   </style>
 </head>
 <body>
-  <div class="admin-container">
+
+  <!-- PANTALLA DE ACCESO PROTEGIDO -->
+  <div class="login-overlay" id="loginOverlay">
+    <div class="login-card">
+      <div class="login-icon">🔒</div>
+      <h2>Acceso al Panel de Control</h2>
+      <p>Configuración en vivo del Asistente IA de WebServi.Net</p>
+      <div class="login-input-group">
+        <input type="password" id="passwordInput" placeholder="Ingrese contraseña..." autofocus>
+        <button type="button" class="btn btn-primary-glow btn-login" id="btnLogin">
+          Ingresar al Panel
+        </button>
+      </div>
+      <div class="login-error" id="loginError">Contraseña incorrecta. Acceso denegado.</div>
+    </div>
+  </div>
+
+  <!-- PANEL DE ADMINISTRACIÓN -->
+  <div class="admin-container" id="adminContainer">
     <div class="admin-card">
       <div class="admin-header">
         <div class="admin-title-group">
           <h1>⚙️ Panel de Control del Asistente IA</h1>
           <p>Configuración en caliente del System Prompt sin necesidad de ingresar a Cloudflare.</p>
         </div>
-        <div>
-          <a href="index.html" class="btn btn-secondary-outline" style="padding: 6px 14px; font-size: 0.82rem;">← Volver a la Web</a>
+        <div style="display: flex; gap: 10px;">
+          <a href="index.html" class="btn btn-secondary-outline" style="padding: 6px 14px; font-size: 0.82rem;">← Ver Web</a>
+          <button type="button" class="btn btn-secondary-outline" id="btnLogout" style="padding: 6px 14px; font-size: 0.82rem; border-color: rgba(239,68,68,0.5); color: #fca5a5;">
+            🔒 Cerrar Sesión
+          </button>
         </div>
       </div>
 
-      <!-- Authentication -->
-      <div class="auth-banner">
-        <span style="font-weight: 600; font-size: 0.85rem;">🔑 Clave de Administración:</span>
-        <input type="password" id="adminKey" placeholder="Ingrese clave..." value="webservi2026">
-        <button type="button" class="btn btn-primary-glow" id="btnConnect" style="padding: 8px 16px; font-size: 0.85rem;">
-          Conectar y Cargar Prompt
-        </button>
-        <span id="promptStatusBadge" style="margin-left: auto; font-family: var(--font-mono); font-size: 0.78rem; color: #94a3b8;">
-          Estado: No conectado
-        </span>
+      <!-- Barra de Estado -->
+      <div class="status-bar">
+        <div class="status-pill" id="promptStatusBadge">
+          <span class="status-indicator-online"></span> Estado: Conectado a Cloudflare KV
+        </div>
+        <span style="font-size: 0.78rem; color: #94a3b8;" id="charCount">0 caracteres</span>
       </div>
 
-      <!-- Notification Toast -->
+      <!-- Notificación Toast -->
       <div id="toast" class="toast-msg"></div>
 
-      <!-- Prompt Editor -->
-      <div style="margin-top: 14px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-          <label for="promptContent" style="font-family: var(--font-mono); font-size: 0.82rem; font-weight: 600; color: var(--tech-cyan);">
-            PROMPT DEL SISTEMA (ACTIVO EN VIVO EN CLOUDFLARE KV):
-          </label>
-          <span style="font-size: 0.75rem; color: #94a3b8;" id="charCount">0 caracteres</span>
-        </div>
-        <textarea id="promptContent" class="prompt-textarea" placeholder="Haga clic en 'Conectar y Cargar Prompt' para obtener el prompt actual del Cloudflare Worker..."></textarea>
+      <!-- Editor de Prompt -->
+      <div>
+        <label for="promptContent" style="display: block; font-family: var(--font-mono); font-size: 0.82rem; font-weight: 600; color: var(--tech-cyan); margin-bottom: 8px;">
+          PROMPT DEL SISTEMA (ACTIVO EN VIVO EN CLOUDFLARE KV):
+        </label>
+        <textarea id="promptContent" class="prompt-textarea" placeholder="Cargando prompt del sistema..."></textarea>
       </div>
 
-      <!-- Actions -->
+      <!-- Botones de Acción -->
       <div class="admin-actions">
         <div class="btn-group">
-          <button type="button" class="btn btn-primary-glow" id="btnSavePrompt" disabled>
+          <button type="button" class="btn btn-primary-glow" id="btnSavePrompt">
             💾 Guardar Prompt en Vivo (KV)
           </button>
-          <button type="button" class="btn btn-secondary-outline" id="btnResetPrompt" disabled>
+          <button type="button" class="btn btn-secondary-outline" id="btnResetPrompt">
             🔄 Restaurar por Defecto
           </button>
         </div>
@@ -242,21 +335,21 @@
         </div>
       </div>
 
-      <!-- Telegram Direct Commands Info -->
+      <!-- Comandos de Telegram -->
       <div class="telegram-info-card">
-        <strong>📱 ¿Prefieres cambiarlo desde tu celular por Telegram?</strong><br>
+        <strong>📱 ¿Prefieres cambiarlo desde tu celular por Telegram sin abrir esta página?</strong><br>
         También puedes enviarle estos comandos a tu bot <code>@webpageWebServi_Bot</code> desde tu chat privado:<br>
-        • <code>/prompt</code> — Ver el prompt que la IA está usando en este momento.<br>
-        • <code>/setprompt [tu nuevo prompt aquí]</code> — Actualiza el prompt al instante en la web.<br>
+        • <code>/prompt</code> — Te muestra el prompt que la IA está usando en este momento.<br>
+        • <code>/setprompt [aquí pegas tu nuevo prompt]</code> — Actualiza el prompt al instante en la web.<br>
         • <code>/resetprompt</code> — Vuelve al prompt original de fábrica.
       </div>
 
-      <!-- Interactive Test Console -->
+      <!-- Consola de Prueba Interactiva -->
       <div class="test-box">
         <h3>🧪 Probar Prompt en Vivo</h3>
-        <p style="font-size: 0.82rem; color: #94a3b8; margin: 0 0 10px 0;">Envía una consulta para verificar cómo responderá la IA con el prompt actual:</p>
+        <p style="font-size: 0.82rem; color: #94a3b8; margin: 0 0 10px 0;">Envía una consulta para verificar cómo responderá la IA con el prompt configurado:</p>
         <div class="test-input-row">
-          <input type="text" id="testQuery" placeholder="Ej: Hola Lucas, ¿hacen cableado Cat6A para 50 puntos en Equipetrol?">
+          <input type="text" id="testQuery" placeholder="Ej: Hola Lucas, necesito cámaras para mi casa en Equipetrol">
           <button type="button" class="btn btn-primary-glow" id="btnTestQuery">
             <span>Enviar a IA</span>
           </button>
@@ -269,8 +362,13 @@
 
   <script>
     const WORKER_URL = 'https://webservi-ai-bot.lucas-carandino.workers.dev/';
-    const adminKeyInput = document.getElementById('adminKey');
-    const btnConnect = document.getElementById('btnConnect');
+    const loginOverlay = document.getElementById('loginOverlay');
+    const loginError = document.getElementById('loginError');
+    const passwordInput = document.getElementById('passwordInput');
+    const btnLogin = document.getElementById('btnLogin');
+    const btnLogout = document.getElementById('btnLogout');
+    const adminContainer = document.getElementById('adminContainer');
+
     const promptStatusBadge = document.getElementById('promptStatusBadge');
     const promptContent = document.getElementById('promptContent');
     const charCount = document.getElementById('charCount');
@@ -282,9 +380,7 @@
     const btnTestQuery = document.getElementById('btnTestQuery');
     const testOutput = document.getElementById('testOutput');
 
-    // Cargar clave guardada en sessionStorage si existe
-    const savedKey = sessionStorage.getItem('ws_admin_key');
-    if (savedKey) adminKeyInput.value = savedKey;
+    let currentAdminKey = '';
 
     function showToast(message, isError = false) {
       toast.textContent = message;
@@ -298,53 +394,74 @@
     }
     promptContent.addEventListener('input', updateCharCount);
 
-    async function loadPrompt() {
-      const key = adminKeyInput.value.trim();
-      if (!key) {
-        showToast('Ingrese la clave de administración', true);
+    async function attemptLogin() {
+      const password = passwordInput.value.trim();
+      if (!password) {
+        loginError.textContent = 'Por favor ingrese la contraseña.';
+        loginError.style.display = 'block';
         return;
       }
-      sessionStorage.setItem('ws_admin_key', key);
 
-      btnConnect.disabled = true;
-      btnConnect.textContent = 'Cargando...';
-      promptStatusBadge.textContent = 'Estado: Conectando...';
+      btnLogin.disabled = true;
+      btnLogin.textContent = 'Verificando...';
+      loginError.style.display = 'none';
 
       try {
-        const res = await fetch(`${WORKER_URL}api/prompt?key=${encodeURIComponent(key)}`);
+        const res = await fetch(`${WORKER_URL}api/prompt?key=${encodeURIComponent(password)}`, {
+          headers: { 'Accept': 'application/json' }
+        });
+
         if (!res.ok) {
-          const errData = await res.json().catch(() => ({}));
-          throw new Error(errData.error || 'Clave incorrecta o error de servidor');
+          throw new Error('Contraseña incorrecta. Acceso denegado.');
         }
+
         const data = await res.json();
+        currentAdminKey = password;
         promptContent.value = data.prompt || '';
         updateCharCount();
-        
-        btnSavePrompt.disabled = false;
-        btnResetPrompt.disabled = false;
 
         if (data.isCustom) {
-          promptStatusBadge.innerHTML = '<span style="color:#10b981;">● Activo: Personalizado (en KV)</span>';
+          promptStatusBadge.innerHTML = '<span style="color:#10b981;font-weight:700;">● Activo: Personalizado (en Cloudflare KV)</span>';
         } else {
-          promptStatusBadge.innerHTML = '<span style="color:#38bdf8;">● Activo: Por Defecto</span>';
+          promptStatusBadge.innerHTML = '<span style="color:#38bdf8;font-weight:700;">● Activo: Por Defecto de Fábrica</span>';
         }
-        showToast('Prompt cargado correctamente');
+
+        // Mostrar panel principal
+        loginOverlay.style.display = 'none';
+        adminContainer.style.display = 'block';
+        showToast('Acceso concedido. Prompt cargado correctamente.');
+
       } catch (err) {
-        promptStatusBadge.innerHTML = '<span style="color:#ef4444;">● Error de autenticación</span>';
-        showToast(err.message, true);
+        loginError.textContent = err.message || 'Error al autenticar.';
+        loginError.style.display = 'block';
+        passwordInput.select();
       } finally {
-        btnConnect.disabled = false;
-        btnConnect.textContent = 'Recargar';
+        btnLogin.disabled = false;
+        btnLogin.textContent = 'Ingresar al Panel';
       }
     }
 
-    btnConnect.addEventListener('click', loadPrompt);
+    btnLogin.addEventListener('click', attemptLogin);
+    passwordInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        attemptLogin();
+      }
+    });
+
+    btnLogout.addEventListener('click', () => {
+      currentAdminKey = '';
+      passwordInput.value = '';
+      loginOverlay.style.display = 'flex';
+      adminContainer.style.display = 'none';
+      loginError.style.display = 'none';
+      passwordInput.focus();
+    });
 
     btnSavePrompt.addEventListener('click', async () => {
-      const key = adminKeyInput.value.trim();
       const newPrompt = promptContent.value.trim();
       if (!newPrompt) {
-        showToast('El prompt no puede estar vacío', true);
+        showToast('El prompt no puede estar vacío.', true);
         return;
       }
 
@@ -354,16 +471,19 @@
       try {
         const res = await fetch(`${WORKER_URL}api/prompt`, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ key: key, prompt: newPrompt })
+          headers: {
+            'Content-Type': 'application/json; charset=utf-8'
+          },
+          body: JSON.stringify({ key: currentAdminKey, prompt: newPrompt })
         });
+
         if (!res.ok) {
           const errData = await res.json().catch(() => ({}));
-          throw new Error(errData.error || 'Error al guardar');
+          throw new Error(errData.error || 'Error al guardar el prompt.');
         }
-        const data = await res.json();
-        promptStatusBadge.innerHTML = '<span style="color:#10b981;">● Activo: Personalizado (en KV)</span>';
-        showToast('✅ ¡Prompt guardado en vivo en Cloudflare KV!');
+
+        promptStatusBadge.innerHTML = '<span style="color:#10b981;font-weight:700;">● Activo: Personalizado (en Cloudflare KV)</span>';
+        showToast('✅ ¡Prompt guardado en vivo en Cloudflare KV! Ya está activo en la web.');
       } catch (err) {
         showToast(err.message, true);
       } finally {
@@ -373,22 +493,24 @@
     });
 
     btnResetPrompt.addEventListener('click', async () => {
-      if (!confirm('¿Seguro que deseas restaurar el prompt predeterminado original?')) return;
-      const key = adminKeyInput.value.trim();
+      if (!confirm('¿Seguro que deseas restaurar el prompt predeterminado original de fábrica?')) return;
 
       btnResetPrompt.disabled = true;
       try {
         const res = await fetch(`${WORKER_URL}api/prompt`, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ key: key, action: 'reset' })
+          headers: {
+            'Content-Type': 'application/json; charset=utf-8'
+          },
+          body: JSON.stringify({ key: currentAdminKey, action: 'reset' })
         });
-        if (!res.ok) throw new Error('Error al restaurar');
+
+        if (!res.ok) throw new Error('Error al restaurar el prompt.');
         const data = await res.json();
         promptContent.value = data.prompt || '';
         updateCharCount();
-        promptStatusBadge.innerHTML = '<span style="color:#38bdf8;">● Activo: Por Defecto</span>';
-        showToast('Prompt restaurado al valor por defecto');
+        promptStatusBadge.innerHTML = '<span style="color:#38bdf8;font-weight:700;">● Activo: Por Defecto de Fábrica</span>';
+        showToast('Prompt restaurado al valor por defecto.');
       } catch (err) {
         showToast(err.message, true);
       } finally {
@@ -398,7 +520,7 @@
 
     btnCopyPrompt.addEventListener('click', () => {
       navigator.clipboard.writeText(promptContent.value).then(() => {
-        showToast('Copiado al portapapeles');
+        showToast('Copiado al portapapeles.');
       });
     });
 
@@ -414,7 +536,9 @@
       try {
         const res = await fetch(WORKER_URL, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json; charset=utf-8'
+          },
           body: JSON.stringify({
             sessionId: 'ADMIN_TEST',
             message: q
@@ -436,11 +560,6 @@
         btnTestQuery.click();
       }
     });
-
-    // Auto-conectar al cargar si hay clave
-    if (adminKeyInput.value.trim()) {
-      loadPrompt();
-    }
   </script>
 </body>
 </html>
