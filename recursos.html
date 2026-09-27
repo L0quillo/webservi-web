@@ -1190,6 +1190,7 @@
                   <th>Canales Autorizados</th>
                   <th>Potencia Máxima (EIRP)</th>
                   <th>Uso y Consideraciones ATT Bolivia</th>
+                  <th>Referencia Oficial / Norma ATT</th>
                 </tr>
               </thead>
               <tbody>
@@ -1204,6 +1205,10 @@
                   </td>
                   <td>Hasta 1000 mW (30 dBm)<br><small style="color: var(--text-muted);">Interior rec: 100 mW (20 dBm)</small></td>
                   <td><strong>Uso Libre sin licencia.</strong> Se debe usar siempre ancho de 20 MHz con canales 1, 6 u 11 no solapados. Evitar 40 MHz en 2.4 GHz en zonas urbanas por saturación extrema del espectro.</td>
+                  <td>
+                    <span class="legal-ref-badge">PNF ATT Banda ISM</span><br>
+                    <small style="color: var(--text-muted);">D.S. 1391 Art. 12<br>Ley 164 Art. 9</small>
+                  </td>
                 </tr>
                 <tr>
                   <td><strong>5 GHz U-NII-1</strong><br><span style="font-size: 0.74rem; color: #ffaa00;">⚠️ Baja / Evitar en Bolivia</span></td>
@@ -1217,6 +1222,10 @@
                   </td>
                   <td>Hasta 200 mW (23 dBm) / 1W</td>
                   <td><strong style="color: #ffaa00;">⚠️ Recomendación de Ingeniería: Evitar estos canales.</strong> Múltiples modelos de teléfonos inteligentes homologados o con perfiles regionales presentan fallas para escanear o asociarse en los canales 36 al 48 por límites de firmware y dominio regulatorio, reportando la red como "inexistente". Se recomienda utilizar canales de la banda alta <strong>U-NII-3 (149 al 165)</strong> para asegurar 100% de compatibilidad con todos los celulares.</td>
+                  <td>
+                    <span class="legal-ref-badge">PNF ATT Res. Min.</span><br>
+                    <small style="color: var(--text-muted);">D.S. 1391 Art. 14<br>Reg. Homologación</small>
+                  </td>
                 </tr>
                 <tr>
                   <td><strong>5 GHz U-NII-2A & 2C</strong><br><span style="font-size: 0.74rem; color: var(--text-muted);">Media / DFS Extendido</span></td>
@@ -1227,6 +1236,10 @@
                   </td>
                   <td>Hasta 1000 mW (30 dBm)<br><small style="color: var(--text-muted);">Con TPC y DFS</small></td>
                   <td><strong>Sujeto a DFS obligatorio por la ATT.</strong> Coexiste con radares meteorológicos y aeronáuticos. Si el AP detecta radar, saltará de canal automáticamente y cortará la transmisión temporalmente.</td>
+                  <td>
+                    <span class="legal-ref-badge">PNF ATT / UIT-R M.1652</span><br>
+                    <small style="color: var(--text-muted);">D.S. 1391 Arts. 11-12<br>Requisito DFS/TPC</small>
+                  </td>
                 </tr>
                 <tr>
                   <td><strong>5 GHz U-NII-3 / ISM</strong><br><span style="font-size: 0.74rem; color: var(--tech-green);">Alta / RECOMENDADA EN BOLIVIA</span></td>
@@ -1241,6 +1254,10 @@
                   </td>
                   <td>Hasta 4000 mW (36 dBm PtP)<br><small style="color: var(--text-muted);">Regla 3:1 ganancia/potencia</small></td>
                   <td><strong>Banda reina recomendada en Bolivia</strong> tanto para Wi-Fi de alta compatibilidad en smartphones como para radioenlaces PtP y PtMP en exteriores (Ubiquiti AirMAX, Mimosa, Cambium).</td>
+                  <td>
+                    <span class="legal-ref-badge">PNF ATT Banda ISM</span><br>
+                    <small style="color: var(--text-muted);">D.S. 1391 Art. 12<br>Ley 164 Arts. 8-9</small>
+                  </td>
                 </tr>
                 <tr>
                   <td><strong>6 GHz (Wi-Fi 6E / 7)</strong><br><span style="font-size: 0.74rem; color: var(--text-muted);">Banda Ancha Próx Gen</span></td>
@@ -1248,6 +1265,10 @@
                   <td>Canales 1 al 233 (80/160/320 MHz)</td>
                   <td>En homologación ATT</td>
                   <td><strong>En proceso regulatorio nacional.</strong> Equipos comerciales comercializados legalmente en Bolivia deben contar con certificado de homologación técnica emitido por la ATT.</td>
+                  <td>
+                    <span class="legal-ref-badge">Consulta ATT / CMR-23</span><br>
+                    <small style="color: var(--text-muted);">Reg. Homologación<br>UIT-R WRC-23</small>
+                  </td>
                 </tr>
                 <tr>
                   <td><strong>60 GHz (V-Band)</strong><br><span style="font-size: 0.74rem; color: var(--text-muted);">Onda Milimétrica</span></td>
@@ -1255,9 +1276,21 @@
                   <td>Canales 1 al 6 (2.16 GHz ancho)</td>
                   <td>Hasta 40 dBm (10W EIRP)</td>
                   <td><strong>Uso Libre sin licencia.</strong> La absorción de oxígeno hace imposible la interferencia lejana. Ideal para unir naves industriales o cruces de avenidas a 1–2.5 Gbps full duplex (Wave 60G / MikroTik 60G).</td>
+                  <td>
+                    <span class="legal-ref-badge">PNF ATT 57-66 GHz</span><br>
+                    <small style="color: var(--text-muted);">D.S. 1391 Art. 11<br>Uso sin licencia</small>
+                  </td>
                 </tr>
               </tbody>
             </table>
+          </div>
+
+          <!-- Leyenda de descargo de responsabilidad regulatoria -->
+          <div class="spectrum-disclaimer-note">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffaa00" stroke-width="2" style="flex-shrink: 0; margin-top: 1px;"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <div>
+              <strong>Descargo de Responsabilidad y Exención Regulatoria:</strong> La información sobre frecuencias, canales, potencias máximas (EIRP) y consideraciones de compatibilidad se expone exclusivamente con carácter informativo, pedagógico y de referencia técnica para ingenieros y administradores de red. <strong>WebServi.Net no asume ninguna responsabilidad por errores tipográficos, interpretaciones equívocas, sanciones administrativas o modificaciones posteriores en las resoluciones y normativas</strong> emitidas por la Autoridad de Regulación y Fiscalización de Telecomunicaciones y Transportes (ATT) o el Ministerio de Obras Públicas, Servicios y Vivienda. El integrador, instalador o cliente final tiene la obligación ineludible de verificar las fuentes oficiales y la vigencia del Plan Nacional de Frecuencias antes de planificar o irradiar en el espectro radioeléctrico boliviano.
+            </div>
           </div>
 
           <!-- Buenas prácticas de diseño -->
