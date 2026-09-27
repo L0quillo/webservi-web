@@ -148,7 +148,7 @@
             <div class="speed-dial-wrap">
               <div class="speed-meter-circle" id="speedMeterCircle">
                 <span class="speed-val-display" id="speedValue">--</span>
-                <span class="speed-val-unit">MBPS BAJADA</span>
+                <span class="speed-val-unit">Mbits/s (Bajada)</span>
               </div>
               <button class="btn btn-primary-glow speedtest-btn-action" id="btnStartSpeedtest">
                 <span>▶ Iniciar Test Completo</span>
@@ -941,16 +941,17 @@
                   <td><strong>Uso Libre sin licencia.</strong> Se debe usar siempre ancho de 20 MHz con canales 1, 6 u 11 no solapados. Evitar 40 MHz en 2.4 GHz en zonas urbanas por saturación extrema del espectro.</td>
                 </tr>
                 <tr>
-                  <td><strong>5 GHz U-NII-1</strong><br><span style="font-size: 0.74rem; color: var(--text-muted);">Baja / Interiores</span></td>
+                  <td><strong>5 GHz U-NII-1</strong><br><span style="font-size: 0.74rem; color: #ffaa00;">⚠️ Baja / Evitar en Bolivia</span></td>
                   <td>5150 – 5250 MHz</td>
                   <td>
-                    <span class="channel-badge-pill">36</span>
-                    <span class="channel-badge-pill">40</span>
-                    <span class="channel-badge-pill">44</span>
-                    <span class="channel-badge-pill">48</span>
+                    <span class="channel-badge-pill warning" title="Recomendación: Evitar en Bolivia">36</span>
+                    <span class="channel-badge-pill warning" title="Recomendación: Evitar en Bolivia">40</span>
+                    <span class="channel-badge-pill warning" title="Recomendación: Evitar en Bolivia">44</span>
+                    <span class="channel-badge-pill warning" title="Recomendación: Evitar en Bolivia">48</span>
+                    <span class="channel-badge-pill warning" style="display: block; margin-top: 4px; font-size: 0.7rem;">⚠️ Evitar por Homologación</span>
                   </td>
                   <td>Hasta 200 mW (23 dBm) / 1W</td>
-                  <td><strong>Uso en interiores libre prioritario.</strong> Sin restricción de radar DFS. Excelente para oficinas, hoteles y edificios comerciales con anchos de canal de 40 u 80 MHz.</td>
+                  <td><strong style="color: #ffaa00;">⚠️ Recomendación de Ingeniería: Evitar estos canales.</strong> Múltiples modelos de teléfonos inteligentes homologados o con perfiles regionales presentan fallas para escanear o asociarse en los canales 36 al 48 por límites de firmware y dominio regulatorio, reportando la red como "inexistente". Se recomienda utilizar canales de la banda alta <strong>U-NII-3 (149 al 165)</strong> para asegurar 100% de compatibilidad con todos los celulares.</td>
                 </tr>
                 <tr>
                   <td><strong>5 GHz U-NII-2A & 2C</strong><br><span style="font-size: 0.74rem; color: var(--text-muted);">Media / DFS Extendido</span></td>
@@ -963,17 +964,18 @@
                   <td><strong>Sujeto a DFS obligatorio por la ATT.</strong> Coexiste con radares meteorológicos y aeronáuticos. Si el AP detecta radar, saltará de canal automáticamente y cortará la transmisión temporalmente.</td>
                 </tr>
                 <tr>
-                  <td><strong>5 GHz U-NII-3 / ISM</strong><br><span style="font-size: 0.74rem; color: var(--text-muted);">Alta / Radioenlaces</span></td>
+                  <td><strong>5 GHz U-NII-3 / ISM</strong><br><span style="font-size: 0.74rem; color: var(--tech-green);">Alta / RECOMENDADA EN BOLIVIA</span></td>
                   <td>5725 – 5850 MHz</td>
                   <td>
-                    <span class="channel-badge-pill">149</span>
-                    <span class="channel-badge-pill">153</span>
-                    <span class="channel-badge-pill">157</span>
-                    <span class="channel-badge-pill">161</span>
-                    <span class="channel-badge-pill">165</span>
+                    <span class="channel-badge-pill" style="border-color: var(--tech-green);">149</span>
+                    <span class="channel-badge-pill" style="border-color: var(--tech-green);">153</span>
+                    <span class="channel-badge-pill" style="border-color: var(--tech-green);">157</span>
+                    <span class="channel-badge-pill" style="border-color: var(--tech-green);">161</span>
+                    <span class="channel-badge-pill" style="border-color: var(--tech-green);">165</span>
+                    <span class="channel-badge-pill" style="display: block; margin-top: 4px; font-size: 0.7rem;">★ 100% Compatible Celulares</span>
                   </td>
                   <td>Hasta 4000 mW (36 dBm PtP)<br><small style="color: var(--text-muted);">Regla 3:1 ganancia/potencia</small></td>
-                  <td><strong>Banda reina para radioenlaces PtP y PtMP en Bolivia</strong> (Ubiquiti AirMAX, Mimosa, Cambium). Para enlaces punto a punto se permite mayor ganancia direccional sin licencia comercial previa en redes privadas.</td>
+                  <td><strong>Banda reina recomendada en Bolivia</strong> tanto para Wi-Fi de alta compatibilidad en smartphones como para radioenlaces PtP y PtMP en exteriores (Ubiquiti AirMAX, Mimosa, Cambium).</td>
                 </tr>
                 <tr>
                   <td><strong>6 GHz (Wi-Fi 6E / 7)</strong><br><span style="font-size: 0.74rem; color: var(--text-muted);">Banda Ancha Próx Gen</span></td>
@@ -996,11 +998,43 @@
           <!-- Buenas prácticas de diseño -->
           <div class="brand-footer-tip" style="background: rgba(14, 30, 56, 0.7); border: 1px solid var(--border-subtle); padding: 18px 22px; border-radius: var(--radius-md);">
             <h4 style="font-family: var(--font-heading); color: var(--tech-cyan); font-size: 0.95rem; margin-top: 0; margin-bottom: 8px;">
-              📐 Regla de Oro WebServi para Instalaciones Corporativas en Bolivia:
+              📐 Reglas de Oro WebServi para Instalaciones Wi-Fi en Bolivia:
             </h4>
-            <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">
-              En ciudades densas como Santa Cruz, La Paz o Cochabamba, <strong>nunca configure canales de 40 MHz en 2.4 GHz</strong> ni active el canal "Auto" en entornos de más de 3 Access Points. Emplee siempre un esquema de reuso de canales alternados (1-6-11) y baje la potencia de transmisión (Tx Power) en 2.4 GHz a 12-14 dBm para obligar a los clientes a conectarse a la banda limpia de 5 GHz mediante <em>Band Steering</em>.
-            </p>
+            <ul style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.55; margin: 0; padding-left: 20px;">
+              <li style="margin-bottom: 6px;">
+                <strong style="color: #ffaa00;">En 5 GHz (Compatibilidad de Celulares):</strong> <strong>Evite canales 36 al 48.</strong> Gran cantidad de teléfonos homologados en Bolivia tienen problemas de escaneo o asociación en esta sub-banda baja. Fije siempre sus radios de 5 GHz en los canales <strong>149, 153, 157, 161 o 165</strong> (U-NII-3) con anchos de 40 u 80 MHz para que todos los usuarios conecten de inmediato.
+              </li>
+              <li>
+                <strong style="color: var(--tech-cyan);">En 2.4 GHz (Contaminación de Espectro):</strong> Nunca configure canales de 40 MHz ni deje el canal en "Auto" en entornos empresariales. Utilice exclusivamente el esquema alternado <strong>1 - 6 - 11</strong> en 20 MHz y baje la potencia de transmisión a 12-14 dBm para forzar a los clientes a migrar a 5 GHz vía <em>Band Steering</em>.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Links Oficiales de Referencia y Normativa -->
+          <div style="background: rgba(10, 22, 42, 0.5); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 18px 22px;">
+            <div style="font-family: var(--font-heading); font-size: 0.88rem; font-weight: 700; color: #fff; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+              <span>🔗 ENLACES OFICIALES DE REFERENCIA & REGULACIÓN:</span>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px;">
+              <a href="https://www.att.gob.bo/" target="_blank" rel="noopener" class="tool-btn subtle" style="justify-content: flex-start;">
+                <span>🏛️ Portal Oficial ATT Bolivia (Regulador)</span>
+              </a>
+              <a href="https://www.att.gob.bo/" target="_blank" rel="noopener" class="tool-btn subtle" style="justify-content: flex-start;">
+                <span>📻 Plan Nacional de Frecuencias (PNF)</span>
+              </a>
+              <a href="https://www.att.gob.bo/" target="_blank" rel="noopener" class="tool-btn subtle" style="justify-content: flex-start;">
+                <span>📱 Homologación de Equipos Móviles ATT</span>
+              </a>
+              <a href="https://bgp.he.net/country/BO" target="_blank" rel="noopener" class="tool-btn subtle" style="justify-content: flex-start;">
+                <span>🇧🇴 BGP Hurricane Electric: Redes & ASNs Bolivia</span>
+              </a>
+              <a href="https://www.lacnic.net/" target="_blank" rel="noopener" class="tool-btn subtle" style="justify-content: flex-start;">
+                <span>📋 LACNIC Whois Database (IPs Oficiales)</span>
+              </a>
+              <a href="https://www.wi-fi.org/" target="_blank" rel="noopener" class="tool-btn subtle" style="justify-content: flex-start;">
+                <span>🌐 Wi-Fi Alliance Knowledge Base</span>
+              </a>
+            </div>
           </div>
 
         </div>
