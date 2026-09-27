@@ -4666,3 +4666,43 @@ body {
   line-height: 1.55;
   white-space: pre-wrap;
 }
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.ai-spin-icon {
+  display: inline-block;
+  animation: spin 1s linear infinite;
+}
+
+.diag-ai-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 255, 170, 0.15);
+  border: 1px solid rgba(0, 255, 170, 0.4);
+  color: var(--tech-green);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+}
+
+.diag-ai-live-badge .pulse-dot-green {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 6px #10b981;
+}
+
+.diag-ai-content {
+  margin-top: 12px;
+  color: #f1f5f9;
+  line-height: 1.65;
+  font-size: 0.92rem;
+}

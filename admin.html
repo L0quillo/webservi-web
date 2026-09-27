@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administración del Asistente IA — WebServi.Net</title>
+  <link rel="icon" type="image/png" href="assets/logos/v2-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background: #050d1a;
+      color: #f1f5f9;
+      font-family: var(--font-body);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .admin-container {
+      max-width: 980px;
+      margin: 40px auto;
+      padding: 0 20px;
+      flex: 1;
+      width: 100%;
+    }
+    .admin-card {
+      background: rgba(10, 22, 44, 0.9);
+      border: 1px solid rgba(0, 210, 255, 0.35);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(12px);
+    }
+    .admin-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .admin-title-group h1 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 6px 0;
+    }
+    .admin-title-group p {
+      margin: 0;
+      color: #94a3b8;
+      font-size: 0.85rem;
+    }
+    .auth-banner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(15, 30, 60, 0.7);
+      padding: 14px 18px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(0, 210, 255, 0.2);
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .auth-banner input {
+      background: rgba(5, 12, 24, 0.9);
+      border: 1px solid rgba(0, 210, 255, 0.35);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      min-width: 220px;
+    }
+    .prompt-textarea {
+      width: 100%;
+      height: 380px;
+      background: #040914;
+      border: 1px solid rgba(0, 210, 255, 0.3);
+      border-radius: 8px;
+      padding: 16px;
+      color: #e2e8f0;
+      font-family: var(--font-mono);
+      font-size: 0.86rem;
+      line-height: 1.6;
+      resize: vertical;
+      box-sizing: border-box;
+      transition: border-color 0.2s ease;
+    }
+    .prompt-textarea:focus {
+      outline: none;
+      border-color: var(--tech-cyan);
+      box-shadow: 0 0 14px rgba(0, 210, 255, 0.3);
+    }
+    .admin-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .toast-msg {
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: none;
+      align-items: center;
+      gap: 8px;
+    }
+    .toast-success {
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid #10b981;
+      color: #a7f3d0;
+    }
+    .toast-error {
+      background: rgba(239, 68, 68, 0.2);
+      border: 1px solid #ef4444;
+      color: #fca5a5;
+    }
+    .test-box {
+      margin-top: 30px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .test-box h3 {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      color: var(--tech-cyan);
+      margin: 0 0 12px 0;
+    }
+    .test-input-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .test-input-row input {
+      flex: 1;
+      background: rgba(5, 12, 24, 0.9);
+      border: 1px solid rgba(0, 210, 255, 0.3);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 0.88rem;
+    }
+    .test-output {
+      background: rgba(4, 9, 20, 0.85);
+      border: 1px solid rgba(0, 255, 170, 0.3);
+      border-radius: 8px;
+      padding: 16px;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: #f1f5f9;
+      display: none;
+    }
+    .telegram-info-card {
+      margin-top: 24px;
+      background: rgba(34, 158, 217, 0.1);
+      border: 1px solid rgba(34, 158, 217, 0.35);
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 0.85rem;
+      line-height: 1.55;
+    }
+    .telegram-info-card strong {
+      color: #38bdf8;
+    }
+    .telegram-info-card code {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #7dd3fc;
+      font-family: var(--font-mono);
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-container">
+    <div class="admin-card">
+      <div class="admin-header">
+        <div class="admin-title-group">
+          <h1>⚙️ Panel de Control del Asistente IA</h1>
+          <p>Configuración en caliente del System Prompt sin necesidad de ingresar a Cloudflare.</p>
+        </div>
+        <div>
+          <a href="index.html" class="btn btn-secondary-outline" style="padding: 6px 14px; font-size: 0.82rem;">← Volver a la Web</a>
+        </div>
+      </div>
+
+      <!-- Authentication -->
+      <div class="auth-banner">
+        <span style="font-weight: 600; font-size: 0.85rem;">🔑 Clave de Administración:</span>
+        <input type="password" id="adminKey" placeholder="Ingrese clave..." value="webservi2026">
+        <button type="button" class="btn btn-primary-glow" id="btnConnect" style="padding: 8px 16px; font-size: 0.85rem;">
+          Conectar y Cargar Prompt
+        </button>
+        <span id="promptStatusBadge" style="margin-left: auto; font-family: var(--font-mono); font-size: 0.78rem; color: #94a3b8;">
+          Estado: No conectado
+        </span>
+      </div>
+
+      <!-- Notification Toast -->
+      <div id="toast" class="toast-msg"></div>
+
+      <!-- Prompt Editor -->
+      <div style="margin-top: 14px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <label for="promptContent" style="font-family: var(--font-mono); font-size: 0.82rem; font-weight: 600; color: var(--tech-cyan);">
+            PROMPT DEL SISTEMA (ACTIVO EN VIVO EN CLOUDFLARE KV):
+          </label>
+          <span style="font-size: 0.75rem; color: #94a3b8;" id="charCount">0 caracteres</span>
+        </div>
+        <textarea id="promptContent" class="prompt-textarea" placeholder="Haga clic en 'Conectar y Cargar Prompt' para obtener el prompt actual del Cloudflare Worker..."></textarea>
+      </div>
+
+      <!-- Actions -->
+      <div class="admin-actions">
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary-glow" id="btnSavePrompt" disabled>
+            💾 Guardar Prompt en Vivo (KV)
+          </button>
+          <button type="button" class="btn btn-secondary-outline" id="btnResetPrompt" disabled>
+            🔄 Restaurar por Defecto
+          </button>
+        </div>
+        <div>
+          <button type="button" class="btn btn-secondary-outline" id="btnCopyPrompt" style="padding: 8px 14px; font-size: 0.82rem;">
+            📋 Copiar al Portapapeles
+          </button>
+        </div>
+      </div>
+
+      <!-- Telegram Direct Commands Info -->
+      <div class="telegram-info-card">
+        <strong>📱 ¿Prefieres cambiarlo desde tu celular por Telegram?</strong><br>
+        También puedes enviarle estos comandos a tu bot <code>@webpageWebServi_Bot</code> desde tu chat privado:<br>
+        • <code>/prompt</code> — Ver el prompt que la IA está usando en este momento.<br>
+        • <code>/setprompt [tu nuevo prompt aquí]</code> — Actualiza el prompt al instante en la web.<br>
+        • <code>/resetprompt</code> — Vuelve al prompt original de fábrica.
+      </div>
+
+      <!-- Interactive Test Console -->
+      <div class="test-box">
+        <h3>🧪 Probar Prompt en Vivo</h3>
+        <p style="font-size: 0.82rem; color: #94a3b8; margin: 0 0 10px 0;">Envía una consulta para verificar cómo responderá la IA con el prompt actual:</p>
+        <div class="test-input-row">
+          <input type="text" id="testQuery" placeholder="Ej: Hola Lucas, ¿hacen cableado Cat6A para 50 puntos en Equipetrol?">
+          <button type="button" class="btn btn-primary-glow" id="btnTestQuery">
+            <span>Enviar a IA</span>
+          </button>
+        </div>
+        <div id="testOutput" class="test-output"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const WORKER_URL = 'https://webservi-ai-bot.lucas-carandino.workers.dev/';
+    const adminKeyInput = document.getElementById('adminKey');
+    const btnConnect = document.getElementById('btnConnect');
+    const promptStatusBadge = document.getElementById('promptStatusBadge');
+    const promptContent = document.getElementById('promptContent');
+    const charCount = document.getElementById('charCount');
+    const btnSavePrompt = document.getElementById('btnSavePrompt');
+    const btnResetPrompt = document.getElementById('btnResetPrompt');
+    const btnCopyPrompt = document.getElementById('btnCopyPrompt');
+    const toast = document.getElementById('toast');
+    const testQuery = document.getElementById('testQuery');
+    const btnTestQuery = document.getElementById('btnTestQuery');
+    const testOutput = document.getElementById('testOutput');
+
+    // Cargar clave guardada en sessionStorage si existe
+    const savedKey = sessionStorage.getItem('ws_admin_key');
+    if (savedKey) adminKeyInput.value = savedKey;
+
+    function showToast(message, isError = false) {
+      toast.textContent = message;
+      toast.className = `toast-msg ${isError ? 'toast-error' : 'toast-success'}`;
+      toast.style.display = 'flex';
+      setTimeout(() => { toast.style.display = 'none'; }, 4000);
+    }
+
+    function updateCharCount() {
+      charCount.textContent = `${promptContent.value.length} caracteres`;
+    }
+    promptContent.addEventListener('input', updateCharCount);
+
+    async function loadPrompt() {
+      const key = adminKeyInput.value.trim();
+      if (!key) {
+        showToast('Ingrese la clave de administración', true);
+        return;
+      }
+      sessionStorage.setItem('ws_admin_key', key);
+
+      btnConnect.disabled = true;
+      btnConnect.textContent = 'Cargando...';
+      promptStatusBadge.textContent = 'Estado: Conectando...';
+
+      try {
+        const res = await fetch(`${WORKER_URL}api/prompt?key=${encodeURIComponent(key)}`);
+        if (!res.ok) {
+          const errData = await res.json().catch(() => ({}));
+          throw new Error(errData.error || 'Clave incorrecta o error de servidor');
+        }
+        const data = await res.json();
+        promptContent.value = data.prompt || '';
+        updateCharCount();
+        
+        btnSavePrompt.disabled = false;
+        btnResetPrompt.disabled = false;
+
+        if (data.isCustom) {
+          promptStatusBadge.innerHTML = '<span style="color:#10b981;">● Activo: Personalizado (en KV)</span>';
+        } else {
+          promptStatusBadge.innerHTML = '<span style="color:#38bdf8;">● Activo: Por Defecto</span>';
+        }
+        showToast('Prompt cargado correctamente');
+      } catch (err) {
+        promptStatusBadge.innerHTML = '<span style="color:#ef4444;">● Error de autenticación</span>';
+        showToast(err.message, true);
+      } finally {
+        btnConnect.disabled = false;
+        btnConnect.textContent = 'Recargar';
+      }
+    }
+
+    btnConnect.addEventListener('click', loadPrompt);
+
+    btnSavePrompt.addEventListener('click', async () => {
+      const key = adminKeyInput.value.trim();
+      const newPrompt = promptContent.value.trim();
+      if (!newPrompt) {
+        showToast('El prompt no puede estar vacío', true);
+        return;
+      }
+
+      btnSavePrompt.disabled = true;
+      btnSavePrompt.textContent = 'Guardando...';
+
+      try {
+        const res = await fetch(`${WORKER_URL}api/prompt`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ key: key, prompt: newPrompt })
+        });
+        if (!res.ok) {
+          const errData = await res.json().catch(() => ({}));
+          throw new Error(errData.error || 'Error al guardar');
+        }
+        const data = await res.json();
+        promptStatusBadge.innerHTML = '<span style="color:#10b981;">● Activo: Personalizado (en KV)</span>';
+        showToast('✅ ¡Prompt guardado en vivo en Cloudflare KV!');
+      } catch (err) {
+        showToast(err.message, true);
+      } finally {
+        btnSavePrompt.disabled = false;
+        btnSavePrompt.textContent = '💾 Guardar Prompt en Vivo (KV)';
+      }
+    });
+
+    btnResetPrompt.addEventListener('click', async () => {
+      if (!confirm('¿Seguro que deseas restaurar el prompt predeterminado original?')) return;
+      const key = adminKeyInput.value.trim();
+
+      btnResetPrompt.disabled = true;
+      try {
+        const res = await fetch(`${WORKER_URL}api/prompt`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ key: key, action: 'reset' })
+        });
+        if (!res.ok) throw new Error('Error al restaurar');
+        const data = await res.json();
+        promptContent.value = data.prompt || '';
+        updateCharCount();
+        promptStatusBadge.innerHTML = '<span style="color:#38bdf8;">● Activo: Por Defecto</span>';
+        showToast('Prompt restaurado al valor por defecto');
+      } catch (err) {
+        showToast(err.message, true);
+      } finally {
+        btnResetPrompt.disabled = false;
+      }
+    });
+
+    btnCopyPrompt.addEventListener('click', () => {
+      navigator.clipboard.writeText(promptContent.value).then(() => {
+        showToast('Copiado al portapapeles');
+      });
+    });
+
+    btnTestQuery.addEventListener('click', async () => {
+      const q = testQuery.value.trim();
+      if (!q) return;
+
+      btnTestQuery.disabled = true;
+      btnTestQuery.textContent = 'Consultando...';
+      testOutput.style.display = 'block';
+      testOutput.innerHTML = '<em>Generando respuesta con la IA...</em>';
+
+      try {
+        const res = await fetch(WORKER_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            sessionId: 'ADMIN_TEST',
+            message: q
+          })
+        });
+        const data = await res.json();
+        testOutput.innerHTML = `<strong>Respuesta de la IA:</strong><br><br>${(data.reply || 'Sin respuesta').replace(/\n/g, '<br>')}`;
+      } catch (err) {
+        testOutput.innerHTML = `<span style="color:#ef4444;">Error al consultar: ${err.message}</span>`;
+      } finally {
+        btnTestQuery.disabled = false;
+        btnTestQuery.textContent = 'Enviar a IA';
+      }
+    });
+
+    testQuery.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        btnTestQuery.click();
+      }
+    });
+
+    // Auto-conectar al cargar si hay clave
+    if (adminKeyInput.value.trim()) {
+      loadPrompt();
+    }
+  </script>
+</body>
+</html>

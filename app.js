@@ -968,6 +968,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const aiTelegramBtn = document.getElementById('aiTelegramBtn');
   const aiWhatsAppBtn = document.getElementById('aiWhatsAppBtn');
 
+  // Configuración del Cloudflare Worker (EN VIVO Bidireccional)
+  const CLOUDFLARE_WORKER_URL = 'https://webservi-ai-bot.lucas-carandino.workers.dev/';
+  const chatHistory = [];
+
+  // ID de Sesión Único para el Visitante (persistido en sessionStorage)
+  let visitorSessionId = sessionStorage.getItem('ws_chat_session_id');
+  if (!visitorSessionId) {
+    visitorSessionId = 'CLI_' + Math.random().toString(36).substring(2, 7).toUpperCase();
+    sessionStorage.setItem('ws_chat_session_id', visitorSessionId);
+  }
+
   const diagnosisKnowledge = {
     planos: {
       tag: 'LÍNEA 01 · INGENIERÍA EN PLANOS BIM & PRE-OBRA',
@@ -1085,13 +1096,76 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (aiSendBtn && aiUserInput) {
-    const handleSendDiagnosis = () => {
+    const handleSendDiagnosis = async () => {
       const query = aiUserInput.value.trim();
-      updateDiagnosticUI(activeDiscipline, query);
+      const data = diagnosisKnowledge[activeDiscipline] || diagnosisKnowledge.planos;
+      const queryToSend = query || data.defaultQuery;
+
+      const originalBtnHTML = aiSendBtn.innerHTML;
+      aiSendBtn.disabled = true;
+      aiSendBtn.innerHTML = `
+        <span class="ai-spin-icon">⚡</span>
+        <span>Analizando con IA...</span>
+      `;
+
       if (diagBody) {
+        diagBody.innerHTML = `
+          <div style="display:flex;align-items:center;gap:10px;color:var(--tech-cyan);padding:8px 0;">
+            <span class="status-indicator-online" style="display:inline-block;animation:pulseDot 1.2s infinite;"></span>
+            <em>Consultando con el motor de IA de WebServi sobre su proyecto...</em>
+          </div>
+        `;
         diagBody.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
+
+      try {
+        const response = await fetch(CLOUDFLARE_WORKER_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            sessionId: visitorSessionId,
+            message: `[Solicitud de Diagnóstico Web - ${data.tag}]: ${queryToSend}`,
+            history: []
+          })
+        });
+
+        if (response.ok) {
+          const resData = await response.json();
+          const aiAnalysis = resData.reply;
+
+          if (diagBody) {
+            diagBody.innerHTML = `
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap;">
+                <span class="diag-ai-live-badge">
+                  <span class="pulse-dot-green"></span>
+                  ARQUITECTURA IA GENERADA EN VIVO
+                </span>
+                ${query ? `<span style="font-size:0.8rem;color:#94a3b8;font-family:var(--font-mono);">"${query}"</span>` : ''}
+              </div>
+              <div class="diag-ai-content">${aiAnalysis.replace(/\n/g, '<br>')}</div>
+            `;
+          }
+
+          // Actualizar botones de Telegram y WhatsApp con la propuesta real
+          const projectSummary = `Hola Lucas, analicé mi proyecto en la web con IA para [${data.tag}]. Mi requerimiento: "${queryToSend}". La IA me sugirió: "${aiAnalysis.slice(0, 160)}...". Quisiera cotizarlo directamente.`;
+          if (aiTelegramBtn) {
+            aiTelegramBtn.href = `https://t.me/WebServiBolivia?text=${encodeURIComponent(projectSummary)}`;
+          }
+          if (aiWhatsAppBtn) {
+            aiWhatsAppBtn.href = `https://wa.me/59175020555?text=${encodeURIComponent(projectSummary)}`;
+          }
+        } else {
+          throw new Error('Worker response error');
+        }
+      } catch (err) {
+        // Fallback local seguro
+        updateDiagnosticUI(activeDiscipline, query);
+      } finally {
+        aiSendBtn.disabled = false;
+        aiSendBtn.innerHTML = originalBtnHTML;
+      }
     };
+
     aiSendBtn.addEventListener('click', handleSendDiagnosis);
     aiUserInput.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
@@ -1158,17 +1232,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (floatingTelegramBridge) floatingTelegramBridge.href = `https://t.me/WebServiBolivia?text=${encodedMsg}`;
       if (floatingWhatsAppBridge) floatingWhatsAppBridge.href = `https://wa.me/59175020555?text=${encodedMsg}`;
     }
-  }
-
-  // Configuración del Cloudflare Worker (Opción 2 — EN VIVO Bidireccional)
-  const CLOUDFLARE_WORKER_URL = 'https://webservi-ai-bot.lucas-carandino.workers.dev/';
-  const chatHistory = [];
-
-  // ID de Sesión Único para el Visitante (persistido en sessionStorage)
-  let visitorSessionId = sessionStorage.getItem('ws_chat_session_id');
-  if (!visitorSessionId) {
-    visitorSessionId = 'CLI_' + Math.random().toString(36).substring(2, 7).toUpperCase();
-    sessionStorage.setItem('ws_chat_session_id', visitorSessionId);
   }
 
   function appendOperatorMessage(sender, text) {
