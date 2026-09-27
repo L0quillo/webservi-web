@@ -2017,3 +2017,687 @@ body {
     gap: 30px;
   }
 }
+
+/* ==========================================================================
+   HUB DE RECURSOS & HERRAMIENTAS IT (recursos.html)
+   ========================================================================== */
+
+.recursos-page-wrapper {
+  position: relative;
+  z-index: 1;
+  background-color: #081426;
+  min-height: 100vh;
+}
+
+.recursos-hero-section {
+  padding: 60px 0 40px;
+  background: radial-gradient(circle at 50% 0%, rgba(0, 210, 255, 0.12) 0%, rgba(8, 20, 38, 0.98) 75%);
+  border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+  text-align: center;
+}
+
+.recursos-hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin: 16px auto 14px;
+  max-width: 900px;
+  line-height: 1.15;
+}
+
+.recursos-hero-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 820px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+}
+
+.recursos-search-bar {
+  max-width: 680px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(13, 30, 58, 0.85);
+  border: 1px solid var(--border-glow);
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 210, 255, 0.15);
+  transition: var(--transition);
+}
+
+.recursos-search-bar:focus-within {
+  border-color: var(--tech-cyan);
+  box-shadow: 0 4px 24px rgba(0, 210, 255, 0.35);
+}
+
+.recursos-search-bar svg {
+  color: var(--tech-cyan);
+  flex-shrink: 0;
+}
+
+.recursos-search-bar input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+.recursos-search-bar input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-badge-count {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--tech-cyan);
+  background: rgba(0, 210, 255, 0.12);
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.recursos-nav-pills {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.pill-link {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-highlight);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.pill-link:hover {
+  background: rgba(0, 210, 255, 0.18);
+  border-color: var(--tech-cyan);
+  color: #fff;
+}
+
+/* Sections */
+.recursos-section {
+  padding: 60px 0;
+}
+
+.recursos-section.dark-alt {
+  background: rgba(5, 14, 28, 0.75);
+  border-top: 1px solid rgba(0, 210, 255, 0.12);
+  border-bottom: 1px solid rgba(0, 210, 255, 0.12);
+}
+
+.section-heading {
+  margin-bottom: 36px;
+  text-align: center;
+}
+
+.section-heading h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 10px 0 8px;
+}
+
+.section-heading p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* Brands Grid */
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 22px;
+}
+
+.brand-resource-card {
+  background: rgba(14, 30, 56, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: var(--transition);
+  position: relative;
+  backdrop-filter: blur(8px);
+}
+
+.brand-resource-card:hover {
+  border-color: rgba(0, 210, 255, 0.5);
+  background: rgba(18, 40, 75, 0.85);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 210, 255, 0.15);
+}
+
+.brand-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.brand-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #fff;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #0751a0 0%, #032b57 100%);
+  border: 1px solid rgba(0, 210, 255, 0.3);
+}
+
+.mikrotik-icon { background: linear-gradient(135deg, #10263f 0%, #1e456e 100%); border-color: #2b78c5; color: #fff; }
+.unifi-icon { background: linear-gradient(135deg, #00599a 0%, #00223e 100%); border-color: #0088eb; }
+.dahua-icon { background: linear-gradient(135deg, #c01920 0%, #570609 100%); border-color: #e02f37; }
+.hik-icon { background: linear-gradient(135deg, #d3202a 0%, #63050a 100%); border-color: #f5343f; }
+.unv-icon { background: linear-gradient(135deg, #004b97 0%, #001f3f 100%); border-color: #0070e0; }
+.ruijie-icon { background: linear-gradient(135deg, #ff6600 0%, #7a3000 100%); border-color: #ff8533; }
+.zk-icon { background: linear-gradient(135deg, #007b3d 0%, #00361b 100%); border-color: #00a853; }
+.huawei-icon { background: linear-gradient(135deg, #c7000b 0%, #540004 100%); border-color: #f0141f; }
+.proxmox-icon { background: linear-gradient(135deg, #e57000 0%, #592b00 100%); border-color: #ff8c1a; }
+
+.brand-name {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.brand-category {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.status-indicator-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-indicator-badge.live {
+  background: rgba(0, 255, 170, 0.12);
+  color: var(--tech-green);
+  border: 1px solid rgba(0, 255, 170, 0.35);
+}
+
+.brand-desc {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.brand-action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.tool-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.tool-btn.primary {
+  background: var(--blue-electric);
+  color: #fff;
+}
+
+.tool-btn.primary:hover {
+  background: var(--tech-cyan);
+  color: #030812;
+  box-shadow: 0 0 14px rgba(0, 210, 255, 0.4);
+}
+
+.tool-btn.secondary {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-highlight);
+}
+
+.tool-btn.secondary:hover {
+  background: rgba(0, 210, 255, 0.15);
+  border-color: var(--tech-cyan);
+  color: #fff;
+}
+
+.tool-btn.subtle {
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  padding: 5px 8px;
+}
+
+.tool-btn.subtle:hover {
+  color: var(--tech-cyan);
+}
+
+.tool-btn.special {
+  background: linear-gradient(135deg, rgba(0, 210, 255, 0.15) 0%, rgba(7, 81, 160, 0.25) 100%);
+  border: 1px dashed rgba(0, 210, 255, 0.4);
+  color: var(--tech-cyan);
+  font-weight: 700;
+}
+
+.tool-btn.special:hover {
+  background: rgba(0, 210, 255, 0.3);
+  color: #fff;
+  border-style: solid;
+}
+
+.brand-footer-tip {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  background: rgba(0, 0, 0, 0.25);
+  border-left: 2px solid var(--tech-cyan);
+  padding: 8px 10px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  line-height: 1.4;
+}
+
+/* IP Subnet Calculator */
+.ip-calc-card {
+  background: rgba(14, 30, 56, 0.8);
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 210, 255, 0.15);
+}
+
+.calc-inputs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr auto;
+  gap: 16px;
+  align-items: flex-end;
+  margin-bottom: 28px;
+}
+
+.calc-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.calc-input-group label {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-icon svg {
+  position: absolute;
+  left: 12px;
+  color: var(--tech-cyan);
+  pointer-events: none;
+}
+
+.input-with-icon input,
+.calc-select {
+  width: 100%;
+  background: rgba(9, 21, 42, 0.95);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  color: #fff;
+  outline: none;
+  transition: var(--transition);
+}
+
+.input-with-icon input {
+  padding-left: 38px;
+}
+
+.input-with-icon input:focus,
+.calc-select:focus {
+  border-color: var(--tech-cyan);
+  box-shadow: 0 0 14px rgba(0, 210, 255, 0.3);
+}
+
+.calc-input-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.calc-results-display {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(0, 210, 255, 0.2);
+  border-radius: var(--radius-md);
+  padding: 20px;
+}
+
+.res-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.res-item.full-width {
+  grid-column: 1 / -1;
+  background: rgba(0, 210, 255, 0.05);
+  border-color: rgba(0, 210, 255, 0.2);
+}
+
+.res-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.res-value {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.res-value.cyan { color: var(--tech-cyan); }
+.res-value.green { color: var(--tech-green); }
+.res-value.orange { color: #ffb400; }
+.res-value.highlight { color: #fff; font-size: 1.05rem; }
+
+/* GeoIP Section */
+.geoip-card-wrap {
+  background: rgba(14, 30, 56, 0.8);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.geoip-controls-bar {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.geoip-buttons-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.code-preview-box {
+  background: #040914;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.code-preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.code-title {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--tech-cyan);
+  font-weight: 700;
+}
+
+.code-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.code-content {
+  padding: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-highlight);
+  line-height: 1.6;
+  max-height: 260px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* AI Prompts & Skills Grid */
+.prompts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 22px;
+}
+
+.prompt-card {
+  background: rgba(14, 30, 56, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: var(--transition);
+}
+
+.prompt-card:hover {
+  border-color: rgba(0, 210, 255, 0.45);
+  background: rgba(18, 40, 75, 0.85);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.prompt-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.prompt-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--tech-cyan);
+  letter-spacing: 0.05em;
+}
+
+.prompt-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.25;
+}
+
+.prompt-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.prompt-box {
+  background: #040914;
+  border: 1px solid rgba(0, 210, 255, 0.2);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  max-height: 170px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.prompt-text {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-highlight);
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.btn-copy-prompt {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 210, 255, 0.12);
+  border: 1px solid rgba(0, 210, 255, 0.4);
+  color: var(--tech-cyan);
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: auto;
+}
+
+.btn-copy-prompt:hover {
+  background: var(--tech-cyan);
+  color: #030812;
+  box-shadow: 0 0 16px rgba(0, 210, 255, 0.4);
+}
+
+.btn-copy-prompt.copied {
+  background: var(--tech-green);
+  border-color: var(--tech-green);
+  color: #030812;
+}
+
+/* Quick Tools Grid */
+.tools-quick-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.quick-tool-card {
+  background: rgba(14, 30, 56, 0.6);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.quick-tool-card:hover {
+  border-color: var(--tech-cyan);
+  background: rgba(18, 40, 75, 0.8);
+  transform: translateY(-2px);
+}
+
+.qt-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qt-icon {
+  font-size: 1.3rem;
+}
+
+.qt-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.qt-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.qt-link {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--tech-cyan);
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+/* Responsiveness for Recursos */
+@media (max-width: 991px) {
+  .calc-inputs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calc-results-display {
+    grid-template-columns: 1fr;
+  }
+
+  .brands-grid,
+  .prompts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

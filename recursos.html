@@ -1,0 +1,926 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hub de Recursos & Herramientas IT — WebServi.Net | Para Ingenieros de Sistemas y Redes</title>
+  <meta name="description" content="Portal de herramientas útiles para ingenieros de sistemas y administradores de red: plataformas cloud y descargas oficiales (MikroTik, UniFi, Dahua, Hikvision, Uniview, Ruijie, ZKTeco, Huawei, Proxmox), calculadora de subredes IPv4, rangos IP por países y prompts de IA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="assets/logos/v2-logo.png">
+  <link rel="apple-touch-icon" href="assets/logos/v2-logo.png">
+</head>
+<body data-page="recursos">
+
+  <!-- Accessibility Skip Link -->
+  <a class="sr-skip" href="#contenido-recursos">Saltar al contenido de herramientas</a>
+
+  <!-- Top Announcement Bar -->
+  <header class="top-bar">
+    <div class="wrap top-bar-content">
+      <div class="top-tagline">
+        <span class="pulse-dot"></span>
+        <span><strong>WebServi.Net</strong> — Hub de Recursos & Utilidades Diarias para Administradores de Red</span>
+      </div>
+      <div class="top-contact">
+        <a href="https://wa.me/59175020555" target="_blank" rel="noopener" class="top-wa-link">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          <span>WhatsApp Soporte: <strong>+591 750 20555</strong></span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sticky Main Glass Navigation -->
+  <nav class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="index.html" class="brand-link" aria-label="WebServi.Net - Inicio">
+        <video class="brand-logo-video" autoplay loop muted playsinline poster="video/logo-poster.jpg">
+          <source src="video/logo-animado-header.webm" type="video/webm">
+          <source src="video/logo-animado-header.mp4" type="video/mp4">
+          <img src="video/logo-poster.jpg" alt="WebServi.Net" class="brand-logo">
+        </video>
+      </a>
+
+      <div class="nav-links" id="mainNav">
+        <a href="index.html#linea-1" class="nav-item"><span>01</span> Planos & Ductos</a>
+        <a href="index.html#linea-2" class="nav-item"><span>02</span> Cableado & Fibra</a>
+        <a href="index.html#linea-3" class="nav-item"><span>03</span> Redes & Servidores</a>
+        <a href="index.html#linea-4" class="nav-item"><span>04</span> CCTV & Accesos</a>
+        <a href="index.html#linea-5" class="nav-item"><span>05</span> Domótica & IoT</a>
+        <a href="index.html#matriz-integracion" class="nav-item">Matriz de Integración</a>
+        <a href="recursos.html" class="nav-item active nav-pill-highlight">🛠️ Hub Recursos IT</a>
+      </div>
+
+      <div class="nav-cta-wrap">
+        <a href="https://wa.me/59175020555?text=Hola%20WebServi,%20necesito%20asistencia%20tecnica" target="_blank" rel="noopener" class="btn btn-primary-glow btn-nav-cta">
+          <span>Contacto Técnico</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+
+        <!-- Mobile Menu Toggle Button (Hamburger) -->
+        <button class="mobile-toggle-btn" id="mobileMenuBtn" aria-label="Abrir Menú de Navegación" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer Dropdown -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true">
+      <div class="mobile-drawer-header">
+        <span class="chip-accent">NAVEGACIÓN MÓVIL</span>
+        <span style="color: var(--text-muted); font-size: 0.8rem;">WebServi.Net</span>
+      </div>
+      <div class="mobile-drawer-links">
+        <a href="index.html#linea-1" class="mobile-nav-item"><span>01.</span> Ingeniería en Planos & Ductaje</a>
+        <a href="index.html#linea-2" class="mobile-nav-item"><span>02.</span> Cableado Estructurado & Fibra Óptica</a>
+        <a href="index.html#linea-3" class="mobile-nav-item"><span>03.</span> Redes Avanzadas & Servidores</a>
+        <a href="index.html#linea-4" class="mobile-nav-item"><span>04.</span> Seguridad Electrónica & CCTV</a>
+        <a href="index.html#linea-5" class="mobile-nav-item"><span>05.</span> Domótica, Energía & IoT Industrial</a>
+        <a href="index.html#matriz-integracion" class="mobile-nav-item"><span>⚡</span> Matriz de Integración Total</a>
+        <a href="recursos.html" class="mobile-nav-item active" style="color: var(--tech-cyan); font-weight: 700;"><span>🛠️</span> Hub de Recursos & Herramientas IT</a>
+      </div>
+      <div class="mobile-drawer-footer">
+        <a href="https://wa.me/59175020555?text=Hola%20WebServi,%20necesito%20asistencia%20tecnica" target="_blank" rel="noopener" class="btn btn-primary-glow" style="width: 100%;">
+          <span>Asistencia por WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content Wrap -->
+  <main id="contenido-recursos" class="recursos-page-wrapper">
+    
+    <!-- Hero Header of Resources -->
+    <section class="recursos-hero-section">
+      <div class="wrap">
+        <div class="eyebrow-chip">
+          <span class="chip-accent">SYSADMIN & NETWORK TOOLBOX</span>
+          <span>WEBSERVI UTILITIES</span>
+        </div>
+        <h1 class="recursos-hero-title">Hub de Recursos & Herramientas para Ingenieros de Sistemas</h1>
+        <p class="recursos-hero-subtitle">
+          El punto de acceso rápido para la administración diaria de infraestructura: plataformas cloud oficiales, descargas de firmware, calculadora interactiva de subredes IPv4/VLSM, generador de rangos IP por países y prompts maestros de Inteligencia Artificial para hardware de red.
+        </p>
+
+        <!-- Fast Search Filter Bar -->
+        <div class="recursos-search-bar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <input type="search" id="resourceSearch" placeholder="Buscar por marca, herramienta o función (ej: mikrotik, winbox, dahua, calculadora, unifi, proxmox, prompt, firewall)..." aria-label="Filtrar recursos y herramientas">
+          <span class="search-badge-count" id="searchCountBadge">18 utilidades</span>
+        </div>
+
+        <!-- Quick Jump Pills -->
+        <div class="recursos-nav-pills">
+          <a href="#modulo-marcas" class="pill-link">📡 Plataformas & Firmware</a>
+          <a href="#modulo-calculadora" class="pill-link">🧮 Calculadora IP / VLSM</a>
+          <a href="#modulo-geoip" class="pill-link">🌍 Rangos IP por País</a>
+          <a href="#modulo-ia-skills" class="pill-link">🧠 Prompts & Skills de IA</a>
+          <a href="#modulo-utilidades" class="pill-link">⚡ Diagnóstico Rápido</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: PLATAFORMAS CLOUD & DESCARGAS DE FABRICANTES -->
+    <section class="recursos-section" id="modulo-marcas">
+      <div class="wrap">
+        <div class="section-heading">
+          <div class="eyebrow-chip">
+            <span class="chip-accent">FABRICANTES & HARDWARE</span>
+            <span>OFICIAL & SEGURO</span>
+          </div>
+          <h2>Plataformas Cloud & Centros de Descargas</h2>
+          <p>Enlaces directos a las consolas de gestión en la nube y repositorios oficiales de firmware de las 9 marcas principales del sector.</p>
+        </div>
+
+        <div class="brands-grid" id="brandsGrid">
+          
+          <!-- Brand: MikroTik -->
+          <article class="brand-resource-card" data-keywords="mikrotik winbox routeros netinstall the dude firewall bcast bandwidth v7">
+            <div class="brand-card-header">
+              <div class="brand-identity">
+                <span class="brand-icon mikrotik-icon">MT</span>
+                <div>
+                  <h3 class="brand-name">MikroTik</h3>
+                  <span class="brand-category">Routing & Switching Industrial</span>
+                </div>
+              </div>
+              <span class="status-indicator-badge live">RouterOS v7</span>
+            </div>
+            <p class="brand-desc">
+              Ruteo BGP, balanceo de carga Multi-WAN, filtrado RAW y enlaces de fibra óptica de alta capacidad.
+            </p>
+            <div class="brand-action-buttons">
+              <a href="https://mikrotik.com/download" target="_blank" rel="noopener" class="tool-btn primary">
+                <span>Descargar WinBox & RouterOS</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+              <a href="https://help.mikrotik.com/docs/" target="_blank" rel="noopener" class="tool-btn secondary">
+                <span>Docs & Wiki Oficial</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="https://mikrotik.com/client/" target="_blank" rel="noopener" class="tool-btn subtle">
+                <span>Portal de Cuenta & Licencias</span>
+              </a>
+            </div>
+            <div class="brand-footer-tip">
+              <strong>Tip WebServi:</strong> Para RouterOS 7, descargue siempre WinBox 3.41+ o WinBox 4 Beta nativo para evitar cuelgues de interfaz en túneles WireGuard.
+            </div>
+          </article>
+
+          <!-- Brand: Ubiquiti (UniFi & UISP) -->
+          <article class="brand-resource-card" data-keywords="ubiquiti unifi uisp ap switch wireless antenas enlaces airmax wave protect">
+            <div class="brand-card-header">
+              <div class="brand-identity">
+                <span class="brand-icon unifi-icon">UI</span>
+                <div>
+                  <h3 class="brand-name">Ubiquiti (UniFi & UISP)</h3>
+                  <span class="brand-category">Wi-Fi Empresarial & Radioenlaces</span>
+                </div>
+              </div>
+              <span class="status-indicator-badge live">Site Manager</span>
+            </div>
+            <p class="brand-desc">
+              Puntos de acceso Wi-Fi 6/7, conmutación UniFi y radioenlaces UISP de 5/25/60 GHz con gestión centralizada.
+            </p>
+            <div class="brand-action-buttons">
+              <a href="https://unifi.ui.com/" target="_blank" rel="noopener" class="tool-btn primary">
+                <span>UniFi Site Manager Cloud</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+              <a href="https://uisp.ui.com/" target="_blank" rel="noopener" class="tool-btn secondary">
+                <span>UISP Cloud (Antenas)</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+              <a href="https://ui.com/download" target="_blank" rel="noopener" class="tool-btn subtle">
+                <span>Centro de Firmware & Network App</span>
+              </a>
+              <a href="https://unifi7.webservi.net:8443/" target="_blank" rel="noopener" class="tool-btn special">
+                <span>Servidor WebServi UniFi 7 Privado</span>
+              </a>
+            </div>
+            <div class="brand-footer-tip">
+              <strong>Tip WebServi:</strong> Al activar 802.11r (Fast Roaming), mantenga WPA2/WPA3 Mixed con PMF en 'Optional' para evitar desconexiones en impresoras y dispositivos IoT legacy.
+            </div>
+          </article>
+
+          <!-- Brand: Dahua Technology -->
+          <article class="brand-resource-card" data-keywords="dahua cctv dolynk configtool smartpss dss nvr dvr camaras smart pss">
+            <div class="brand-card-header">
+              <div class="brand-identity">
+                <span class="brand-icon dahua-icon">DH</span>
+                <div>
+                  <h3 class="brand-name">Dahua Technology</h3>
+                  <span class="brand-category">CCTV & Seguridad Inteligente</span>
+                </div>
+              </div>
+              <span class="status-indicator-badge live">DoLynk Care</span>
+            </div>
+            <p class="brand-desc">
+              Cámaras IP, NVRs WizSense/WizMind, control de acceso facial y VMS para monitoreo en tiempo real.
+            </p>
+            <div class="brand-action-buttons">
+              <a href="https://www.dolynkcare.com/" target="_blank" rel="noopener" class="tool-btn primary">
+                <span>DoLynk Care Cloud Portal</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+              <a href="https://www.dahuasecurity.com/support/tools" target="_blank" rel="noopener" class="tool-btn secondary">
+                <span>Dahua ToolBox & ConfigTool</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="https://www.dahuasecurity.com/support/downloadCenter" target="_blank" rel="noopener" class="tool-btn subtle">
+                <span>Download Center (SmartPSS Lite, Firmware)</span>
+              </a>
+            </div>
+            <div class="brand-footer-tip">
+              <strong>Tip WebServi:</strong> ConfigTool es indispensable para inicializar lotes de cámaras nuevas en la subred default `192.168.1.108` sin cambiar la IP del PC de campo.
+            </div>
+          </article>
+
+          <!-- Brand: Hikvision -->
+          <article class="brand-resource-card" data-keywords="hikvision cctv sadp ivms partner pro connect nvr acusense colorvu">
+            <div class="brand-card-header">
+              <div class="brand-identity">
+                <span class="brand-icon hik-icon">HK</span>
+                <div>
+                  <h3 class="brand-name">Hikvision</h3>
+                  <span class="brand-category">Videovigilancia & Control de Acceso</span>
+                </div>
+              </div>
+              <span class="status-indicator-badge live">Hik-Partner Pro</span>
+            </div>
+            <p class="brand-desc">
+              Cámaras AcuSense, ColorVu, NVRs masivos, switches PoE y videoporteros modulares IP.
+            </p>
+            <div class="brand-action-buttons">
+              <a href="https://www.hik-partner.com/" target="_blank" rel="noopener" class="tool-btn primary">
+                <span>Hik-Partner Pro Cloud</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+              <a href="https://www.hikvision.com/en/support/tools/hitools/" target="_blank" rel="noopener" class="tool-btn secondary">
+                <span>Herramienta SADP Tool (Oficial)</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="https://www.hikvision.com/en/support/download/" target="_blank" rel="noopener" class="tool-btn subtle">
+                <span>Download Portal (iVMS-4200 & Firmware)</span>
+              </a>
+            </div>
+            <div class="brand-footer-tip">
+              <strong>Tip WebServi:</strong> Con SADP Tool puede exportar el archivo XML para reseteo de contraseña en dispositivos bloqueados sin desinstalar el equipo de la pared.
+            </div>
+          </article>
+
+          <!-- Brand: Uniview (UNV) -->
+          <article class="brand-resource-card" data-keywords="uniview unv ezcloud ezstation ezview cctv tri-guard lighthunter">
+            <div class="brand-card-header">
+              <div class="brand-identity">
+                <span class="brand-icon unv-icon">UNV</span>
+                <div>
+                  <h3 class="brand-name">Uniview (UNV)</h3>
+                  <span class="brand-category">CCTV IP Profesional & VMS</span>
+                </div>
+              </div>
+              <span class="status-indicator-badge live">EZCloud</span>
+            </div>
+            <p class="brand-desc">
+              Cámaras LightHunter, ColorHunter, disuasión activa Tri-Guard y servidores de almacenamiento de alta densidad.
+            </p>
+            <div class="brand-action-buttons">
+              <a href="https://en.ezcloud.uniview.com/" target="_blank" rel="noopener" class="tool-btn primary">
+                <span>UNV EZCloud Login</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+              <a href="https://global.uniview.com/Support/Download_Center/" target="_blank" rel="noopener" class="tool-btn secondary">
+                <span>EZStation VMS & Download Center</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+            <div class="brand-footer-tip">
+              <strong>Tip WebServi:</strong> EZStation 3 permite gestionar cámaras Uniview y dispositivos ONVIF de terceros bajo un mismo mapa interactivo de planta.
+            </div>
+          </article>
+
+          <!-- Brand: Ruijie / Reyee -->
+          <article class="brand-resource-card" data-keywords="ruijie reyee cloud wifi ap switches mesh bridge reyee os">
+            <div class="brand-card-header">
+              <div class="brand-identity">
+                <span class="brand-icon ruijie-icon">RG</span>
+                <div>
+                  <h3 class="brand-name">Ruijie & Reyee</h3>
+                  <span class="brand-category">Enterprise Cloud Networking</span>
+                </div>
+              </div>
+              <span class="status-indicator-badge live">Reyee Cloud</span>
+            </div>
+            <p class="brand-desc">
+              Switches cloud-managed, routers PoE, access points Wi-Fi 6 con roaming Mesh automático y despliegue rápido.
+            </p>
+            <div class="brand-action-buttons">
+              <a href="https://cloud-as.ruijienetworks.com/" target="_blank" rel="noopener" class="tool-btn primary">
+                <span>Ruijie Reyee Cloud Portal</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+              <a href="https://www.ruijienetworks.com/support/download" target="_blank" rel="noopener" class="tool-btn secondary">
+                <span>Firmware & Support Download</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+            <div class="brand-footer-tip">
+              <strong>Tip WebServi:</strong> El aprovisionamiento por código QR desde la App Ruijie Cloud sincroniza VLANs y topología en menos de 3 minutos en obra.
+            </div>
+          </article>
+
+          <!-- Brand: ZKTeco -->
+          <article class="brand-resource-card" data-keywords="zkteco zk biometria molinetes facial asistencia zkbiosecurity zkbiodata">
+            <div class="brand-card-header">
+              <div class="brand-identity">
+                <span class="brand-icon zk-icon">ZK</span>
+                <div>
+                  <h3 class="brand-name">ZKTeco</h3>
+                  <span class="brand-category">Control de Acceso & Biometría</span>
+                </div>
+              </div>
+              <span class="status-indicator-badge live">ZKBio Suite</span>
+            </div>
+            <p class="brand-desc">
+              Terminales faciales con Visible Light, molinetes peatonales, barreras vehiculares y software ZKBioSecurity.
+            </p>
+            <div class="brand-action-buttons">
+              <a href="https://www.zkteco.com/en/" target="_blank" rel="noopener" class="tool-btn primary">
+                <span>ZKTeco Global Portal</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+              <a href="https://www.zkteco.com/en/download_cat/" target="_blank" rel="noopener" class="tool-btn secondary">
+                <span>Descargas de Software, Drivers & SDKs</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+            <div class="brand-footer-tip">
+              <strong>Tip WebServi:</strong> Verifique la arquitectura x86 o x64 de Windows antes de instalar los drivers USB del sensor de huellas ZK9500 para evitar bloqueos del servicio de captura.
+            </div>
+          </article>
+
+          <!-- Brand: Huawei Enterprise & eKit -->
+          <article class="brand-resource-card" data-keywords="huawei ekit imaster switch s5700 ar router enterprise cloudcampus">
+            <div class="brand-card-header">
+              <div class="brand-identity">
+                <span class="brand-icon huawei-icon">HW</span>
+                <div>
+                  <h3 class="brand-name">Huawei Enterprise & eKit</h3>
+                  <span class="brand-category">Redes Corporativas & Datacenter</span>
+                </div>
+              </div>
+              <span class="status-indicator-badge live">Huawei eKit</span>
+            </div>
+            <p class="brand-desc">
+              Switches CloudEngine, routers serie AR, Wi-Fi 6 AirEngine y plataforma de distribución eKit.
+            </p>
+            <div class="brand-action-buttons">
+              <a href="https://ekit.huawei.com/" target="_blank" rel="noopener" class="tool-btn primary">
+                <span>Huawei eKit Portal (SME & Proyectos)</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+              <a href="https://support.huawei.com/enterprise/" target="_blank" rel="noopener" class="tool-btn secondary">
+                <span>Huawei Enterprise Support & Firmware</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+            <div class="brand-footer-tip">
+              <strong>Tip WebServi:</strong> La plataforma Huawei eKit permite el diagnóstico remoto de cables de red con TDR (Time Domain Reflectometry) directamente desde el switch.
+            </div>
+          </article>
+
+          <!-- Brand: Proxmox Virtual Environment -->
+          <article class="brand-resource-card" data-keywords="proxmox pve pbs virtualizacion servidores lxc kvm cluster zfs backups">
+            <div class="brand-card-header">
+              <div class="brand-identity">
+                <span class="brand-icon proxmox-icon">PVE</span>
+                <div>
+                  <h3 class="brand-name">Proxmox VE & PBS</h3>
+                  <span class="brand-category">Virtualización & Backups Open Source</span>
+                </div>
+              </div>
+              <span class="status-indicator-badge live">PVE 8.x / PBS</span>
+            </div>
+            <p class="brand-desc">
+              Hipervisor KVM de nivel empresarial, contenedores LXC, clústeres de alta disponibilidad y Proxmox Backup Server.
+            </p>
+            <div class="brand-action-buttons">
+              <a href="https://www.proxmox.com/en/downloads" target="_blank" rel="noopener" class="tool-btn primary">
+                <span>Descargas de ISOs Proxmox VE & PBS</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+              <a href="https://tteck.github.io/Proxmox/" target="_blank" rel="noopener" class="tool-btn secondary">
+                <span>Proxmox Community Helper-Scripts</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="https://pve.proxmox.com/pve-docs/" target="_blank" rel="noopener" class="tool-btn subtle">
+                <span>Manual de Referencia Oficial PVE</span>
+              </a>
+            </div>
+            <div class="brand-footer-tip">
+              <strong>Tip WebServi:</strong> Al instalar Proxmox VE sobre discos NVMe o SAS en producción, utilice siempre almacenamiento ZFS en RAID 1 (Mirror) o RAID 10 para tolerancia a fallas de hardware.
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: CALCULADORA DE SUBREDES IPV4 / VLSM EN VIVO -->
+    <section class="recursos-section dark-alt" id="modulo-calculadora">
+      <div class="wrap">
+        <div class="section-heading">
+          <div class="eyebrow-chip">
+            <span class="chip-accent">HERRAMIENTA INTEGRADA</span>
+            <span>CÁLCULO INSTANTÁNEO</span>
+          </div>
+          <h2>Calculadora de Subredes IPv4 / VLSM</h2>
+          <p>Calcule máscaras de red, wildcards para ACLs de firewall, rangos utilizables y broadcasts sin salir de la página.</p>
+        </div>
+
+        <div class="ip-calc-card">
+          <div class="calc-inputs-grid">
+            <div class="calc-input-group">
+              <label for="calcIp">Dirección IP de Entrada:</label>
+              <div class="input-with-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                <input type="text" id="calcIp" value="192.168.1.1" placeholder="Ej: 192.168.10.1 o 10.0.0.1">
+              </div>
+            </div>
+
+            <div class="calc-input-group">
+              <label for="calcCidr">Prefijo de Máscara (CIDR):</label>
+              <select id="calcCidr" class="calc-select">
+                <option value="32">/32 (255.255.255.255) — 1 IP (Host único / Loopback)</option>
+                <option value="31">/31 (255.255.255.254) — 2 IPs (Punto a Punto RFC 3021)</option>
+                <option value="30">/30 (255.255.255.252) — 2 Hosts útiles (Enlace punto a punto clásico)</option>
+                <option value="29">/29 (255.255.255.248) — 6 Hosts útiles (Bloque de IPs públicas WAN)</option>
+                <option value="28">/28 (255.255.255.240) — 14 Hosts útiles (Subred pequeña)</option>
+                <option value="27">/27 (255.255.255.224) — 30 Hosts útiles (VLAN ejecutiva / DMZ)</option>
+                <option value="26">/26 (255.255.255.192) — 62 Hosts útiles</option>
+                <option value="25">/25 (255.255.255.128) — 126 Hosts útiles</option>
+                <option value="24" selected>/24 (255.255.255.0) — 254 Hosts útiles (LAN Corporativa Estándar)</option>
+                <option value="23">/23 (255.255.254.0) — 510 Hosts útiles (Wi-Fi de Alta Densidad)</option>
+                <option value="22">/22 (255.255.252.0) — 1022 Hosts útiles</option>
+                <option value="21">/21 (255.255.248.0) — 2046 Hosts útiles</option>
+                <option value="20">/20 (255.255.240.0) — 4094 Hosts útiles</option>
+                <option value="16">/16 (255.255.0.0) — 65534 Hosts útiles (Red Clase B)</option>
+                <option value="8">/8 (255.0.0.0) — 16.7 Millones de Hosts (Red Clase A)</option>
+              </select>
+            </div>
+
+            <div class="calc-input-actions">
+              <button class="btn btn-primary-glow" id="btnQuickRecalc">
+                <span>Calcular Red</span>
+              </button>
+              <button class="btn btn-secondary" id="btnCopyCalcSummary">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span id="btnCopyCalcText">Copiar Resumen</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Calculation Live Output Grid -->
+          <div class="calc-results-display" id="calcResultsBox">
+            <div class="res-item">
+              <span class="res-label">DIRECCIÓN DE RED:</span>
+              <span class="res-value mono cyan" id="resNetwork">192.168.1.0</span>
+            </div>
+            <div class="res-item">
+              <span class="res-label">MÁSCARA DE RED:</span>
+              <span class="res-value mono" id="resNetmask">255.255.255.0</span>
+            </div>
+            <div class="res-item">
+              <span class="res-label">MÁSCARA WILDCARD (ACL):</span>
+              <span class="res-value mono orange" id="resWildcard">0.0.0.255</span>
+            </div>
+            <div class="res-item">
+              <span class="res-label">DIRECCIÓN DE BROADCAST:</span>
+              <span class="res-value mono" id="resBroadcast">192.168.1.255</span>
+            </div>
+            <div class="res-item full-width">
+              <span class="res-label">RANGO DE IPS ASIGNABLES A DISPOSITIVOS:</span>
+              <span class="res-value mono green" id="resRange">192.168.1.1 — 192.168.1.254</span>
+            </div>
+            <div class="res-item">
+              <span class="res-label">HOSTS ÚTILES DISPONIBLES:</span>
+              <span class="res-value highlight" id="resHosts">254 hosts utilizables</span>
+            </div>
+            <div class="res-item">
+              <span class="res-label">TIPO / ALCANCE DE RED:</span>
+              <span class="res-value" id="resScope">Privada (RFC 1918) · Clase C</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: GENERADOR DE RANGOS IP POR PAÍSES -->
+    <section class="recursos-section" id="modulo-geoip">
+      <div class="wrap">
+        <div class="section-heading">
+          <div class="eyebrow-chip">
+            <span class="chip-accent">SEGURIDAD & FIREWALLING</span>
+            <span>BLOQUEO GEOGRÁFICO</span>
+          </div>
+          <h2>Generador y Descarga de Rangos IP por País</h2>
+          <p>Obtenga los bloques CIDR oficiales por país para mitigar ataques de fuerza bruta en SSH/RDP/WinBox o permitir tráfico exclusivo nacional.</p>
+        </div>
+
+        <div class="geoip-card-wrap">
+          <div class="geoip-controls-bar">
+            <div class="calc-input-group" style="flex: 1;">
+              <label for="countrySelect">Seleccionar País / Zona:</label>
+              <select id="countrySelect" class="calc-select">
+                <option value="bo" selected>Bolivia (BO) — Tráfico Nacional</option>
+                <option value="br">Brasil (BR)</option>
+                <option value="ar">Argentina (AR)</option>
+                <option value="cl">Chile (CL)</option>
+                <option value="pe">Perú (PE)</option>
+                <option value="py">Paraguay (PY)</option>
+                <option value="co">Colombia (CO)</option>
+                <option value="us">Estados Unidos (US)</option>
+                <option value="cn">China (CN)</option>
+                <option value="ru">Rusia (RU)</option>
+                <option value="all">Ver Lista Completa de Países (IPDeny)</option>
+              </select>
+            </div>
+
+            <div class="calc-input-group" style="flex: 1;">
+              <label for="scriptFormat">Formato de Script para Firewall:</label>
+              <select id="scriptFormat" class="calc-select">
+                <option value="mikrotik" selected>MikroTik RouterOS (Address List)</option>
+                <option value="linux-ipset">Linux ipset / iptables</option>
+                <option value="cidr-raw">Lista de Rangos CIDR Pura (.txt)</option>
+              </select>
+            </div>
+
+            <div class="geoip-buttons-row">
+              <a id="btnDirectZoneLink" href="http://www.ipdeny.com/ipblocks/data/countries/bo.zone" target="_blank" rel="noopener" class="btn btn-secondary">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span>Descargar .zone (IPDeny)</span>
+              </a>
+              <button class="btn btn-primary-glow" id="btnCopyGeoScript">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span id="btnCopyGeoText">Copiar Script Generado</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="code-preview-box">
+            <div class="code-preview-header">
+              <span class="code-title" id="codeFormatTitle">Script RouterOS — MikroTik Address-List</span>
+              <span class="code-tag">Listo para pegar en Terminal</span>
+            </div>
+            <pre class="code-content" id="geoScriptOutput"># Script MikroTik para agregar rangos oficiales de Bolivia
+/ip firewall address-list
+add list=PAIS_BO address=45.4.98.0/23 comment="IPDeny Bolivia"
+add list=PAIS_BO address=45.5.13.0/24 comment="IPDeny Bolivia"
+add list=PAIS_BO address=45.68.0.0/22 comment="IPDeny Bolivia"
+add list=PAIS_BO address=45.71.164.0/22 comment="IPDeny Bolivia"
+add list=PAIS_BO address=45.160.100.0/22 comment="IPDeny Bolivia"
+add list=PAIS_BO address=45.163.64.0/22 comment="IPDeny Bolivia"
+add list=PAIS_BO address=45.170.80.0/22 comment="IPDeny Bolivia"
+add list=PAIS_BO address=45.176.4.0/22 comment="IPDeny Bolivia"
+add list=PAIS_BO address=45.177.204.0/22 comment="IPDeny Bolivia"
+add list=PAIS_BO address=45.181.168.0/22 comment="IPDeny Bolivia"
+add list=PAIS_BO address=45.188.16.0/22 comment="IPDeny Bolivia"
+add list=PAIS_BO address=45.191.240.0/22 comment="IPDeny Bolivia"
+add list=PAIS_BO address=45.228.16.0/22 comment="IPDeny Bolivia"
+add list=PAIS_BO address=45.231.4.0/22 comment="IPDeny Bolivia"
+add list=PAIS_BO address=45.234.120.0/22 comment="IPDeny Bolivia"
+# [Presione 'Descargar .zone' para descargar los 122 bloques completos de Bolivia]</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: LISTA DE MEJORES SKILLS & PROMPTS DE IA -->
+    <section class="recursos-section" id="modulo-ia-skills">
+      <div class="wrap">
+        <div class="section-heading">
+          <div class="eyebrow-chip">
+            <span class="chip-accent">INTELIGENCIA ARTIFICIAL APLICADA</span>
+            <span>PROMPTING DE PRECISIÓN</span>
+          </div>
+          <h2>Prompts & Skills de IA para Ingenieros de Redes</h2>
+          <p>Plantillas de instrucciones optimizadas para ChatGPT, Gemini y Claude. Obtenga configuraciones sin alucinaciones, con sintaxis exacta y reglas de seguridad para sus equipos.</p>
+        </div>
+
+        <div class="prompts-grid" id="promptsGrid">
+
+          <!-- Prompt 1: MikroTik Hardening -->
+          <article class="prompt-card" data-keywords="mikrotik firewall hardening ddos raw fasttrack routeros prompt ia">
+            <div class="prompt-card-header">
+              <span class="prompt-badge">MIKROTIK ROUTEROS 7</span>
+              <h3 class="prompt-title">Hardening de Firewall, RAW & FastTrack</h3>
+            </div>
+            <p class="prompt-desc">
+              Genera una política de firewall de filtrado estricto en la tabla RAW para mitigar escaneos de puertos y DDoS sin saturar el procesador del router.
+            </p>
+            <div class="prompt-box">
+              <pre class="prompt-text">Actúa como un Ingeniero Senior Certificado MikroTik (MTCNA, MTCRE, MTCSE).
+Objetivo: Diseñar un script completo de firewall para MikroTik RouterOS v7 en un router de borde con WAN por ether1 y LAN por bridge1 (subred 192.168.10.0/24).
+Requisitos estrictos:
+1. Usar tabla RAW (/ip firewall raw) para dropear paquetes 'invalid', escaneos TCP SYN sin flags válidas y ataques de fuerza bruta hacia el puerto de WinBox.
+2. Configurar FastTrack solo para conexiones establecidas y relacionadas del tráfico LAN-WAN.
+3. Crear Address Lists dinámicas para aislar atacantes por 24 horas tras 3 intentos fallidos.
+4. Entregar el código en un único bloque formateado con comentarios claros y advertencia de precauciones para no perder acceso.</pre>
+            </div>
+            <button class="btn btn-copy-prompt" data-copy-target="prev">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span>Copiar Prompt para IA</span>
+            </button>
+          </article>
+
+          <!-- Prompt 2: UniFi Wi-Fi Roaming -->
+          <article class="prompt-card" data-keywords="unifi ubiquiti roaming wifi rf canales interferencia 802.11k 802.11v prompt ia">
+            <div class="prompt-card-header">
+              <span class="prompt-badge">UBIQUITI UNIFI</span>
+              <h3 class="prompt-title">Optimización de Roaming Wi-Fi & Canales RF</h3>
+            </div>
+            <p class="prompt-desc">
+              Analiza solapamientos de señal, distribución de canales no solapados en 2.4/5 GHz y umbrales RSSI para evitar clientes "pegajosos" (sticky clients).
+            </p>
+            <div class="prompt-box">
+              <pre class="prompt-text">Actúa como Especialista en Ingeniería de Radiofrecuencia y Redes Wi-Fi Empresariales UniFi.
+Tengo un entorno de oficinas de 450 m² con 4 Access Points UniFi U6-Pro y 65 clientes móviles simultáneos. Los usuarios experimentan cortes en llamadas VoIP al desplazarse entre salas.
+Por favor proporciona:
+1. Matriz de distribución de canales no solapados para 2.4 GHz (canales 1, 6, 11 en ancho 20 MHz) y 5 GHz (canales limpios en 40 MHz sin radar DFS).
+2. Potencias de transmisión recomendadas (dBm) para forzar transición suave sin agujeros de cobertura.
+3. Parámetros exactos de 802.11k, 802.11v, 802.11r y Minimum RSSI en UniFi Network Controller.
+4. Checklist paso a paso para diagnosticar con Wireshark si el teléfono está cambiando de BSSID adecuadamente.</pre>
+            </div>
+            <button class="btn btn-copy-prompt" data-copy-target="prev">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span>Copiar Prompt para IA</span>
+            </button>
+          </article>
+
+          <!-- Prompt 3: CCTV Storage & Bitrates -->
+          <article class="prompt-card" data-keywords="cctv dahua hikvision uniview almacenamiento storage h265 bitrate fps nvr disco prompt ia">
+            <div class="prompt-card-header">
+              <span class="prompt-badge">CCTV (DAHUA / HIK / UNV)</span>
+              <h3 class="prompt-title">Cálculo de Storage & Bitrate H.265+</h3>
+            </div>
+            <p class="prompt-desc">
+              Calcula con precisión matemática los Terabytes requeridos por códec, resolución, FPS y horas de grabación para cumplir con retenciones de 30 a 180 días.
+            </p>
+            <div class="prompt-box">
+              <pre class="prompt-text">Actúa como Ingeniero de Proyectos de Seguridad Electrónica y CCTV.
+Necesito calcular el almacenamiento requerido para un sistema NVR con las siguientes especificaciones:
+- 16 cámaras IP de 4 Megapíxeles (2560x1440) a 20 FPS.
+- 4 cámaras PTZ de 8 Megapíxeles (4K) a 25 FPS en accesos principales.
+- Grabación continua 24/7 durante 60 días calendario.
+- Códec: Smart H.265+ / Ultra 265 con tasa de compresión del 50%.
+Calcula y entrega:
+1. Tasa de bitrate promedio recomendada (kbps) por tipo de cámara.
+2. Ancho de banda total de entrada hacia el NVR en Mbps.
+3. Terabytes brutos y netos necesarios, añadiendo un 15% de margen de seguridad.
+4. Configuración recomendada de discos duros (ej. Western Digital Purple / Seagate SkyHawk) y arreglo RAID.</pre>
+            </div>
+            <button class="btn btn-copy-prompt" data-copy-target="prev">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span>Copiar Prompt para IA</span>
+            </button>
+          </article>
+
+          <!-- Prompt 4: Proxmox Backup & ZFS -->
+          <article class="prompt-card" data-keywords="proxmox pve pbs zfs backup automatizacion bash script san nas snapshot prompt ia">
+            <div class="prompt-card-header">
+              <span class="prompt-badge">PROXMOX VE & PBS</span>
+              <h3 class="prompt-title">Automatización de Backups 3-2-1 & ZFS Health</h3>
+            </div>
+            <p class="prompt-desc">
+              Genera scripts de comprobación de salud de pools ZFS, retención de snapshots y sincronización con Proxmox Backup Server.
+            </p>
+            <div class="prompt-box">
+              <pre class="prompt-text">Actúa como Administrador de Sistemas Linux y Especialista en Proxmox Virtual Environment (PVE).
+Quiero crear una estrategia estricta de respaldo 3-2-1 para 8 Máquinas Virtuales críticas (KVM) en Proxmox VE 8:
+1. Diseñar un script en Bash para verificar semanalmente la salud del ZFS pool (zpool status, scrub y errores de I/O) y alertar por correo o webhook si hay fallas.
+2. Definir la política de retención en Proxmox Backup Server (PBS): conservar 7 diarios, 4 semanales, 12 mensuales y 1 anual (GFS - Grandfather-Father-Son).
+3. Incluir comando seguro para verificar la integridad de los backups mediante verify jobs periódicos sin degradar la I/O de las VMs en producción.</pre>
+            </div>
+            <button class="btn btn-copy-prompt" data-copy-target="prev">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span>Copiar Prompt para IA</span>
+            </button>
+          </article>
+
+          <!-- Prompt 5: LoRaWAN Payload Decoder -->
+          <article class="prompt-card" data-keywords="lorawan thingsboard mqtt decodificador payload javascript python sensores telemetria prompt ia">
+            <div class="prompt-card-header">
+              <span class="prompt-badge">IOT INDUSTRIAL & LORAWAN</span>
+              <h3 class="prompt-title">Decodificador de Payloads Hexadecimales</h3>
+            </div>
+            <p class="prompt-desc">
+              Crea funciones JavaScript o Python limpias para decodificar cadenas de bytes crudos de sensores de campo hacia JSON para ThingsBoard o Home Assistant.
+            </p>
+            <div class="prompt-box">
+              <pre class="prompt-text">Actúa como Desarrollador Especialista en Protocolos IoT y Telemetría LoRaWAN.
+Tengo un sensor de presión y nivel de agua que envía su telemetría en una trama hexadecimal cruda (Payload Hexadecimal) a través de un gateway hacia ThingsBoard / ChirpStack.
+Ejemplo de trama recibida: '017500A4026700E2030201'
+Estructura del fabricante:
+- Byte 1-2: ID de canal y tipo de sensor (01 75 = Presión en bar, factor /100)
+- Byte 3-4: Valor de presión (00 A4 = 164 -> 1.64 bar)
+- Byte 5-6: ID y tipo (02 67 = Temperatura en °C, factor /10)
+- Byte 7-8: Valor de temp (00 E2 = 226 -> 22.6 °C)
+- Byte 9-11: Estado de batería y alertas
+Por favor escribe la función 'decodeUplink(input)' en JavaScript moderno compatible con el estándar The Things Network / ThingsBoard Data Converter, retornando un JSON estructurado y validado.</pre>
+            </div>
+            <button class="btn btn-copy-prompt" data-copy-target="prev">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span>Copiar Prompt para IA</span>
+            </button>
+          </article>
+
+          <!-- Prompt 6: Multi-WAN Failover -->
+          <article class="prompt-card" data-keywords="mikrotik multi-wan pcc failover starlink fibra check-gateway mangle balanceo prompt ia">
+            <div class="prompt-card-header">
+              <span class="prompt-badge">MIKROTIK ROUTEROS 7</span>
+              <h3 class="prompt-title">Failover Recursivo & Balanceo con Starlink</h3>
+            </div>
+            <p class="prompt-desc">
+              Configura conmutación por error (failover) con rutas recursivas hacia Cloudflare (1.1.1.1) y Google (8.8.8.8), integrando Fibra Óptica principal y Starlink de backup.
+            </p>
+            <div class="prompt-box">
+              <pre class="prompt-text">Actúa como Ingeniero de Redes Especialista en MikroTik RouterOS v7.
+Necesito configurar un failover ultra-confiable para una empresa en Santa Cruz con dos proveedores:
+- WAN1 (Fibra Óptica Dedicada): ether1, Gateway 190.180.10.1 (Principal, prioridad 1)
+- WAN2 (Starlink Business): ether2, DHCP client (Respaldo automático, prioridad 2)
+Requisitos de ingeniería:
+1. No usar solo el gateway físico del ISP (porque si el ISP pierde enlace internacional el puerto sigue UP). Implementar 'Recursive Routing' monitoreando 1.1.1.1 y 8.8.8.8 con check-gateway=ping.
+2. Si WAN1 falla, conmutar en menos de 5 segundos hacia Starlink.
+3. Cuando WAN1 se restablezca y permanezca estable por 30 segundos, volver automáticamente a la fibra sin flapeo de rutas.
+4. Entregar el script completo probado para RouterOS v7.</pre>
+            </div>
+            <button class="btn btn-copy-prompt" data-copy-target="prev">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span>Copiar Prompt para IA</span>
+            </button>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: ENLACES RÁPIDOS DE DIAGNÓSTICO EXTERNO -->
+    <section class="recursos-section dark-alt" id="modulo-utilidades">
+      <div class="wrap">
+        <div class="section-heading">
+          <div class="eyebrow-chip">
+            <span class="chip-accent">SUITE DE RED EXTERNA</span>
+            <span>DIAGNÓSTICO EN VIVO</span>
+          </div>
+          <h2>Enlaces Rápidos para Pruebas y Diagnóstico</h2>
+          <p>Herramientas mundiales seleccionadas para verificar propagación DNS, reputación IP, registros MX y auditoría BGP.</p>
+        </div>
+
+        <div class="tools-quick-grid">
+          <a href="https://dnschecker.org/" target="_blank" rel="noopener" class="quick-tool-card">
+            <div class="qt-header">
+              <span class="qt-icon">🌐</span>
+              <span class="qt-title">DNS Checker</span>
+            </div>
+            <p class="qt-desc">Verifique la propagación global de registros A, CNAME, MX y TXT en más de 25 servidores raíz mundiales.</p>
+            <span class="qt-link">Abrir dnschecker.org &rarr;</span>
+          </a>
+
+          <a href="https://mxtoolbox.com/" target="_blank" rel="noopener" class="quick-tool-card">
+            <div class="qt-header">
+              <span class="qt-icon">✉️</span>
+              <span class="qt-title">MXToolbox</span>
+            </div>
+            <p class="qt-desc">Diagnóstico de entrega de correo, validación de SPF, DKIM, DMARC y chequeo en más de 100 listas negras (RBL).</p>
+            <span class="qt-link">Abrir mxtoolbox.com &rarr;</span>
+          </a>
+
+          <a href="https://bgp.he.net/" target="_blank" rel="noopener" class="quick-tool-card">
+            <div class="qt-header">
+              <span class="qt-icon">🛣️</span>
+              <span class="qt-title">Hurricane Electric BGP</span>
+            </div>
+            <p class="qt-desc">Consulte números de Sistema Autónomo (ASN), prefijos BGP, vecinos de tránsito y peering de ISPs en Bolivia.</p>
+            <span class="qt-link">Abrir bgp.he.net &rarr;</span>
+          </a>
+
+          <a href="https://www.shodan.io/" target="_blank" rel="noopener" class="quick-tool-card">
+            <div class="qt-header">
+              <span class="qt-icon">🔍</span>
+              <span class="qt-title">Shodan Search</span>
+            </div>
+            <p class="qt-desc">Auditoría de puertos abiertos, servicios expuestos y vulnerabilidades públicas en sus IPs de borde.</p>
+            <span class="qt-link">Abrir shodan.io &rarr;</span>
+          </a>
+
+          <a href="https://www.lacnic.net/" target="_blank" rel="noopener" class="quick-tool-card">
+            <div class="qt-header">
+              <span class="qt-icon">📋</span>
+              <span class="qt-title">LACNIC Whois</span>
+            </div>
+            <p class="qt-desc">Registro oficial de asignación de bloques IPv4/IPv6 y ASNs para América Latina y el Caribe.</p>
+            <span class="qt-link">Abrir lacnic.net &rarr;</span>
+          </a>
+
+          <a href="https://www.speedtest.net/" target="_blank" rel="noopener" class="quick-tool-card">
+            <div class="qt-header">
+              <span class="qt-icon">⚡</span>
+              <span class="qt-title">Speedtest by Ookla</span>
+            </div>
+            <p class="qt-desc">Test de ancho de banda, latencia y jitter hacia nodos locales de Tigo, Entel y AXS en Bolivia.</p>
+            <span class="qt-link">Abrir speedtest.net &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom CTA Bar -->
+    <section class="footer-cta-section">
+      <div class="wrap">
+        <div class="footer-cta-card">
+          <div class="footer-cta-content">
+            <div class="eyebrow-chip">
+              <span class="chip-accent">SOPORTE DE INGENIERÍA</span>
+              <span>SANTA CRUZ · BOLIVIA</span>
+            </div>
+            <h3>¿Necesita Asesoramiento Técnico o Equipamiento en Obra?</h3>
+            <p>
+              En WebServi integramos desde el plano inicial hasta la puesta en marcha: racks organizados, enlaces de fibra, cámaras de seguridad, domótica e IoT.
+            </p>
+          </div>
+          <div class="footer-cta-actions">
+            <a href="https://wa.me/59175020555?text=Hola%20WebServi,%20deseo%20consultar%20por%20servicios%20de%20ingenieria" target="_blank" rel="noopener" class="btn btn-primary-glow btn-lg">
+              <span>Hablar con un Ingeniero por WhatsApp</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="index.html" class="btn btn-secondary btn-lg">
+              <span>Ver las 5 Líneas Maestras WebServi</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-col brand-col">
+        <img src="assets/logos/v2-logo.png" alt="WebServi.Net" class="footer-logo">
+        <p class="footer-tagline">Soluciones Integradas Profesionales. Del plano al cableado, los servidores, la seguridad y la nube.</p>
+        <p class="footer-copy">&copy; 2026 WebServi.Net · Todos los derechos reservados.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Líneas Maestras</h4>
+        <ul class="footer-nav">
+          <li><a href="index.html#linea-1">01. Ingeniería & Ductos</a></li>
+          <li><a href="index.html#linea-2">02. Cableado & Fibra</a></li>
+          <li><a href="index.html#linea-3">03. Redes & Servidores</a></li>
+          <li><a href="index.html#linea-4">04. Seguridad & CCTV</a></li>
+          <li><a href="index.html#linea-5">05. Domótica & IoT</a></li>
+          <li><a href="index.html#matriz-integracion">Matriz de Integración</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Herramientas & Clientes</h4>
+        <ul class="footer-nav">
+          <li><a href="recursos.html" style="color: var(--tech-cyan); font-weight: 700;">Hub de Recursos IT</a></li>
+          <li><a href="https://unifi7.webservi.net:8443/" target="_blank" rel="noopener">Servidor UniFi 7</a></li>
+          <li><a href="https://uisp.webservi.net/" target="_blank" rel="noopener">Servidor UISP Privado</a></li>
+          <li><a href="https://account.ui.com/" target="_blank" rel="noopener">Portal Ubnt Cloud</a></li>
+          <li><a href="https://thingsboard.cloud/" target="_blank" rel="noopener">ThingsBoard IoT</a></li>
+          <li><a href="tienda/">Tienda & Catálogo Anterior</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col contact-col">
+        <h4>Contacto Oficial</h4>
+        <ul class="footer-contact-list">
+          <li>
+            <strong>WhatsApp / Móvil:</strong>
+            <a href="https://wa.me/59175020555" target="_blank" rel="noopener">+591 750 20555</a>
+          </li>
+          <li>
+            <strong>Correo Electrónico:</strong>
+            <a href="mailto:info@webservi.net">info@webservi.net</a>
+          </li>
+          <li>
+            <strong>Ubicación:</strong>
+            <span>Santa Cruz de la Sierra, Bolivia</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="recursos.js"></script>
+</body>
+</html>
