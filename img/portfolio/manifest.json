@@ -1,0 +1,191 @@
+{
+  "linea-1-card-1": {
+    "title": "Diseño de Redes Wi-Fi & Datos",
+    "images": [
+      "img/portfolio/diseno-wifi.webp",
+      "img/portfolio/planificacion-diseno-senales-y-redes.webp",
+      "img/portfolio/diseno-covertura-cctv.webp",
+      "img/portfolio/wifi-unifi-pared.webp"
+    ]
+  },
+  "linea-1-card-2": {
+    "title": "Ductaje Preventivo con Capacidad Futura",
+    "images": [
+      "img/portfolio/escalerillas-rieles-y-redes-industriales.webp",
+      "img/portfolio/ductaje-redes-fibra-industrial.webp",
+      "img/portfolio/eslerillas.webp",
+      "img/portfolio/panel-eductivo.webp"
+    ]
+  },
+  "linea-1-card-3": {
+    "title": "Diseño de Autonomía Solar & Climatización",
+    "images": [
+      "img/portfolio/disno-energia-solar-y-monitoreo.webp",
+      "img/portfolio/sistemas-solares.webp",
+      "img/portfolio/datacenter-y-energia-solar.webp",
+      "img/portfolio/ups-ionlitio-solar.webp"
+    ]
+  },
+  "linea-1-card-4": {
+    "title": "Diseño Certificado para Domótica e Inmótica",
+    "images": [
+      "img/portfolio/paneles-de-control-domotica-y-oficinas.webp",
+      "img/portfolio/tableros-electricos-y-domotica.webp",
+      "img/portfolio/ejemplo-lineas-luces.webp",
+      "img/portfolio/iluminacion-seguridad-joyeria.webp"
+    ]
+  },
+  "linea-2-card-1": {
+    "title": "Cableado Estructurado (Garantía 3 a 10 Años)",
+    "images": [
+      "img/portfolio/cableado-esttructurado.webp",
+      "img/portfolio/cableado-redes-y-racks.webp",
+      "img/portfolio/cableado-estructurado-redes-y-fibra.webp",
+      "img/portfolio/cableado-estructurado-redes-cctv-wifi.webp",
+      "img/portfolio/cableado-redes-domiciliario.webp"
+    ]
+  },
+  "linea-2-card-2": {
+    "title": "Interconexión por Fibra Óptica (1G a 40G)",
+    "images": [
+      "img/portfolio/fibra-optica.webp",
+      "img/portfolio/swich-core-fibras-opticas.webp",
+      "img/portfolio/fibra-optica-privadas.webp",
+      "img/portfolio/fibra-optica-redes-y-routers.webp",
+      "img/portfolio/redes-y-fibra-optica.webp"
+    ]
+  },
+  "linea-2-card-3": {
+    "title": "Tableros Eléctricos con Monitoreo de Consumo",
+    "images": [
+      "img/portfolio/tableros-electricos-y-medicion-de-energia.webp",
+      "img/portfolio/tableros-electricos-y-medicion-de-energia1.webp",
+      "img/portfolio/medicion-energia.webp",
+      "img/portfolio/monitoreo-energia.webp",
+      "img/portfolio/tableros-electricos.webp"
+    ]
+  },
+  "linea-2-card-4": {
+    "title": "Racks Organizados & Conexiones en Mobiliario y Piso",
+    "images": [
+      "img/portfolio/cableado-de-muebles.webp",
+      "img/portfolio/sala-de-reuniones.webp",
+      "img/portfolio/sala-de-reuniones1.webp",
+      "img/portfolio/racks-y-redes-oficinas-y-domicilios.webp",
+      "img/portfolio/redes-video-audio-rack.webp"
+    ]
+  },
+  "linea-3-card-1": {
+    "title": "MikroTik, UniFi & Fortinet Administrados",
+    "images": [
+      "img/portfolio/wifi-unifi.webp",
+      "img/portfolio/routers-oficinas.webp",
+      "img/portfolio/monitoreo-redes-nube.webp",
+      "img/portfolio/wifi-oficinas-techo.webp",
+      "img/portfolio/wifi-unifi-detras-de-televisor-sala-reuniones.webp"
+    ]
+  },
+  "linea-3-card-2": {
+    "title": "Torres de 60m, Enlaces 60 GHz & Starlink",
+    "images": [
+      "img/portfolio/torres-y-enlaces-5ghz-60ghz.webp",
+      "img/portfolio/starlink-instalaciones.webp",
+      "img/portfolio/starlink.webp",
+      "img/portfolio/torres-enlaces.webp",
+      "img/portfolio/torre-enlaces.webp",
+      "img/portfolio/velocidad-enlaces.webp"
+    ]
+  },
+  "linea-3-card-3": {
+    "title": "Servidores Físicos (Dell / HP / Supermicro)",
+    "images": [
+      "img/portfolio/servers-nas-bjobs.webp",
+      "img/portfolio/racks-y-datacenters.webp",
+      "img/portfolio/rack-redes.webp",
+      "img/portfolio/racks-oficinas-y-redes.webp",
+      "img/portfolio/voip-servers.webp"
+    ]
+  },
+  "linea-3-card-4": {
+    "title": "Backup Estricto 3-2-1 & Nube Híbrida",
+    "images": [
+      "img/portfolio/redes-cctv-nas-rack.webp",
+      "img/portfolio/rack-datos-red-cctv-servers-nas-cableado-routers.webp",
+      "img/portfolio/monitoreo-redes-nube.webp",
+      "img/portfolio/rack-y-datos.webp"
+    ]
+  },
+  "linea-4-card-1": {
+    "title": "CCTV con IA & Almacenamiento Masivo",
+    "images": [
+      "img/portfolio/sistemas-camaras-seguridad.webp",
+      "img/portfolio/cctv-camaras.webp",
+      "img/portfolio/cctv-exteriores.webp",
+      "img/portfolio/cctv-exteriores-camaras.webp",
+      "img/portfolio/cctv-interiores.webp",
+      "img/portfolio/cctv-seguridad-fabricas.webp"
+    ]
+  },
+  "linea-4-card-2": {
+    "title": "Molinetes, Torniquetes & Biometría",
+    "images": [
+      "img/portfolio/molinetes-control-de-acceso.webp",
+      "img/portfolio/control-de-acceso-y-video-porteros.webp",
+      "img/portfolio/biometrico-alarma-incendio-alarma-seguridad.webp",
+      "img/portfolio/alarma-y-control-de-acceso.webp"
+    ]
+  },
+  "linea-4-card-3": {
+    "title": "Alarmas de Seguridad Certificadas",
+    "images": [
+      "img/portfolio/sistemas-de-alarma-contra-incendio.webp",
+      "img/portfolio/alarma-y-control-de-acceso.webp",
+      "img/portfolio/iluminacion-seguridad-joyeria.webp"
+    ]
+  },
+  "linea-4-card-4": {
+    "title": "Redundancia por LoRaWAN, LTE & Starlink",
+    "images": [
+      "img/portfolio/electronica-a-medida-lte-lorawan.webp",
+      "img/portfolio/redes-torres-y-tableros-campo.webp",
+      "img/portfolio/starlink-instalaciones.webp",
+      "img/portfolio/antenas-enlace.webp"
+    ]
+  },
+  "linea-5-card-1": {
+    "title": "Domótica e IoT (Home Assistant & ThingsBoard)",
+    "images": [
+      "img/portfolio/paneles-de-control-domotica-y-oficinas.webp",
+      "img/portfolio/automatismo-y-redes.webp",
+      "img/portfolio/tableros-electricos-y-domotica.webp",
+      "img/portfolio/panel-eductivo.webp"
+    ]
+  },
+  "linea-5-card-2": {
+    "title": "UPS < 10 ms con Litio Ferrofosfato",
+    "images": [
+      "img/portfolio/ups-ionlitio-solar.webp",
+      "img/portfolio/datacenter-y-energia-solar.webp",
+      "img/portfolio/racks-y-energia-ups.webp",
+      "img/portfolio/sistemas-solares.webp"
+    ]
+  },
+  "linea-5-card-3": {
+    "title": "Climatización Inteligente (Gree, LG, Daikin)",
+    "images": [
+      "img/portfolio/oficinas-cableado-y-sistemas.webp",
+      "img/portfolio/sala-de-reuniones.webp",
+      "img/portfolio/disno-energia-solar-y-monitoreo.webp",
+      "img/portfolio/iluminacion-comercial.webp"
+    ]
+  },
+  "linea-5-card-4": {
+    "title": "Telemetría e IoT Industrial sin Límites",
+    "images": [
+      "img/portfolio/electronica-a-medida-lte-lorawan.webp",
+      "img/portfolio/monitoreo-energia.webp",
+      "img/portfolio/medicion-energia.webp",
+      "img/portfolio/redes-torres-y-tableros-campo.webp"
+    ]
+  }
+}

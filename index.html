@@ -1,1 +1,845 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Propuesta de rediseño de WebServi.Net para revisión interna."><link rel="stylesheet" href="styles.css"><script defer src="app.js"></script><link rel="icon" type="image/png" href="favicon.png"><link rel="shortcut icon" href="favicon.ico"><link rel="apple-touch-icon" href="favicon.png"></head><body data-page="home"></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WebServi.Net — Ingeniería e Integración Total | Redes, Fibra, Servidores, Domótica & IoT</title>
+  <meta name="description" content="Integración tecnológica de punta a punta en Bolivia: ingeniería en planos, cableado con 3 a 10 años de garantía, redes MikroTik/UniFi/Fortinet, enlaces Starlink, Proxmox, CCTV con IA, domótica Home Assistant y telemetría LoRaWAN.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="assets/logos/v2-logo.png">
+  <link rel="apple-touch-icon" href="assets/logos/v2-logo.png">
+</head>
+<body data-page="home">
+
+  <!-- Ambient Dynamic Canvas / Background Layer -->
+  <div class="ambient-bg-container" id="ambientBg">
+    <div class="ambient-base-gradient"></div>
+
+    <!-- Seamless Video Loops for 5 Lines (Cero Lag, Alta Nitidez) -->
+    <video class="ambient-video-loop active" id="ambientVid1" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+      <source src="video/loop-linea-1.webm" type="video/webm">
+      <source src="video/loop-linea-1.mp4" type="video/mp4">
+    </video>
+    <video class="ambient-video-loop" id="ambientVid2" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+      <source src="video/loop-linea-2.webm" type="video/webm">
+      <source src="video/loop-linea-2.mp4" type="video/mp4">
+    </video>
+    <video class="ambient-video-loop" id="ambientVid3" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+      <source src="video/loop-linea-3.webm" type="video/webm">
+      <source src="video/loop-linea-3.mp4" type="video/mp4">
+    </video>
+    <video class="ambient-video-loop" id="ambientVid4" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+      <source src="video/loop-linea-4.webm" type="video/webm">
+      <source src="video/loop-linea-4.mp4" type="video/mp4">
+    </video>
+    <video class="ambient-video-loop" id="ambientVid5" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+      <source src="video/loop-linea-5.webm" type="video/webm">
+      <source src="video/loop-linea-5.mp4" type="video/mp4">
+    </video>
+
+    <div class="ambient-overlay-vignette"></div>
+    <div class="ambient-grid-overlay"></div>
+  </div>
+
+  <!-- Accessibility Skip Link -->
+  <a class="sr-skip" href="#lineas-maestras">Saltar a las líneas de solución</a>
+
+  <!-- Top Announcement Bar -->
+  <header class="top-bar">
+    <div class="wrap top-bar-content">
+      <div class="top-tagline">
+        <span class="pulse-dot"></span>
+        <span><strong>WebServi.Net</strong> — Soluciones Integradas Profesionales · Santa Cruz, Bolivia</span>
+      </div>
+      <div class="top-contact">
+        <a href="https://wa.me/59175020555" target="_blank" rel="noopener" class="top-wa-link">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          <span>WhatsApp Directo: <strong>+591 750 20555</strong></span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sticky Main Glass Navigation -->
+  <nav class="site-nav">
+    <div class="wrap nav-inner">
+      <a href="index.html" class="brand-link" aria-label="WebServi.Net - Inicio">
+        <video class="brand-logo-video" autoplay loop muted playsinline poster="video/logo-poster.jpg">
+          <source src="video/logo-animado-header.webm" type="video/webm">
+          <source src="video/logo-animado-header.mp4" type="video/mp4">
+          <img src="video/logo-poster.jpg" alt="WebServi.Net" class="brand-logo">
+        </video>
+      </a>
+
+      <div class="nav-links" id="mainNav">
+        <a href="#linea-1" class="nav-item"><span>01</span> Planos & Ductos</a>
+        <a href="#linea-2" class="nav-item"><span>02</span> Cableado & Fibra</a>
+        <a href="#linea-3" class="nav-item"><span>03</span> Redes & Servidores</a>
+        <a href="#linea-4" class="nav-item"><span>04</span> CCTV & Accesos</a>
+        <a href="#linea-5" class="nav-item"><span>05</span> Domótica & IoT</a>
+        <a href="#matriz-integracion" class="nav-item nav-pill-highlight">Matriz de Integración</a>
+      </div>
+
+      <div class="nav-cta-wrap">
+        <a href="https://wa.me/59175020555?text=Hola%20WebServi,%20deseo%20asesoramiento%20para%20un%20proyecto" target="_blank" rel="noopener" class="btn btn-primary-glow btn-nav-cta">
+          <span>Cotizar Proyecto</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+
+        <!-- Mobile Menu Toggle Button (Hamburger) -->
+        <button class="mobile-toggle-btn" id="mobileMenuBtn" aria-label="Abrir Menú de Navegación" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true">
+      <div class="mobile-nav-links">
+        <a href="#linea-1" class="mobile-nav-item"><span>01</span> Planos & Ductos</a>
+        <a href="#linea-2" class="mobile-nav-item"><span>02</span> Cableado & Fibra</a>
+        <a href="#linea-3" class="mobile-nav-item"><span>03</span> Redes & Servidores</a>
+        <a href="#linea-4" class="mobile-nav-item"><span>04</span> CCTV & Accesos</a>
+        <a href="#linea-5" class="mobile-nav-item"><span>05</span> Domótica & IoT</a>
+        <a href="#matriz-integracion" class="mobile-nav-item mobile-highlight"><span>★</span> Matriz de Integración</a>
+      </div>
+      <div class="mobile-drawer-footer">
+        <a href="https://wa.me/59175020555?text=Hola%20WebServi,%20deseo%20asesoramiento%20para%20un%20proyecto" target="_blank" rel="noopener" class="btn btn-primary-glow" style="width: 100%;">
+          <span>Cotizar Proyecto por WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Client Resources & Platform Access Bar -->
+  <div class="client-portal-bar">
+    <div class="wrap portal-bar-inner">
+      <div class="portal-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>RECURSOS & PLATAFORMAS DE CLIENTES:</span>
+      </div>
+
+      <div class="portal-buttons-scroll">
+        <button class="portal-btn" data-portal="unifi" title="Servidor UniFi Controller para clientes">
+          <span class="portal-btn-dot"></span>
+          <span>Plataforma UniFi</span>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </button>
+
+        <button class="portal-btn" data-portal="uisp" title="Monitoreo de enlaces de antenas UISP">
+          <span class="portal-btn-dot"></span>
+          <span>Plataforma UISP Antenas</span>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </button>
+
+        <button class="portal-btn" data-portal="domotica" title="Acceso seguro a paneles de domótica">
+          <span class="portal-btn-dot"></span>
+          <span>Acceso a Domóticas Remotas</span>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </button>
+
+        <button class="portal-btn" data-portal="thingsboard" title="Dashboard IoT ThingsBoard para telemetría">
+          <span class="portal-btn-dot"></span>
+          <span>Dashboard IoT ThingsBoard</span>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </button>
+
+        <button class="portal-btn" data-portal="monitoreo" title="Centro de monitoreo de redes y servidores">
+          <span class="portal-btn-dot"></span>
+          <span>Monitoreos Remotos</span>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero-executive">
+    <div class="wrap hero-grid">
+      <div class="hero-text-col">
+        <div class="eyebrow-chip">
+          <span class="chip-accent">SOLUCIONES INTEGRADAS PROFESIONALES</span>
+          <span>DEL PLANO A LA OPERACIÓN Y LA INTEGRACIÓN TOTAL</span>
+        </div>
+        
+        <h1 class="hero-title">
+          Soluciones Integradas Profesionales: <span class="gradient-text">del plano a la operación y la integración total</span>.
+        </h1>
+
+        <p class="hero-lead">
+          Las soluciones tecnológicas inteligentes deben integrarse y trabajar en conjunto. Diseñamos ductaje preventivo para que su edificación nunca quede obsoleta, cableamos con <strong>garantía de 3 a 10 años</strong>, unimos sucursales con radioenlaces y Starlink, y coordinamos energía solar, climatización y telemetría en un solo ecosistema integrado.
+        </p>
+
+        <!-- Trust Highlights -->
+        <div class="hero-badges">
+          <div class="badge-item">
+            <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div>
+              <strong>Garantía de 3 a 10 Años</strong>
+              <span>Cableado estructurado e infraestructura física</span>
+            </div>
+          </div>
+          <div class="badge-item">
+            <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+            <div>
+              <strong>UPS &lt; 10 ms · Litio Ferrofosfato</strong>
+              <span>Autonomía de 10h a ilimitada con solar</span>
+            </div>
+          </div>
+          <div class="badge-item">
+            <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 16.1A5 5 0 0 1 5.9 20M2 12.05A9 9 0 0 1 9.95 20M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6"/></svg>
+            <div>
+              <strong>MikroTik · UniFi · Fortinet</strong>
+              <span>Multi-WAN: Fibra, Coaxial, LTE & Starlink</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#lineas-maestras" class="btn btn-secondary">
+            <span>Explorar las 5 Líneas Técnicas</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+          </a>
+          <a href="https://wa.me/59175020555?text=Hola%20WebServi,%20quiero%20conversar%20sobre%20un%20proyecto" target="_blank" rel="noopener" class="btn btn-primary-glow">
+            <span>Conversar con un Ingeniero</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero Interactive Architecture Showcase -->
+      <div class="hero-showcase-col">
+        <div class="tech-monitor-card">
+          <div class="monitor-header">
+            <div class="monitor-title">
+              <span class="live-indicator"></span>
+              <span>WebServi Unified Telemetry Engine</span>
+            </div>
+            <div class="monitor-chip">Santa Cruz · Red Activa</div>
+          </div>
+
+          <div class="monitor-body">
+            <div class="telemetry-row">
+              <div class="telemetry-metric">
+                <span class="t-label">REDUNDANCIA INTERNET</span>
+                <span class="t-value highlight-cyan">Fibra + Coaxial + LTE + Starlink</span>
+                <span class="t-sub">▲ Failover automático cero cortes</span>
+              </div>
+              <div class="telemetry-metric">
+                <span class="t-label">SISTEMA SOLAR & UPS</span>
+                <span class="t-value highlight-green">UPS &lt; 10 ms · Litio Ferrofosfato</span>
+                <span class="t-sub">● Baterías LiFePO4 · Autonomía de horas a ilimitada</span>
+              </div>
+            </div>
+
+            <div class="telemetry-row">
+              <div class="telemetry-metric">
+                <span class="t-label">ENLACES DE CAMPO</span>
+                <span class="t-value">Torres 60m · 5/25/60 GHz</span>
+                <span class="t-sub">● Agronomía, Silos y Faenas</span>
+              </div>
+              <div class="telemetry-metric">
+                <span class="t-label">CEREBRO DOMÓTICA / IOT</span>
+                <span class="t-value highlight-orange">Home Assistant + ThingsBoard</span>
+                <span class="t-sub">▲ Sol + Clima Daikin/Gree + LoRaWAN</span>
+              </div>
+            </div>
+
+            <div class="monitor-diagram">
+              <div class="diagram-node">Plano CAD</div>
+              <div class="diagram-line">➔</div>
+              <div class="diagram-node">Ductaje & Fibra</div>
+              <div class="diagram-line">➔</div>
+              <div class="diagram-node">Servidores & Nube</div>
+              <div class="diagram-line">➔</div>
+              <div class="diagram-node active">Integración Total</div>
+            </div>
+          </div>
+
+          <div class="monitor-footer">
+            <span>Caso Emblemático: <strong>Urubó Village</strong> (Video Wall, Telefonía, CCTV, Racks, Wi-Fi)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY-SCROLL MAIN SECTION (5 LÍNEAS MAESTRAS) -->
+  <section class="story-scroll-section" id="lineas-maestras">
+    <div class="wrap story-scroll-wrapper">
+      
+      <!-- STICKY SIDEBAR (LEFT COLUMN) -->
+      <aside class="story-sticky-sidebar" id="storySidebar">
+        <div class="sidebar-header">
+          <div class="line-counter" id="activeLineCounter">LÍNEA 01 DE 05</div>
+          <div class="line-progress-track">
+            <div class="line-progress-bar" id="lineProgressBar" style="width: 20%;"></div>
+          </div>
+        </div>
+
+        <div class="sidebar-content">
+          <div class="sidebar-eyebrow" id="sidebarEyebrow">PRE-CONSTRUCCIÓN & PROYECTOS</div>
+          <h2 class="sidebar-title" id="sidebarTitle">Ingeniería en Planos & Ductaje Preventivo</h2>
+          <p class="sidebar-quote" id="sidebarQuote">
+            «El ducto que no se coloca en el plano no se podrá colocar después sin picar paredes ni dejar canaletas colgando. Planificamos la infraestructura para los próximos 10 años.»
+          </p>
+
+          <div class="sidebar-specs-list" id="sidebarSpecs">
+            <div class="spec-tag">Ductos con holgura futura</div>
+            <div class="spec-tag">Diseño Solar & Climatización</div>
+            <div class="spec-tag">Diseño Certificado Domótica</div>
+            <div class="spec-tag">Diseño Wi-Fi & Datos</div>
+          </div>
+        </div>
+
+        <div class="sidebar-footer">
+          <a href="https://wa.me/59175020555?text=Hola%20WebServi,%20quiero%20revisar%20mis%20planos%20con%20ustedes" target="_blank" rel="noopener" class="btn btn-whatsapp-sidebar" id="sidebarCta">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span id="sidebarCtaText">Consultar Planos por WhatsApp</span>
+          </a>
+        </div>
+      </aside>
+
+      <!-- DYNAMIC FEED (RIGHT COLUMN) -->
+      <main class="story-feed" id="storyFeed">
+
+        <!-- ========================================== -->
+        <!-- LÍNEA 01: INGENIERÍA EN PLANOS & PROYECTOS -->
+        <!-- ========================================== -->
+        <article class="line-cluster" id="linea-1" data-line="1" data-title="Ingeniería en Planos & Ductaje Preventivo" data-eyebrow="PRE-CONSTRUCCIÓN & PROYECTOS" data-quote="«El ducto que no se coloca en el plano no se podrá colocar después sin picar paredes ni dejar canaletas colgando. Planificamos la infraestructura para los próximos 10 años.»" data-specs="Ductos con holgura futura,Diseño Solar & Climatización,Diseño Certificado Domótica,Diseño Wi-Fi & Datos" data-cta="Consultar Planos por WhatsApp" data-msg="Hola WebServi, requiero asesoramiento técnico para el diseño en planos de una obra">
+          
+          <div class="cluster-banner">
+            <video class="cluster-bg-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+              <source src="video/loop-linea-1.webm" type="video/webm">
+              <source src="video/loop-linea-1.mp4" type="video/mp4">
+            </video>
+            <div class="cluster-banner-content">
+              <span class="cluster-tag">LÍNEA 01 · ARQUITECTURA & PRE-OBRA</span>
+              <h3>Ingeniería en Planos, Ductaje Preventivo & Capacidad Futura</h3>
+              <p>Acompañamos a arquitectos, constructoras y propietarios desde la fase de anteproyecto. Definimos cada punto antes de vaciar hormigón o levantar muros.</p>
+            </div>
+          </div>
+
+          <div class="card-grid">
+            <div class="tech-card">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h20v14H2z"/><path d="M8 21h8M12 17v4"/></svg>
+              </div>
+              <h4>Diseño de Redes Wi-Fi & Datos</h4>
+              <p>Planificación y diseño de redes inalámbricas y puntos de datos. Simulación digital por software para calcular la propagación de radiofrecuencia y mapas de calor atravesando muros de ladrillo, hormigón o vidrio sin zonas ciegas.</p>
+              <div class="card-pills">
+                <span>Diseño de Redes</span>
+                <span>Wi-Fi Predictivo</span>
+                <span>Mapas de Calor</span>
+              </div>
+            </div>
+
+            <div class="tech-card">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M8 2v4M16 2v4M2 10h20"/></svg>
+              </div>
+              <h4>Ductaje Preventivo con Capacidad Futura</h4>
+              <p>Cálculo de diámetros y radios de curvatura en tuberías para permitir el paso de nuevos cables a 5 o 10 años (cámaras adicionales, pantallas, domótica) sin necesidad de picar muros.</p>
+              <div class="card-pills">
+                <span>Cero Canaletas Vistas</span>
+                <span>Ductos Holgados</span>
+                <span>Escalerillas Técnicas</span>
+              </div>
+            </div>
+
+            <div class="tech-card highlight-border">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+              </div>
+              <h4>Diseño de Autonomía Solar & Climatización</h4>
+              <p>Dimensionamiento de cargas térmicas (BTU) y cálculo de potencia fotovoltaica. Diseñamos la bajada de cables de fuerza desde el techo hacia el inversor y la integración con aires acondicionados.</p>
+              <div class="card-pills">
+                <span>Cálculo BTU</span>
+                <span>Previsión Fotovoltaica</span>
+                <span>Canalización de Fuerza</span>
+              </div>
+            </div>
+
+            <div class="tech-card">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              </div>
+              <h4>Diseño Certificado para Domótica e Inmótica</h4>
+              <p>Planificación de neutros obligatorios en cajas de interruptores, cajas profundas para micromódulos, y nichos de ventilación para fuentes de poder ocultas de rieles magnéticos y tiras LED.</p>
+              <div class="card-pills">
+                <span>Domótica e Inmótica</span>
+                <span>Neutros en Llaves</span>
+                <span>Fuentes Ocultas</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ========================================== -->
+        <!-- LÍNEA 02: CABLEADO, FIBRA & TABLEROS       -->
+        <!-- ========================================== -->
+        <article class="line-cluster" id="linea-2" data-line="2" data-title="Cableado de Alta Durabilidad, Tableros & Fibra" data-eyebrow="INFRAESTRUCTURA FÍSICA CERTIFICADA" data-quote="«No sobrediseñamos con cables innecesarios. Instalaciones para durar décadas: planifique para el futuro. Unimos racks con fibra óptica y monitoreamos el consumo eléctrico por circuito.»" data-specs="Garantía 3 a 10 Años,Fibra GPON/FTTH 1-40G,Térmicos Inteligentes,Integración Domótica/Mobiliario" data-cta="Consultar Cableado y Tableros" data-msg="Hola WebServi, requiero cotizar cableado estructurado, fibra óptica o tableros inteligentes">
+          
+          <div class="cluster-banner">
+            <video class="cluster-bg-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+              <source src="video/loop-linea-2.webm" type="video/webm">
+              <source src="video/loop-linea-2.mp4" type="video/mp4">
+            </video>
+            <div class="cluster-banner-content">
+              <span class="cluster-tag">LÍNEA 02 · COLUMNA VERTEBRAL FÍSICA</span>
+              <h3>Cableado con Garantía de 3 a 10 Años, Fibra Óptica & Tableros Inteligentes</h3>
+              <p>Instalaciones para durar décadas: planifique para el futuro. Evitamos gastos innecesarios y priorizamos durabilidad real, unión por fibra y supervisión eléctrica en tablero.</p>
+            </div>
+          </div>
+
+          <div class="card-grid">
+            <div class="tech-card highlight-border">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h4>Cableado Estructurado (Garantía 3 a 10 Años)</h4>
+              <p>Redes en cobre diseñadas a la medida de las necesidades reales de su empresa. Materiales certificados, jacks blindados y certificación punto a punto con garantía por escrito de 3 a 10 años.</p>
+              <div class="card-pills">
+                <span>Garantía 3-10 Años</span>
+                <span>Cobre 100% Certificado</span>
+                <span>Etiquetado TIA/EIA</span>
+              </div>
+            </div>
+
+            <div class="tech-card">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98"/></svg>
+              </div>
+              <h4>Interconexión por Fibra Óptica (1G a 40G)</h4>
+              <p>En lugar de cobre pesado, unimos datacenters, racks, pisos, cabañas y galpones con fibra óptica (GPON, FTTH, Drop). Inmune a tormentas eléctricas, con latencia cero y escalabilidad ilimitada.</p>
+              <div class="card-pills">
+                <span>GPON & FTTH</span>
+                <span>Enlaces 1G / 10G / 40G</span>
+                <span>Fusión por Arco</span>
+              </div>
+            </div>
+
+            <div class="tech-card">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+              </div>
+              <h4>Tableros Eléctricos con Monitoreo de Consumo</h4>
+              <p>Armado bajo norma boliviana o europea con diferenciales de seguridad y térmicos inteligentes con alertas en tiempo real, integrables a sistemas de domótica y monitoreo por circuito.</p>
+              <div class="card-pills">
+                <span>Norma Boliviana/Europea</span>
+                <span>Térmicos Inteligentes</span>
+                <span>Integrable a Domótica</span>
+              </div>
+            </div>
+
+            <div class="tech-card">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01M6 18h.01"/></svg>
+              </div>
+              <h4>Racks Organizados & Conexiones en Mobiliario y Piso</h4>
+              <p>Integración física de redes, domótica, solar, Wi-Fi, TV cable, HDMI y USB. Cajas de piso ocultas, tomas embutidas en mesas de conferencia y escritorios sin cables visibles.</p>
+              <div class="card-pills">
+                <span>Cajas de Piso</span>
+                <span>Tomas HDMI / USB</span>
+                <span>Integración de Redes y Domótica</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ========================================== -->
+        <!-- LÍNEA 03: REDES, ENLACES & SERVIDORES      -->
+        <!-- ========================================== -->
+        <article class="line-cluster" id="linea-3" data-line="3" data-title="Redes Avanzadas, Enlaces, Servidores & Nube" data-eyebrow="COMUNICACIONES & CENTROS DE CÓMPUTO" data-quote="«Gestionamos redes inteligentes con MikroTik, UniFi y Fortinet con balanceo multi-WAN (fibra, coaxial, LTE, Starlink). Unimos sedes con torres de 60m y Starlink, y protegemos datos con regla de backup 3-2-1 en Google, Dropbox, AWS y servidores dedicados.»" data-specs="MikroTik / UniFi / Fortinet,Torres 60m + Starlink,Proxmox & VMware,Backup 3-2-1 Google/Dropbox" data-cta="Cotizar Redes y Servidores" data-msg="Hola WebServi, requiero cotizar infraestructura de redes, servidores, enlaces o backup en la nube">
+          
+          <div class="cluster-banner">
+            <video class="cluster-bg-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+              <source src="video/loop-linea-3.webm" type="video/webm">
+              <source src="video/loop-linea-3.mp4" type="video/mp4">
+            </video>
+            <div class="cluster-banner-content">
+              <span class="cluster-tag">LÍNEA 03 · REDES, NUBE & COMUNICACIONES</span>
+              <h3>Redes Avanzadas, Radioenlaces de Campo, Servidores & Nube Híbrida</h3>
+              <p>Conectividad sin interrupciones para empresas, hoteles, colegios e industrias. Desde la gestión de ancho de banda hasta servidores de misión crítica.</p>
+            </div>
+          </div>
+
+          <div class="card-grid">
+            <div class="tech-card highlight-border">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+              </div>
+              <h4>MikroTik, UniFi & Fortinet Administrados</h4>
+              <p>Redes inteligentes con balanceo multi-WAN combinando fibra óptica, coaxial, LTE y Starlink. Control de consumo y ancho de banda por usuario, segmentación por VLANs y portales Hotspot de acceso para clientes o huéspedes.</p>
+              <div class="card-pills">
+                <span>MikroTik Principal</span>
+                <span>UniFi & Fortinet</span>
+                <span>Multi-WAN: Fibra/Coaxial/LTE/Starlink</span>
+              </div>
+            </div>
+
+            <div class="tech-card">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 16.1A5 5 0 0 1 5.9 20M2 12.05A9 9 0 0 1 9.95 20M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6"/></svg>
+              </div>
+              <h4>Torres de 60m, Enlaces 60 GHz & Starlink</h4>
+              <p>Conectamos naves industriales, empresas agrícolas y silos en zonas rurales. Instalación de torres arriostradas de hasta 60 metros, radioenlaces de 5, 25 y 60 GHz y despliegue de antenas Starlink de alta velocidad.</p>
+              <div class="card-pills">
+                <span>Enlaces 5/25/60 GHz</span>
+                <span>Torres 60 Metros</span>
+                <span>Starlink Integrado</span>
+              </div>
+            </div>
+
+            <div class="tech-card">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <h4>Servidores Físicos (Dell / HP / Supermicro)</h4>
+              <p>Suministro y configuración de servidores armados de alto rendimiento o de marca, nuevos y reacondicionados certificados. Virtualización con Proxmox y VMware para sistemas contables y escritorios remotos.</p>
+              <div class="card-pills">
+                <span>Proxmox & VMware</span>
+                <span>Dell / HP / Supermicro</span>
+                <span>Linux & Windows Server</span>
+              </div>
+            </div>
+
+            <div class="tech-card">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              </div>
+              <h4>Backup Estricto 3-2-1 & Nube Híbrida</h4>
+              <p>Protección contra ransomware y fallas de hardware: 3 copias de seguridad en 2 medios distintos y 1 fuera de sitio con Google, Dropbox, AWS, Contabo y servidores propios. Replicación multisucursal y servidores n8n con IA.</p>
+              <div class="card-pills">
+                <span>Regla 3-2-1</span>
+                <span>Google & Dropbox</span>
+                <span>AWS / Contabo / Servidores Propios</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ========================================== -->
+        <!-- LÍNEA 04: SEGURIDAD, ACCESOS & ALARMAS     -->
+        <!-- ========================================== -->
+        <article class="line-cluster" id="linea-4" data-line="4" data-title="Seguridad Electrónica, Accesos & Alarmas Críticas" data-eyebrow="PROTECCIÓN PERIMETRAL & FORENSE" data-quote="«CCTV con inteligencia artificial y almacenamiento masivo por meses o años. Molinetes con reconocimiento facial y alarmas de seguridad certificadas con capacidad de redundancia inalámbrica por LoRaWAN, LTE y Starlink.»" data-specs="Almacenamiento por Años,Molinetes & Facial,Alarmas Certificadas,LoRaWAN · LTE · Starlink" data-cta="Cotizar Seguridad y CCTV" data-msg="Hola WebServi, requiero cotizar sistema de CCTV, control de acceso o alarmas de seguridad">
+          
+          <div class="cluster-banner">
+            <video class="cluster-bg-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+              <source src="video/loop-linea-4.webm" type="video/webm">
+              <source src="video/loop-linea-4.mp4" type="video/mp4">
+            </video>
+            <div class="cluster-banner-content">
+              <span class="cluster-tag">LÍNEA 04 · SEGURIDAD ELECTRÓNICA & ACCESOS</span>
+              <h3>CCTV con IA, Almacenamiento Masivo, Molinetes & Alarmas Certificadas</h3>
+              <p>Sistemas diseñados con grado de alta seguridad para joyerías, plantas, colegios y condominios. Capacidad de respuesta y evidencia pericial indiscutible.</p>
+            </div>
+          </div>
+
+          <div class="card-grid">
+            <div class="tech-card highlight-border">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+              </div>
+              <h4>CCTV con IA & Almacenamiento Masivo</h4>
+              <p>Cámaras IP Dahua, Hikvision y Uniview con lectura de placas vehiculares (LPR), reconocimiento facial y cruce de línea. Servidores armados dedicados para almacenar meses o años continuos de video 4K.</p>
+              <div class="card-pills">
+                <span>Grabación por Años</span>
+                <span>Lectura Placas LPR</span>
+                <span>Reconocimiento Facial</span>
+              </div>
+            </div>
+
+            <div class="tech-card">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <h4>Molinetes, Torniquetes & Biometría</h4>
+              <p>Control de acceso para personal y visitas: molinetes mecánicos, torniquetes de cristal, barreras vehiculares y terminales biométricos por reconocimiento facial sin contacto, huella digital y RFID.</p>
+              <div class="card-pills">
+                <span>Molinetes & Torniquetes</span>
+                <span>Biometría Facial</span>
+                <span>Barreras Vehiculares</span>
+              </div>
+            </div>
+
+            <div class="tech-card">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+              </div>
+              <h4>Alarmas de Seguridad Certificadas</h4>
+              <p>Centrales de intrusión cableadas e inalámbricas Paradox, Dahua y Hikvision para joyerías, empresas, galpones y residencias. Sensores perimetrales infrarrojos, detección de rotura de cristales y reportes instantáneos certificados.</p>
+              <div class="card-pills">
+                <span>Alarmas Certificadas</span>
+                <span>Paradox · Dahua · Hikvision</span>
+                <span>Protección Perimetral</span>
+              </div>
+            </div>
+
+            <div class="tech-card">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
+              <h4>Redundancia por LoRaWAN, LTE & Starlink</h4>
+              <p>Si sabotean los cables de red o cortan la energía externa, las alarmas de apertura de puertas, intrusión o inundación continúan transmitiendo con total autonomía a kilómetros vía LoRaWAN, LTE o Starlink.</p>
+              <div class="card-pills">
+                <span>LoRaWAN · LTE · Starlink</span>
+                <span>Anti-Sabotaje</span>
+                <span>Baterías de Respaldo</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ========================================== -->
+        <!-- LÍNEA 05: DOMÓTICA E IOT INDUSTRIAL        -->
+        <!-- ========================================== -->
+        <article class="line-cluster" id="linea-5" data-line="5" data-title="Domótica e IoT Industrial (Home Assistant & ThingsBoard)" data-eyebrow="AUTOMATIZACIÓN & TELEMETRÍA INDUSTRIAL" data-quote="«Domótica e IoT Industrial con Home Assistant, Milesight, ThingsBoard, MQTT y AWS. Aires Gree, LG y Daikin coordinados con presencia y excedente solar. UPS de litio ferrofosfato (&lt;10ms) y telemetría LoRaWAN de hasta 12 km.»" data-specs="Home Assistant & ThingsBoard,Milesight / MQTT / AWS,Gree / LG / Daikin,UPS Litio Ferrofosfato" data-cta="Cotizar Domótica y Telemetría" data-msg="Hola WebServi, requiero cotizar domótica residencial/comercial, energía solar o telemetría industrial IoT">
+          
+          <div class="cluster-banner">
+            <video class="cluster-bg-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+              <source src="video/loop-linea-5.webm" type="video/webm">
+              <source src="video/loop-linea-5.mp4" type="video/mp4">
+            </video>
+            <div class="cluster-banner-content">
+              <span class="cluster-tag">LÍNEA 05 · DOMÓTICA E IOT INDUSTRIAL</span>
+              <h3>Domótica e IoT Industrial con Home Assistant, Milesight, ThingsBoard, MQTT & AWS</h3>
+              <p>La máxima expresión de integración: el sensor de presencia regula el clima, el excedente solar enfría los ambientes y la telemetría vigila calderas y silos a kilómetros.</p>
+            </div>
+          </div>
+
+          <div class="card-grid">
+            <div class="tech-card highlight-border">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
+              </div>
+              <h4>Domótica e IoT (Home Assistant & ThingsBoard)</h4>
+              <p>Plataforma abierta y robusta integrando Home Assistant, ThingsBoard, Node-RED, Milesight, MQTT y AWS IoT. Sin depender de nubes propietarias cerradas, con control local y dashboards industriales a medida.</p>
+              <div class="card-pills">
+                <span>Home Assistant</span>
+                <span>ThingsBoard & Node-RED</span>
+                <span>Milesight · MQTT · AWS IoT</span>
+              </div>
+            </div>
+
+            <div class="tech-card">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+              </div>
+              <h4>UPS &lt; 10 ms con Litio Ferrofosfato</h4>
+              <p>Inversores solares combinados con bancos de litio ferrofosfato (LiFePO4). Conmutación instantánea para proteger servidores y racks sin apagados. Autonomía de 10, 12, 24 horas o respaldo ilimitado.</p>
+              <div class="card-pills">
+                <span>UPS &lt;10ms Sin Cortes</span>
+                <span>Bancos Litio LiFePO4</span>
+                <span>10h a Ilimitado</span>
+              </div>
+            </div>
+
+            <div class="tech-card">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+              </div>
+              <h4>Climatización Inteligente (Gree, LG, Daikin)</h4>
+              <p>Control por Modbus, Wi-Fi y Ethernet. Coordinación inteligente: si abren ventanas o no hay presencia, el aire se modula; si el sistema solar genera exceso de energía, se enfrían los ambientes gratis.</p>
+              <div class="card-pills">
+                <span>Gree · LG · Samsung · Daikin</span>
+                <span>Control Modbus/Wi-Fi</span>
+                <span>Ahorro por Sol y Presencia</span>
+              </div>
+            </div>
+
+            <div class="tech-card">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              </div>
+              <h4>Telemetría e IoT Industrial sin Límites</h4>
+              <p>Lectura de cualquier variable: presión de vapor en calderas, caudalímetros de fluidos, niveles de granos en silos, ríos y tanques. Alcance LoRaWAN de 12 km en campo y 2 km en ciudad con full redundancia.</p>
+              <div class="card-pills">
+                <span>LoRaWAN 12 km</span>
+                <span>Calderas & Silos</span>
+                <span>Presión · Caudal · Nivel</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </main>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE SECTION: MATRIZ DE INTEGRACIÓN TOTAL -->
+  <section class="matrix-section" id="matriz-integracion">
+    <div class="wrap">
+      <div class="section-head text-center">
+        <span class="eyebrow-chip">EL VERDADERO DIFERENCIAL WEBSERVI</span>
+        <h2>¿Por qué la Integración Total lo cambia todo?</h2>
+        <p class="section-subtitle">Haga clic en cada escenario del mundo real para comparar cómo responde un sistema tradicional aislado frente a un ecosistema integrado por WebServi.</p>
+      </div>
+
+      <div class="scenario-buttons-grid" id="scenarioTabs">
+        <button class="scenario-btn active" data-scenario="0">⚡ 1. Falla de Red Eléctrica</button>
+        <button class="scenario-btn" data-scenario="1">🌐 2. Corte de Cable de Internet</button>
+        <button class="scenario-btn" data-scenario="2">🚪 3. Puertas Abiertas en Comercio</button>
+        <button class="scenario-btn" data-scenario="3">☀️ 4. Exceso de Radiación Solar</button>
+        <button class="scenario-btn" data-scenario="4">🔥 5. Sobrecarga en Tablero de Planta</button>
+      </div>
+
+      <div class="comparison-display" id="comparisonDisplay">
+        <div class="comparison-card isolated-card">
+          <div class="comp-badge bad">SISTEMA TRADICIONAL AISLADO</div>
+          <h3 id="compTradTitle">El rack se apaga a los 10 minutos</h3>
+          <p id="compTradDesc">El UPS pequeño se agota rápidamente, los servidores se apagan de golpe, se corrompen las bases de datos contables y las cámaras de seguridad quedan ciegas.</p>
+        </div>
+
+        <div class="comparison-vs">VS</div>
+
+        <div class="comparison-card webservi-card">
+          <div class="comp-badge good">CON INTEGRACIÓN WEBSERVI</div>
+          <h3 id="compWebserviTitle">Conmutación solar en &lt;10 ms con 10h a 24h de litio</h3>
+          <p id="compWebserviDesc">El inversor solar y el banco de litio asumen la carga instantáneamente sin microcortes. El personal sigue facturando, los enlaces de radio siguen operando y las cámaras registran sin interrupción.</p>
+          <div class="comp-metric-tag" id="compMetricTag">Respaldo continuo de 10h a ilimitado</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA & FOOTER -->
+  <section class="footer-cta-section">
+    <div class="wrap footer-cta-card">
+      <div class="cta-text">
+        <span class="eyebrow-chip">INGENIERÍA DIRECTA</span>
+        <h2>¿Listo para estructurar su proyecto sin errores futuros?</h2>
+        <p>Conversemos directamente con sus planos o requerimientos técnicos. Desde una residencia de alta gama hasta un parque industrial o agropecuario en Bolivia.</p>
+      </div>
+      <div class="cta-buttons">
+        <a href="https://wa.me/59175020555?text=Hola%20WebServi,%20deseo%20coordinar%20una%20reunión%20técnica" target="_blank" rel="noopener" class="btn btn-primary-glow btn-lg">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          <span>Escribir al WhatsApp (+591 750 20555)</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clean Corporate Footer -->
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logos/LOGO GRANDE WEBSERVI.png" alt="WebServi.Net" class="footer-logo" onerror="this.src='assets/logos/v2-logo.png'">
+        <p>Integración y soluciones de ingeniería tecnológica. Redes de alta disponibilidad, seguridad electrónica, centros de datos, domótica e IoT industrial en toda Bolivia.</p>
+        <div class="footer-legal">© 2026 WebServi.Net — Todos los derechos reservados.</div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Líneas de Solución</h4>
+        <ul>
+          <li><a href="#linea-1">01. Ingeniería en Planos & Ductos</a></li>
+          <li><a href="#linea-2">02. Cableado (3-10 Años) & Fibra</a></li>
+          <li><a href="#linea-3">03. Redes MikroTik/UniFi & Servidores</a></li>
+          <li><a href="#linea-4">04. CCTV con IA & Alarmas LoRaWAN</a></li>
+          <li><a href="#linea-5">05. Domótica Home Assistant & IoT</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contacto Oficial</h4>
+        <ul class="footer-contact-list">
+          <li>
+            <strong>WhatsApp / Celular:</strong>
+            <a href="https://wa.me/59175020555" target="_blank" rel="noopener">+591 750 20555</a>
+          </li>
+          <li>
+            <strong>Correo Electrónico:</strong>
+            <a href="mailto:info@webservi.net">info@webservi.net</a>
+          </li>
+          <li>
+            <strong>Ubicación:</strong>
+            <span>Santa Cruz de la Sierra, Bolivia</span>
+          </li>
+          <li>
+            <strong>Atención:</strong>
+            <span>Proyectos y faenas en todo el país</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Integrated Client Platform Access Modal -->
+  <div class="portal-modal" id="portalModal" aria-hidden="true" role="dialog" aria-labelledby="modalPlatformTitle">
+    <div class="portal-modal-backdrop" id="modalBackdrop"></div>
+    <div class="portal-modal-card">
+      <button class="portal-modal-close" id="modalCloseBtn" aria-label="Cerrar modal">&times;</button>
+      
+      <div class="eyebrow-chip" style="margin-bottom: 0;">
+        <span class="chip-accent" id="modalPlatformType">PLATAFORMA INTEGRADA</span>
+        <span>ACCESO SEGURO CLIENTES</span>
+      </div>
+
+      <h3 id="modalPlatformTitle" style="font-family: var(--font-heading); font-size: 1.5rem; color: #fff;">Servidor UniFi Controller</h3>
+      
+      <p id="modalPlatformDesc" style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+        Acceda a la consola centralizada de administración de redes y puntos de acceso Wi-Fi. Ingrese con las credenciales asignadas por WebServi.
+      </p>
+
+      <div class="modal-specs-box" style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-subtle); padding: 16px; border-radius: var(--radius-md); font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-highlight);">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+          <span style="color: var(--text-muted);">Estado del Servidor:</span>
+          <span style="color: var(--tech-green);">● En Línea (99.98% uptime)</span>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+          <span style="color: var(--text-muted);">Protocolo de Acceso:</span>
+          <span id="modalPlatformProtocol" style="color: var(--tech-cyan);">HTTPS SSL / TLS 1.3</span>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap;">
+        <a id="modalLaunchBtn" href="#" target="_blank" rel="noopener" class="btn btn-primary-glow" style="flex: 1;">
+          <span>Abrir Plataforma en Servidor</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+        <a href="https://wa.me/59175020555?text=Hola%20WebServi,%20solicito%20asistencia%20con%20mis%20credenciales%20de%20acceso" target="_blank" rel="noopener" class="btn btn-secondary">
+          <span>Solicitar Credenciales</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Real Portfolio Photo Lightbox Modal -->
+  <div class="photo-lightbox-modal" id="photoLightboxModal" aria-hidden="true" role="dialog" aria-labelledby="lightboxTitle">
+    <div class="photo-lightbox-backdrop" id="lightboxBackdrop"></div>
+    <div class="photo-lightbox-container">
+      <div class="photo-lightbox-header">
+        <div class="photo-lightbox-header-left">
+          <span class="photo-lightbox-counter" id="lightboxCounter">FOTO 1 / 4</span>
+          <h4 class="photo-lightbox-title" id="lightboxTitle">Diseño de Redes Wi-Fi & Datos</h4>
+        </div>
+        <button class="photo-lightbox-close" id="lightboxCloseBtn" aria-label="Cerrar visor">&times;</button>
+      </div>
+
+      <div class="photo-lightbox-media-wrap">
+        <button class="photo-lightbox-nav-btn photo-lightbox-prev" id="lightboxPrevBtn" aria-label="Foto anterior">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+
+        <img class="photo-lightbox-img" id="lightboxImg" src="" alt="Registro fotográfico de obra real WebServi">
+
+        <button class="photo-lightbox-nav-btn photo-lightbox-next" id="lightboxNextBtn" aria-label="Siguiente foto">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+
+      <div class="photo-lightbox-footer">
+        <span>📸 Evidencia fotográfica de obra real ejecutada por WebServi.Net</span>
+        <span style="color: var(--tech-cyan);">Ingeniería & Telecomunicaciones</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
