@@ -1253,7 +1253,7 @@ document.addEventListener('DOMContentLoaded', () => {
           chatHistory.push({ isUser: false, text: reply });
 
           if (data.leadDispatched) {
-            appendAiMessage('🔔 Hemos avisado a Lucas, puede responderte por aquí en directo. Si gustas, déjanos tu WhatsApp o datos de contacto.', false);
+            appendAiMessage('🔔 Hemos contactado a Lucas, puede responderte por aquí. Envíanos tu WhatsApp o datos para coordinar.', false);
           }
           return;
         }
