@@ -111,22 +111,135 @@
         <div class="recursos-search-bar">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
           <input type="search" id="resourceSearch" placeholder="Buscar por marca, herramienta o función (ej: mikrotik, winbox, dahua, calculadora, unifi, proxmox, prompt, firewall)..." aria-label="Filtrar recursos y herramientas">
-          <span class="search-badge-count" id="searchCountBadge">18 utilidades</span>
+          <span class="search-badge-count" id="searchCountBadge">32 utilidades</span>
         </div>
 
         <!-- Quick Jump Pills -->
         <div class="recursos-nav-pills">
+          <a href="#modulo-speedtest" class="pill-link" style="border-color: rgba(0, 210, 255, 0.4); color: var(--tech-cyan);">⚡ Test Ping & Velocidad</a>
+          <a href="#modulo-operadoras-bo" class="pill-link">🇧🇴 Operadoras Bolivia (DNS/APN/Bandas)</a>
+          <a href="#modulo-normativa-wifi" class="pill-link">📻 Frecuencias & Canales ATT</a>
+          <a href="#modulo-simuladores-link" class="pill-link">🛰️ Simuladores Enlaces & Wi-Fi</a>
           <a href="#modulo-marcas" class="pill-link">📡 Plataformas & Firmware</a>
           <a href="#modulo-calculadora" class="pill-link">🧮 Calculadora IP / VLSM</a>
           <a href="#modulo-geoip" class="pill-link">🌍 Rangos IP por País</a>
-          <a href="#modulo-ia-skills" class="pill-link">🧠 Prompts & Skills de IA</a>
-          <a href="#modulo-utilidades" class="pill-link">⚡ Diagnóstico Rápido</a>
+          <a href="#modulo-ia-skills" class="pill-link">🧠 Prompts & Skills IA</a>
+          <a href="#modulo-utilidades" class="pill-link">🔍 Diagnóstico Rápido</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: SPEEDTEST & PING EN VIVO -->
+    <section class="recursos-section" id="modulo-speedtest">
+      <div class="wrap">
+        <div class="section-heading">
+          <div class="eyebrow-chip">
+            <span class="chip-accent">DIAGNÓSTICO EN VIVO</span>
+            <span>LATENCIA & ANCHO DE BANDA</span>
+          </div>
+          <h2>Medidor de Latencia & Test de Velocidad</h2>
+          <p>Supervise los tiempos de respuesta (Ping RTT) hacia servidores DNS globales y nodos en Bolivia, y evalúe el rendimiento de su enlace de datos.</p>
+        </div>
+
+        <div class="speedtest-container">
+          <div class="speedtest-layout">
+            
+            <!-- Gauge / Dial Display -->
+            <div class="speed-dial-wrap">
+              <div class="speed-meter-circle" id="speedMeterCircle">
+                <span class="speed-val-display" id="speedValue">--</span>
+                <span class="speed-val-unit">MBPS BAJADA</span>
+              </div>
+              <button class="btn btn-primary-glow speedtest-btn-action" id="btnStartSpeedtest">
+                <span>▶ Iniciar Test Completo</span>
+              </button>
+              <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 10px; margin-bottom: 0;">
+                Prueba en cliente (CORS Head / Stream) sin publicidad ni rastreadores.
+              </p>
+            </div>
+
+            <!-- Ping Grid & Stats -->
+            <div class="speed-right-stats">
+              <div style="font-family: var(--font-heading); font-size: 0.88rem; font-weight: 700; color: #fff; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+                <span>MONITOREO DE LATENCIA (PING RTT):</span>
+                <button id="btnRefreshPing" style="background: none; border: none; color: var(--tech-cyan); font-family: var(--font-mono); font-size: 0.74rem; cursor: pointer; text-decoration: underline;">
+                  ↻ Actualizar Pings
+                </button>
+              </div>
+
+              <div class="ping-destinations-grid">
+                
+                <div class="ping-card" data-target="cloudflare">
+                  <div class="ping-dest-info">
+                    <span class="ping-dest-name">Cloudflare DNS</span>
+                    <span class="ping-dest-target">1.1.1.1 (Anycast)</span>
+                  </div>
+                  <div class="ping-metric-badge checking" id="pingBadgeCloudflare">
+                    <span class="ping-dot"></span>
+                    <span class="ping-ms-val">-- ms</span>
+                  </div>
+                </div>
+
+                <div class="ping-card" data-target="google">
+                  <div class="ping-dest-info">
+                    <span class="ping-dest-name">Google Public</span>
+                    <span class="ping-dest-target">8.8.8.8 (Global)</span>
+                  </div>
+                  <div class="ping-metric-badge checking" id="pingBadgeGoogle">
+                    <span class="ping-dot"></span>
+                    <span class="ping-ms-val">-- ms</span>
+                  </div>
+                </div>
+
+                <div class="ping-card" data-target="webservi">
+                  <div class="ping-dest-info">
+                    <span class="ping-dest-name">WebServi Edge</span>
+                    <span class="ping-dest-target">Santa Cruz / Bo</span>
+                  </div>
+                  <div class="ping-metric-badge checking" id="pingBadgeWebservi">
+                    <span class="ping-dot"></span>
+                    <span class="ping-ms-val">-- ms</span>
+                  </div>
+                </div>
+
+                <div class="ping-card" data-target="fastly">
+                  <div class="ping-dest-info">
+                    <span class="ping-dest-name">Fastly / Global CDN</span>
+                    <span class="ping-dest-target">CDN Backbone</span>
+                  </div>
+                  <div class="ping-metric-badge checking" id="pingBadgeFastly">
+                    <span class="ping-dot"></span>
+                    <span class="ping-ms-val">-- ms</span>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Summary Stats Row -->
+              <div class="speed-summary-stats">
+                <div class="stat-item">
+                  <span class="stat-label">Latencia Mínima</span>
+                  <span class="stat-val" id="statMinPing">-- ms</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label">Jitter Estimado</span>
+                  <span class="stat-val" id="statJitter">-- ms</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label">Diagnóstico de Línea</span>
+                  <span class="stat-val" id="statQuality" style="font-size: 0.92rem; color: var(--tech-cyan);">Esperando test</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
         </div>
       </div>
     </section>
 
     <!-- SECTION 1: PLATAFORMAS CLOUD & DESCARGAS DE FABRICANTES -->
-    <section class="recursos-section" id="modulo-marcas">
+    <section class="recursos-section dark-alt" id="modulo-marcas">
       <div class="wrap">
         <div class="section-heading">
           <div class="eyebrow-chip">
@@ -201,6 +314,14 @@
               </a>
               <a href="https://unifi7.webservi.net:8443/" target="_blank" rel="noopener" class="tool-btn special">
                 <span>Servidor WebServi UniFi 7 Privado</span>
+              </a>
+              <a href="https://link.ui.com/" target="_blank" rel="noopener" class="tool-btn secondary">
+                <span>ISP Design Center (Simulador PtP/PtMP 3D)</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </a>
+              <a href="https://design.ui.com/" target="_blank" rel="noopener" class="tool-btn secondary">
+                <span>UniFi Design Center (Planos & Cobertura Wi-Fi)</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
               </a>
             </div>
             <div class="brand-footer-tip">
@@ -414,17 +535,610 @@
                 <span>Descargas de ISOs Proxmox VE & PBS</span>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
               </a>
-              <a href="https://tteck.github.io/Proxmox/" target="_blank" rel="noopener" class="tool-btn secondary">
+              <a href="https://community-scripts.github.io/ProxmoxVE/" target="_blank" rel="noopener" class="tool-btn secondary">
                 <span>Proxmox Community Helper-Scripts</span>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               </a>
-              <a href="https://pve.proxmox.com/pve-docs/" target="_blank" rel="noopener" class="tool-btn subtle">
-                <span>Manual de Referencia Oficial PVE</span>
+              <a href="https://github.com/ivanhao/pve-tools" target="_blank" rel="noopener" class="tool-btn subtle">
+                <span>PVE-Tools / MenuX Script Shell</span>
               </a>
             </div>
+
+            <!-- Proxmox 1-Click Post-Install Scripts -->
+            <div style="margin-top: 10px;">
+              <span class="telco-data-title">Script Post-Instalación Proxmox VE 8 (Repo No-Subscription + Quitar Popup):</span>
+              <div class="proxmox-code-snippet">
+                <code>bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/post-pve-install.sh)"</code>
+                <button class="btn-mini-copy" data-copy="bash -c &quot;$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/post-pve-install.sh)&quot;">Copiar</button>
+              </div>
+            </div>
+            <div style="margin-top: 8px;">
+              <span class="telco-data-title">Script Post-Instalación PBS (Proxmox Backup Server):</span>
+              <div class="proxmox-code-snippet">
+                <code>bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/post-pbs-install.sh)"</code>
+                <button class="btn-mini-copy" data-copy="bash -c &quot;$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/post-pbs-install.sh)&quot;">Copiar</button>
+              </div>
+            </div>
+
             <div class="brand-footer-tip">
               <strong>Tip WebServi:</strong> Al instalar Proxmox VE sobre discos NVMe o SAS en producción, utilice siempre almacenamiento ZFS en RAID 1 (Mirror) o RAID 10 para tolerancia a fallas de hardware.
             </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: OPERADORAS DE TELECOMUNICACIONES EN BOLIVIA -->
+    <section class="recursos-section" id="modulo-operadoras-bo">
+      <div class="wrap">
+        <div class="section-heading">
+          <div class="eyebrow-chip">
+            <span class="chip-accent">TELECOMUNICACIONES BOLIVIA</span>
+            <span>DATOS TÉCNICOS ESENCIALES</span>
+          </div>
+          <h2>Operadoras en Bolivia: DNS, APNs, Rangos IP y Bandas LTE</h2>
+          <p>Parámetros oficiales indispensables para ingenieros de campo: configuración de routers 4G/LTE, modems industriales, balanceadores Multi-WAN y servidores DNS.</p>
+        </div>
+
+        <div class="operadoras-grid">
+
+          <!-- Operadora 1: ENTEL BOLIVIA -->
+          <article class="operadora-card" data-keywords="entel bolivia dns apn 4g lte banda 13 700 mhz aws b4 as27839 fibra movil">
+            <div class="operadora-header">
+              <div class="operadora-title-wrap">
+                <div class="operadora-logo-badge badge-entel">ENT</div>
+                <div>
+                  <h3 class="operadora-name">Entel Bolivia</h3>
+                  <span class="operadora-asn">ASN: AS27839 (Empresa Nacional de Telecomunicaciones)</span>
+                </div>
+              </div>
+              <span class="channel-badge-pill">Líder Cobertura</span>
+            </div>
+
+            <div class="telco-data-row">
+              <span class="telco-data-title">Servidores DNS Primario y Secundario:</span>
+              <div class="dns-pills-wrap">
+                <span class="dns-pill" title="Clic para copiar DNS Primario" data-copy="200.87.100.10">
+                  <span>200.87.100.10</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+                <span class="dns-pill" title="Clic para copiar DNS Secundario" data-copy="168.205.99.11">
+                  <span>168.205.99.11</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+                <span class="dns-pill" title="DNS Alternativo Entel" data-copy="200.87.100.100">
+                  <span>200.87.100.100</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="telco-data-row">
+              <span class="telco-data-title">APN Móvil 4G LTE (Routers 4G & Dispositivos IoT):</span>
+              <div class="apn-box">
+                APN LTE: <code>4g.entel</code> (Usuario: <i>vacío</i> / Clave: <i>vacío</i>)<br>
+                APN 3G / Legacy: <code>movil.entel.bo</code> · Tipo APN: <code>default,supl</code>
+              </div>
+            </div>
+
+            <div class="telco-data-row">
+              <span class="telco-data-title">Frecuencias y Bandas LTE Activas:</span>
+              <div class="bands-tags-wrap">
+                <span class="band-tag">B13 (700 MHz) - Penetración & Rural</span>
+                <span class="band-tag">B4 AWS (1700/2100 MHz) - Capacidad Urbana</span>
+                <span class="band-tag">B2 (1900 MHz) - PCS / Voz</span>
+                <span class="band-tag">B28 (700 MHz APT)</span>
+              </div>
+            </div>
+
+            <div class="telco-data-row">
+              <span class="telco-data-title">Prefijos IPv4 Principales (LACNIC):</span>
+              <div style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-muted);">
+                200.87.0.0/16 · 168.205.0.0/16 · 181.188.0.0/15 · 190.180.0.0/16
+              </div>
+            </div>
+
+            <div class="brand-footer-tip" style="margin-top: auto;">
+              <strong>Tip WebServi:</strong> En routers industriales Teltonika o MikroTik LTE instalados en galpones o áreas petroleras, bloquee la banda en <strong>B13 (700 MHz)</strong> para evitar caídas cuando la señal B4 AWS esté atenuada por estructuras metálicas.
+            </div>
+          </article>
+
+          <!-- Operadora 2: TIGO BOLIVIA (TELECEL) -->
+          <article class="operadora-card" data-keywords="tigo telecel bolivia dns apn 4g lte banda 4 aws banda 17 700 as25620 fibra hfc bridge">
+            <div class="operadora-header">
+              <div class="operadora-title-wrap">
+                <div class="operadora-logo-badge badge-tigo">TIG</div>
+                <div>
+                  <h3 class="operadora-name">Tigo Bolivia (Telecel)</h3>
+                  <span class="operadora-asn">ASN: AS25620 (Telecel S.A.)</span>
+                </div>
+              </div>
+              <span class="channel-badge-pill">Banda Ancha</span>
+            </div>
+
+            <div class="telco-data-row">
+              <span class="telco-data-title">Servidores DNS Primario y Secundario:</span>
+              <div class="dns-pills-wrap">
+                <span class="dns-pill" title="Clic para copiar DNS Primario" data-copy="200.105.224.36">
+                  <span>200.105.224.36</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+                <span class="dns-pill" title="Clic para copiar DNS Secundario" data-copy="200.105.224.37">
+                  <span>200.105.224.37</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+                <span class="dns-pill" title="DNS Caché Tigo" data-copy="190.181.63.76">
+                  <span>190.181.63.76</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="telco-data-row">
+              <span class="telco-data-title">APN Móvil 4G LTE (Routers 4G & Dispositivos):</span>
+              <div class="apn-box">
+                APN LTE: <code>internet.tigo.bo</code> (Usuario: <i>vacío</i> / Clave: <i>vacío</i>)<br>
+                Autenticación: <code>PAP o Ninguno</code> · Tipo APN: <code>default,supl</code>
+              </div>
+            </div>
+
+            <div class="telco-data-row">
+              <span class="telco-data-title">Frecuencias y Bandas LTE Activas:</span>
+              <div class="bands-tags-wrap">
+                <span class="band-tag">B4 AWS (1700/2100 MHz) - Principal 4G</span>
+                <span class="band-tag">B17 / B12 (700 MHz) - Cobertura</span>
+                <span class="band-tag">B2 (1900 MHz) - Servicios Móviles</span>
+              </div>
+            </div>
+
+            <div class="telco-data-row">
+              <span class="telco-data-title">Prefijos IPv4 Principales (LACNIC):</span>
+              <div style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-muted);">
+                200.105.224.0/19 · 190.181.0.0/16 · 181.115.0.0/16 · 186.2.16.0/20
+              </div>
+            </div>
+
+            <div class="brand-footer-tip" style="margin-top: auto;">
+              <strong>Tip WebServi:</strong> Para evitar el molesto Doble NAT en enlaces Tigo Residencial / Corporativo HFC o Fibra, solicite a soporte técnico de Tigo configurar el módem en <strong>Modo Bridge (Puente)</strong> para asignar la IP pública directamente a su router MikroTik / Fortinet.
+            </div>
+          </article>
+
+          <!-- Operadora 3: AXS BOLIVIA -->
+          <article class="operadora-card" data-keywords="axs bolivia dns fibra enlaces corporativos dedicados as26066 vlan ip publica">
+            <div class="operadora-header">
+              <div class="operadora-title-wrap">
+                <div class="operadora-logo-badge badge-axs">AXS</div>
+                <div>
+                  <h3 class="operadora-name">AXS Bolivia</h3>
+                  <span class="operadora-asn">ASN: AS26066 (AXS Bolivia S.A.)</span>
+                </div>
+              </div>
+              <span class="channel-badge-pill">Fibra Corporativa</span>
+            </div>
+
+            <div class="telco-data-row">
+              <span class="telco-data-title">Servidores DNS Primario y Secundario:</span>
+              <div class="dns-pills-wrap">
+                <span class="dns-pill" title="Clic para copiar DNS Primario" data-copy="200.105.192.6">
+                  <span>200.105.192.6</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+                <span class="dns-pill" title="Clic para copiar DNS Secundario" data-copy="200.105.192.130">
+                  <span>200.105.192.130</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+                <span class="dns-pill" title="DNS AXS La Paz/CBB" data-copy="200.105.192.10">
+                  <span>200.105.192.10</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="telco-data-row">
+              <span class="telco-data-title">Modalidad de Enlace & Servicios:</span>
+              <div class="apn-box">
+                Fibra Óptica Dedicada PTP y FTTH · Entrega típicamente con VLAN tagged en la ONU GPON hacia router cliente.
+              </div>
+            </div>
+
+            <div class="telco-data-row">
+              <span class="telco-data-title">Prefijos IPv4 Principales (LACNIC):</span>
+              <div style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-muted);">
+                200.105.192.0/19 · 190.181.63.0/24 · 200.87.150.0/24
+              </div>
+            </div>
+
+            <div class="brand-footer-tip" style="margin-top: auto;">
+              <strong>Tip WebServi:</strong> En enlaces dedicados AXS con pool de IPs fijas (/29 o /30), configure la VLAN ID provista en la hoja técnica del ISP dentro del submenú <code>/interface vlan</code> de MikroTik sobre la interfaz física conectada a la ONU.
+            </div>
+          </article>
+
+          <!-- Operadora 4: COTAS RL (Santa Cruz) -->
+          <article class="operadora-card" data-keywords="cotas santa cruz bolivia dns fibra gpon ftth as27725 cooperativa">
+            <div class="operadora-header">
+              <div class="operadora-title-wrap">
+                <div class="operadora-logo-badge badge-cotas">COT</div>
+                <div>
+                  <h3 class="operadora-name">Cotas RL (Santa Cruz)</h3>
+                  <span class="operadora-asn">ASN: AS27725 (Cooperativa de Telecomunicaciones Santa Cruz)</span>
+                </div>
+              </div>
+              <span class="channel-badge-pill">Local Santa Cruz</span>
+            </div>
+
+            <div class="telco-data-row">
+              <span class="telco-data-title">Servidores DNS Primario y Secundario:</span>
+              <div class="dns-pills-wrap">
+                <span class="dns-pill" title="Clic para copiar DNS Primario" data-copy="190.186.1.177">
+                  <span>190.186.1.177</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+                <span class="dns-pill" title="Clic para copiar DNS Secundario" data-copy="190.186.1.46">
+                  <span>190.186.1.46</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="telco-data-row">
+              <span class="telco-data-title">Modalidad de Enlace & Servicios:</span>
+              <div class="apn-box">
+                Fibra Óptica GPON FTTH Residencial/Pyme, Enlaces Dedicados y Telefonía IP SIP Trunk.
+              </div>
+            </div>
+
+            <div class="telco-data-row">
+              <span class="telco-data-title">Prefijos IPv4 Principales (LACNIC):</span>
+              <div style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-muted);">
+                190.186.0.0/16 · 200.87.100.0/24 · 200.105.160.0/20
+              </div>
+            </div>
+
+            <div class="brand-footer-tip" style="margin-top: auto;">
+              <strong>Tip WebServi:</strong> Para centrales telefónicas IP (Grandstream / Asterisk) sobre enlaces Cotas, solicite IP fija dedicada para el troncal SIP y deshabilite SIP ALG en el router de borde para evitar pérdidas de audio unidireccional.
+            </div>
+          </article>
+
+          <!-- Operadora 5: VIVA (NUEVATEL) -->
+          <article class="operadora-card" data-keywords="viva nuevatel bolivia dns apn 4g lte banda 4 aws banda 8 as27651">
+            <div class="operadora-header">
+              <div class="operadora-title-wrap">
+                <div class="operadora-logo-badge badge-viva">VIV</div>
+                <div>
+                  <h3 class="operadora-name">Viva (Nuevatel PCS)</h3>
+                  <span class="operadora-asn">ASN: AS27651 (Nuevatel PCS de Bolivia S.A.)</span>
+                </div>
+              </div>
+              <span class="channel-badge-pill">Móvil 4G</span>
+            </div>
+
+            <div class="telco-data-row">
+              <span class="telco-data-title">Servidores DNS Primario y Secundario:</span>
+              <div class="dns-pills-wrap">
+                <span class="dns-pill" title="Clic para copiar DNS" data-copy="200.119.248.10">
+                  <span>200.119.248.10</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+                <span class="dns-pill" title="Clic para copiar DNS" data-copy="200.119.248.11">
+                  <span>200.119.248.11</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="telco-data-row">
+              <span class="telco-data-title">APN Móvil 4G LTE:</span>
+              <div class="apn-box">
+                APN LTE: <code>internet.nuevatel.com</code> o <code>4g.viva.bo</code> (Usuario: <i>vacío</i> / Clave: <i>vacío</i>)
+              </div>
+            </div>
+
+            <div class="telco-data-row">
+              <span class="telco-data-title">Frecuencias y Bandas LTE:</span>
+              <div class="bands-tags-wrap">
+                <span class="band-tag">B4 AWS (1700/2100 MHz)</span>
+                <span class="band-tag">B8 (900 MHz)</span>
+                <span class="band-tag">B2 (1900 MHz)</span>
+              </div>
+            </div>
+
+            <div class="brand-footer-tip" style="margin-top: auto;">
+              <strong>Tip WebServi:</strong> Muy útil como enlace WAN de backup terciario económico en routers Multi-WAN con ranura SIM o módem USB LTE.
+            </div>
+          </article>
+
+          <!-- Operadora 6: COMTECO (Cochabamba) & COTEL (La Paz) -->
+          <article class="operadora-card" data-keywords="comteco cochabamba cotel la paz bolivia dns fibra as27728 as27844 cloudflare google">
+            <div class="operadora-header">
+              <div class="operadora-title-wrap">
+                <div class="operadora-logo-badge badge-comteco">COOP</div>
+                <div>
+                  <h3 class="operadora-name">Comteco / Cotel / Públicos</h3>
+                  <span class="operadora-asn">AS27728 (Comteco CBB) · AS27844 (Cotel LP)</span>
+                </div>
+              </div>
+              <span class="channel-badge-pill">Anycast Rápido</span>
+            </div>
+
+            <div class="telco-data-row">
+              <span class="telco-data-title">DNS Cooperativas:</span>
+              <div class="dns-pills-wrap">
+                <span class="dns-pill" title="DNS Comteco CBB" data-copy="200.87.168.10">
+                  <span>200.87.168.10 (Comteco)</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+                <span class="dns-pill" title="DNS Cotel La Paz" data-copy="200.105.144.130">
+                  <span>200.105.144.130 (Cotel)</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="telco-data-row">
+              <span class="telco-data-title">DNS Públicos de Baja Latencia Recomendados:</span>
+              <div class="dns-pills-wrap">
+                <span class="dns-pill" title="Cloudflare Primario" data-copy="1.1.1.1">
+                  <span>1.1.1.1 (Cloudflare)</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+                <span class="dns-pill" title="Google DNS" data-copy="8.8.8.8">
+                  <span>8.8.8.8 (Google)</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+                <span class="dns-pill" title="Quad9 Seguro" data-copy="9.9.9.9">
+                  <span>9.9.9.9 (Quad9)</span>
+                  <span class="dns-copy-icon">📋</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="brand-footer-tip" style="margin-top: auto;">
+              <strong>Tip WebServi:</strong> En Bolivia, <code>1.1.1.1</code> de Cloudflare ofrece la menor latencia de resolución DNS (típicamente 15–35 ms desde Santa Cruz y La Paz) gracias a su enrutamiento BGP Anycast local.
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: NORMATIVAS ATT BOLIVIA: FRECUENCIAS Y CANALES WIFI -->
+    <section class="recursos-section dark-alt" id="modulo-normativa-wifi">
+      <div class="wrap">
+        <div class="section-heading">
+          <div class="eyebrow-chip">
+            <span class="chip-accent">REGULACIÓN NACIONAL ATT</span>
+            <span>PLAN NACIONAL DE FRECUENCIAS</span>
+          </div>
+          <h2>Normativa de Frecuencias y Canales Wi-Fi en Bolivia</h2>
+          <p>Límites de potencia isotrópica radiada equivalente (EIRP), sub-bandas U-NII autorizadas y reglas de diseño para evitar interferencias y multas de la ATT.</p>
+        </div>
+
+        <div class="normativas-wrap">
+          
+          <div class="normativa-table-container">
+            <table class="normativa-table">
+              <thead>
+                <tr>
+                  <th>Banda / Espectro</th>
+                  <th>Rango de Frecuencias</th>
+                  <th>Canales Autorizados</th>
+                  <th>Potencia Máxima (EIRP)</th>
+                  <th>Uso y Consideraciones ATT Bolivia</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>2.4 GHz ISM</strong><br><span style="font-size: 0.74rem; color: var(--text-muted);">Wi-Fi 4 / 6</span></td>
+                  <td>2400.0 – 2483.5 MHz</td>
+                  <td>
+                    <span class="channel-badge-pill">1</span>
+                    <span class="channel-badge-pill">6</span>
+                    <span class="channel-badge-pill">11</span>
+                    <span class="channel-badge-pill warning" title="Restringido / Evitar">12-13</span>
+                  </td>
+                  <td>Hasta 1000 mW (30 dBm)<br><small style="color: var(--text-muted);">Interior rec: 100 mW (20 dBm)</small></td>
+                  <td><strong>Uso Libre sin licencia.</strong> Se debe usar siempre ancho de 20 MHz con canales 1, 6 u 11 no solapados. Evitar 40 MHz en 2.4 GHz en zonas urbanas por saturación extrema del espectro.</td>
+                </tr>
+                <tr>
+                  <td><strong>5 GHz U-NII-1</strong><br><span style="font-size: 0.74rem; color: var(--text-muted);">Baja / Interiores</span></td>
+                  <td>5150 – 5250 MHz</td>
+                  <td>
+                    <span class="channel-badge-pill">36</span>
+                    <span class="channel-badge-pill">40</span>
+                    <span class="channel-badge-pill">44</span>
+                    <span class="channel-badge-pill">48</span>
+                  </td>
+                  <td>Hasta 200 mW (23 dBm) / 1W</td>
+                  <td><strong>Uso en interiores libre prioritario.</strong> Sin restricción de radar DFS. Excelente para oficinas, hoteles y edificios comerciales con anchos de canal de 40 u 80 MHz.</td>
+                </tr>
+                <tr>
+                  <td><strong>5 GHz U-NII-2A & 2C</strong><br><span style="font-size: 0.74rem; color: var(--text-muted);">Media / DFS Extendido</span></td>
+                  <td>5250 – 5725 MHz</td>
+                  <td>
+                    <span class="channel-badge-pill dfs">52 - 64</span>
+                    <span class="channel-badge-pill dfs">100 - 144</span>
+                  </td>
+                  <td>Hasta 1000 mW (30 dBm)<br><small style="color: var(--text-muted);">Con TPC y DFS</small></td>
+                  <td><strong>Sujeto a DFS obligatorio por la ATT.</strong> Coexiste con radares meteorológicos y aeronáuticos. Si el AP detecta radar, saltará de canal automáticamente y cortará la transmisión temporalmente.</td>
+                </tr>
+                <tr>
+                  <td><strong>5 GHz U-NII-3 / ISM</strong><br><span style="font-size: 0.74rem; color: var(--text-muted);">Alta / Radioenlaces</span></td>
+                  <td>5725 – 5850 MHz</td>
+                  <td>
+                    <span class="channel-badge-pill">149</span>
+                    <span class="channel-badge-pill">153</span>
+                    <span class="channel-badge-pill">157</span>
+                    <span class="channel-badge-pill">161</span>
+                    <span class="channel-badge-pill">165</span>
+                  </td>
+                  <td>Hasta 4000 mW (36 dBm PtP)<br><small style="color: var(--text-muted);">Regla 3:1 ganancia/potencia</small></td>
+                  <td><strong>Banda reina para radioenlaces PtP y PtMP en Bolivia</strong> (Ubiquiti AirMAX, Mimosa, Cambium). Para enlaces punto a punto se permite mayor ganancia direccional sin licencia comercial previa en redes privadas.</td>
+                </tr>
+                <tr>
+                  <td><strong>6 GHz (Wi-Fi 6E / 7)</strong><br><span style="font-size: 0.74rem; color: var(--text-muted);">Banda Ancha Próx Gen</span></td>
+                  <td>5925 – 6425 / 7125 MHz</td>
+                  <td>Canales 1 al 233 (80/160/320 MHz)</td>
+                  <td>En homologación ATT</td>
+                  <td><strong>En proceso regulatorio nacional.</strong> Equipos comerciales comercializados legalmente en Bolivia deben contar con certificado de homologación técnica emitido por la ATT.</td>
+                </tr>
+                <tr>
+                  <td><strong>60 GHz (V-Band)</strong><br><span style="font-size: 0.74rem; color: var(--text-muted);">Onda Milimétrica</span></td>
+                  <td>57.0 – 66.0 GHz</td>
+                  <td>Canales 1 al 6 (2.16 GHz ancho)</td>
+                  <td>Hasta 40 dBm (10W EIRP)</td>
+                  <td><strong>Uso Libre sin licencia.</strong> La absorción de oxígeno hace imposible la interferencia lejana. Ideal para unir naves industriales o cruces de avenidas a 1–2.5 Gbps full duplex (Wave 60G / MikroTik 60G).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Buenas prácticas de diseño -->
+          <div class="brand-footer-tip" style="background: rgba(14, 30, 56, 0.7); border: 1px solid var(--border-subtle); padding: 18px 22px; border-radius: var(--radius-md);">
+            <h4 style="font-family: var(--font-heading); color: var(--tech-cyan); font-size: 0.95rem; margin-top: 0; margin-bottom: 8px;">
+              📐 Regla de Oro WebServi para Instalaciones Corporativas en Bolivia:
+            </h4>
+            <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+              En ciudades densas como Santa Cruz, La Paz o Cochabamba, <strong>nunca configure canales de 40 MHz en 2.4 GHz</strong> ni active el canal "Auto" en entornos de más de 3 Access Points. Emplee siempre un esquema de reuso de canales alternados (1-6-11) y baje la potencia de transmisión (Tx Power) en 2.4 GHz a 12-14 dBm para obligar a los clientes a conectarse a la banda limpia de 5 GHz mediante <em>Band Steering</em>.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: SIMULADORES DE ENLACES Y DISEÑO DE REDES -->
+    <section class="recursos-section" id="modulo-simuladores-link">
+      <div class="wrap">
+        <div class="section-heading">
+          <div class="eyebrow-chip">
+            <span class="chip-accent">INGENIERÍA PREDICTIVA</span>
+            <span>MODELADO 3D & FRESNEL</span>
+          </div>
+          <h2>Simuladores de Enlaces Inalámbricos & Diseño Wi-Fi</h2>
+          <p>Herramientas gratuitas de planificación predictiva: calcule zonas de Fresnel, cobertura sobre planos arquitectónicos, presupuesto de potencia y atenuación de muros antes de instalar.</p>
+        </div>
+
+        <div class="simuladores-grid">
+
+          <!-- Simulador 1: Ubiquiti ISP Design Center -->
+          <article class="simulador-card">
+            <div>
+              <span class="simulador-brand-tag">UBIQUITI NETWORKS</span>
+              <h3 class="simulador-title">ISP Design Center (Link UI)</h3>
+            </div>
+            <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+              Simulador 3D en la nube para radioenlaces punto a punto (PtP) y punto multipunto (PtMP). Integra el perfil de elevación topográfica de Bolivia, cálculo de zona de Fresnel (60% y 100%), lluvia y equipos airMAX, LTU y Wave 60GHz.
+            </p>
+            <div class="simulador-features">
+              <span class="sim-feat-pill">Topografía 3D Satelital</span>
+              <span class="sim-feat-pill">Zona Fresnel & Curvatura</span>
+              <span class="sim-feat-pill">airMAX AC / LTU / Wave</span>
+            </div>
+            <a href="https://link.ui.com/" target="_blank" rel="noopener" class="tool-btn primary" style="margin-top: auto;">
+              <span>Abrir ISP Design Center (link.ui.com)</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </article>
+
+          <!-- Simulador 2: UniFi Design Center -->
+          <article class="simulador-card">
+            <div>
+              <span class="simulador-brand-tag">UBIQUITI UNIFI</span>
+              <h3 class="simulador-title">UniFi Design Center</h3>
+            </div>
+            <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+              Diseñador de interiores sobre planos CAD (.dwg) o PDF. Dibuje paredes de hormigón armado, ladrillo cerámico o vidrio para predecir mapas de calor de cobertura Wi-Fi (dBm), cableado de racks y ángulo visual de cámaras Protect.
+            </p>
+            <div class="simulador-features">
+              <span class="sim-feat-pill">Planos DWG / PDF</span>
+              <span class="sim-feat-pill">Mapas de Calor Wi-Fi</span>
+              <span class="sim-feat-pill">Atenuación de Muros</span>
+            </div>
+            <a href="https://design.ui.com/" target="_blank" rel="noopener" class="tool-btn primary" style="margin-top: auto;">
+              <span>Abrir UniFi Design Center (design.ui.com)</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </article>
+
+          <!-- Simulador 3: Cambium LINKPlanner -->
+          <article class="simulador-card">
+            <div>
+              <span class="simulador-brand-tag">CAMBIUM NETWORKS</span>
+              <h3 class="simulador-title">Cambium LINKPlanner</h3>
+            </div>
+            <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+              El estándar de la industria en telecomunicaciones para diseño y cálculo de disponibilidad 99.999% de radioenlaces en microondas licenciadas y no licenciadas (ePMP, PTP 550, PTP 820). Genera reportes oficiales para auditorías.
+            </p>
+            <div class="simulador-features">
+              <span class="sim-feat-pill">Disponibilidad 99.999%</span>
+              <span class="sim-feat-pill">Modulación Adaptativa</span>
+              <span class="sim-feat-pill">Reporte Técnico PDF</span>
+            </div>
+            <a href="https://www.cambiumnetworks.com/linkplanner/" target="_blank" rel="noopener" class="tool-btn secondary" style="margin-top: auto;">
+              <span>Descargar Cambium LINKPlanner</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </article>
+
+          <!-- Simulador 4: MikroTik Wireless Calculator -->
+          <article class="simulador-card">
+            <div>
+              <span class="simulador-brand-tag">MIKROTIK ROUTEROS</span>
+              <h3 class="simulador-title">MikroTik Link & Wireless Calc</h3>
+            </div>
+            <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+              Calculadora oficial para determinar la pérdida en el espacio libre (Free Space Path Loss), margen de desvanecimiento (Fade Margin) y rendimiento esperado entre antenas RouterBOARD en bandas de 2.4, 5 y 60 GHz.
+            </p>
+            <div class="simulador-features">
+              <span class="sim-feat-pill">Free Space Path Loss</span>
+              <span class="sim-feat-pill">Fade Margin Calc</span>
+              <span class="sim-feat-pill">Sensibilidad Rx RouterOS</span>
+            </div>
+            <a href="https://mikrotik.com/calculator" target="_blank" rel="noopener" class="tool-btn secondary" style="margin-top: auto;">
+              <span>Abrir MikroTik Calculator</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </article>
+
+          <!-- Simulador 5: Ruijie Reyee Wi-Fi Designer -->
+          <article class="simulador-card">
+            <div>
+              <span class="simulador-brand-tag">RUIJIE & REYEE</span>
+              <h3 class="simulador-title">Reyee Wi-Fi Cloud Planner</h3>
+            </div>
+            <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+              Planificador inteligente de cobertura Wi-Fi para proyectos de hotelería, oficinas y galpones. Genera listas de materiales automáticas (BoM) con switches PoE y Access Points Reyee recomendados según el aforo de personas.
+            </p>
+            <div class="simulador-features">
+              <span class="sim-feat-pill">Auto BoM de Equipos</span>
+              <span class="sim-feat-pill">Cálculo de Aforo Concurrente</span>
+              <span class="sim-feat-pill">Reyee Mesh Cloud</span>
+            </div>
+            <a href="https://cloud.ruijienetworks.com/" target="_blank" rel="noopener" class="tool-btn secondary" style="margin-top: auto;">
+              <span>Abrir Reyee Cloud Designer</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </article>
+
+          <!-- Simulador 6: Mimosa Design Tool -->
+          <article class="simulador-card">
+            <div>
+              <span class="simulador-brand-tag">MIMOSA NETWORKS</span>
+              <h3 class="simulador-title">Mimosa Design Tool</h3>
+            </div>
+            <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+              Herramienta de simulación para enlaces troncales de alta capacidad inalámbrica (backhauls de fibra por aire) usando equipos B5, B11 y C5c con tecnología de cancelación de ruido y doble canal.
+            </p>
+            <div class="simulador-features">
+              <span class="sim-feat-pill">Backhauls Gigabit</span>
+              <span class="sim-feat-pill">Análisis de Espectro Snr</span>
+              <span class="sim-feat-pill">Colocación en Torres</span>
+            </div>
+            <a href="https://design.mimosa.co/" target="_blank" rel="noopener" class="tool-btn secondary" style="margin-top: auto;">
+              <span>Abrir Mimosa Design Tool</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
           </article>
 
         </div>

@@ -2701,3 +2701,543 @@ body {
   }
 }
 
+/* ==========================================================================
+   HUB DE RECURSOS IT - EXTENSIONES: SPEEDTEST, OPERADORAS BOLIVIA, NORMATIVAS Y SIMULADORES
+   ========================================================================== */
+
+/* 1. SPEEDTEST & PING MONITOR WIDGET */
+.speedtest-container {
+  background: rgba(10, 22, 42, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.speedtest-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--tech-cyan), var(--tech-green), transparent);
+}
+
+.speedtest-layout {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.speed-dial-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: rgba(4, 10, 22, 0.6);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 24px;
+}
+
+.speed-meter-circle {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  border: 4px solid rgba(0, 210, 255, 0.15);
+  border-top-color: var(--tech-cyan);
+  border-right-color: var(--tech-green);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 16px;
+  box-shadow: 0 0 30px rgba(0, 210, 255, 0.1) inset;
+}
+
+.speed-meter-circle.running {
+  animation: meterSpin 2s linear infinite;
+}
+
+@keyframes meterSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.speed-val-display {
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+}
+
+.speed-val-unit {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--tech-cyan);
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+}
+
+.speedtest-btn-action {
+  width: 100%;
+}
+
+.ping-destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.ping-card {
+  background: rgba(14, 28, 52, 0.5);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: var(--transition);
+}
+
+.ping-card:hover {
+  border-color: rgba(0, 210, 255, 0.3);
+  background: rgba(14, 28, 52, 0.8);
+}
+
+.ping-dest-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ping-dest-name {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.ping-dest-target {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.ping-metric-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--tech-green);
+  background: rgba(0, 255, 170, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 255, 170, 0.25);
+}
+
+.ping-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--tech-green);
+}
+
+.ping-metric-badge.checking {
+  color: var(--tech-cyan);
+  background: rgba(0, 210, 255, 0.1);
+  border-color: rgba(0, 210, 255, 0.3);
+}
+
+.ping-metric-badge.checking .ping-dot {
+  background: var(--tech-cyan);
+  animation: pulseDot 1s infinite;
+}
+
+.ping-metric-badge.high {
+  color: #ffaa00;
+  background: rgba(255, 170, 0, 0.1);
+  border-color: rgba(255, 170, 0, 0.3);
+}
+
+.ping-metric-badge.high .ping-dot {
+  background: #ffaa00;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 0.3; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.speed-summary-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  background: rgba(4, 10, 22, 0.5);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-label {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-val {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* 2. OPERADORAS EN BOLIVIA */
+.operadoras-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 20px;
+}
+
+.operadora-card {
+  background: rgba(10, 24, 46, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: var(--transition);
+  position: relative;
+}
+
+.operadora-card:hover {
+  border-color: rgba(0, 210, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.operadora-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 14px;
+}
+
+.operadora-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.operadora-logo-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.badge-entel { background: linear-gradient(135deg, #003399, #0077cc); border: 1px solid #3399ff; }
+.badge-tigo { background: linear-gradient(135deg, #001f54, #0033a0); border: 1px solid #4d88ff; color: #ffcc00 !important; }
+.badge-axs { background: linear-gradient(135deg, #880000, #cc0000); border: 1px solid #ff4d4d; }
+.badge-cotas { background: linear-gradient(135deg, #004d26, #008040); border: 1px solid #00cc66; }
+.badge-viva { background: linear-gradient(135deg, #2a0845, #6441a5); border: 1px solid #9b59b6; }
+.badge-comteco { background: linear-gradient(135deg, #0d3b66, #005f73); border: 1px solid #0a9396; }
+.badge-publicos { background: linear-gradient(135deg, #112233, #224466); border: 1px solid var(--tech-cyan); }
+
+.operadora-name {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.operadora-asn {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--tech-cyan);
+}
+
+.telco-data-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.telco-data-title {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.dns-pills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.dns-pill {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  padding: 4px 8px;
+  color: var(--text-highlight);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.dns-pill:hover {
+  border-color: var(--tech-cyan);
+  background: rgba(0, 210, 255, 0.12);
+  color: #fff;
+}
+
+.dns-copy-icon {
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+
+.bands-tags-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.band-tag {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  background: rgba(0, 210, 255, 0.1);
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  border-radius: 4px;
+  padding: 3px 8px;
+  color: var(--tech-cyan);
+}
+
+.apn-box {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: #fff;
+}
+
+.apn-box code {
+  color: var(--tech-green);
+  font-weight: 700;
+}
+
+/* 3. NORMATIVAS ATT BOLIVIA & CANALES WIFI */
+.normativas-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.normativa-table-container {
+  background: rgba(10, 24, 46, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+}
+
+.normativa-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+.normativa-table th {
+  background: rgba(14, 32, 60, 0.9);
+  padding: 14px 18px;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--tech-cyan);
+  border-bottom: 1px solid var(--border-subtle);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.normativa-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.normativa-table tr:hover td {
+  background: rgba(0, 210, 255, 0.04);
+}
+
+.channel-badge-pill {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: rgba(0, 255, 170, 0.12);
+  border: 1px solid rgba(0, 255, 170, 0.3);
+  color: var(--tech-green);
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.channel-badge-pill.warning {
+  background: rgba(255, 170, 0, 0.12);
+  border-color: rgba(255, 170, 0, 0.3);
+  color: #ffaa00;
+}
+
+.channel-badge-pill.dfs {
+  background: rgba(155, 89, 182, 0.15);
+  border-color: rgba(155, 89, 182, 0.35);
+  color: #c39bd3;
+}
+
+/* 4. SIMULADORES DE ENLACES Y DISEÑO */
+.simuladores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.simulador-card {
+  background: rgba(12, 26, 50, 0.65);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: var(--transition);
+}
+
+.simulador-card:hover {
+  border-color: var(--tech-cyan);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+.simulador-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.simulador-brand-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--tech-cyan);
+  background: rgba(0, 210, 255, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.simulador-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.simulador-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.sim-feat-pill {
+  font-size: 0.72rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* 5. PROXMOX POST-INSTALL CODE BOX */
+.proxmox-code-snippet {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.proxmox-code-snippet code {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--tech-green);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.btn-mini-copy {
+  background: rgba(0, 210, 255, 0.1);
+  border: 1px solid rgba(0, 210, 255, 0.3);
+  color: var(--tech-cyan);
+  font-size: 0.72rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: var(--transition);
+}
+
+.btn-mini-copy:hover {
+  background: var(--tech-cyan);
+  color: #030812;
+}
+
+@media (max-width: 991px) {
+  .speedtest-layout {
+    grid-template-columns: 1fr;
+  }
+  .operadoras-grid,
+  .simuladores-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
