@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Disallow: /tienda/wp-admin/
+Disallow: /tienda/wp-includes/
+Disallow: /tienda/wp-content/plugins/
+Disallow: /tienda/wp-content/themes/
+Disallow: /tienda/xmlrpc.php
+Disallow: /tienda/?s=
+Disallow: /*.php$
+
+Sitemap: https://www.webservi.net/sitemap.xml
+
+Crawl-delay: 5
