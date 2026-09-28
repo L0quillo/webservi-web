@@ -324,20 +324,25 @@
       }
     }
 
-    // 5. Frescura y SLA
+    // 5. Frescura y SLA del Flujo en Vivo
     if (dom.lblFreshness && data.calidad) {
-      let maxAge = 0;
-      for (const k in data.calidad) {
-        if (data.calidad[k] && typeof data.calidad[k].edad_reporte_segundos === 'number') {
-          if (data.calidad[k].edad_reporte_segundos > maxAge) {
-            maxAge = data.calidad[k].edad_reporte_segundos;
-          }
-        }
+      // El flujo activo de streaming en tiempo real se mide con el tráfico de red / telecomunicaciones
+      let streamAge = 12;
+      if (data.calidad.rx_kB_s && typeof data.calidad.rx_kB_s.edad_reporte_segundos === 'number') {
+        streamAge = data.calidad.rx_kB_s.edad_reporte_segundos;
+      } else if (data.calidad.viento_kmh && typeof data.calidad.viento_kmh.edad_reporte_segundos === 'number') {
+        streamAge = data.calidad.viento_kmh.edad_reporte_segundos;
       }
-      if (maxAge > 0) {
-        dom.lblFreshness.textContent = `Óptima (${maxAge}s lag)`;
+
+      if (streamAge <= 30) {
+        dom.lblFreshness.textContent = `En Vivo (${streamAge}s lag)`;
+        dom.lblFreshness.style.color = 'var(--tele-green)';
+      } else if (streamAge <= 120) {
+        dom.lblFreshness.textContent = `Estable (${streamAge}s lag)`;
+        dom.lblFreshness.style.color = '#ffdd00';
       } else {
-        dom.lblFreshness.textContent = 'En tiempo real (<15s)';
+        dom.lblFreshness.textContent = `Latencia (${streamAge}s lag)`;
+        dom.lblFreshness.style.color = 'var(--tele-orange)';
       }
     }
 
@@ -509,6 +514,26 @@
           setTimeout(() => {
             dom.btnCopyJson.innerHTML = original;
           }, 2000);
+        });
+      });
+    }
+
+    // 3b. Menú móvil (drawer)
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileDrawer = document.getElementById('mobileNavDrawer');
+    if (mobileBtn && mobileDrawer) {
+      mobileBtn.addEventListener('click', () => {
+        const isOpen = mobileDrawer.classList.toggle('active');
+        mobileBtn.classList.toggle('active', isOpen);
+        mobileBtn.setAttribute('aria-expanded', String(isOpen));
+        mobileDrawer.setAttribute('aria-hidden', String(!isOpen));
+      });
+      mobileDrawer.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileDrawer.classList.remove('active');
+          mobileBtn.classList.remove('active');
+          mobileBtn.setAttribute('aria-expanded', 'false');
+          mobileDrawer.setAttribute('aria-hidden', 'true');
         });
       });
     }
